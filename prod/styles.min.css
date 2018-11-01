@@ -2925,7 +2925,6 @@ h1,h2{font-weight:300}
 .owl-carousel .owl-item img.owl-lazy{transform-style:preserve-3d}
 .owl-carousel .owl-video-wrapper{position:relative;height:100%;background:#000}
 .owl-carousel .owl-video-play-icon{position:absolute;height:80px;width:80px;left:50%;top:50%;margin-left:-40px;margin-top:-40px;background:url(owl.video.play.png) no-repeat;cursor:pointer;z-index:1;-webkit-backface-visibility:hidden;transition:transform .1s ease}
-.form-group,.home,body{position:relative}
 .owl-carousel .owl-video-play-icon:hover{-ms-transform:scale(1.3,1.3);transform:scale(1.3,1.3)}
 .owl-carousel .owl-video-playing .owl-video-play-icon,.owl-carousel .owl-video-playing .owl-video-tn{display:none}
 .owl-carousel .owl-video-tn{opacity:0;height:100%;background-position:center center;background-repeat:no-repeat;background-size:contain;transition:opacity .4s ease}
@@ -2951,7 +2950,7 @@ input.error{border:1px solid red}
 .home,.home .fp-tableCell{display:block}
 h2,h3{line-height:28px;color:#444}
 h5,h6,p{color:#777}
-body{font-family:Poppins,sans-serif;background-color:#fff;font-size:15px}
+body{font-family:Poppins,sans-serif;background-color:#fff;position:relative;font-size:15px}
 body.home-style-two{padding:0!important}
 body.home-style-two.modal-open .navbar{padding:15px 0 0!important}
 body.home-style.three{padding:0!important}
@@ -2979,7 +2978,12 @@ a:focus,a:hover{color:#fff;text-decoration:none}
 .vertical-scrolling.active .feature-style li:nth-child(3){margin-bottom:0}
 .vertical-scrolling.active .bottom-section .footer-style,.vertical-scrolling.active .map iframe{animation:fadeIn 1.5s ease-in-out}
 #map{height:400px;width:100%}
-.home{background-image:url(../prod/images/1.png);width:100vw;height:100vh!important;background-repeat:no-repeat;margin-top:0;background-size:cover;background-position:bottom}
+#mymenu{margin:0 25%}
+#navbarSupportedContent .fa{margin:5px}
+#navbarSupportedContent .fa:hover{color:#18e7d3}
+#navbarSupportedContent .socials{position:absolute;right:75px}
+.form-group,.home{position:relative}
+.home{width:100vw;height:100vh!important;background-repeat:no-repeat;margin-top:0;background-size:cover;background-position:bottom}
 .gmap3{margin:20px auto;border:1px dashed silver;width:1000px;height:500px}
 .blog-page section{padding-bottom:80px;padding-top:80px}
 .blog-page .media h5{color:#444;font-weight:600;text-transform:capitalize}
@@ -3135,7 +3139,8 @@ a:focus,a:hover{color:#fff;text-decoration:none}
 .about-style li{margin-bottom:27px}
 .about-style li:last-child,.feature-style{margin-bottom:0}
 .top-margin{margin-top:7px}
-.feature{background-image:url(../prod/images/feature-bg.png);width:100vw;min-height:855px;background-position:0;margin-top:0;position:relative;display:flex}
+.feature{width:100vw;min-height:855px;background-position:0;margin-top:0;position:relative;display:flex}
+.feature-bg{background-color:#bdbdbd12}
 .feature-style{padding:0}
 .feature-style p{margin-top:10px;margin-bottom:0}
 .feature-style li{position:relative;margin-bottom:45px}
@@ -3167,7 +3172,7 @@ a:focus,a:hover{color:#fff;text-decoration:none}
 70%{opacity:1;transform:scale(1)}
 100%{opacity:0;top:400px;transform:scale(0)}
 }
-.team{background-image:url(../prod/images/team-bg.png);width:100vw;background-repeat:no-repeat;background-size:cover;position:relative;background-position:0 10%}
+.team{width:100vw;background-repeat:no-repeat;background-size:cover;position:relative;background-position:0 10%}
 .team .team-circle1{position:absolute;top:auto;left:100px;bottom:300px}
 .team .team-circle2{position:absolute;top:auto;left:180px;bottom:180px}
 .team .team-circle3{position:absolute;top:auto;left:0;bottom:-150px}
@@ -3278,7 +3283,7 @@ a:focus,a:hover{color:#fff;text-decoration:none}
 50%{box-shadow:0 0 0 15px rgba(236,236,236,.11);opacity:1}
 100%{box-shadow:0 0 0 25px rgba(236,236,236,.11);opacity:1}
 }
-.contact{background-image:url(../prod/images/Contact.png);position:relative;background-size:cover}
+.contact{position:relative;background-size:cover}
 .contact .contact-us{height:100%;display:flex;align-items:center}
 .contact-decor .contact-circle1{position:absolute;bottom:210px;left:280px}
 .contact-decor .contact-circle2{position:absolute;bottom:20px;left:175px}

@@ -241,9 +241,26 @@ section {
   width: 100%;  /* The width is the width of the web page */
 }
 
+#mymenu{
+  margin: 0 25%;
+}
+
+#navbarSupportedContent{
+  .fa{
+    margin: 5px;
+    &:hover{
+      color: #18e7d3;
+    }
+  }
+
+  .socials{
+    position: absolute;
+    right: 75px;
+  }
+}
 
 .home {
-  background-image: $url_2;
+  //background-image: $url_2;
   width: 100vw;
   height: 100vh !important;
   background-repeat: no-repeat;
@@ -1170,7 +1187,8 @@ ul {
 }
 
 .feature {
-  background-image: $url_6;
+  //background-image: $url_6;
+  
   width: 100vw;
   min-height: 855px;
   background-repeat: no-repeat;
@@ -1180,6 +1198,10 @@ ul {
   position: relative;
   display: flex;
   align-items: center;
+}
+
+.feature-bg{
+  background-color: #bdbdbd12;
 }
 
 .feature-style {
@@ -1333,7 +1355,7 @@ ul {
 }
 
 .team {
-  background-image: $url_8;
+  //background-image: $url_8;
   width: 100vw;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1962,7 +1984,7 @@ ul {
 }
 
 .contact {
-  background-image: $url_14;
+  //background-image: $url_14;
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;
