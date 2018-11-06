@@ -96,6 +96,26 @@ section{
   padding-top: 100px;
   padding-bottom: 100px;
 }
+
+.fa{
+  color: $color_bright_turquoise;
+}
+
+@font-face {
+	font-family: "breezlogo";
+	src: url("./../fonts/breezlogo.ttf") format("truetype");
+}
+.logo-text{
+  font-family: breezlogo;
+  text-transform: capitalize; 
+  background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #00b5f6), color-stop(1, #0067ff) );
+  background-image: gradient( linear, left top, right top, color-stop(0, #00b5f6), color-stop(1, #0067ff) );
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  padding: 18px;
+  margin: 0;
+}
 h1 {
   line-height: 28px;
   font-size: 63px;
@@ -108,12 +128,13 @@ h1 {
 
 h2 {
   line-height: 28px;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 300;
   margin-bottom: 32px;
   color: $color_tundora;
   text-transform: uppercase;
   letter-spacing: 4px;
+  text-align: center;
 }
 
 h3 {
@@ -262,7 +283,7 @@ section {
 .home {
   //background-image: $url_2;
   width: 100vw;
-  height: 100vh !important;
+  //height: 100vh !important;
   background-repeat: no-repeat;
   margin-top: 0;
   display: block;
@@ -415,12 +436,13 @@ ul {
   border-radius: 50px;
   text-transform: uppercase;
   padding: 10px 25px;
+  margin-top: 10px;
   cursor: pointer;
   border: none;
   background-size: 300% 100%;
   transition: all .4s ease-in-out;
   &.theme-color {
-    background-image: linear-gradient(to right, #19d3dc, #18e7d3, #18e7d3, #19d2dd);
+    background-image: linear-gradient(to right, #055DEB, #055DEB, #055DEB, #055DEB);
   }
   &:hover {
     background-position: 100% 0;
@@ -445,13 +467,16 @@ ul {
   z-index: 99;
   color: $white;
   text-align: center;
-  background: linear-gradient(to top, $color_bright_turquoise, $color_turquoise);
+  background-color: $color_bright_turquoise;
   border-radius: 100%;
   font-size: 22px;
   cursor: pointer;
   line-height: 2.2;
   display: none;
   border: 1px solid $white;
+  .fa{
+    color: white;
+  }
 }
 
 .m-width {
@@ -1034,14 +1059,15 @@ ul {
 .home-contain {
   display: flex;
   align-items: center;
-  height: calc(100vh - 74px);
-  margin-top: -27px;
+  margin-top: 132px;
   h4 {
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 0.14em;
     font-size: 18px;
   }
+
+  
 }
 
 .home-right {
@@ -1147,7 +1173,6 @@ ul {
 
 .about-right {
   background: $color_bright_turquoise;
-  background: linear-gradient(to bottom, $color_bright_turquoise 0, $color_scooter 99%);
   border-radius: 100%;
   height: 600px;
   width: 600px;
@@ -1186,11 +1211,21 @@ ul {
   margin-top: 7px;
 }
 
+.btn{
+
+  &:hover{
+    background: transparent;
+    color: $color_bright_turquoise;
+    border: 1px $color_bright_turquoise solid;
+  }
+
+}
+
 .feature {
   //background-image: $url_6;
   
   width: 100vw;
-  min-height: 855px;
+  //min-height: 855px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0;
@@ -1198,15 +1233,55 @@ ul {
   position: relative;
   display: flex;
   align-items: center;
+
+  .img-responsive{
+    height: 600px;
+    width: auto;
+  }
+
+  .feature-text{
+    @media (min-width: 900px) {
+      margin-top: 250px;
+    }
+  }
+
+  .btn{
+    @media (min-width: 900px) {
+      margin-right: 32px;  
+    }
+
+    &:hover{
+      background: transparent;
+      color: $color_bright_turquoise;
+      border: 1px $color_bright_turquoise solid;
+    }
+
+    &.contribute{
+      color: $color_bright_turquoise;
+      background: transparent;
+      border: 1px $color_bright_turquoise solid;
+
+      &:hover{
+        color: white;
+        background: $color_bright_turquoise;
+        border: 1px white solid;
+      }
+    }
+  }
 }
 
 .feature-bg{
   background-color: #bdbdbd12;
 }
 
+.feature-text{
+  margin: 50px 0px;
+}
+
 .feature-style {
   padding: 0;
-  margin-bottom: 0;
+  margin: 50px 0px;
+  text-align: center;
   p {
     margin-top: 10px;
     margin-bottom: 0;
@@ -1270,8 +1345,9 @@ ul {
 .mob-mocup {
   position: absolute;
   z-index: 2;
-  width: 234px;
-  left: 453px;
+  width: 207px;
+  left: 467px;
+  margin-top: 6px;
 }
 
 .mobile-light-left {
@@ -1478,12 +1554,10 @@ ul {
     span {
       border: 1px solid $white;
       background: $color_bright_turquoise;
-      background: linear-gradient(to bottom, $color_bright_turquoise 0, $color_scooter 100%);
       transition: all 0.3s ease;
     }
     &.active span {
       background: $color_bright_turquoise;
-      background: linear-gradient(to bottom, $color_bright_turquoise 0, $color_scooter 100%);
       width: 25px;
       transition: all 0.3s ease;
     }
@@ -2016,7 +2090,7 @@ ul {
     border: none;
     border-radius: 20px;
     padding: 12px 30px;
-    box-shadow: 0 0 5px 0 $color_silver_chalice_15;
+    box-shadow: 0 0 5px 0 #e8e9ea;
   }
   .btn-custom {
     padding: 10px 40px;
@@ -2085,7 +2159,7 @@ ul {
 }
 
 .address-bar {
-  background: linear-gradient(to top, $color_scooter 0, $color_bright_turquoise 100%);
+  background-color: $color_scooter;
   padding-top: 100px;
   padding-bottom: 100px;
   margin: 0;
@@ -2696,6 +2770,7 @@ iframe.video-play {
   }
   .title{
     margin-bottom: 20px;
+    
   }
   p{
     width: 70%;
@@ -2704,7 +2779,7 @@ iframe.video-play {
   .theme-form{
     margin-top: 0;
     .form-control{
-      box-shadow: 0 0 5px 0 rgba(170, 170, 170, 0.35);
+      box-shadow: 0 0 5px 0 rgba(170, 170, 170, 0.49);
     }
   }
   min-height: 100vh;

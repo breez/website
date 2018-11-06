@@ -73,7 +73,7 @@
   .back-img .home-contain {
     margin-top: -60px; }
   .home-contain {
-    margin-top: 100px; }
+    margin-top: 75px; }
   .home-two {
     background-size: auto;
     padding-bottom: 0;
@@ -85,8 +85,7 @@
   .about {
     background-position: right; }
   .feature {
-    background-position: bottom;
-    min-height: 730px; }
+    background-position: bottom; }
   .feature-phone img {
     height: 600px; }
   .about-right {
@@ -715,7 +714,7 @@
   .home-style-two .navbar-light .navbar-nav .nav-link {
     color: #777777; }
   .home-style-two .darkHeader .navbar-nav .active > .nav-link {
-    color: #18e7d3; }
+    color: #055DEB; }
   .img-scroll {
     left: 19px;
     top: 11px;
@@ -787,7 +786,7 @@
   .home-style nav.navbar .navbar-nav .nav-link {
     color: #777777; }
   .home-style nav.darkHeader .navbar-nav .active > .nav-link {
-    color: #18e7d3; }
+    color: #055DEB; }
   .features img {
     width: 80px; }
   .mt-35 > div + div {
@@ -893,9 +892,9 @@
     margin-top: 100px; }
   /*Sign up*/
   .theme-form .form-control {
-    box-shadow: 0 0 5px 0 #18e7d3; }
+    box-shadow: 0 0 5px 0 #055DEB; }
   .theme-form .form-control {
-    box-shadow: 0 0 5px 0 #18e7d3; } }
+    box-shadow: 0 0 5px 0 #055DEB; } }
 
 @media (max-width: 767px) {
   .faq .card-body {

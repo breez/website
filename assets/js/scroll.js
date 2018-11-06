@@ -1,7 +1,7 @@
 "use strict";
 $(document).ready(function(){
     if($( window ).width() >= 991 ) {
-        $("nav a").on('click', function(event) {
+        $("a").on('click', function(event) {
             if (this.hash !== "") {
                 event.preventDefault();
                 var hash = this.hash;
@@ -13,7 +13,7 @@ $(document).ready(function(){
             }
         });
     }else {
-        $("nav a").on('click', function(event) {
+        $("a").on('click', function(event) {
             if (this.hash !== "") {
                 event.preventDefault();
                 var hash = this.hash;

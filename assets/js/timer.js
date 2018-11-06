@@ -1,4 +1,4 @@
-$(document).ready(function(){
+/*$(document).ready(function(){
     var second = 1000,
         minute = second * 60,
         hour = minute * 60,
@@ -15,6 +15,4 @@ $(document).ready(function(){
                 document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second)
 
         }, second);
-});
-
-
+});*/

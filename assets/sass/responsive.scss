@@ -107,7 +107,7 @@
     }
   }
   .home-contain {
-    margin-top: 100px;
+    margin-top: 75px;
   }
   .home-two {
     background-size: auto;
@@ -126,7 +126,7 @@
   }
   .feature {
     background-position: bottom;
-    min-height: 730px;
+    //min-height: 730px;
   }
   .feature-phone {img {
     height: 600px;
@@ -1349,10 +1349,10 @@
   }
   /*Sign up*/
   .theme-form .form-control{
-    box-shadow: 0 0 5px 0 rgb(24, 231, 211);
+    box-shadow: 0 0 5px 0 #055DEB;
   }
   .theme-form .form-control{
-    box-shadow:0 0 5px 0 rgb(24, 231, 211);
+    box-shadow: 0 0 5px 0 #055DEB;
   }
 }
 @media(max-width: 767px) {

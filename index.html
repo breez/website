@@ -13,7 +13,7 @@
   <link rel="shortcut icon" href="prod/images//favicon.png">
 
   <!-- Font Family-->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
   <link rel="stylesheet" href="prod/styles.min.css">
 
@@ -32,7 +32,9 @@
   <!-- Nav Start -->
   <nav class="navbar navbar-expand-lg navbar-light theme-nav fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html"><img src="/prod/images/logo.png" alt="logo"></a>
+      <a class="navbar-brand" href="index.html">
+        <h1 class="logo-text"> Breez</h1>
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -52,15 +54,9 @@
             <a class="nav-link" href="#screenshot">Team</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#team">Contact Us</a>
+            <a class="nav-link" href="#contact">Contact Us</a>
           </li>
         </ul>
-
-        <div class="top-margin socials">
-          <a href="https://twitter.com/breez_tech"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a>
-          <a href="https://medium.com/breez-technology"><i class="fa fa-medium fa-lg" aria-hidden="true"></i></a>
-          <a href="https://github.com/breez/breezmobile"><i class="fa fa-github fa-lg" aria-hidden="true"></i></a>
-        </div>
       </div>
     </div>
   </nav>
@@ -68,26 +64,18 @@
 
   <!-- Home Section start-->
   <section id="home" class="home feature-bg">
-    <div class="home-decor">
-      <div class="home-circle1"><img src="/prod/images/main-banner3.png" alt=""></div>
-      <div class="home-circle2"><img src="/prod/images/main-banner12.png" alt=""></div>
-      <div class="home-circle3"><img src="/prod/images/main-banner1.png" alt=""></div>
-    </div>
     <div class="container">
       <div class="row">
         <div class="col-md-5">
           <div class="home-contain">
             <div>
-              <img src="/prod/images/logoimage.png" alt="caption-img" class="caption-img">
               <h4>Lightning Fast Bitcoin Payments</h4>
-              <h1>t<span class="f-bold">o</span>v<span class="f-bold">o</span>
-                <span class="f-bold f-color">app</span>
-              </h1>
+
               <p>Breez is the simplest, fastest and safest way to spend your bitcoins. Powered by Lightning Network,
                 Breez is the future of commerce.</p>
-             
-              <div class="top-margin text-center">
-                <button type="submit" class="btn btn-custom theme-color">Join our Beta</button>
+
+              <div class="top-margin">
+                <a href="#contact" class="btn btn-custom theme-color">Join our Beta</a>
               </div>
 
             </div>
@@ -101,144 +89,65 @@
           </div>
         </div>
       </div>
-
     </div>
     </div>
   </section>
   <!--Home Section End -->
 
-  <!-- About Start -->
-  <section hidden id="about" class="about">
-    <div class="about-decor">
-      <div class="about-circle1"><img src="/prod/images/team1.png" alt="team1"></div>
-      <div class="about-circle2"><img src="/prod/images/main-banner1.png" alt="banner1"></div>
-    </div>
-    <div class="container">
-      <div class="row ">
-        <div class="col-md-5">
-          <div class="about-contain">
-            <div>
-              <h2 class="title">about the <span>tovo app</span></h2>
-              <p class="caption-about">TOVO is dynamic, high-performance and easy to use landing page theme. The theme
-                is developed focusing on the attractive designs and easy customizable features.</p>
-              <div class="row sm-mb">
-                <div class="col-6">
-                  <ul class="about-style">
-                    <li class="abt-hover">
-                      <div class="about-icon">
-                        <div class="icon-hover">
-                          <img src="/prod/images/icon1.png" alt="easy-to-customized">
-                        </div>
-                      </div>
-                      <div class="about-text">
-                        <h3>Easy customize</h3>
-                      </div>
-                    </li>
-                    <li class="abt-hover">
-                      <div class="about-icon">
-                        <div class="icon-hover">
-                          <img src="/prod/images/icon3.png" alt="easy-to-use">
-                        </div>
-                      </div>
-                      <div class="about-text">
-                        <h3>easy to use</h3>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-6">
-                  <ul class="about-style">
-                    <li class="abt-hover">
-                      <div class="about-icon">
-                        <div class="icon-hover">
-                          <img src="/prod/images/icon2.png" alt="Awasome-Design">
-                        </div>
-                      </div>
-                      <div class="about-text">
-                        <h3>Nice Design</h3>
-                      </div>
-                    </li>
-                    <li class="abt-hover">
-                      <div class="about-icon">
-                        <div class="icon-hover">
-                          <img src="/prod/images/icon4.png" alt="SEO-Friendly">
-                        </div>
-                      </div>
-                      <div class="about-text">
-                        <h3>SEO Friendly</h3>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="top-margin">
-                <button type="button" class="btn btn-custom theme-color theme-color">view more</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-7 d-medium-none">
-          <div class="about-right">
-            <div class="about-phone">
-              <img src="/prod/images/aboutus.png" class="img-fluid" alt="aboutus">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- About End -->
-
   <!-- Feature Section start -->
   <section id="feature" class="feature">
-    <div class="feature-decor">
-      <div class="feature-circle1"><img src="/prod/images/feature2.png" alt=""></div>
-    </div>
     <div class="container">
       <div class="row">
         <div class="offset-lg-12 col-lg-12">
           <div class="row">
             <div class="col-sm-12 mrgn-md-top">
-              <h2 class="title">Personal<span> section</span></h2>
+              <h2 class="title">Send and receive instantaneous Bitcoin payments<br>with Breez mobile<span> app</span></h2>
             </div>
             <div class="col-12 col-md-12">
               <div class="row feature-style">
                 <div class="col-md-4">
-                  <div class="feature-icon">
-                    <img src="/prod/images/icon/1.png" alt="icon">
-                  </div>
-                  <div class="feature-subtitle">
-                    <h3>Simple</h3>
-                  </div>
-                  <div>
-                    <p>Use your mobile device or a Breez card to pay friends or merchants. </p>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="feature-icon">
-                    <img src="/prod/images/icon/3.png" alt="icon">
-                  </div>
-                  <div class="feature-subtitle">
-                    <h3>Fast</h3>
-                  </div>
-                  <div>
-                    <p>It takes seconds to send or receive bitcoin payments. </p>
+                  <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                      <h3><i class="fa fa-user" aria-hidden="true"></i> Simple</h3>
+                    </div>
+                    <div class="col-md-12">
+                      <p>Use your mobile device or a Breez card to pay friends or merchants. </p>
+                    </div>
+
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <div class="feature-icon">
-                    <img src="/prod/images/icon/5.png" alt="icon">
+                  <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                      <h3><i class="fa fa-line-chart" aria-hidden="true"></i> Fast</h3>
+                    </div>
+                    <div class="col-md-12">
+                      <p>It takes seconds to send or receive bitcoin payments. </p>
+                    </div>
+
                   </div>
-                  <div class="feature-subtitle">
-                    <h3>Safe</h3>
-                  </div>
-                  <div>
-                    <p>Your bitcoins are under your control. Always. </p>
+                </div>
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                      <h3><i class="fa fa-cogs" aria-hidden="true"></i> Safe</h3>
+                    </div>
+                    <div class="col-md-12">
+                      <p>Your bitcoins are under your control. Always. </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="text-center">
+            <a href="#contact" class="btn btn-custom theme-color">Join our Beta</a>
+            <a target="_blank" href="https://github.com/breez/breezmobile" class="btn btn-custom theme-color contribute">Contribute</a>
           </div>
         </div>
       </div>
@@ -265,65 +174,29 @@
 
   <!-- Feature Section start -->
   <section id="feature" class="feature feature-bg">
-    <div class="feature-decor">
-      <div class="feature-circle1"><img src="/prod/images/feature2.png" alt=""></div>
-    </div>
     <div class="container">
       <div class="row">
-        <div class="offset-lg-12 col-lg-12">
-          <div class="row">
-            <div class="col-sm-12 mrgn-md-top">
-              <h2 class="title">Business <span> section</span></h2>
-            </div>
-            <div class="text-center col-12 col-md-12">
-              <h3>Accept instantaneous Bitcoin payments with Breez Point-of-Sale app</h3>
-              <p>Breez provides merchants with a simple, NFC-based, Point-of-Sale app to start accepting bitcoin payments in a flash.</p>
-            </div>
+        <div class="text-center col-md-6 feature-text">
+          <h2 class="title">Accept instantaneous Bitcoin payments<br>with Breez Point-of-Sale<span> app</span></h2>
+          <p>Breez provides merchants with a simple, NFC-based, Point-of-Sale app to start accepting bitcoin payments
+            in a flash.</p>
+
+
+          <div class="text-center">
+            <a href="#contact" class="btn btn-custom theme-color">Join our Beta</a>
           </div>
+
         </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12 ">
-          <div class="screenshot-contain">
-            <img class="mobile-light-left" src="/prod/images/light.png" alt="light">
-            <img class="mob-mocup img-fluid" src="/prod/images/screenshot-mob.png" alt="screenshot-mob">
-            <img class="mobile-light-right" src="/prod/images/light-right.png" alt="light-right">
-            <div class="screenshot-carousel owl-carousel owl-theme">
-              <div class="screenshot-item"><img src="/prod/images/app/12.jpg" alt="app"></div>
-              <div class="screenshot-item"><img src="/prod/images/app/2.jpg" alt="app"></div>
-              <div class="screenshot-item"><img src="/prod/images/app/3.jpg" alt="app"></div>
-              <div class="screenshot-item"><img src="/prod/images/app/4.jpg" alt="app"></div>
-              <div class="screenshot-item"><img src="/prod/images/app/5.jpg" alt="app"></div>
-              <div class="screenshot-item"><img src="/prod/images/app/6.jpg" alt="app"></div>
-              <div class="screenshot-item"><img src="/prod/images/app/7.jpg" alt="app"></div>
-              <div class="screenshot-item"><img src="/prod/images/app/8.jpg" alt="app"></div>
-              <div class="screenshot-item"><img src="/prod/images/app/9.jpg" alt="app"></div>
-              <div class="screenshot-item"><img src="/prod/images/app/10.jpg" alt="app"></div>
-              <div class="screenshot-item"><img src="/prod/images/app/11.jpg" alt="app"></div>
-              <div class="screenshot-item"><img src="/prod/images/app/1.jpg" alt="app"></div>
-            </div>
-          </div>
+        <div class="text-center col-md-6">
+          <img class="img-responsive" src="/prod/images/app/business/1.jpg" alt="app">
         </div>
       </div>
     </div>
   </section>
   <!-- Feature Section End -->
 
-  <!-- Screenshot Section SStart -->
-  <section id="screenshot" class="screenshot padding-top-bottom">
-    <div class="top-margin text-center">
-      <button type="submit" class="btn btn-custom theme-color">Join our Beta</button>
-    </div>
-  </section>
-  <!-- Screenshot Section End -->
-
   <!-- Team Section Start -->
   <section id="team" class="team feature-bg">
-    <div class="team-decor">
-      <div class="team-circle1"><img src="/prod/images/team1.png" alt=""></div>
-      <div class="team-circle2"><img src="/prod/images/team3.png" alt=""></div>
-      <div class="team-circle3"><img src="/prod/images/team.png" alt=""></div>
-    </div>
     <div class="container">
       <div class="row ">
         <div class="col-sm-12">
@@ -436,12 +309,60 @@
     </div>
   </section>
   <!-- team Section End -->
+
+  <!-- Feature Section start -->
+  <section id="feature" class="feature">
+    <div class="container">
+      <div class="row">
+        <div class="offset-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-sm-12 mrgn-md-top">
+              <h2 class="title">Stay up to date with our latest<span> developments</span></h2>
+            </div>
+            <div class="col-12 col-md-12">
+              <div class="row feature-style">
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                      <a class="btn btn-custom contribute" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                      <a class="btn btn-custom contribute" href="#"><i class="fa fa-medium" aria-hidden="true"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                      <a class="btn btn-custom contribute" href="#"><i class="fa fa-github" aria-hidden="true"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="text-center">
+            <a href="#contact" class="btn btn-custom theme-color">Join our Beta</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- Feature Section End -->
+
+
   <!-- Contact Section start -->
   <section id="contact" class="contact">
-    <div class="contact-decor">
-      <div class="contact-circle1"><img src="/prod/images/main-banner12.png" alt=""></div>
-      <div class="contact-circle2"><img src="/prod/images/main-banner1.png" alt=""></div>
-    </div>
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-lg-8 col-sm-12">
@@ -460,19 +381,19 @@
                   </div>
                   <div class="row">
                     <div class="col-sm-12 col-md-6 md-fgrup-margin">
-                      <input type="text" class="form-control" id="fullname" name="fullname" placeholder="your name"
+                      <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Your Name"
                         required="required">
                     </div>
                     <div class="col-sm-12 col-md-6">
-                      <input type="number" class="form-control" id="phone" name="phone" placeholder="phone" required="required">
+                      <input type="number" class="form-control" id="phone" name="phone" placeholder="Phone" required="required">
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="email address" required="required">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Email Address" required="required">
                 </div>
                 <div class="form-group">
-                  <textarea class="form-control" id="message" name="message" rows="4" placeholder="message" required="required"></textarea>
+                  <textarea class="form-control" id="message" name="message" rows="4" placeholder="Message" required="required"></textarea>
                 </div>
                 <div class="form-group">
                   <input type="submit" id="emailsend" name="send" class="btn btn-custom theme-color" value="send" />
