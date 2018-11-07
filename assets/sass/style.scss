@@ -94,7 +94,7 @@ body {
 }
 section{
   padding-top: 100px;
-  padding-bottom: 100px;
+  padding-bottom: 80px;
 }
 
 .fa{
@@ -148,21 +148,26 @@ h3 {
 }
 
 h4 {
-  line-height: 28px;
-  font-size: 15px;
-  font-weight: 400;
-  margin-bottom: 0;
+  font-size: 36px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: $color_tundora;
+  text-transform: capitalize;
 }
 
 h5 {
-  line-height: 28px;
-  font-size: 14px;
-  font-weight: 400;
-  text-transform: uppercase;
-  margin-top: 15px;
-  margin-bottom: 0;
-  letter-spacing: 0.1em;
   color: $color_tapa;
+  font-size: 20px;
+  font-weight: 100;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
+  color: $color_tapa;
+  text-transform: capitalize;
 }
 
 h6 {
@@ -174,6 +179,14 @@ h6 {
   color: $color_tapa;
   margin-bottom: 25px;
 }
+
+h2, h3, h4 {
+  color: #777777;
+  span{
+    color: #414141;
+  }
+}
+
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
   background-color: $color_turquoise;
 }
@@ -220,6 +233,40 @@ section {
     }
   }
 }
+
+.navbar{
+  .social{
+    display: flex;
+    position: absolute;
+    right: 100px;
+
+    a{
+      background-color: $color_bright_turquoise;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      padding-top: 1px;
+      border-radius: 20px;
+      margin: 5px;
+      cursor: pointer;
+      .fa{
+        color: white;
+
+        
+
+        &:hover{
+          color: white;
+        }
+      }
+
+      &:hover{
+        background-color: $color_socials_btn_on_hover;
+      }
+    }
+  }
+
+}
+
 @keyframes btn-animation {
   0% {
     transform: translateX(4px);
@@ -269,9 +316,7 @@ section {
 #navbarSupportedContent{
   .fa{
     margin: 5px;
-    &:hover{
-      color: #18e7d3;
-    }
+    
   }
 
   .socials{
@@ -293,6 +338,8 @@ section {
   .fp-tableCell {
     display: block;
   }
+
+
 }
 .gmap3{
   margin: 20px auto;
@@ -432,9 +479,10 @@ ul {
 }
 .btn-custom {
   color: $white;
+  font-weight: 100;
   font-size: 14px;
   border-radius: 50px;
-  text-transform: uppercase;
+  text-transform: none;
   padding: 10px 25px;
   margin-top: 10px;
   cursor: pointer;
@@ -476,6 +524,9 @@ ul {
   border: 1px solid $white;
   .fa{
     color: white;
+    &:hover{
+      color: white;
+    }
   }
 }
 
@@ -1062,11 +1113,16 @@ ul {
   margin-top: 132px;
   h4 {
     text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    font-size: 18px;
+    margin-bottom: 20px;
+
+    //font-weight: 700;
+    //letter-spacing: 0.14em;
+    //font-size: 18px;
   }
 
+  h5{
+    margin-bottom: 25px;
+  }
   
 }
 
@@ -1241,7 +1297,7 @@ ul {
 
   .feature-text{
     @media (min-width: 900px) {
-      margin-top: 250px;
+      margin-top: 20%;
     }
   }
 
@@ -1276,11 +1332,22 @@ ul {
 
 .feature-text{
   margin: 50px 0px;
+  margin-bottom: 0;
+
+  &.business{
+    @media (min-width: 767px){
+      .title{
+        text-align: left;
+      }
+    }
+    
+  }
 }
 
 .feature-style {
   padding: 0;
   margin: 50px 0px;
+  margin-bottom: 0; 
   text-align: center;
   p {
     margin-top: 10px;
@@ -1345,9 +1412,9 @@ ul {
 .mob-mocup {
   position: absolute;
   z-index: 2;
-  width: 207px;
-  left: 467px;
-  margin-top: 6px;
+  width: 208px;
+  left: 466px;
+  margin-top: -4px;
 }
 
 .mobile-light-left {
@@ -2063,6 +2130,35 @@ ul {
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
+
+  .social{
+    text-align: center;
+
+    a{
+      background-color: $color_bright_turquoise;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      padding-top: 4px;
+      border-radius: 20px;
+      margin: 5px;
+      display: inline-block;
+      cursor: pointer;
+      .fa{
+        color: white;
+
+        
+
+        &:hover{
+          color: white;
+        }
+      }
+
+      &:hover{
+        background-color: $color_socials_btn_on_hover;
+      }
+    }
+  }
   .contact-us {
     height: 100%;
     display: flex;
@@ -2091,6 +2187,11 @@ ul {
     border-radius: 20px;
     padding: 12px 30px;
     box-shadow: 0 0 5px 0 #e8e9ea;
+    color: #495057;
+  }
+  select{
+    -webkit-appearance: listitem;
+    margin-bottom: 6px;
   }
   .btn-custom {
     padding: 10px 40px;
@@ -2625,14 +2726,14 @@ iframe.video-play {
 
 .screenshot-carousel .owl-item {
   &.active {
-    filter: grayscale(100%);
+    filter: opacity(50%);
     &.center {
       opacity: 1;
-      filter: grayscale(0%);
+      filter: opacity(100%);
     }
   }
   &.cloned {
-    filter: grayscale(100%);
+    filter: opacity(50%);
   }
 }
 

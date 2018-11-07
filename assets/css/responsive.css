@@ -81,7 +81,7 @@
   .contact-right {
     width: 70%; }
   .screenshot-contain {
-    height: 500px; }
+    height: 320px; }
   .about {
     background-position: right; }
   .feature {
@@ -387,7 +387,7 @@
     font-size: 13px;
     padding: 30px 0; }
   .home-contain h4 {
-    font-size: 14px; }
+    font-size: 26px; }
   .about-text p {
     line-height: 1.5; }
   .about-style li {
@@ -892,9 +892,7 @@
     margin-top: 100px; }
   /*Sign up*/
   .theme-form .form-control {
-    box-shadow: 0 0 5px 0 #055DEB; }
-  .theme-form .form-control {
-    box-shadow: 0 0 5px 0 #055DEB; } }
+    max-width: 768px; } }
 
 @media (max-width: 767px) {
   .faq .card-body {
@@ -976,6 +974,7 @@
   .home-right {
     display: none; }
   .home-contain {
+    margin-top: 60px;
     text-align: center; }
     .home-contain > div {
       width: 100%; }
@@ -1408,7 +1407,8 @@
   h2.title {
     letter-spacing: 2px; }
   .feature h2 {
-    font-size: 20px; }
+    font-size: 20px;
+    text-align: center; }
   .home-contain p {
     line-height: 18px;
     padding: 0 15px; }
