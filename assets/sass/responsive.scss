@@ -119,7 +119,7 @@
     width: 70%;
   }
   .screenshot-contain {
-    height: 320px;
+    //height: 320px;
   }
   .about {
     background-position: right;
@@ -142,7 +142,7 @@
     float: right;
     position: absolute;
     right: 0;
-    top: -50px;
+    //top: -50px;
   }
   .home-decor {
     .home-circle1 {
@@ -416,6 +416,7 @@
   }
   .top-margin {
     margin-top: 20px;
+    margin-bottom: 15px;
   }
   .mobile-light-left {
     left: 35%;
@@ -825,8 +826,9 @@
     }
   }
   .mob-mocup {
-    width: 245px;
-    left: 237px;
+    width: 223px;
+    left: 250px;
+    padding-right: 5px;
   }
   .home-three .contain {
     left: calc(50% + 0px);
@@ -884,6 +886,8 @@
       }
     }
     p {
+      text-align: center;
+
       margin: 0 auto;
       line-height: 20px;
     }
@@ -919,8 +923,8 @@
     margin-bottom: 25px;
     &.title {
       margin-top: 0;
-      line-height: 1;
-      text-align: left;
+      //line-height: 1;
+      text-align: center;
     }
   }
   h1 {
@@ -928,11 +932,12 @@
     margin: 20px auto;
   }
   h4 {
-    font-size: 13px;
+    font-size: 14px;
   }
   p {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 20px;
+    text-align: justify;
     &.caption-about {
       text-align: left;
     }
@@ -1224,7 +1229,7 @@
     overflow: auto;
   }
   .home{
-    min-height: 100vh;
+    //min-height: 100vh;
   }
   .mobile-light-right {
     top: -150px;
@@ -2418,6 +2423,9 @@
     h1 {
       font-size: 34px;
     }
+    h3{
+      margin: 0;
+    }
     .feature-subtitle {
       margin-bottom: 5px;
     }
@@ -2442,7 +2450,11 @@
       line-height: 1.7;
     }
     .feature-style p {
-      font-size: 12px;
+      font-size: 16px;
+      line-height: 1.44;
+      font-weight: 300;
+      margin-top: 20px;
+      text-align: center;
     }
     .testimonial-carousel.owl-carousel button {
       &.owl-next {

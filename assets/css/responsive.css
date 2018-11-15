@@ -80,8 +80,6 @@
     height: auto !important; }
   .contact-right {
     width: 70%; }
-  .screenshot-contain {
-    height: 320px; }
   .about {
     background-position: right; }
   .feature {
@@ -95,8 +93,7 @@
     width: 65%;
     float: right;
     position: absolute;
-    right: 0;
-    top: -50px; }
+    right: 0; }
   .home-decor .home-circle1 {
     top: 120px;
     left: 30px; }
@@ -270,7 +267,8 @@
     top: 126px;
     left: 75px; }
   .top-margin {
-    margin-top: 20px; }
+    margin-top: 20px;
+    margin-bottom: 15px; }
   .mobile-light-left {
     left: 35%; }
   .mobile-light-right {
@@ -548,8 +546,9 @@
   .not-found .error-font {
     font-size: 180px; }
   .mob-mocup {
-    width: 245px;
-    left: 237px; }
+    width: 223px;
+    left: 250px;
+    padding-right: 5px; }
   .home-three .contain {
     left: calc(50% + 0px); }
   .home-two .contain {
@@ -580,6 +579,7 @@
     .feature-style li:last-child {
       margin-bottom: 0; }
   .feature-style p {
+    text-align: center;
     margin: 0 auto;
     line-height: 20px; }
   .price {
@@ -604,16 +604,16 @@
     margin-bottom: 25px; }
     h2.title {
       margin-top: 0;
-      line-height: 1;
-      text-align: left; }
+      text-align: center; }
   h1 {
     font-size: 40px;
     margin: 20px auto; }
   h4 {
-    font-size: 13px; }
+    font-size: 14px; }
   p {
-    font-size: 13px;
-    line-height: 20px; }
+    font-size: 14px;
+    line-height: 20px;
+    text-align: justify; }
     p.caption-about {
       text-align: left; }
     p.slide-cap-desc {
@@ -806,8 +806,6 @@
     overflow-x: hidden; }
   .full-page {
     overflow: auto; }
-  .home {
-    min-height: 100vh; }
   .mobile-light-right {
     top: -150px; }
   @-webkit-keyframes highlight-left {
@@ -1592,6 +1590,8 @@
 @media (max-width: 480px) and (max-width: 400px) {
   h1 {
     font-size: 34px; }
+  h3 {
+    margin: 0; }
   .feature-subtitle {
     margin-bottom: 5px; }
   .mobile-light-left {
@@ -1609,7 +1609,11 @@
     height: 40px;
     line-height: 1.7; }
   .feature-style p {
-    font-size: 12px; }
+    font-size: 16px;
+    line-height: 1.44;
+    font-weight: 300;
+    margin-top: 20px;
+    text-align: center; }
   .testimonial-carousel.owl-carousel button.owl-next {
     display: none; }
   .testimonial-carousel.owl-carousel button.owl-prev {

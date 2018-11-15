@@ -30,7 +30,7 @@
   <!-- Preloader end -->
 
   <!-- Nav Start -->
-  <nav class="navbar navbar-expand-lg navbar-light theme-nav fixed-top">
+  <nav class="navbar main-navbar navbar-expand-lg navbar-light theme-nav fixed-top">
     <div class="container">
       <a class="navbar-brand" href="index.html">
         <h1 class="logo-text"> Breez</h1>
@@ -42,16 +42,16 @@
       <div class="collapse navbar-collapse default-nav" id="navbarSupportedContent">
         <ul class="navbar-nav" id="mymenu">
           <li class="nav-item">
-            <a class="nav-link" href="#home">Personal</a>
+            <a class="nav-link" href="#personal">Personal</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#about">Business</a>
+            <a class="nav-link" href="#business">Business</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#feature">Hub</a>
+            <a class="nav-link" href="/breez/hub.html">Hub</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#screenshot">Team</a>
+            <a class="nav-link" href="#team">Team</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#contact">Contact Us</a>
@@ -91,11 +91,9 @@
           </div>
         </div>
 
-        <div class="col-sm-6 offset-md-1">
-          <div hidden class="home-right">
-            <img data-tilt data-tilt-perspective="110" data-tilt-speed="400" data-tilt-max="1.2" src="/prod/images/mobile.png"
-              class="img-fluid" alt="mobile">
-          </div>
+        <div class="col-md-7">
+          <img data-tilt data-tilt-perspective="110" data-tilt-speed="400" data-tilt-max="1.2" src="/prod/images/group-463.png"
+            class="img-fluid" alt="mobile">
         </div>
       </div>
     </div>
@@ -104,7 +102,7 @@
   <!--Home Section End -->
 
   <!-- Feature Section start -->
-  <section id="feature" class="feature">
+  <section id="personal" class="feature">
     <div class="container">
       <div class="row">
         <div class="offset-lg-12 col-lg-12">
@@ -116,8 +114,8 @@
               <div class="row feature-style">
                 <div class="col-md-4">
                   <div class="row">
-                    <div class="col-md-6 offset-md-3">
-                      <i class="fa fa-user" aria-hidden="true"></i>
+                    <div class="col-md-8 offset-md-2">
+                      <img class="img" src="/prod/images//group-38.png">
                       <h3> Simple</h3>
                     </div>
                     <div class="col-md-8 offset-md-2">
@@ -128,8 +126,8 @@
                 </div>
                 <div class="col-md-4">
                   <div class="row">
-                    <div class="col-md-6 offset-md-3">
-                      <i class="fa fa-line-chart" aria-hidden="true"></i>
+                    <div class="col-md-8 offset-md-2">
+                      <img class="img" src="/prod/images//group-35.png">
                       <h3> Fast</h3>
                     </div>
                     <div class="col-md-8 offset-md-2">
@@ -140,8 +138,8 @@
                 </div>
                 <div class="col-md-4">
                   <div class="row">
-                    <div class="col-md-6 offset-md-3">
-                      <i class="fa fa-cogs" aria-hidden="true"></i>
+                    <div class="col-md-8 offset-md-2">
+                      <img class="img" src="/prod/images//group-32.png">
                       <h3> Safe</h3>
                     </div>
                     <div class="col-md-8 offset-md-2">
@@ -163,7 +161,6 @@
             <img class="mob-mocup img-fluid" src="/prod/images/screenshot-mob.png" alt="screenshot-mob">
             <img class="mobile-light-right" src="/prod/images/light-right.png" alt="light-right">
             <div class="screenshot-carousel owl-carousel owl-theme">
-              <div class="screenshot-item"><img src="/prod/images/app/personal/1.jpg" alt="app"></div>
               <div class="screenshot-item"><img src="/prod/images/app/personal/2.jpg" alt="app"></div>
               <div class="screenshot-item"><img src="/prod/images/app/personal/3.jpg" alt="app"></div>
               <div class="screenshot-item"><img src="/prod/images/app/personal/4.jpg" alt="app"></div>
@@ -171,7 +168,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row" id="contribute">
         <div class="col-sm-12">
           <div class="text-center">
             <a href="#contact" class="btn btn-custom theme-color">Join our beta</a>
@@ -182,25 +179,29 @@
     </div>
   </section>
   <!-- Feature Section End -->
-
-
+  <div class="fly-block left-top">
+    <img src="/prod/images/group-43.png">
+  </div>
+  <div class="fly-block right">
+    <img src="/prod/images/group-43.png">
+  </div>
 
   <!-- Feature Section start -->
-  <section id="feature" class="feature feature-bg">
+  <section id="business" class="feature feature-bg-gray">
     <div class="container">
       <div class="row">
 
-        <div class="text-center col-md-6">
-          <img class="img-responsive" src="/prod/images/app/business/1.jpg" alt="app">
+        <div class="col-md-6">
+          <img src="/prod/images/group-30.png" class="img-fluid">
         </div>
 
-        <div class="col-md-6 feature-text business">
-          <h2 class="title">Accept instantaneous Bitcoin payments<br>with <span>Breez Point-of-Sale app</span></h2>
+        <div class="col-md-5 offset-md-1 feature-text business">
+          <h2 class="title">Accept instantaneous Bitcoin payments with <span>Breez Point-of-Sale app</span></h2>
           <p>Breez provides merchants with a simple, NFC-based, Point-of-Sale app to start accepting bitcoin payments
             in a flash.</p>
 
 
-          <div class="text-center">
+          <div>
             <a href="#contact" class="btn btn-custom theme-color">Contact Us</a>
           </div>
 
@@ -326,6 +327,9 @@
   </section>
   <!-- team Section End -->
 
+  <div class="fly-block left">
+    <img src="/prod/images/group-43.png">
+  </div>
 
   <!-- Contact Section start -->
   <section id="contact" class="contact">
@@ -421,7 +425,7 @@
   <!-- Contact Section End -->
 
   <!-- Footer Section start -->
-  <div class="copyright-section index-footer">
+  <div hidden class="copyright-section index-footer">
     <p>2018-19 copyright by themeforest powered by pixel strap</p>
   </div>
   <!-- Footer Section End -->

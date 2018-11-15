@@ -6,7 +6,7 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var jshint = require('gulp-jshint');
 var stream = require('event-stream');
-var order = require("gulp-order");
+var watch = require('gulp-watch');
 
 var minifyCSS = require('gulp-minify-css');
 var imagemin = require('gulp-imagemin');
@@ -76,6 +76,14 @@ function optimizationImg() {
     }))
     .pipe(gulp.dest('./prod/images'));
 }
+
+
+gulp.task('stream', function () {
+  return watch('./assets/sass/**/*.scss', function () {
+    compileSass();
+    console.log('Compile Sass: Ok');
+  });
+});
 
 function defaultTask(cb) {
   console.log('Hello =)');

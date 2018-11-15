@@ -37,9 +37,9 @@ $(document).ready(function(){
     $(window).scroll(function() {
         var scroll = $(window).scrollTop();
         if (scroll >= 60) {
-            $(".navbar").addClass("darkHeader");
+            $(".main-navbar").addClass("darkHeader");
         } else {
-            $(".navbar").removeClass("darkHeader");
+            $(".main-navbar").removeClass("darkHeader");
         }
     });
 
