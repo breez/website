@@ -178,10 +178,18 @@ section {
 .navbar-nav .nav-link {
   color: #ffffff; }
 
+.navbar-brand {
+  display: block;
+  width: 150px;
+  height: 75px; }
+  .navbar-brand .logo-text {
+    position: absolute;
+    top: 0; }
+
 .navbar-brand-mobail {
   z-index: 1000;
   position: absolute;
-  top: 10px;
+  top: 0px;
   left: 16px; }
   @media (min-width: 992px) {
     .navbar-brand-mobail {
@@ -210,7 +218,7 @@ section {
   background-color: transparent;
   border: none;
   background-repeat: no-repeat;
-  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='43px' height='27px' viewBox='0 0 43 27' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3C!-- Generator: Sketch 52.1 (67048) - http://www.bohemiancoding.com/sketch --%3E%3Ctitle%3Eblue menu icon%3C/title%3E%3Cdesc%3ECreated with Sketch.%3C/desc%3E%3Cg id='blue-menu-icon' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='round'%3E%3Cg id='Group-2' transform='translate(2.142578, 1.732168)' stroke='%230085FB' stroke-width='4'%3E%3Cpath d='M8.09605592,1.00049955 L38.0960559,1.00049955' id='Path-9'%3E%3C/path%3E%3Cpath d='M0.259144404,11.6700662 L38.0960559,11.6700662' id='Path-9-Copy'%3E%3C/path%3E%3Cpath d='M8.09605592,22.3396329 L38.0960559,22.3396329' id='Path-9-Copy-2'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='43px' height='27px' viewBox='0 0 43 27' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3C!-- Generator: Sketch 52.1 (67048) - http://www.bohemiancoding.com/sketch --%3E%3Ctitle%3EX%3C/title%3E%3Cdesc%3ECreated with Sketch.%3C/desc%3E%3Cg id='X' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='round'%3E%3Cg id='Group-46' transform='translate(9.000000, 1.000000)' stroke='%230085FB' stroke-width='4'%3E%3Cpath d='M1.07971817,1.07971817 L23.7537998,23.7537998' id='Line'%3E%3C/path%3E%3Cpath d='M1.07971817,1.07971817 L23.7537998,23.7537998' id='Line' transform='translate(12.416759, 12.416759) scale(-1, 1) translate(-12.416759, -12.416759) '%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   position: absolute;
   top: 20px;
   right: 20px; }
@@ -226,21 +234,13 @@ section {
   .darkHeader .navbar-toggler.collapsed {
     background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='43px' height='27px' viewBox='0 0 43 27' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3C!-- Generator: Sketch 52.1 (67048) - http://www.bohemiancoding.com/sketch --%3E%3Ctitle%3Eblue menu icon%3C/title%3E%3Cdesc%3ECreated with Sketch.%3C/desc%3E%3Cg id='blue-menu-icon' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='round'%3E%3Cg id='Group-2' transform='translate(2.142578, 1.732168)' stroke='%230085FB' stroke-width='4'%3E%3Cpath d='M8.09605592,1.00049955 L38.0960559,1.00049955' id='Path-9'%3E%3C/path%3E%3Cpath d='M0.259144404,11.6700662 L38.0960559,11.6700662' id='Path-9-Copy'%3E%3C/path%3E%3Cpath d='M8.09605592,22.3396329 L38.0960559,22.3396329' id='Path-9-Copy-2'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
 
-@keyframes open-nav {
-  0% {
-    height: 0vh; }
-  100% {
-    height: 100vh; } }
-
 @media (max-width: 992px) {
   .navbar-light .default-nav {
     position: fixed;
     top: 0;
-    bottom: 0;
+    padding-bottom: 20px;
     left: 0;
-    right: 0;
-    animation-name: open-nav;
-    animation-duration: 1s; }
+    right: 0; }
     .navbar-light .default-nav #mymenu {
       text-align: center;
       margin-top: 20%;
@@ -2548,5 +2548,7 @@ iframe.video-play {
 .screenshot-carousel .owl-stage-outer {
   background-color: white; }
 
-.hub-btn {
-  margin-bottom: 30px; }
+#hub {
+  margin-top: 30px; }
+  #hub .hub-btn {
+    margin-bottom: 30px; }
