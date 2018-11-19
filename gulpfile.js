@@ -95,7 +95,7 @@ function defaultTask(cb) {
   compileSass();
   console.log('Compile Sass: Ok');
   
-  optimizationImg();
+  //optimizationImg();
   console.log('Optimization Img: Ok');
   cb();
 }

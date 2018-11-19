@@ -49,9 +49,8 @@ $(document).ready(function(){
     var mobile_menu = $( window ).width();
     if(mobile_menu < 991){
         $("nav a.nav-link").on('click', function(event) {
+            
             if(!$(this).hasClass('dropdown-toggle')){
-
-                console.log('click');
                 $(".navbar-collapse").collapse('hide');
             }
 
@@ -169,7 +168,7 @@ $(document).ready(function(){
                 items:3,
             },
             1000:{
-                items:3,
+                items:5,
             }
         }
     })
@@ -374,3 +373,8 @@ $(document).ready(function(){
     });   
     
 });
+
+function onSetTypeContactForm(index){
+    var contactType = document.getElementsByName('contact_type')[0];
+    contactType.selectedIndex = index;
+}

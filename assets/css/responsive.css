@@ -108,18 +108,16 @@
     left: 50px; }
     .feature-phone img {
       width: 65%; }
-  .team-block {
-    padding: 20px; }
-    .team-block:hover .team-social li:nth-child(1) {
-      animation: none; }
-    .team-block:hover .team-social li:nth-child(2) {
-      animation: none; }
-    .team-block:hover .team-social li:nth-child(3) {
-      animation: none; }
-    .team-block:hover .team-social li:nth-child(4) {
-      animation: none; }
-    .team-block:hover .team-social li:nth-child(5) {
-      animation: none; }
+  .team-block:hover .team-social li:nth-child(1) {
+    animation: none; }
+  .team-block:hover .team-social li:nth-child(2) {
+    animation: none; }
+  .team-block:hover .team-social li:nth-child(3) {
+    animation: none; }
+  .team-block:hover .team-social li:nth-child(4) {
+    animation: none; }
+  .team-block:hover .team-social li:nth-child(5) {
+    animation: none; }
   .team .team-circle1 {
     top: auto;
     left: 60px; }

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Tovo | Mobile App Landing HTML Templates</title>
+  <title>Breez - Lightning Fast Bitcoin Payments</title>
   <meta charset="utf-8">
   <meta name="author" content="pixelstrap">
   <meta name="description" content="Tovo | App Landing Page Templates from pixelstrap">
@@ -10,7 +10,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!-- Fav icon -->
-  <link rel="shortcut icon" href="prod/images//favicon.png">
+  <link rel="shortcut icon" href="https://breez.technology/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://breez.technology/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://breez.technology/favicon-32x32.png">
 
   <!-- Font Family-->
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500" rel="stylesheet">
@@ -35,11 +37,16 @@
       <a class="navbar-brand" href="index.html">
         <h1 class="logo-text"> Breez</h1>
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse default-nav" id="navbarSupportedContent">
+        <button class="navbar-toggler-mobile" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation"></button>
+        <a class="navbar-brand-mobail" href="index.html">
+          <h1 class="logo-text"> Breez</h1>
+        </a>
         <ul class="navbar-nav" id="mymenu">
           <li class="nav-item">
             <a class="nav-link" href="index.html#personal">Personal</a>
@@ -78,15 +85,21 @@
 
         <div class="col-md-5  feature-text business">
           <h2 class="title">The <span>Breez</span> hub connects the dots</h2>
-          <p>Breez is a Lightning Network hub that connects individuals, merchants and Bitcoin exchanges to facilitate instantaneous bitcoin commerce.</p>
+          <p>Breez is a Lightning Network hub that connects individuals, merchants and Bitcoin exchanges to facilitate
+            instantaneous bitcoin commerce.</p>
 
-          <p>When an individual or a merchant installs the Breez app, a payment channel to the Breez hub is automatically created. This means all entities (or nodes) connected to the Breez hub can easily transact using Lightning Network.</p>
+          <p>When an individual or a merchant installs the Breez app, a payment channel to the Breez hub is
+            automatically created. This means all entities (or nodes) connected to the Breez hub can easily transact
+            using Lightning Network.</p>
 
-          <p>Since the Breez hub can also connect to other Lightning Networks nodes, transactions are not limited to Breez entities, but are spread across the entire network. Breez also partners with Bitcoin exchanges to provide fiat conversion services to its users and businesses.</p>
+          <p>Since the Breez hub can also connect to other Lightning Networks nodes, transactions are not limited to
+            Breez entities, but are spread across the entire network. Breez also partners with Bitcoin exchanges to
+            provide fiat conversion services to its users and businesses.</p>
 
 
           <div>
-            <a href="#contact" style="margin-right: 15px;" class="btn btn-custom theme-color hub-btn">Partner with Breez</a>
+            <a href="#contact" style="margin-right: 15px;" class="btn btn-custom theme-color hub-btn" onclick="onSetTypeContactForm(3)">Partner
+              with Breez</a>
             <a target="_blank" href="https://github.com/breez/breezmobile" class="btn btn-custom theme-color contribute hub-btn">GitHub</a>
           </div>
 
@@ -97,15 +110,11 @@
           <img src="/prod/images/group-3.png" class="img-fluid">
         </div>
 
-        
+
       </div>
     </div>
   </section>
   <!-- Feature Section End -->
-
-  <div class="fly-block left">
-    <img src="/prod/images/group-43.png">
-  </div>
 
   <!-- Contact Section start -->
   <section id="contact" class="contact">
@@ -137,13 +146,13 @@
           </div>
         </div>
         <div class="col-md-12">
-          <h2 class="title text-center">Stay up to date with our latest developments <br><span>Follow us</span></h2>
+          <h2 class="title text-center">Stay up to date with our latest developments</h2>
 
-          <div class="social">
+          <h2 class="text-center title social"><span>Follow us</span>
             <a href="https://www.linkedin.com/in/erdemyerebasmaz"><i class="fa fa-twitter" aria-hidden="true"></i></a>
             <a href="https://github.com/erdemyerebasmaz"><i class="fa fa-medium" aria-hidden="true"></i></a>
             <a href="https://github.com/erdemyerebasmaz"><i class="fa fa-github" aria-hidden="true"></i></a>
-          </div>
+          </h2>
 
         </div>
         <div class="col-md-6 offset-md-3">
@@ -164,8 +173,8 @@
                     <div class="col-sm-12 col-md-6">
                       <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Your Name"
                         required="required">
-                      <input type="number" class="form-control" id="phone" name="phone" placeholder="Phone" required="required">
-                      <select class="form-control">
+                      <input type="email" class="form-control" id="email" name="email" placeholder="Email" required="required">
+                      <select name="contact_type" class="form-control">
                         <option disabled selected value> Interest </option>
                         <option>Join Breez Beta</option>
                         <option>Point of Sale</option>

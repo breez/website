@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Tovo | Mobile App Landing HTML Templates</title>
+  <title>Breez - Lightning Fast Bitcoin Payments</title>
   <meta charset="utf-8">
   <meta name="author" content="pixelstrap">
   <meta name="description" content="Tovo | App Landing Page Templates from pixelstrap">
@@ -10,7 +10,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!-- Fav icon -->
-  <link rel="shortcut icon" href="prod/images//favicon.png">
+  <link rel="shortcut icon" href="https://breez.technology/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://breez.technology/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://breez.technology/favicon-32x32.png">
+
 
   <!-- Font Family-->
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500" rel="stylesheet">
@@ -35,11 +38,14 @@
       <a class="navbar-brand" href="index.html">
         <h1 class="logo-text"> Breez</h1>
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse default-nav" id="navbarSupportedContent">
+        <button class="navbar-toggler-mobile" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation"></button>
+        <a class="navbar-brand-mobail" href="index.html">
+            <h1 class="logo-text"> Breez</h1>
+          </a>
         <ul class="navbar-nav" id="mymenu">
           <li class="nav-item">
             <a class="nav-link" href="#personal">Personal</a>
@@ -84,7 +90,7 @@
                 Breez is the future of commerce.</h5>
 
               <div class="top-margin">
-                <a href="#contact" class="btn btn-custom theme-color">Join our beta</a>
+                <a href="#contact" onclick="onSetTypeContactForm(1)" class="btn btn-custom theme-color">Join our Beta</a>
               </div>
 
             </div>
@@ -171,7 +177,7 @@
       <div class="row" id="contribute">
         <div class="col-sm-12">
           <div class="text-center">
-            <a href="#contact" class="btn btn-custom theme-color">Join our beta</a>
+            <a href="#contact" onclick="onSetTypeContactForm(1)" class="btn btn-custom theme-color">Join our Beta</a>
             <a target="_blank" href="https://github.com/breez/breezmobile" class="btn btn-custom theme-color contribute">Contribute</a>
           </div>
         </div>
@@ -179,12 +185,6 @@
     </div>
   </section>
   <!-- Feature Section End -->
-  <div class="fly-block left-top">
-    <img src="/prod/images/group-43.png">
-  </div>
-  <div class="fly-block right">
-    <img src="/prod/images/group-43.png">
-  </div>
 
   <!-- Feature Section start -->
   <section id="business" class="feature feature-bg-gray">
@@ -202,7 +202,7 @@
 
 
           <div>
-            <a href="#contact" class="btn btn-custom theme-color">Contact Us</a>
+            <a href="#contact" onclick="onSetTypeContactForm(2)" class="btn btn-custom theme-color">Contact Us</a>
           </div>
 
         </div>
@@ -248,7 +248,7 @@
                       <img src="/prod/images/avtar/roei.jpg" alt="">
                     </div>
                     <div class="team-text">
-                      <h3>Roei Erez</h3>
+                      <h3>Roei<br> Erez</h3>
                       <h6>Co-founder, VP R&D</h6>
                     </div>
                     <div class="overlay">
@@ -273,7 +273,7 @@
                     <div class="overlay">
                       <ul class="team-social">
                         <li><a href="https://www.linkedin.com/in/roysheinfeld"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                        <li><a href="https://medium.com/@kingonly"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                        <li><a href="https://medium.com/@kingonly"><i class="fa fa-medium" aria-hidden="true"></i></a></li>
                       </ul>
                     </div>
                   </div>
@@ -327,10 +327,6 @@
   </section>
   <!-- team Section End -->
 
-  <div class="fly-block left">
-    <img src="/prod/images/group-43.png">
-  </div>
-
   <!-- Contact Section start -->
   <section id="contact" class="contact">
     <div class="container">
@@ -361,13 +357,12 @@
           </div>
         </div>
         <div class="col-md-12">
-          <h2 class="title text-center">Stay up to date with our latest developments <br><span>Follow us</span></h2>
-
-          <div class="social">
+          <h2 class="title text-center">Stay up to date with our latest developments</h2>
+          <h2 class="text-center title social"><span>Follow us</span>
             <a href="https://www.linkedin.com/in/erdemyerebasmaz"><i class="fa fa-twitter" aria-hidden="true"></i></a>
             <a href="https://github.com/erdemyerebasmaz"><i class="fa fa-medium" aria-hidden="true"></i></a>
             <a href="https://github.com/erdemyerebasmaz"><i class="fa fa-github" aria-hidden="true"></i></a>
-          </div>
+          </h2>
 
         </div>
         <div class="col-md-6 offset-md-3">
@@ -388,8 +383,8 @@
                     <div class="col-sm-12 col-md-6">
                       <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Your Name"
                         required="required">
-                      <input type="number" class="form-control" id="phone" name="phone" placeholder="Phone" required="required">
-                      <select class="form-control">
+                      <input type="email" class="form-control" id="phone" name="email" placeholder="Email" required="required">
+                      <select name="contact_type" class="form-control">
                         <option disabled selected value> Interest </option>
                         <option>Join Breez Beta</option>
                         <option>Point of Sale</option>
