@@ -1,5 +1,5 @@
-"use strict";
 $(document).ready(function(){
+    'use strict';
     if($( window ).width() >= 991 ) {
         $("a").on('click', function(event) {
             if (this.hash !== "") {

@@ -1,7 +1,5 @@
-"use strict";
-
 $(document).ready(function(){
-
+    'use strict';
     /*----------------------------------------
      passward show hide
      ----------------------------------------*/
@@ -116,9 +114,9 @@ $(document).ready(function(){
                 items:5
             }
         }
-    })
-    var screenshot = $(".screenshot-carousel-rtl");
-    screenshot.owlCarousel({
+    });
+    var screenshotRtl = $(".screenshot-carousel-rtl");
+    screenshotRtl.owlCarousel({
         rtl:true,
         loop:true,
         margin:30,
@@ -144,7 +142,7 @@ $(document).ready(function(){
                 items:5
             }
         }
-    })
+    });
 
     var team = $(".team-carousel");
     team.owlCarousel({
@@ -171,9 +169,9 @@ $(document).ready(function(){
                 items:5,
             }
         }
-    })
-    var team = $(".team-carousel-rtl");
-    team.owlCarousel({
+    });
+    var teamRtl = $(".team-carousel-rtl");
+    teamRtl.owlCarousel({
         rtl:true,
         loop:true,
         margin:30,
@@ -198,7 +196,7 @@ $(document).ready(function(){
                 items:3,
             }
         }
-    })
+    });
 
     var blog = $(".blog-carousel");
     blog.owlCarousel({
@@ -225,8 +223,8 @@ $(document).ready(function(){
             }
         }
     });
-    var blog = $(".blog-carousel-rtl");
-    blog.owlCarousel({
+    var blogRtl = $(".blog-carousel-rtl");
+    blogRtl.owlCarousel({
         rtl:true,
         loop:true,
         margin:30,
@@ -284,8 +282,8 @@ $(document).ready(function(){
     });
 
 
-    var price = $(".price-carousel-rtl");
-    price.owlCarousel({
+    var priceRtl = $(".price-carousel-rtl");
+    priceRtl.owlCarousel({
         rtl:true,
         loop:true,
         margin:30,
@@ -343,8 +341,8 @@ $(document).ready(function(){
         }
     });
 
-    var testimonial = $(".testimonial-carousel-rtl");
-    testimonial.owlCarousel({
+    var testimonialRtl = $(".testimonial-carousel-rtl");
+    testimonialRtl.owlCarousel({
         rtl: true,
         loop: true,
         margin: 0,

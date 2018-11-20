@@ -1,5 +1,5 @@
-"use strict";
 $(document).ready(function(){
+'use strict';
 $("#myform").validate({
     ignore: ":hidden",
     rules: {
