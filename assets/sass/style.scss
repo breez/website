@@ -111,7 +111,9 @@ section{
   color: #ffffff;
   -webkit-background-clip: text;
   background-clip: text;
-  padding: 18px;
+  padding-top: 18px;
+  padding-bottom: 10px;
+  padding-left: 10px;
   margin: 0;
 }
 h1 {
@@ -160,7 +162,7 @@ h5 {
   color: $color_tapa;
   line-height: 1.4;
   line-height: 28px;
-  font-weight: 100;
+  font-weight: 300;
   font-size: 20px;
   font-style: normal;
   font-stretch: normal;
@@ -221,6 +223,10 @@ a {
 section {
   overflow: hidden;
 }
+.navbar {
+  height: 65px;  
+}
+
 .navbar-nav {
   .nav-link {
     color: #ffffff;
@@ -231,8 +237,8 @@ section {
     width: 150px;
     height: 75px;
   .logo-text{
-    position: absolute;
-    top: 0;
+    //position: absolute;
+    top: -2px;
   }
 }
 .navbar-brand-mobail{
@@ -241,7 +247,7 @@ section {
   }
   z-index: 1000;
   position: absolute;
-  top: 0px;
+  top: -2px;
   left: 16px;
   h1{
     background-image: -webkit-gradient(linear,left top,right top,color-stop(0,#00b5f6),color-stop(1,#0067ff));
@@ -315,13 +321,13 @@ section {
 
     .navbar-nav {
       @media (min-width: 990px) {
-        position: absolute;
+        //position: absolute;
         top: -6px;
       }
       .nav-link {
         font-size: 15px;
         font-weight: 400;
-        //color: #ffffff;
+        min-width: fit-content;
         text-transform: uppercase;
         letter-spacing: 0;
       }
@@ -336,8 +342,8 @@ section {
     right: 100px;
     margin-top: 50px;
     @media (min-width: 990px) {
-      position: absolute;
-      margin-top: 12px;
+      margin-right: -13px;
+      margin-top: 0px;
       top: 0px;
     }
     a{
@@ -352,16 +358,14 @@ section {
       cursor: pointer;
       .fa{
         color: white;
-
-        
-
-        &:hover{
-          color: white;
-        }
       }
 
       &:hover{
-        background-color: $color_socials_btn_on_hover;
+        border: 1px solid $color_bright_turquoise;
+        background-color: white;
+        .fa{
+          color: $color_bright_turquoise;
+        }
       }
     }
   }
@@ -411,9 +415,9 @@ section {
 }
 
 #mymenu{
-  margin: 0 25%;
+  //margin: 0 23%;
   @media (min-width: 993px) and (max-width: 1199px) {
-    margin: 0 14%;
+    //margin: 0 17%;
   }
 }
 
@@ -861,6 +865,7 @@ ul {
     background-color: transparent;
   }
   .nav-item {
+    min-width: fit-content;
     font-size: 14px;
     padding: 20px 0 20px;
     color: $color_tapa;
@@ -1119,6 +1124,7 @@ ul {
   padding: 0;
   transition: all 0.3s ease;
   &.theme-nav .nav-item {
+    min-width: fit-content;
     padding: 20px 0 20px;
   }
 }
@@ -1242,13 +1248,15 @@ ul {
     color: #fff;
   }
   .btn{
-    color: white;
-    background-color: transparent;
+    
+    background-color: white;
     border: white 1px solid;
+    color: #055DEB;
     &:hover{
-      color: #00b5f6;
+      background-color: transparent;
+      color: white;  
       border: white 1px solid;
-      background-color: white;
+      
     }
   }
 }
@@ -2313,7 +2321,7 @@ ul {
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
-
+  background-color: #fafafa;
   .social{
     text-align: center;
 
@@ -2357,16 +2365,18 @@ ul {
     select:hover, select:active, select:focus,  {
       box-shadow: 0 0 8px 0 rgba(5, 93, 235, 0.5);
     }
-    input::-webkit-input-placeholder{
-      color: red;
+    input::placeholder, textarea::placeholder{
+      color:#92969a!important;
     }
     select{
+      padding-bottom: 10px;
+      padding-top: 10px;
       padding-left: 26px;
       margin-bottom: 8px;
       option:first-child{color: #414141; display: none;}
       option{color: #414141;} // bootstrap default color
     }
-    .placeholder{color: rgba(73, 80, 87, 0.60); }
+    .placeholder{color: #92969a; }
  
   }
 }
@@ -2393,7 +2403,19 @@ ul {
     padding: 12px 30px;
     box-shadow: 0 0 5px 0 #e8e9ea;
     color: #495057;
-  }
+    margin-bottom: 20px;
+     
+    }
+
+    textarea { 
+      height: 162px;  
+      margin: 0;
+      @media (max-width: 990px) {
+        margin-top: 10px;
+      }
+      
+    }
+  
   select{
     -webkit-appearance: listitem;
     margin-bottom: 6px;
@@ -3414,5 +3436,11 @@ button{
   margin-top: 30px; 
   .hub-btn{
     margin-bottom: 30px; 
+  }
+}
+
+.navbar-expand-lg .navbar-collapse{
+  @media (min-width: 990px) {
+   display: contents!important;
   }
 }

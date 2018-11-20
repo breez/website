@@ -82,7 +82,9 @@ section {
   color: #ffffff;
   -webkit-background-clip: text;
   background-clip: text;
-  padding: 18px;
+  padding-top: 18px;
+  padding-bottom: 10px;
+  padding-left: 10px;
   margin: 0; }
 
 h1 {
@@ -127,7 +129,7 @@ h5 {
   color: #777777;
   line-height: 1.4;
   line-height: 28px;
-  font-weight: 100;
+  font-weight: 300;
   font-size: 20px;
   font-style: normal;
   font-stretch: normal;
@@ -175,6 +177,9 @@ a:focus {
 section {
   overflow: hidden; }
 
+.navbar {
+  height: 65px; }
+
 .navbar-nav .nav-link {
   color: #ffffff; }
 
@@ -183,13 +188,12 @@ section {
   width: 150px;
   height: 75px; }
   .navbar-brand .logo-text {
-    position: absolute;
-    top: 0; }
+    top: -2px; }
 
 .navbar-brand-mobail {
   z-index: 1000;
   position: absolute;
-  top: 0px;
+  top: -2px;
   left: 16px; }
   @media (min-width: 992px) {
     .navbar-brand-mobail {
@@ -250,12 +254,12 @@ section {
 
 @media (min-width: 990px) {
   .navbar-light .default-nav .navbar-nav {
-    position: absolute;
     top: -6px; } }
 
 .navbar-light .default-nav .navbar-nav .nav-link {
   font-size: 15px;
   font-weight: 400;
+  min-width: fit-content;
   text-transform: uppercase;
   letter-spacing: 0; }
 
@@ -266,8 +270,8 @@ section {
   margin-top: 50px; }
   @media (min-width: 990px) {
     .navbar .social {
-      position: absolute;
-      margin-top: 12px;
+      margin-right: -13px;
+      margin-top: 0px;
       top: 0px; } }
   .navbar .social a {
     background-color: #055DEB;
@@ -281,10 +285,11 @@ section {
     cursor: pointer; }
     .navbar .social a .fa {
       color: white; }
-      .navbar .social a .fa:hover {
-        color: white; }
     .navbar .social a:hover {
-      background-color: #0085fb; }
+      border: 1px solid #055DEB;
+      background-color: white; }
+      .navbar .social a:hover .fa {
+        color: #055DEB; }
 
 @keyframes btn-animation {
   0% {
@@ -314,12 +319,6 @@ section {
   /* The height is 400 pixels */
   width: 100%;
   /* The width is the width of the web page */ }
-
-#mymenu {
-  margin: 0 25%; }
-  @media (min-width: 993px) and (max-width: 1199px) {
-    #mymenu {
-      margin: 0 14%; } }
 
 #navbarSupportedContent .fa {
   margin: 5px; }
@@ -679,6 +678,7 @@ ul {
     color: white;
     background-color: transparent; }
   .theme-nav .nav-item {
+    min-width: fit-content;
     font-size: 14px;
     padding: 20px 0 20px;
     color: #777777;
@@ -821,6 +821,7 @@ ul {
   padding: 0;
   transition: all 0.3s ease; }
   .darkHeader.theme-nav .nav-item {
+    min-width: fit-content;
     padding: 20px 0 20px; }
 
 .store {
@@ -920,13 +921,13 @@ ul {
     margin-bottom: 25px;
     color: #fff; }
   .home-contain .btn {
-    color: white;
-    background-color: transparent;
-    border: white 1px solid; }
+    background-color: white;
+    border: white 1px solid;
+    color: #055DEB; }
     .home-contain .btn:hover {
-      color: #00b5f6;
-      border: white 1px solid;
-      background-color: white; }
+      background-color: transparent;
+      color: white;
+      border: white 1px solid; }
 
 .home-right {
   transform: translateY(90px);
@@ -1730,7 +1731,8 @@ ul {
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;
-  overflow: hidden; }
+  overflow: hidden;
+  background-color: #fafafa; }
   .contact .social {
     text-align: center; }
     .contact .social a {
@@ -1765,9 +1767,11 @@ ul {
     .contact .contact-us textarea:hover, .contact .contact-us textarea:active, .contact .contact-us textarea:focus,
     .contact .contact-us select:hover, .contact .contact-us select:active, .contact .contact-us select:focus {
       box-shadow: 0 0 8px 0 rgba(5, 93, 235, 0.5); }
-    .contact .contact-us input::-webkit-input-placeholder {
-      color: red; }
+    .contact .contact-us input::placeholder, .contact .contact-us textarea::placeholder {
+      color: #92969a !important; }
     .contact .contact-us select {
+      padding-bottom: 10px;
+      padding-top: 10px;
       padding-left: 26px;
       margin-bottom: 8px; }
       .contact .contact-us select option:first-child {
@@ -1776,7 +1780,7 @@ ul {
       .contact .contact-us select option {
         color: #414141; }
     .contact .contact-us .placeholder {
-      color: rgba(73, 80, 87, 0.6); }
+      color: #92969a; }
 
 .contact-decor .contact-circle1 {
   position: absolute;
@@ -1796,7 +1800,14 @@ ul {
     border-radius: 20px;
     padding: 12px 30px;
     box-shadow: 0 0 5px 0 #e8e9ea;
-    color: #495057; }
+    color: #495057;
+    margin-bottom: 20px; }
+  .theme-form textarea {
+    height: 162px;
+    margin: 0; }
+    @media (max-width: 990px) {
+      .theme-form textarea {
+        margin-top: 10px; } }
   .theme-form select {
     -webkit-appearance: listitem;
     margin-bottom: 6px; }
@@ -2579,3 +2590,7 @@ button:focus {
   margin-top: 30px; }
   #hub .hub-btn {
     margin-bottom: 30px; }
+
+@media (min-width: 990px) {
+  .navbar-expand-lg .navbar-collapse {
+    display: contents !important; } }
