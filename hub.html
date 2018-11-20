@@ -61,7 +61,7 @@
             <a class="nav-link" href="index.html#team">Team</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact Us</a>
+            <a class="nav-link" onclick="onSetTypeContactForm(4)" href="#contact">Contact Us</a>
           </li>
         </ul>
 
@@ -174,13 +174,13 @@
                       <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Your Name"
                         required="required">
                       <input type="email" class="form-control" id="email" name="email" placeholder="Email" required="required">
-                      <select name="contact_type" class="form-control">
-                        <option disabled selected value> Interest </option>
+                      <select required name="contact_type" class="form-control placeholder">
+                        <option value="">Interest</option>
                         <option>Join Breez Beta</option>
                         <option>Point of Sale</option>
                         <option>Partnership</option>
                         <option>Other</option>
-                      </select>
+                     </select>
                     </div>
                     <div class="col-sm-12 col-md-6">
                       <textarea class="form-control" id="message" name="message" rows="6" placeholder="Message"

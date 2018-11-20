@@ -248,6 +248,11 @@ section {
       line-height: 2.64;
       color: #777777; } }
 
+@media (min-width: 990px) {
+  .navbar-light .default-nav .navbar-nav {
+    position: absolute;
+    top: -6px; } }
+
 .navbar-light .default-nav .navbar-nav .nav-link {
   font-size: 15px;
   font-weight: 400;
@@ -262,7 +267,8 @@ section {
   @media (min-width: 990px) {
     .navbar .social {
       position: absolute;
-      margin-top: 0; } }
+      margin-top: 12px;
+      top: 0px; } }
   .navbar .social a {
     background-color: #055DEB;
     width: 30px;
@@ -311,6 +317,9 @@ section {
 
 #mymenu {
   margin: 0 25%; }
+  @media (min-width: 993px) and (max-width: 1199px) {
+    #mymenu {
+      margin: 0 14%; } }
 
 #navbarSupportedContent .fa {
   margin: 5px; }
@@ -671,7 +680,7 @@ ul {
     background-color: transparent; }
   .theme-nav .nav-item {
     font-size: 14px;
-    padding: 20px 0 20px 7px;
+    padding: 20px 0 20px;
     color: #777777;
     text-transform: uppercase;
     letter-spacing: 1px; }
@@ -812,7 +821,7 @@ ul {
   padding: 0;
   transition: all 0.3s ease; }
   .darkHeader.theme-nav .nav-item {
-    padding: 20px 0 20px 7px; }
+    padding: 20px 0 20px; }
 
 .store {
   margin-top: 10px; }
@@ -1730,13 +1739,16 @@ ul {
       width: 30px;
       height: 30px;
       text-align: center;
-      padding-top: 2px;
+      padding-top: 1px;
       padding-left: 4px;
       border-radius: 20px;
       margin: 5px;
       display: inline-block;
       font-size: 18px;
       cursor: pointer; }
+      @media (max-width: 990px) {
+        .contact .social a {
+          padding-left: 3px; } }
       .contact .social a .fa {
         color: #055DEB; }
         .contact .social a .fa:hover {
@@ -1753,6 +1765,18 @@ ul {
     .contact .contact-us textarea:hover, .contact .contact-us textarea:active, .contact .contact-us textarea:focus,
     .contact .contact-us select:hover, .contact .contact-us select:active, .contact .contact-us select:focus {
       box-shadow: 0 0 8px 0 rgba(5, 93, 235, 0.5); }
+    .contact .contact-us input::-webkit-input-placeholder {
+      color: red; }
+    .contact .contact-us select {
+      padding-left: 26px;
+      margin-bottom: 8px; }
+      .contact .contact-us select option:first-child {
+        color: #414141;
+        display: none; }
+      .contact .contact-us select option {
+        color: #414141; }
+    .contact .contact-us .placeholder {
+      color: rgba(73, 80, 87, 0.6); }
 
 .contact-decor .contact-circle1 {
   position: absolute;
@@ -2144,6 +2168,9 @@ iframe.video-play {
   height: 700px;
   margin: 0 auto;
   border: none; }
+
+button:focus {
+  outline: none; }
 
 .play-button img {
   position: absolute;

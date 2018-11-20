@@ -377,4 +377,13 @@ $(document).ready(function(){
 function onSetTypeContactForm(index){
     var contactType = document.getElementsByName('contact_type')[0];
     contactType.selectedIndex = index;
+    contactType.classList.remove('placeholder');
 }
+
+$('select').change(function() {
+    if ($(this).children('option:first-child').is(':selected')) {
+      $(this).addClass('placeholder');
+    } else {
+     $(this).removeClass('placeholder');
+    }
+   });
