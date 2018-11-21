@@ -321,7 +321,8 @@ section {
   /* The width is the width of the web page */ }
 
 #navbarSupportedContent .fa {
-  margin: 5px; }
+  margin-top: 5px;
+  margin-left: -1px; }
 
 #navbarSupportedContent .socials {
   position: absolute;
@@ -910,7 +911,7 @@ ul {
 .home-contain {
   display: flex;
   align-items: center;
-  margin-top: 132px; }
+  margin-top: 80px; }
   .home-contain h4 {
     text-transform: uppercase;
     margin-bottom: 20px;
