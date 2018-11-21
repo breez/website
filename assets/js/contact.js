@@ -29,18 +29,18 @@ $("#contact-form").validate({
                 send: $('#emailsend').val()
             },
             function(data, status){
-                $("#alert_mail").html("<strong>Success! </strong>Your Inquiry is received, we will respond you soon.");
-                $("#mail_alert_class").addClass("alert alert-success alert-dismissible");
-                $("#mail_alert_class").removeClass("d-none");
+                $('#alertModal').modal();
+                $('#alertModal .modal-title').text("Success!");
+                $('#alertModal .modal-body .lead').text("Your Inquiry is received, we will respond you soon.");
             })
             .done(function() {
                 //console.log( "second success" );
             })
             .fail(function() {
                 console.log("error in post");
-                $("#alert_mail").html("<strong>Failed! </strong>There is Some Error.");
-                $("#mail_alert_class").addClass("alert alert-danger alert-dismissible");
-                $("#mail_alert_class").removeClass("d-none");
+                $('#alertModal').modal();
+                $('#alertModal .modal-title').text("Failed!");
+                $('#alertModal .modal-body .lead').text("There is Some Error.");
            });
         return false; // required to block normal submit since you used ajax
     }
