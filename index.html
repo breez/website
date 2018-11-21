@@ -380,7 +380,7 @@
           <div class="contact-us">
             <div class="w-100">
 
-              <form id="myform" class="theme-form" action="mailer.php" method="post">
+              <form id="contact-form" class="theme-form" action="/contact" method="post">
                 <div class="form-group">
                   <div class="row">
                     <div id="mail_alert_class" class="alert alert-success alert-dismissible d-none">
@@ -394,8 +394,8 @@
                     <div class="col-sm-12 col-md-6">
                       <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Your Name"
                         required="required">
-                      <input type="email" class="form-control" id="phone" name="email" placeholder="Email" required="required">
-                      <select required name="contact_type" class="form-control placeholder">
+                      <input type="email" class="form-control" id="email" name="email" placeholder="Email" required="required">
+                      <select required id="contact_type" name="contact_type" class="form-control placeholder">
                         <option value="">Interest</option>
                         <option>Join Breez Beta</option>
                         <option>Point of Sale</option>
