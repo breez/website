@@ -29,21 +29,12 @@ $("#contact-form").validate({
                 send: $('#emailsend').val()
             },
             function(data, status){
-                console.log(data, status);
-                if(data != 1){
-                    $("#alert_mail").html("<strong>Success! </strong>Your Inquiry is received, we will respond you soon.");
-                    $("#mail_alert_class").addClass("alert alert-success alert-dismissible");
-                    $("#mail_alert_class").removeClass("d-none");
-                }
-                else
-                {
-                    $("#alert_mail").html("<strong>Failed! </strong>There is Some Error.");
-                    $("#mail_alert_class").addClass("alert alert-danger alert-dismissible");
-                    $("#mail_alert_class").removeClass("d-none");
-                }
+                $("#alert_mail").html("<strong>Success! </strong>Your Inquiry is received, we will respond you soon.");
+                $("#mail_alert_class").addClass("alert alert-success alert-dismissible");
+                $("#mail_alert_class").removeClass("d-none");
             })
             .done(function() {
-                console.log( "second success" );
+                //console.log( "second success" );
             })
             .fail(function() {
                 console.log("error in post");
