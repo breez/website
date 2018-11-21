@@ -220,6 +220,13 @@ a {
   }
 }
 
+.anchor{
+  display: block;
+  height: 65px; /*same height as header*/
+  margin-top: -65px; /*same height as header*/
+  visibility: hidden;
+}
+
 section {
   overflow: hidden;
 }

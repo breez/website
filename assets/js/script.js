@@ -1,6 +1,16 @@
 $(document).ready(function(){
     'use strict';
     /*----------------------------------------
+     change navbar theme on load
+     ----------------------------------------*/
+    var scroll = $(window).scrollTop();
+    if (scroll >= 60) {
+        $(".main-navbar").addClass("darkHeader");
+    } else {
+        $(".main-navbar").removeClass("darkHeader");
+    }
+
+    /*----------------------------------------
      passward show hide
      ----------------------------------------*/
     $('.show-hide').show();
