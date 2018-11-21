@@ -2948,6 +2948,7 @@ h4,h5{font-style:normal;font-stretch:normal;letter-spacing:normal}
 #field{margin-left:.5em;float:left}
 label.error{padding-left:16px;margin-left:.3em;color:#9e2828;font-size:15px}
 label.valid{display:block;width:16px;height:16px}
+.anchor,.navbar{height:65px}
 br{clear:both}
 input{border:1px solid #000;margin-bottom:.5em}
 input.error{border:1px solid red}
@@ -2978,7 +2979,7 @@ p{line-height:1.44;font-size:18px;letter-spacing:.03em}
 p.landing-caption{font-size:30px;line-height:1.5}
 p.landing-caption span{color:#414141;font-weight:600}
 a:focus,a:hover{color:#fff;text-decoration:none}
-.navbar{height:65px}
+.anchor{display:block;margin-top:-65px;visibility:hidden}
 .navbar-nav .nav-link{color:#fff}
 .navbar-brand{display:block;width:150px;height:75px}
 .navbar-toggler,.navbar-toggler-mobile{width:50px;border:none;background-repeat:no-repeat}
@@ -3180,7 +3181,7 @@ a:focus,a:hover{color:#fff;text-decoration:none}
 .btn:hover{background:0 0;color:#055DEB;border:1px solid #055DEB}
 .feature{width:100vw;background-repeat:no-repeat;background-size:cover;background-position:0;margin-top:0;position:relative;display:flex;align-items:center}
 .feature .btn.contribute,.feature .btn:hover{color:#055DEB;background:0 0;border:1px solid #055DEB}
-@media (min-width:900px){.feature .feature-text{margin-top:10%}
+@media (min-width:900px){.feature .feature-text{margin-top:5%}
 .feature .btn{margin-right:32px}
 }
 .feature .btn.contribute:hover{color:#fff;background:#055DEB;border:1px solid #fff}
@@ -3356,7 +3357,7 @@ a:focus,a:hover{color:#fff;text-decoration:none}
 .contact .social a .fa:hover,.contact .social a:hover .fa{color:#fff}
 .contact .social a:hover{background-color:#055DEB}
 .contact .contact-us{height:100%;display:flex;align-items:center}
-.contact .contact-us input{padding-left:25px}
+.contact .contact-us #email,.contact .contact-us #fullname{padding-left:25px}
 .contact .contact-us input:active,.contact .contact-us input:focus,.contact .contact-us input:hover,.contact .contact-us select:active,.contact .contact-us select:focus,.contact .contact-us select:hover,.contact .contact-us textarea:active,.contact .contact-us textarea:focus,.contact .contact-us textarea:hover{box-shadow:0 0 8px 0 rgba(5,93,235,.5)}
 .contact .contact-us input::placeholder,.contact .contact-us textarea::placeholder{color:#92969a!important}
 .contact .contact-us select{padding-bottom:10px;padding-top:10px;padding-left:21px;margin-bottom:8px}

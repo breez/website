@@ -1440,7 +1440,7 @@ ul {
 
   .feature-text{
     @media (min-width: 900px) {
-      margin-top: 10%;
+      margin-top: 5%;
     }
   }
 
@@ -2379,8 +2379,8 @@ ul {
     height: 100%;
     display: flex;
     align-items: center;
-    
-    input{
+
+    #fullname, #email{
       padding-left: 25px;
     }
 

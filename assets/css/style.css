@@ -1067,7 +1067,7 @@ ul {
   align-items: center; }
   @media (min-width: 900px) {
     .feature .feature-text {
-      margin-top: 10%; } }
+      margin-top: 5%; } }
   @media (min-width: 900px) {
     .feature .btn {
       margin-right: 32px; } }
@@ -1781,7 +1781,7 @@ ul {
     height: 100%;
     display: flex;
     align-items: center; }
-    .contact .contact-us input {
+    .contact .contact-us #fullname, .contact .contact-us #email {
       padding-left: 25px; }
     .contact .contact-us input:hover, .contact .contact-us input:active, .contact .contact-us input:focus,
     .contact .contact-us textarea:hover, .contact .contact-us textarea:active, .contact .contact-us textarea:focus,
