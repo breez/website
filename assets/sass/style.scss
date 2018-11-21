@@ -351,10 +351,21 @@ section {
       width: 30px;
       height: 30px;
       text-align: center;
-      padding-top: 1px;
+      //padding-top: 1px; 
+      border: 1px solid transparent;
       border-radius: 20px;
       margin: 5px;
       font-size: 18px;
+      padding-top: 1px;
+      padding-right: 1px;
+      
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+        padding-top: 0px;
+        padding-right: 0px;
+      }
+      
+
+
       cursor: pointer;
       .fa{
         color: white;
@@ -422,12 +433,8 @@ section {
 }
 
 #navbarSupportedContent{
-  .fa{
-    margin-top: 5px;
-    margin-left: -1px;
-  }
 
-  .socials{
+  .socials {
     position: absolute;
     right: 75px;
   }
@@ -1683,16 +1690,23 @@ ul {
     right: 0;
     text-align: center;
     li a {
-      border: 1px solid #ddd;
-      border-radius: 100%;
-      padding: 8px;
+      
+      width: 30px;
+      height: 30px;
       text-align: center;
-      //color: $color_turquoise_blue;
-      transition: all 0.3s ease;
-      i {
-        width: 20px;
-        font-size: 14px;
-        //color: #055deb;
+
+      border-radius: 20px;
+      margin: 5px;
+      display: inline-block;
+      font-size: 18px;
+      cursor: pointer;
+
+      border: 1px solid #ddd;
+      
+      padding-top: 1px;
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+        padding-top: 0px;
+        padding-right: 0px;
       }
       &:hover {
         //background-color: $color_turquoise_blue;
@@ -2323,12 +2337,13 @@ ul {
     text-align: center;
 
     a{
+      border: 1px solid transparent;
       background-color: white;
       border: 1px $color_bright_turquoise solid; 
       width: 30px;
       height: 30px;
       text-align: center;
-      padding-top: 1px;
+      padding-top: 0px;
       padding-left: 4px;
       @media (max-width: 990px) {
         padding-left: 3px;
@@ -2357,6 +2372,11 @@ ul {
     height: 100%;
     display: flex;
     align-items: center;
+    
+    input{
+      padding-left: 25px;
+    }
+
     input:hover, input:active, input:focus, 
     textarea:hover, textarea:active, textarea:focus, 
     select:hover, select:active, select:focus,  {
@@ -2368,7 +2388,11 @@ ul {
     select{
       padding-bottom: 10px;
       padding-top: 10px;
-      padding-left: 26px;
+      padding-left: 21px;
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+        padding-left: 25px;
+      }
+      //25px
       margin-bottom: 8px;
       option:first-child{color: #414141; display: none;}
       option{color: #414141;} // bootstrap default color

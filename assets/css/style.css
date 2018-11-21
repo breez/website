@@ -278,11 +278,17 @@ section {
     width: 30px;
     height: 30px;
     text-align: center;
-    padding-top: 1px;
+    border: 1px solid transparent;
     border-radius: 20px;
     margin: 5px;
     font-size: 18px;
+    padding-top: 1px;
+    padding-right: 1px;
     cursor: pointer; }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .navbar .social a {
+        padding-top: 0px;
+        padding-right: 0px; } }
     .navbar .social a .fa {
       color: white; }
     .navbar .social a:hover {
@@ -319,10 +325,6 @@ section {
   /* The height is 400 pixels */
   width: 100%;
   /* The width is the width of the web page */ }
-
-#navbarSupportedContent .fa {
-  margin-top: 5px;
-  margin-left: -1px; }
 
 #navbarSupportedContent .socials {
   position: absolute;
@@ -1254,14 +1256,20 @@ ul {
     right: 0;
     text-align: center; }
     .team-block .team-social li a {
-      border: 1px solid #ddd;
-      border-radius: 100%;
-      padding: 8px;
+      width: 30px;
+      height: 30px;
       text-align: center;
-      transition: all 0.3s ease; }
-      .team-block .team-social li a i {
-        width: 20px;
-        font-size: 14px; }
+      border-radius: 20px;
+      margin: 5px;
+      display: inline-block;
+      font-size: 18px;
+      cursor: pointer;
+      border: 1px solid #ddd;
+      padding-top: 1px; }
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .team-block .team-social li a {
+          padding-top: 0px;
+          padding-right: 0px; } }
     .team-block .team-social li:nth-child(1) a {
       color: #0085fb;
       border: 1px solid #055deb; }
@@ -1737,12 +1745,13 @@ ul {
   .contact .social {
     text-align: center; }
     .contact .social a {
+      border: 1px solid transparent;
       background-color: white;
       border: 1px #055DEB solid;
       width: 30px;
       height: 30px;
       text-align: center;
-      padding-top: 1px;
+      padding-top: 0px;
       padding-left: 4px;
       border-radius: 20px;
       margin: 5px;
@@ -1764,6 +1773,8 @@ ul {
     height: 100%;
     display: flex;
     align-items: center; }
+    .contact .contact-us input {
+      padding-left: 25px; }
     .contact .contact-us input:hover, .contact .contact-us input:active, .contact .contact-us input:focus,
     .contact .contact-us textarea:hover, .contact .contact-us textarea:active, .contact .contact-us textarea:focus,
     .contact .contact-us select:hover, .contact .contact-us select:active, .contact .contact-us select:focus {
@@ -1773,8 +1784,11 @@ ul {
     .contact .contact-us select {
       padding-bottom: 10px;
       padding-top: 10px;
-      padding-left: 26px;
+      padding-left: 21px;
       margin-bottom: 8px; }
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .contact .contact-us select {
+          padding-left: 25px; } }
       .contact .contact-us select option:first-child {
         color: #414141;
         display: none; }
