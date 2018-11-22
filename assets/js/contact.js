@@ -40,7 +40,6 @@ $("#contact-form").validate({
             .fail(function() {
                 console.log("error in post");
                 showToast("There was an error trying to send your message.", 4000, "alert-toast");
-                showToast("Your message was successfully sent to Breez.", 8000, "success-toast");
            });
         return false; // required to block normal submit since you used ajax
     }
