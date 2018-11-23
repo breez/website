@@ -436,11 +436,11 @@ $(document).ready(function(){
         },
         move: {
           enable: true,
-          speed: 1.5,
+          speed: 2,
           direction: "none",
           random: true,
           straight: false,
-          out_mode: "out",
+          out_mode: "bounce",
           bounce: false,
           attract: {
             enable: false,
