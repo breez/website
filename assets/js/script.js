@@ -437,9 +437,9 @@ $(document).ready(function(){
           },
           "move": {
             "enable": true,
-            "speed": 10,
-            "direction": "right",
-            "random": false,
+            "speed": 4,
+            "direction": "bottom-right",
+            "random": true,
             "straight": true,
             "out_mode": "out",
             "bounce": false,
