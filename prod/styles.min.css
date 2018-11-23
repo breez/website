@@ -3242,7 +3242,7 @@ a:focus,a:hover{color:#fff;text-decoration:none}
 .team-block .team-social li:nth-child(2) a:hover i{color:#055deb}
 .team-box{border-radius:10px;padding:30px}
 .team-box .overlay{position:relative}
-.team-box .team-avtar img{border-radius:100%;margin:0 auto}
+.team-box .team-avatar img{border-radius:100%;margin:0 auto}
 .team-text h3{text-transform:uppercase;text-align:center;letter-spacing:.1em;font-size:16px;margin-bottom:13px}
 @media (max-width:990px){.team-text h3 br{display:none}
 }
@@ -3320,11 +3320,11 @@ a:focus,a:hover{color:#fff;text-decoration:none}
 .testimonial-decor .testi-circle1{position:absolute;left:247px;bottom:160px}
 .testimonial-decor .testi-circle2{position:absolute;left:50px;top:auto;bottom:0}
 .testimonial-block{position:relative;padding:80px 30px 0}
-.testimonial-avtar{background-image:url(../prod/images/Testimonial.png);border-radius:100%;height:120px;width:120px;padding:15px;text-align:center;margin:0 auto;background-size:cover;position:absolute;top:20px;left:0;right:0}
-.testimonial-avtar img{border-radius:100%;height:90px}
-.testimonial-avtar:after,.testimonial-avtar:before{position:absolute;width:120px;height:120px;top:0;left:0;border-radius:50%;z-index:0;content:""}
-.testimonial-avtar:before{animation:2.5s anim-effct-testi 0s linear infinite;box-shadow:0 0 0 80px #e8e8e8}
-.testimonial-avtar:after{animation:2.5s anim-effct-testi-back 0s linear infinite;box-shadow:0 0 0 10px #f4f4f4}
+.testimonial-avatar{background-image:url(../prod/images/Testimonial.png);border-radius:100%;height:120px;width:120px;padding:15px;text-align:center;margin:0 auto;background-size:cover;position:absolute;top:20px;left:0;right:0}
+.testimonial-avatar img{border-radius:100%;height:90px}
+.testimonial-avatar:after,.testimonial-avatar:before{position:absolute;width:120px;height:120px;top:0;left:0;border-radius:50%;z-index:0;content:""}
+.testimonial-avatar:before{animation:2.5s anim-effct-testi 0s linear infinite;box-shadow:0 0 0 80px #e8e8e8}
+.testimonial-avatar:after{animation:2.5s anim-effct-testi-back 0s linear infinite;box-shadow:0 0 0 10px #f4f4f4}
 .testimonial-text{text-align:center;box-shadow:0 0 65px 0 rgba(170,170,170,.25);background-color:#fff;margin-bottom:100px;padding:100px 40px 40px}
 .testimonial-text h3{color:#055DEB;margin-bottom:0}
 .testimonial-text h6{text-transform:capitalize;margin:0}
@@ -3555,6 +3555,7 @@ button:focus{outline:0}
 .toast{left:50%;margin:0 auto;position:fixed;transform:translateX(-50%);z-index:100}
 .success-toast{background-color:#32cd32}
 .alert-toast{background-color:#f31431}
+#particles-js{position:absolute;width:100%;height:100%;background-color:transparent;z-index:0;margin-top:-100px}
 @media (min-width:2500px){.screenshot{background-size:unset}
 }
 @media (min-width:1670px) and (max-width:1800px){.home-decor .home-circle2{top:150px;right:25px}
@@ -3898,7 +3899,7 @@ p.caption-about{text-align:left}
 .theme-form .form-control{max-width:768px}
 }
 @media (max-width:767px){.home-three .contain,.home-two .contain{position:relative;margin-right:auto;transform:none}
-.about-phone,.animated-circle.three:after,.d-medium-none,.d-medium-none-lg,.feature-decor .feature-circle1,.home-right,.sm-d-none,.team .team-circle3,.testimonial-avtar:after,.testimonial-avtar:before{display:none}
+.about-phone,.animated-circle.three:after,.d-medium-none,.d-medium-none-lg,.feature-decor .feature-circle1,.home-right,.sm-d-none,.team .team-circle3,.testimonial-avatar:after,.testimonial-avatar:before{display:none}
 .faq .card-body{font-size:13px}
 .blog-cat-detail ul li a,.testimonial-text p{font-size:14px}
 .mob-mocup{width:280px;left:128px}
@@ -3915,8 +3916,8 @@ p.caption-about{text-align:left}
 .garb-img{margin-top:30px}
 .price-type{margin:0 auto}
 .testimonial{background-size:contain}
-.testimonial-avtar,.testimonial-avtar:after,.testimonial-avtar:before{height:100px;width:100px}
-.testimonial-avtar img{height:70px}
+.testimonial-avatar,.testimonial-avatar:after,.testimonial-avatar:before{height:100px;width:100px}
+.testimonial-avatar img{height:70px}
 .testimonial-text{padding:60px 20px 20px}
 .testimonial-text h3{line-height:1;margin-top:20px}
 .price-block{padding:30px}

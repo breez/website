@@ -934,16 +934,16 @@
     margin: 0 auto; }
   .testimonial {
     background-size: contain; }
-  .testimonial-avtar {
+  .testimonial-avatar {
     height: 100px;
     width: 100px; }
-    .testimonial-avtar:before {
+    .testimonial-avatar:before {
       height: 100px;
       width: 100px; }
-    .testimonial-avtar:after {
+    .testimonial-avatar:after {
       height: 100px;
       width: 100px; }
-    .testimonial-avtar img {
+    .testimonial-avatar img {
       height: 70px; }
   .testimonial-text {
     padding: 60px 20px 20px; }
@@ -1147,9 +1147,9 @@
     width: 80px; }
   .mt-35 > div + div {
     margin-top: 40px; }
-  .testimonial-avtar:after {
+  .testimonial-avatar:after {
     display: none; }
-  .testimonial-avtar:before {
+  .testimonial-avatar:before {
     display: none; }
   .margin-bottom > div + div + div .review-box {
     margin-top: 30px; }

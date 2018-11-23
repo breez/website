@@ -1311,7 +1311,7 @@ ul {
   padding: 30px; }
   .team-box .overlay {
     position: relative; }
-  .team-box .team-avtar img {
+  .team-box .team-avatar img {
     border-radius: 100%;
     margin: 0 auto; }
 
@@ -1648,7 +1648,7 @@ ul {
   padding-right: 30px;
   padding-bottom: 0; }
 
-.testimonial-avtar {
+.testimonial-avatar {
   background-image: url(../prod/images/Testimonial.png);
   border-radius: 100%;
   height: 120px;
@@ -1661,10 +1661,10 @@ ul {
   top: 20px;
   left: 0;
   right: 0; }
-  .testimonial-avtar img {
+  .testimonial-avatar img {
     border-radius: 100%;
     height: 90px; }
-  .testimonial-avtar:before {
+  .testimonial-avatar:before {
     animation: 2.5s anim-effct-testi 0s linear infinite;
     box-shadow: 0 0 0 80px #e8e8e8;
     position: absolute;
@@ -1675,7 +1675,7 @@ ul {
     left: 0;
     border-radius: 50%;
     z-index: 0; }
-  .testimonial-avtar:after {
+  .testimonial-avatar:after {
     animation: 2.5s anim-effct-testi-back 0s linear infinite;
     box-shadow: 0 0 0 10px #f4f4f4;
     position: absolute;
@@ -2688,3 +2688,12 @@ button:focus {
   border-radius: 5px;
   box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.2);
   padding: 1rem; }
+
+/* Particles */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  z-index: 0;
+  margin-top: -100px; }
