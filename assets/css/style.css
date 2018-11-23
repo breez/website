@@ -256,7 +256,7 @@ section {
     right: 0; }
     .navbar-light .default-nav #mymenu {
       text-align: center;
-      margin-top: 20%;
+      margin: 45px 0 15px;
       font-size: 22px;
       line-height: 2.64;
       color: #777777; } }

@@ -2993,7 +2993,7 @@ a:focus,a:hover{color:#fff;text-decoration:none}
 @media (min-width:992px){.navbar-brand-mobail,.navbar-toggler-mobile{display:none}
 }
 @media (max-width:992px){.navbar-light .default-nav{position:fixed;top:0;padding-bottom:20px;left:0;right:0}
-.navbar-light .default-nav #mymenu{text-align:center;margin-top:20%;font-size:22px;line-height:2.64;color:#777}
+.navbar-light .default-nav #mymenu{text-align:center;margin:45px 0 15px;font-size:22px;line-height:2.64;color:#777}
 }
 @media (min-width:990px){.navbar-light .default-nav .navbar-nav{top:-6px}
 }
