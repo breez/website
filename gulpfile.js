@@ -94,7 +94,7 @@ function defaultTask(cb) {
   console.log('Concat Js: Ok');
   compileSass();
   console.log('Compile Sass: Ok');
-  
+
   //optimizationImg();
   console.log('Optimization Img: Ok');
   cb();
