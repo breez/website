@@ -29,7 +29,15 @@ func contactMailer(w http.ResponseWriter, r *http.Request) {
 	}
 
 	log.Printf("Post from website! r.PostFrom = %v\n", r.PostForm)
-	if err := contactNotification(contact{
+	success, score, err := recaptcha.Check(nil, "contact", r.FormValue("recaptcha_response"))
+	log.Printf("recaptcha.Verify: %v, score: %v, err: %v", success, score, err)
+
+	if score <= 0.5 {
+		http.Error(w, "", http.StatusBadRequest)
+		return
+	}
+
+	if err = contactNotification(contact{
 		FullName:    r.FormValue("fullname"),
 		Email:       r.FormValue("email"),
 		ContactType: r.FormValue("contact_type"),

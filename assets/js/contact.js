@@ -25,6 +25,7 @@ $("#contact-form").validate({
                 email: $('#email').val(),
                 contact_type: $('#contact_type').val(),
                 message: $('#message').val(),
+                recaptcha_response: $('#recaptcha_response').val(),
                 send: $('#emailsend').val()
             },
             function(data, status){

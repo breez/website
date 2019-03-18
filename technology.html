@@ -18,7 +18,18 @@
 
   <link rel="stylesheet" href="prod/styles.min.css">
 
-    <!-- Social Meta Tags -->
+  <!-- Recaptcha v3 -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LcXRpgUAAAAAME7hVWwxUI0BvOuz6QEocYmUpIa"></script>
+  <script>
+    grecaptcha.ready(function () {
+      grecaptcha.execute('6LcXRpgUAAAAAME7hVWwxUI0BvOuz6QEocYmUpIa', { action: 'contact' }).then(function (token) {
+        var recaptchaResponse = document.getElementById('recaptcha_response');
+        recaptchaResponse.value = token;
+      });
+    });
+  </script>
+
+  <!-- Social Meta Tags -->
   <!--  Essential META Tags -->
   <meta property="og:title" content="Breez">
   <meta property="og:description" content="Lightning Fast Bitcoin Payments">
@@ -205,7 +216,7 @@
 
                   </div>
                 </div>
-
+                <input type="hidden" name="recaptcha_response" id="recaptcha_response">
 
                 <div class="form-group text-center">
                   <input type="submit" id="emailsend" name="send" class="btn btn-custom theme-color" value="Contact Us" />
