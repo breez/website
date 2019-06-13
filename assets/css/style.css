@@ -1083,7 +1083,8 @@ ul {
   .feature .btn.contribute {
     color: #055DEB;
     background: transparent;
-    border: 1px #055DEB solid; }
+    border: 1px #055DEB solid;
+    min-width: 150px; }
     .feature .btn.contribute:hover {
       color: white;
       background: #055DEB;
@@ -2697,3 +2698,104 @@ button:focus {
   background-color: transparent;
   z-index: 0;
   margin-top: -100px; }
+
+@media (min-width: 993px) {
+  .top-margin .badges {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; } }
+
+.badge-btn, .badge-btn:active {
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: left;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid #fff;
+  padding: 2px 8px;
+  margin: 5px auto 5px 0;
+  border-radius: 50px;
+  color: #055deb;
+  fill: #055deb;
+  background: #fff;
+  line-height: 1em;
+  min-width: 150px;
+  height: 41px;
+  transition: .2s ease-out;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: 'liga', 'kern'; }
+  .badge2 .badge-btn, .badge2 .badge-btn:active {
+    border: 1px solid #055deb; }
+  .badge2 .badge-btn, .badge2 .badge-btn:active {
+    margin: 10px auto 0; }
+  .badge2 .badge-btn, .badge2 .badge-btn:active {
+    color: #fff;
+    fill: #fff;
+    background: #055deb; }
+  .badge-btn:hover, .badge-btn:focus, .badge-btn:active:hover, .badge-btn:active:focus {
+    background: transparent;
+    color: #fff;
+    fill: #fff;
+    border-color: #fff;
+    transform: scale(1.01) translate3d(0, -1px, 0); }
+  .badge2 .badge-btn:hover,
+  .badge2 .badge-btn:focus, .badge2 .badge-btn:active:hover,
+  .badge2 .badge-btn:active:focus {
+    background: transparent;
+    color: #055deb;
+    fill: #055deb;
+    border-color: #055deb; }
+  .badge-btn:active, .badge-btn:active:active {
+    outline: 0;
+    background: rgba(38, 38, 38, 0);
+    transition: none; }
+  .badge2 .badge-btn:active, .badge2 .badge-btn:active:active {
+    outline: 0;
+    background: rgba(38, 38, 38, 0);
+    transition: none; }
+
+.badge-btn__icon,
+.badge-btn__text,
+.badge-btn__storename {
+  display: inline-block;
+  vertical-align: top; }
+
+.badge-btn__icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  margin-top: 2px; }
+
+.badge-btn__icon--google {
+  margin-left: 5px; }
+
+.badge-btn__text {
+  letter-spacing: .08em;
+  margin-top: 2px;
+  font-size: 10px; }
+
+.badge-btn__storename {
+  display: block;
+  margin-left: 38px;
+  margin-top: -15px;
+  font-size: 16px;
+  letter-spacing: -.03em; }
+
+@media (max-width: 767px) {
+  .android .badge-btn--ios {
+    display: none; }
+  .iphone .badge-btn--android {
+    display: none; } }
+
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 500;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff2"), url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff") format("woff"), url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.ttf") format("truetype"); }

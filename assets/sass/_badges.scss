@@ -1,0 +1,169 @@
+//
+// Button Variables
+//
+$badge-btn-background:#fff;
+$badge-btn-color:#055deb;
+$badge-btn-border:#fff;
+
+$badge-btn-background-hover: transparent;
+$badge-btn-color-hover:     #fff;
+$badge-btn-border-hover:    #fff;
+
+$badge2-btn-background:#055deb;
+$badge2-btn-color:#fff;
+$badge2-btn-border:#055deb;
+
+$badge2-btn-background-hover: transparent;
+$badge2-btn-color-hover:     #055deb;
+$badge2-btn-border-hover:    #055deb;
+
+$badge-btn-width: 150px; // defined as min-width
+
+// San Francisco all the things
+// http://furbo.org/2015/07/09/i-left-my-system-fonts-in-san-francisco/
+// https://gist.github.com/AndrewBarba/2c0f6612ceef30f5f55d
+$badge-font: system, -apple-system, '.SFNSDisplay-Regular', 'San Francisco', 'Helvetica Neue', 'Lucida Grande', 'Arial', sans-serif;
+
+
+
+@media (min-width: 993px) {
+    .top-margin .badges {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+//
+// Button Base
+//
+.badge-btn, .badge-btn:active {
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: left;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid $badge-btn-border;
+    .badge2 & {
+        border: 1px solid $badge2-btn-border;
+    }
+    padding: 2px 8px;
+    margin: 5px auto 5px 0;
+    .badge2 & {
+        margin: 10px auto 0;
+    }
+    border-radius: 50px;
+    color: $badge-btn-color;
+    fill: $badge-btn-color;
+    background: $badge-btn-background;
+    .badge2 & {
+        color: $badge2-btn-color;
+        fill: $badge2-btn-color;
+        background: $badge2-btn-background;
+    }
+    line-height: 1em;
+    //
+    // no specific width so button can grow
+    // for localization
+    //
+    min-width: $badge-btn-width;
+    height: 41px;
+    transition: .2s ease-out;
+    //box-shadow: 0 1px 2px rgba($btn-background, 20%);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    //font-family: $badge-font;
+    //font-weight: 500;
+    text-rendering: optimizeLegibility;
+    //
+    // Controversial! But prevents text flickering in
+    // Safari/Firefox when animations are running
+    //
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: 'liga', 'kern';
+    
+    &:hover,
+    &:focus {
+        background: $badge-btn-background-hover;
+        color: $badge-btn-color-hover;
+        fill: $badge-btn-color-hover;
+        border-color: $badge-btn-border-hover;
+        transform: scale(1.01) translate3d(0,-1px,0);
+        //box-shadow: 0 4px 8px rgba($btn-background, 20%);
+    }
+    .badge2 &:hover,
+    .badge2 &:focus {
+        background: $badge2-btn-background-hover;
+        color: $badge2-btn-color-hover;
+        fill: $badge2-btn-color-hover;
+        border-color: $badge2-btn-border-hover;
+    }
+
+    &:active {
+        outline: 0;
+        background: lighten($badge-btn-background-hover, 15%);
+        transition: none;
+    }
+    .badge2 &:active {
+        outline: 0;
+        background: lighten($badge2-btn-background-hover, 15%);
+        transition: none;
+    }
+}
+
+//
+// Button Items
+//
+.badge-btn__icon,
+.badge-btn__text,
+.badge-btn__storename {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.badge-btn__icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    margin-top: 2px;
+}
+    
+.badge-btn__icon--google {
+    margin-left: 5px;
+}
+    
+.badge-btn__text {
+    letter-spacing: .08em;
+    margin-top: 2px;
+    font-size: 10px;
+}
+
+.badge-btn__storename {
+    display: block;
+    margin-left: 38px;
+    margin-top: -15px;
+    font-size: 16px;
+    letter-spacing: -.03em;
+}
+
+@media (max-width: 767px) {
+    .android .badge-btn--ios {
+        display: none;
+    }
+    .iphone .badge-btn--android {
+        display: none;
+    }
+}
+
+@font-face {
+    font-family: "San Francisco";
+    font-weight: 500;
+    src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff2'),
+         url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff') format('woff'),
+         url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.ttf') format('truetype');
+}

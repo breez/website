@@ -3,6 +3,7 @@
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
+.badge-btn,.badge-btn:active,.fa{-moz-osx-font-smoothing:grayscale}
 .fa.fa-pull-left,.fa.pull-left{margin-right:.3em}
 .fa-fw,.fa-li{text-align:center}
 pre,textarea{overflow:auto}
@@ -12,8 +13,9 @@ button,hr,input{overflow:visible}
 .dropdown-menu,.form-control,.modal-content,.popover{background-clip:padding-box}
 .dropdown-menu,.nav,.navbar-nav{list-style:none}
 .fa-ul,ul{list-style-type:none}
+.badge-btn,.badge-btn:active,.owl-carousel,.owl-carousel .owl-item,html{-webkit-tap-highlight-color:transparent}
 @font-face{font-family:FontAwesome;src:url(../fonts/fontawesome-webfont.eot?v=4.7.0);src:url(../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0) format('embedded-opentype'),url(../fonts/fontawesome-webfont.woff2?v=4.7.0) format('woff2'),url(../fonts/fontawesome-webfont.woff?v=4.7.0) format('woff'),url(../fonts/fontawesome-webfont.ttf?v=4.7.0) format('truetype'),url(../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular) format('svg');font-weight:400;font-style:normal}
-.fa{font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.fa{font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased}
 .fa-lg{font-size:1.33333333em;line-height:.75em;vertical-align:-15%}
 .fa-stack,img{vertical-align:middle}
 .fa-2x{font-size:2em}
@@ -740,7 +742,7 @@ dd,h1,h2,h3,h4,h5,h6,label{margin-bottom:.5rem}
  */
 :root{--blue:#007bff;--indigo:#6610f2;--purple:#6f42c1;--pink:#e83e8c;--red:#dc3545;--orange:#fd7e14;--yellow:#ffc107;--green:#28a745;--teal:#20c997;--cyan:#17a2b8;--white:#fff;--gray:#6c757d;--gray-dark:#343a40;--primary:#007bff;--secondary:#6c757d;--success:#28a745;--info:#17a2b8;--warning:#ffc107;--danger:#dc3545;--light:#f8f9fa;--dark:#343a40;--breakpoint-xs:0;--breakpoint-sm:576px;--breakpoint-md:768px;--breakpoint-lg:992px;--breakpoint-xl:1200px;--font-family-sans-serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";--font-family-monospace:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}
 *,::after,::before{box-sizing:border-box}
-html{font-family:sans-serif;line-height:1.15;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-ms-overflow-style:scrollbar;-webkit-tap-highlight-color:transparent}
+html{font-family:sans-serif;line-height:1.15;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-ms-overflow-style:scrollbar}
 .text-monospace,code,kbd,pre,samp{font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}
 @-ms-viewport{width:device-width}
 body{font-weight:400;line-height:1.5;color:#212529}
@@ -1538,7 +1540,8 @@ a.btn.disabled,fieldset:disabled a.btn{pointer-events:none}
 .breadcrumb-item+.breadcrumb-item:hover::before{text-decoration:none}
 .breadcrumb-item.active{color:#6c757d}
 .pagination{display:-ms-flexbox;display:flex;padding-left:0}
-.page-link{display:block;padding:.5rem .75rem;margin-left:-1px;line-height:1.25;color:#007bff;background-color:#fff;border:1px solid #dee2e6}
+.page-link,.popover-body,.popover-header{padding:.5rem .75rem}
+.page-link{display:block;margin-left:-1px;line-height:1.25;color:#007bff;background-color:#fff;border:1px solid #dee2e6}
 .page-link:hover{z-index:2;color:#0056b3;text-decoration:none;background-color:#e9ecef;border-color:#dee2e6}
 .page-link:focus{z-index:2;outline:0;box-shadow:0 0 0 .2rem rgba(0,123,255,.25)}
 .page-item:first-child .page-link{margin-left:0;border-top-left-radius:.25rem;border-bottom-left-radius:.25rem}
@@ -1732,9 +1735,9 @@ button.close{padding:0;background-color:transparent;border:0;-webkit-appearance:
 .bs-popover-auto[x-placement^=left] .arrow::after,.bs-popover-auto[x-placement^=left] .arrow::before,.bs-popover-left .arrow::after,.bs-popover-left .arrow::before{border-width:.5rem 0 .5rem .5rem}
 .bs-popover-auto[x-placement^=left] .arrow::before,.bs-popover-left .arrow::before{right:0;border-left-color:rgba(0,0,0,.25)}
 .bs-popover-auto[x-placement^=left] .arrow::after,.bs-popover-left .arrow::after{right:1px;border-left-color:#fff}
-.popover-header{padding:.5rem .75rem;margin-bottom:0;font-size:1rem;color:inherit;background-color:#f7f7f7;border-bottom:1px solid #ebebeb;border-top-left-radius:calc(.3rem - 1px);border-top-right-radius:calc(.3rem - 1px)}
+.popover-header{margin-bottom:0;font-size:1rem;color:inherit;background-color:#f7f7f7;border-bottom:1px solid #ebebeb;border-top-left-radius:calc(.3rem - 1px);border-top-right-radius:calc(.3rem - 1px)}
 .popover-header:empty{display:none}
-.popover-body{padding:.5rem .75rem;color:#212529}
+.popover-body{color:#212529}
 .carousel-inner{width:100%;overflow:hidden}
 .carousel-item{display:none;-ms-flex-align:center;align-items:center;width:100%;transition:-webkit-transform .6s ease;transition:transform .6s ease;transition:transform .6s ease,-webkit-transform .6s ease;-webkit-backface-visibility:hidden;backface-visibility:hidden;-webkit-perspective:1000px;perspective:1000px}
 @media screen and (prefers-reduced-motion:reduce){.carousel-item{transition:none}
@@ -2336,7 +2339,7 @@ body,html{overflow-x:hidden}
 }
 .text-justify{text-align:justify!important}
 .text-nowrap{white-space:nowrap!important}
-.recent-blog .media h5,.text-truncate{text-overflow:ellipsis;white-space:nowrap}
+.text-truncate{text-overflow:ellipsis;white-space:nowrap}
 .text-left{text-align:left!important}
 .text-right{text-align:right!important}
 .text-center{text-align:center!important}
@@ -2898,7 +2901,7 @@ to{visibility:hidden;transform:translate3d(100%,0,0)}
 to{visibility:hidden;transform:translate3d(0,-100%,0)}
 }
 .slideOutUp{animation-name:slideOutUp}
-.owl-carousel,.owl-carousel .owl-item{-webkit-tap-highlight-color:transparent;position:relative}
+.owl-carousel,.owl-carousel .owl-item{position:relative}
 .owl-carousel{display:none;width:100%;z-index:1}
 .owl-carousel .owl-stage{position:relative;-ms-touch-action:pan-Y;touch-action:manipulation;-moz-backface-visibility:hidden}
 .owl-carousel .owl-stage:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0}
@@ -3181,6 +3184,7 @@ a:focus,a:hover{color:#fff;text-decoration:none}
 @media (min-width:900px){.feature .feature-text{margin-top:5%}
 .feature .btn{margin-right:32px}
 }
+.feature .btn.contribute{min-width:150px}
 .feature .btn.contribute:hover{color:#fff;background:#055DEB;border:1px solid #fff}
 .feature-bg{background-image:linear-gradient(116deg,#00b5f6,#0067ff)}
 .feature-bg .title,.feature-bg h2{color:#fff;text-align:center}
@@ -3468,7 +3472,7 @@ button:focus{outline:0}
 .tags .badge-theme{padding:5px 7px;font-size:12px;background-color:#055DEB;margin-right:2px;margin-bottom:5px;color:#fff;font-weight:400;transition:.3s ease}
 .tags .badge-theme:hover{background-color:#414141;transition:.3s ease}
 .recent-blog .media{margin-bottom:15px;align-items:center}
-.recent-blog .media h5{line-height:24px;font-size:14px;font-weight:600;color:#414141;text-transform:capitalize;letter-spacing:1px;overflow:hidden;max-width:50%}
+.recent-blog .media h5{line-height:24px;font-size:14px;font-weight:600;color:#414141;text-transform:capitalize;letter-spacing:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:50%}
 .recent-blog .media p{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#777}
 .bottom-section iframe{width:100%;height:100%;border:0}
 .footer-address a{padding-left:35px;color:#fff!important;letter-spacing:.03em;line-height:22px;margin-bottom:0;display:block}
@@ -3556,6 +3560,21 @@ button:focus{outline:0}
 .success-toast{background-color:#32cd32}
 .alert-toast{background-color:#f31431}
 #particles-js{position:absolute;width:100%;height:100%;background-color:transparent;z-index:0;margin-top:-100px}
+@media (min-width:993px){.top-margin .badges{display:flex;align-items:center;justify-content:center;text-align:center}
+}
+.badge-btn,.badge-btn:active{box-sizing:border-box;display:inline-block;text-align:left;white-space:nowrap;text-decoration:none;vertical-align:middle;touch-action:manipulation;cursor:pointer;user-select:none;border:1px solid #fff;padding:2px 8px;margin:5px auto 5px 0;border-radius:50px;color:#055deb;fill:#055deb;background:#fff;line-height:1em;min-width:150px;height:41px;transition:.2s ease-out;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-font-feature-settings:'liga','kern'}
+.badge2 .badge-btn,.badge2 .badge-btn:active{border:1px solid #055deb;margin:10px auto 0;color:#fff;fill:#fff;background:#055deb}
+.badge-btn:active:focus,.badge-btn:active:hover,.badge-btn:focus,.badge-btn:hover{background:0 0;color:#fff;fill:#fff;border-color:#fff;transform:scale(1.01) translate3d(0,-1px,0)}
+.badge2 .badge-btn:active:focus,.badge2 .badge-btn:active:hover,.badge2 .badge-btn:focus,.badge2 .badge-btn:hover{background:0 0;color:#055deb;fill:#055deb;border-color:#055deb}
+.badge-btn:active,.badge-btn:active:active,.badge2 .badge-btn:active,.badge2 .badge-btn:active:active{outline:0;background:rgba(38,38,38,0);transition:none}
+.badge-btn__icon,.badge-btn__storename,.badge-btn__text{display:inline-block;vertical-align:top}
+.badge-btn__icon{width:30px;height:30px;margin-right:5px;margin-top:2px}
+.badge-btn__icon--google{margin-left:5px}
+.badge-btn__text{letter-spacing:.08em;margin-top:2px;font-size:10px}
+.badge-btn__storename{display:block;margin-left:38px;margin-top:-15px;font-size:16px;letter-spacing:-.03em}
+@media (max-width:767px){.android .badge-btn--ios,.iphone .badge-btn--android{display:none}
+}
+@font-face{font-family:"San Francisco";font-weight:500;src:url(https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff2),url(https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff) format("woff"),url(https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.ttf) format("truetype")}
 @media (min-width:2500px){.screenshot{background-size:unset}
 }
 @media (min-width:1670px) and (max-width:1800px){.home-decor .home-circle2{top:150px;right:25px}

@@ -1,5 +1,18 @@
 $(document).ready(function(){
     'use strict';
+
+    var ua = navigator.userAgent;
+    var checker = {
+        "iphone": ua.match(/iPhone/),
+        "android": ua.match(/Android/)
+    };
+    if (checker.android) {
+        $("html").addClass("android");
+    }
+    if (checker.iphone) {
+        $("html").addClass("iphone");
+    }
+
     /*----------------------------------------
      change navbar theme on load
      ----------------------------------------*/

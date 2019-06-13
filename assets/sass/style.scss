@@ -1467,6 +1467,7 @@ ul {
       color: $color_bright_turquoise;
       background: transparent;
       border: 1px $color_bright_turquoise solid;
+      min-width: 150px;
 
       &:hover {
         color: white;
@@ -3604,3 +3605,4 @@ button {
   z-index: 0;
   margin-top: -100px;
 }
+@import "badges";
