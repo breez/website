@@ -2963,7 +2963,7 @@ body.home-style.three{padding:0!important}
 body.home-style.three.modal-open .navbar{padding:15px 0 0!important}
 section{padding-top:100px;padding-bottom:80px}
 @font-face{font-family:breezlogo;src:url(../fonts/breezlogo.ttf) format("truetype")}
-.logo-text{font-family:breezlogo;color:#fff;-webkit-background-clip:text;background-clip:text;padding-top:18px;padding-bottom:10px;padding-left:10px;margin:0}
+.logo-text{font-family:breezlogo;color:#fff;-webkit-background-clip:text;background-clip:text;padding-top:0;padding-bottom:10px;padding-left:10px;margin:0}
 h1,h2{text-transform:uppercase}
 h1,h6{margin-top:25px}
 h1{line-height:28px;font-size:40px;margin-bottom:40px;color:#055DEB}
@@ -2986,15 +2986,17 @@ a:focus,a:hover{color:#fff;text-decoration:none}
 .navbar-brand{display:block;width:150px;height:75px}
 .navbar-toggler,.navbar-toggler-mobile{width:50px;border:none;background-repeat:no-repeat}
 .navbar-brand .logo-text{top:-2px}
-.navbar-brand-mobail{z-index:1000;position:absolute;top:-2px;left:16px}
+.navbar-brand-mobile{z-index:1000;position:absolute;top:-2px;left:16px}
 .darkHeader .navbar-toggler,.navbar-toggler,.navbar-toggler-mobile{position:absolute;top:20px;right:20px}
-.navbar-brand-mobail h1{background-image:-webkit-gradient(linear,left top,right top,color-stop(0,#00b5f6),color-stop(1,#0067ff));background-image:gradient(linear,left top,right top,color-stop(0,#00b5f6),color-stop(1,#0067ff));color:transparent}
+@media (min-width:992px){.logo-text{padding-top:18px}
+.navbar-brand-mobile,.navbar-toggler-mobile{display:none}
+}
+.navbar-brand-mobile .logo-text{padding-top:22px}
+.navbar-brand-mobile h1{background-image:-webkit-gradient(linear,left top,right top,color-stop(0,#00b5f6),color-stop(1,#0067ff));background-image:gradient(linear,left top,right top,color-stop(0,#00b5f6),color-stop(1,#0067ff));color:transparent}
 .navbar-toggler,.navbar-toggler.collapsed{background-image:url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='43px' height='27px' viewBox='0 0 43 27' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3C!-- Generator: Sketch 52.1 (67048) - http://www.bohemiancoding.com/sketch --%3E%3Ctitle%3Ewhite menu icon%3C/title%3E%3Cdesc%3ECreated with Sketch.%3C/desc%3E%3Cg id='white-menu-icon' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='round'%3E%3Cg id='Group-2' transform='translate(2.142578, 1.732168)' stroke='%23FFFFFF' stroke-width='4'%3E%3Cpath d='M8.09605592,1.00049955 L38.0960559,1.00049955' id='Path-9'%3E%3C/path%3E%3Cpath d='M0.259144404,11.6700662 L38.0960559,11.6700662' id='Path-9-Copy'%3E%3C/path%3E%3Cpath d='M8.09605592,22.3396329 L38.0960559,22.3396329' id='Path-9-Copy-2'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
 .navbar-toggler{height:28px}
 .navbar-toggler-mobile{cursor:pointer;height:50px;background-color:transparent;background-image:url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='43px' height='27px' viewBox='0 0 43 27' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3C!-- Generator: Sketch 52.1 (67048) - http://www.bohemiancoding.com/sketch --%3E%3Ctitle%3EX%3C/title%3E%3Cdesc%3ECreated with Sketch.%3C/desc%3E%3Cg id='X' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='round'%3E%3Cg id='Group-46' transform='translate(9.000000, 1.000000)' stroke='%230085FB' stroke-width='4'%3E%3Cpath d='M1.07971817,1.07971817 L23.7537998,23.7537998' id='Line'%3E%3C/path%3E%3Cpath d='M1.07971817,1.07971817 L23.7537998,23.7537998' id='Line' transform='translate(12.416759, 12.416759) scale(-1, 1) translate(-12.416759, -12.416759) '%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
 .darkHeader .navbar-toggler,.darkHeader .navbar-toggler.collapsed{background-image:url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='43px' height='27px' viewBox='0 0 43 27' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3C!-- Generator: Sketch 52.1 (67048) - http://www.bohemiancoding.com/sketch --%3E%3Ctitle%3Eblue menu icon%3C/title%3E%3Cdesc%3ECreated with Sketch.%3C/desc%3E%3Cg id='blue-menu-icon' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='round'%3E%3Cg id='Group-2' transform='translate(2.142578, 1.732168)' stroke='%230085FB' stroke-width='4'%3E%3Cpath d='M8.09605592,1.00049955 L38.0960559,1.00049955' id='Path-9'%3E%3C/path%3E%3Cpath d='M0.259144404,11.6700662 L38.0960559,11.6700662' id='Path-9-Copy'%3E%3C/path%3E%3Cpath d='M8.09605592,22.3396329 L38.0960559,22.3396329' id='Path-9-Copy-2'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
-@media (min-width:992px){.navbar-brand-mobail,.navbar-toggler-mobile{display:none}
-}
 @media (max-width:992px){.navbar-light .default-nav{position:fixed;top:0;padding-bottom:20px;left:0;right:0}
 .navbar-light .default-nav #mymenu{text-align:center;margin:56px 0 15px;font-size:22px;line-height:2.64;color:#777}
 }
@@ -3105,7 +3107,7 @@ a:focus,a:hover{color:#fff;text-decoration:none}
 .theme-nav .dropdown-menu .nav-item{font-size:13px;padding:0}
 .theme-nav .dropdown-menu .nav-link{color:#777!important}
 .theme-nav.darkHeader{padding-top:0;padding-bottom:0}
-.theme-nav.darkHeader .logo-text{background-image:-webkit-gradient(linear,left top,right top,color-stop(0,#00b5f6),color-stop(1,#0067ff));background-image:gradient(linear,left top,right top,color-stop(0,#00b5f6),color-stop(1,#0067ff));color:transparent}
+.theme-nav.darkHeader .logo-text{padding-top:12px;background-image:-webkit-gradient(linear,left top,right top,color-stop(0,#00b5f6),color-stop(1,#0067ff));background-image:gradient(linear,left top,right top,color-stop(0,#00b5f6),color-stop(1,#0067ff));color:transparent}
 .theme-nav.darkHeader .nav-link{color:gray}
 .theme-nav.darkHeader .dropdown-menu .nav-item .nav-link.active{color:#18e7d3;transition:all .3s ease-in-out}
 .darkHeader,.fixed-top,.icon-hover{transition:all .3s ease}

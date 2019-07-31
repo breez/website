@@ -107,7 +107,10 @@ section {
   color: #ffffff;
   -webkit-background-clip: text;
   background-clip: text;
-  padding-top: 18px;
+  padding-top: 0;
+  @media (min-width: 992px) {
+    padding-top: 18px;
+  }
   padding-bottom: 10px;
   padding-left: 10px;
   margin: 0;
@@ -246,7 +249,7 @@ section {
     top: -2px;
   }
 }
-.navbar-brand-mobail {
+.navbar-brand-mobile {
   @media (min-width: 992px) {
     display: none;
   }
@@ -254,6 +257,9 @@ section {
   position: absolute;
   top: -2px;
   left: 16px;
+  .logo-text {
+    padding-top: 22px;
+  }
   h1 {
     background-image: -webkit-gradient(
       linear,
@@ -961,6 +967,7 @@ ul {
     padding-top: 0;
     padding-bottom: 0;
     .logo-text {
+      padding-top: 12px;
       background-image: -webkit-gradient(
         linear,
         left top,
