@@ -9,7 +9,14 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/SparkPost/gosparkpost"
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/awserr"
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/ses"
+)
+
+const (
+	charset = "UTF-8"
 )
 
 type contact struct {
@@ -70,39 +77,58 @@ func contactNotification(c contact) error {
 		return err
 	}
 
-	apiKey := os.Getenv("SPARKPOST_API_KEY")
-	cfg := &gosparkpost.Config{
-		BaseUrl:    "https://api.sparkpost.com",
-		ApiKey:     apiKey,
-		ApiVersion: 1,
-	}
-	var client gosparkpost.Client
-	err = client.Init(cfg)
+	sess, err := session.NewSession(&aws.Config{})
 	if err != nil {
-		log.Printf("SparkPost client init failed: %s", err)
+		log.Printf("Error in session.NewSession: %v", err)
 		return err
 	}
+	svc := ses.New(sess)
 
-	// Create a Transmission using an inline Recipient List
-	// and inline email Content.
-	tx := &gosparkpost.Transmission{
-		Recipients: []gosparkpost.Recipient{{Address: gosparkpost.Address{Email: os.Getenv("CONTACT_NOTIFICATION_EMAIL"), Name: os.Getenv("CONTACT_NOTIFICATION_NAME")}}},
-		Content: gosparkpost.Content{
-			HTML:    html.String(),
-			From:    os.Getenv("CONTACT_NOTIFICATION_FROM"),
-			Subject: "Contact Form",
+	input := &ses.SendEmailInput{
+		Destination: &ses.Destination{
+			CcAddresses: []*string{},
+			ToAddresses: []*string{
+				aws.String(os.Getenv("CONTACT_NOTIFICATION_NAME") + "<" + os.Getenv("CONTACT_NOTIFICATION_EMAIL") + ">"),
+			},
 		},
+		Message: &ses.Message{
+			Body: &ses.Body{
+				Html: &ses.Content{
+					Charset: aws.String(charset),
+					Data:    aws.String(html.String()),
+				},
+			},
+			Subject: &ses.Content{
+				Charset: aws.String(charset),
+				Data:    aws.String("Contact Form"),
+			},
+		},
+		Source: aws.String(os.Getenv("CONTACT_NOTIFICATION_FROM")),
 	}
-	id, _, err := client.Send(tx)
+	// Attempt to send the email.
+	result, err := svc.SendEmail(input)
 	if err != nil {
-		log.Printf("Error sending email: %v", err)
+		if aerr, ok := err.(awserr.Error); ok {
+			switch aerr.Code() {
+			case ses.ErrCodeMessageRejected:
+				log.Println(ses.ErrCodeMessageRejected, aerr.Error())
+			case ses.ErrCodeMailFromDomainNotVerifiedException:
+				log.Println(ses.ErrCodeMailFromDomainNotVerifiedException, aerr.Error())
+			case ses.ErrCodeConfigurationSetDoesNotExistException:
+				log.Println(ses.ErrCodeConfigurationSetDoesNotExistException, aerr.Error())
+			default:
+				log.Println(aerr.Error())
+			}
+		} else {
+			// Print the error, cast err to awserr.Error to get the Code and
+			// Message from an error.
+			log.Println(err.Error())
+		}
 		return err
 	}
 
-	// The second value returned from Send
-	// has more info about the HTTP response, in case
-	// you'd like to see more than the Transmission id.
-	log.Printf("Transmission sent with id [%s]\n", id)
+	log.Printf("Transmission sent with result:\n%v", result)
+
 	return nil
 }
 
@@ -136,34 +162,58 @@ func paymentFailure(w http.ResponseWriter, r *http.Request) {
 }
 
 func paymentFailureNotification(j string) error {
-	apiKey := os.Getenv("SPARKPOST_API_KEY")
-	cfg := &gosparkpost.Config{
-		BaseUrl:    "https://api.sparkpost.com",
-		ApiKey:     apiKey,
-		ApiVersion: 1,
-	}
-	var client gosparkpost.Client
-	err := client.Init(cfg)
+	sess, err := session.NewSession(&aws.Config{})
 	if err != nil {
-		log.Printf("SparkPost client init failed: %s", err)
+		log.Printf("Error in session.NewSession: %v", err)
 		return err
 	}
+	svc := ses.New(sess)
 
-	tx := &gosparkpost.Transmission{
-		Recipients: []gosparkpost.Recipient{{Address: gosparkpost.Address{Email: os.Getenv("PAYMENT_NOTIFICATION_EMAIL"), Name: os.Getenv("PAYMENT_NOTIFICATION_NAME")}}},
-		Content: gosparkpost.Content{
-			HTML:    j,
-			From:    os.Getenv("PAYMENT_NOTIFICATION_FROM"),
-			Subject: "Payment Failure",
+	input := &ses.SendEmailInput{
+		Destination: &ses.Destination{
+			CcAddresses: []*string{},
+			ToAddresses: []*string{
+				aws.String(os.Getenv("PAYMENT_NOTIFICATION_NAME") + "<" + os.Getenv("PAYMENT_NOTIFICATION_EMAIL") + ">"),
+			},
 		},
+		Message: &ses.Message{
+			Body: &ses.Body{
+				Text: &ses.Content{
+					Charset: aws.String(charset),
+					Data:    aws.String(j),
+				},
+			},
+			Subject: &ses.Content{
+				Charset: aws.String(charset),
+				Data:    aws.String("Payment Failure"),
+			},
+		},
+		Source: aws.String(os.Getenv("PAYMENT_NOTIFICATION_FROM")),
 	}
-	id, _, err := client.Send(tx)
+	// Attempt to send the email.
+	result, err := svc.SendEmail(input)
 	if err != nil {
-		log.Printf("Error sending email: %v", err)
+		if aerr, ok := err.(awserr.Error); ok {
+			switch aerr.Code() {
+			case ses.ErrCodeMessageRejected:
+				log.Println(ses.ErrCodeMessageRejected, aerr.Error())
+			case ses.ErrCodeMailFromDomainNotVerifiedException:
+				log.Println(ses.ErrCodeMailFromDomainNotVerifiedException, aerr.Error())
+			case ses.ErrCodeConfigurationSetDoesNotExistException:
+				log.Println(ses.ErrCodeConfigurationSetDoesNotExistException, aerr.Error())
+			default:
+				log.Println(aerr.Error())
+			}
+		} else {
+			// Print the error, cast err to awserr.Error to get the Code and
+			// Message from an error.
+			log.Println(err.Error())
+		}
 		return err
 	}
 
-	log.Printf("Payment Failure notification sent with id [%s]\n", id)
+	log.Printf("Payment Failure notification sent with result:\n%v", result)
+
 	return nil
 }
 
