@@ -26,6 +26,11 @@ type contact struct {
 	Message     string
 }
 
+func addresses(a string) (addr []*string) {
+	json.Unmarshal([]byte(a), &addr)
+	return
+}
+
 func contactMailer(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/contact" || r.Method != "POST" {
 		http.Error(w, "404 not found.", http.StatusNotFound)
@@ -86,10 +91,8 @@ func contactNotification(c contact) error {
 
 	input := &ses.SendEmailInput{
 		Destination: &ses.Destination{
-			CcAddresses: []*string{},
-			ToAddresses: []*string{
-				aws.String(os.Getenv("CONTACT_NOTIFICATION_NAME") + "<" + os.Getenv("CONTACT_NOTIFICATION_EMAIL") + ">"),
-			},
+			CcAddresses: addresses(os.Getenv("CONTACT_NOTIFICATION_CC")),
+			ToAddresses: addresses(os.Getenv("CONTACT_NOTIFICATION_TO")),
 		},
 		Message: &ses.Message{
 			Body: &ses.Body{
@@ -171,10 +174,8 @@ func paymentFailureNotification(j string) error {
 
 	input := &ses.SendEmailInput{
 		Destination: &ses.Destination{
-			CcAddresses: []*string{},
-			ToAddresses: []*string{
-				aws.String(os.Getenv("PAYMENT_NOTIFICATION_NAME") + "<" + os.Getenv("PAYMENT_NOTIFICATION_EMAIL") + ">"),
-			},
+			CcAddresses: addresses(os.Getenv("PAYMENT_FAILURE_NOTIFICATION_CC")),
+			ToAddresses: addresses(os.Getenv("PAYMENT_FAILURE_NOTIFICATION_TO")),
 		},
 		Message: &ses.Message{
 			Body: &ses.Body{
@@ -188,7 +189,7 @@ func paymentFailureNotification(j string) error {
 				Data:    aws.String("Payment Failure"),
 			},
 		},
-		Source: aws.String(os.Getenv("PAYMENT_NOTIFICATION_FROM")),
+		Source: aws.String(os.Getenv("PAYMENT_FAILURE_NOTIFICATION_FROM")),
 	}
 	// Attempt to send the email.
 	result, err := svc.SendEmail(input)
