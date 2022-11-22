@@ -1,0 +1,96 @@
+@import "src/styles/abstracts/_variables.scss";
+
+.header-links {
+  //desktop
+  font-weight: $font-weight-normal;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $white;
+}
+
+//home page
+.h-1-home {
+  font-weight: $font-weight-bold;
+  font-size: 32px;
+  line-height: 43px;
+  letter-spacing: 0.02em;
+  color: $white;
+
+  @media (min-width: $screen-md-min) {
+    font-size: 52px;
+    line-height: 63px;
+  }
+}
+
+.h-2-home {
+  //desktop
+  font-weight: $font-weight-bold;
+  font-size: 42px;
+  line-height: 51px;
+  letter-spacing: 0.02em;
+  color: $white;
+}
+
+.h-3-home {
+  //desktop
+  font-weight: $font-weight-medium;
+  font-size: 20px;
+  line-height: 32px;
+  color: $white;
+}
+
+.home-text {
+  &.--text-1 {
+    //desktop
+    font-weight: $font-weight-light;
+    font-size: 26px;
+    line-height: 36px;
+    color: $white;
+  }
+
+  &.--text-2 {
+    //desktop
+    font-weight: $font-weight-light;
+    font-size: 22px;
+    line-height: 32px;
+    color: $white;
+  }
+
+  &.--text-3 {
+    //desktop
+    font-weight: $font-weight-normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: $cabaret-charm;
+  }
+
+}
+
+.caption-1 {
+  //desktop
+  font-weight: $font-weight-normal;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $white;
+}
+
+.caption-2 {
+  //desktop
+  font-weight: $font-weight-normal;
+  font-size: 14px;
+  line-height: 23px;
+  color: $cabaret-charm;
+}
+
+.input-form {
+  font-weight: $font-weight-light;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: $white;
+}
+

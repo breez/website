@@ -1,0 +1,24 @@
+@import "~bootstrap/scss/bootstrap";
+
+//custom bootstrap
+@import "vendors/bootstrap";
+
+@import "abstracts/variables";
+@import "base/reset";
+
+//base
+@import "base/containers";
+@import "base/fonts";
+@import "base/typography";
+
+//components
+@import "components/buttons";
+
+//layouts
+@import "layouts/header";
+
+//pages
+@import "pages/home";
+@import "pages/mobile";
+@import "pages/sdk";
+@import "pages/cloud";

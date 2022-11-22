@@ -1,0 +1,54 @@
+//home
+
+.primary-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+
+  width: 184px;
+  height: 48px;
+  background: $bubble-bobble-p2;
+  border-radius: 6px;
+
+  font-weight: $font-weight-normal;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $white;
+
+  &:hover {
+    color: $white;
+  }
+
+  &.--transparent {
+    background: transparent;
+    border: 1.5px solid $white;
+  }
+
+}
+
+.contact-form-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  //gap: 12px;
+
+  width: 460px;
+  height: 48px;
+
+  background: $bubble-bobble-p2;
+  border-radius: 6px;
+
+  font-weight: $font-weight-normal;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $white;
+
+}

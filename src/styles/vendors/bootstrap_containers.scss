@@ -1,0 +1,13 @@
+$container-sm-max: 540px;
+$container-md-max: 720px;
+$container-lg-max: 960px;
+$container-xl-max: 1140px;
+$container-xxl-max: 1320px;
+
+$container-max-widths: (
+        sm: $container-sm-max,
+        md: $container-md-max,
+        lg: $container-lg-max,
+        xl: $container-xl-max,
+        xxl: $container-xxl-max
+);
