@@ -9,57 +9,533 @@
 </head>
 <body>
 
-<h1>BREEZ Home page</h1>
+<!--<header class="header">-->
+<!--    <div class="header-container header-background d-flex align-items-center">-->
 
-<header class="">
-    <ul class="d-lg-flex text-uppercase">
-        <li class="header-links mx-lg-3">
-            <a href="/mobile" class="text-decoration-none text-white">Mobile</a>
-        </li>
-        <li class="header-links mx-lg-3">
-            <a href="/sdk" class="text-decoration-none text-white">SDK</a>
-        </li>
-        <li class="header-links mx-lg-3">
-            <a href="/cloud" class="text-decoration-none text-white">Cloud</a>
-        </li>
-        <li class="header-links mx-lg-3">
-            <a href="https://doc.breez.technology/" class="text-decoration-none text-white">Knowledge Base</a>
-        </li>
-        <li class="header-links mx-lg-3">
-            <a href="/" class="text-decoration-none text-white">Contact us</a>
-        </li>
-    </ul>
+<!--        <a href="/">-->
+<!--            <img class="me-5" src="assets/icons/logo-breez-header.svg" alt="header breez logo">-->
+<!--        </a>-->
+
+<!--        <ul class="d-lg-flex text-uppercase">-->
+<!--            <li class="header-links mx-lg-4">-->
+<!--                <a href="/mobile" class="text-decoration-none">Mobile</a>-->
+<!--            </li>-->
+<!--            <li class="header-links mx-lg-4">-->
+<!--                <a href="/sdk" class="text-decoration-none">SDK</a>-->
+<!--            </li>-->
+<!--            <li class="header-links mx-lg-4">-->
+<!--                <a href="/cloud" class="text-decoration-none">Cloud</a>-->
+<!--            </li>-->
+<!--            <li class="header-links mx-lg-4">-->
+<!--                <a href="https://doc.breez.technology/" target="blank" class="text-decoration-none">Knowledge Base</a>-->
+<!--            </li>-->
+<!--            <li class="header-links mx-lg-4">-->
+<!--                <a href="/" class="text-decoration-none">Contact us</a>-->
+<!--            </li>-->
+<!--        </ul>-->
+
+<!--        <ul class="d-lg-flex align-items-center ms-auto">-->
+<!--            <li class="social-media">-->
+<!--                <a href="https://twitter.com/breez_tech" target="blank" class="">-->
+<!--                    <img src="assets/icons/twitter-icon.svg" alt="twitter icon" class="icon">-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="social-media">-->
+<!--                <a href="https://t.me/breez_lightning" target="blank" class="">-->
+<!--                    <img src="assets/icons/telegram-icon.svg" alt="telegram icon" class="icon">-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="social-media">-->
+<!--                <a href="https://medium.com/breez-technology" target="blank" class="">-->
+<!--                    <img src="assets/icons/medium-icon.svg" alt="medium icon" class="icon">-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="social-media">-->
+<!--                <a href="https://github.com/breez/breezmobile" target="blank" class="">-->
+<!--                    <img src="assets/icons/github-icon.svg" alt="github icon" class="icon">-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="social-media">-->
+<!--                <a href="mailto:contact@breez.technology" class="">-->
+<!--                    <img src="assets/icons/email-icon.svg" alt="email icon" class="icon">-->
+<!--                </a>-->
+<!--            </li>-->
+
+<!--        </ul>-->
+
+<!--    </div>-->
+<!--</header>-->
+
+
+<!--collapsed header-->
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark header-container header-background fixed-top"
+         aria-label="Breez header">
+        <div class="container-fluid">
+            <a href="/">
+                <img class="me-5" src="assets/icons/logo-breez-header.svg" alt="header breez logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBreez"
+                    aria-controls="navbarBreez" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarBreez">
+                <ul class="d-lg-flex text-uppercase">
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-4 my-2 my-lg-0">
+                        <a href="/mobile" class="text-decoration-none">Mobile</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-4 my-2 my-lg-0">
+                        <a href="/sdk" class="text-decoration-none">SDK</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-4 my-2 my-lg-0">
+                        <a href="/cloud" class="text-decoration-none">Cloud</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-4 my-2 my-lg-0">
+                        <a href="https://doc.breez.technology/" target="blank" class="text-decoration-none">Knowledge
+                            Base</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-4 my-2 my-lg-0">
+                        <a role="button" class="text-decoration-none js-scroll-to" data-scroll-to="#contact-us-form">Contact us</a>
+                    </li>
+                </ul>
+
+                <ul class="d-flex align-items-center ms-auto">
+                    <li class="social-media">
+                        <a href="https://twitter.com/breez_tech" target="blank" class="">
+                            <img src="assets/icons/twitter-icon.svg" alt="twitter icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://t.me/breez_lightning" target="blank" class="">
+                            <img src="assets/icons/telegram-icon.svg" alt="telegram icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://medium.com/breez-technology" target="blank" class="">
+                            <img src="assets/icons/medium-icon.svg" alt="medium icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://github.com/breez/breezmobile" target="blank" class="">
+                            <img src="assets/icons/github-icon.svg" alt="github icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="mailto:contact@breez.technology" class="">
+                            <img src="assets/icons/email-icon.svg" alt="email icon" class="icon">
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
 </header>
+<!--hero section-->
+<section class="hero-section secondary-container position-relative">
+    <!--    without mobile adaptation-->
+    <!--    <div class="text-center m-auto hero-info-block ">-->
+    <!--        <h1 class="h-1-home mb-3">The Interface of <br/> the Lightning Economy </h1>-->
+    <!--        <p class="home-text &#45;&#45;text-1">Breez is realizing the future of bitcoin by opening the world of peer-to-peer-->
+    <!--            payments to people and apps</p>-->
+    <!--    </div>-->
 
-<!--buttons-->
-<!--google btn-->
-<a href="https://play.google.com/store/games" role="button" class="text-decoration-none">
-    <img src="assets/icons/google-play-btn.svg" alt="google play button">
-</a>
-<!--app store btn-->
-<a href="https://www.apple.com/ua/app-store/" role="button" class="text-decoration-none">
-    <img src="assets/icons/app-store-btn.svg" alt="app store button">
-</a>
-<!--transparent btn-->
-<a href="/mobile" role="button" class="primary-btn --transparent text-decoration-none">
-    <div class="">learn more</div>
-    <img src="assets/icons/arrow-right-icon.svg" alt="arrow right">
-</a>
-<!--primary btn-->
-<a href="/sdk" role="button" class="primary-btn text-decoration-none">
-    <div class="">learn more</div>
-    <img src="assets/icons/arrow-right-icon.svg" alt="arrow right">
-</a>
-<!--primary btn-->
-<a href="/cloud" role="button" class="primary-btn text-decoration-none">
-    <div class="">learn more</div>
-    <img src="assets/icons/arrow-right-icon.svg" alt="arrow right">
-</a>
-<!--contact-form-btn-->
-<button class="contact-form-btn text-decoration-none border-0">
-    <span class="">send message</span>
-    <img src="assets/icons/lightning-icon.svg" alt="lightning icon">
-</button>
+    <!--    <div class="row">-->
+    <!--        <img src="assets/images/hero-illustration-1.webp" alt="pay in cafe" class="col-12 col-md-4">-->
+    <!--        <img src="assets/images/hero-illustration-2.webp" alt="exchange with friends with phone" class="col-12 col-md-4">-->
+    <!--        <img src="assets/images/hero-illustration-3.webp" alt="pay for goods in a distance" class="col-12 col-md-4">-->
+    <!--    </div>-->
+
+    <!--    with mobile adaptation-->
+    <div class="d-none d-md-block text-center m-auto hero-info-block">
+        <h1 class="h-1-home mb-3">The Interface of <br/> the Lightning Economy </h1>
+        <p class="home-text --text-1">Breez is realizing the future of bitcoin by opening the world of peer-to-peer
+            payments to people and apps</p>
+    </div>
+
+    <div class="row">
+        <img src="assets/images/hero-illustration-1.webp" alt="pay in cafe" class="col-12 col-md-4">
+
+        <div class="d-block d-md-none text-center m-auto hero-info-block my-5">
+            <h1 class="h-1-home mb-3">The Interface of <br/> the Lightning Economy </h1>
+            <p class="home-text --text-1">Breez is realizing the future of bitcoin by opening the world of peer-to-peer
+                payments to people and apps</p>
+        </div>
+        <img src="assets/images/hero-illustration-2.webp" alt="exchange with friends with phone"
+             class="col-12 col-md-4">
+        <img src="assets/images/hero-illustration-3.webp" alt="pay for goods in a distance"
+             class="col-12 col-md-4 d-none d-md-block">
+    </div>
+
+    <!-- gradients-->
+    <div class="gradient --hero-radial-gradient-top-right">
+    </div>
+
+    <div class="gradient --hero-radial-gradient-bottom-left">
+    </div>
+
+</section>
+
+<!--mobile section-->
+<section class="mobile-section main-container row position-relative">
+
+    <div class="col-12 col-lg-6 mb-5 mb-lg-0">
+        <div class="mobile-info-block mb-5">
+            <h2 class="h-2-home">Breez Mobile</h2>
+            <p class="home-text --text-2">Send and receive instantaneous bitcoin payments with the breez mobile app</p>
+        </div>
+
+        <div class="">
+            <div class="d-flex align-items-center mb-5">
+                <img src="assets/icons/mobile-icon.svg" alt="mobile icon" class="me-4">
+                <div>
+                    <h3 class="h-3-home mb-1">Non-custodial Lightning</h3>
+                    <p class="home-text --text-3">A Lightning node in your pocket</p>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center mb-5">
+                <img src="assets/icons/streaming-icon.svg" alt="stream icon" class="me-4">
+                <div>
+                    <h3 class="h-3-home mb-1">Podcasting 2.0 Player</h3>
+                    <p class="home-text --text-3">Streaming sats for streaming ideas</p>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center mb-5">
+                <img src="assets/icons/calculator-icon.svg" alt="calculator icon" class="me-4">
+                <div>
+                    <h3 class="h-3-home mb-1">Point-of-Sale</h3>
+                    <p class="home-text --text-3">Accept Lightning payments with no KYC</p>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center mb-5">
+                <img src="assets/icons/network-icon.svg" alt="network icon" class="me-4">
+                <div>
+                    <h3 class="h-3-home mb-1">Lightning Service Provider</h3>
+                    <p class="home-text --text-3">Provides liquidity and network connectivity</p>
+                </div>
+            </div>
+        </div>
+
+        <!--    buttons show on mobile-->
+        <div class="d-flex d-lg-none flex-column flex-md-row">
+            <!--google btn-->
+            <a href="https://play.google.com/apps/testing/com.breez.client" role="button"
+               class="text-decoration-none mb-2 mb-md-0 me-0 me-md-4">
+                <img src="assets/icons/google-play-btn.svg" alt="google play button">
+            </a>
+            <!--app store btn-->
+            <a href="https://apps.apple.com/us/app/breez-lightning-client-pos/id1463604142" role="button"
+               class="text-decoration-none mb-2 mb-md-0 me-0 me-md-4">
+                <img src="assets/icons/app-store-btn.svg" alt="app store button">
+            </a>
+            <!--transparent btn-->
+            <a href="/mobile" role="button" class="primary-btn --transparent text-decoration-none">
+                <div class="">learn more</div>
+                <img src="assets/icons/arrow-right-icon.svg" alt="arrow right">
+            </a>
+        </div>
+    </div>
+
+    <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
+        <img src="assets/images/mobile-illustration-1.webp" alt="women on phone" class="img-fluid">
+    </div>
+
+    <!--    buttons show on desktop-->
+    <div class="d-none d-lg-flex flex-column flex-md-row">
+        <!--google btn-->
+        <a href="https://play.google.com/apps/testing/com.breez.client" role="button"
+           class="text-decoration-none mb-2 mb-md-0 me-0 me-md-4">
+            <img src="assets/icons/google-play-btn.svg" alt="google play button">
+        </a>
+        <!--app store btn-->
+        <a href="https://apps.apple.com/us/app/breez-lightning-client-pos/id1463604142" role="button"
+           class="text-decoration-none mb-2 mb-md-0 me-0 me-md-4">
+            <img src="assets/icons/app-store-btn.svg" alt="app store button">
+        </a>
+        <!--transparent btn-->
+        <a href="/mobile" role="button" class="primary-btn --transparent text-decoration-none">
+            <div class="">learn more</div>
+            <img src="assets/icons/arrow-right-icon.svg" alt="arrow right">
+        </a>
+    </div>
+
+    <!--    gradients-->
+    <div class="gradient --mobile-radial-gradient-top">
+    </div>
+
+    <div class="gradient --mobile-radial-gradient-right">
+    </div>
+
+</section>
+
+<!--sdk-section-->
+<section class="sdk-section main-container row position-relative">
+
+    <div class="col-12 col-lg-6 mb-5 mb-lg-0 d-flex flex-column justify-content-center">
+        <div class="sdk-info-block">
+            <h2 class="h-2-home mb-2">Breez SDK</h2>
+            <p class="home-text --text-2">Looking for a drop-in solution to integrate P2P Lightning payments into your
+                app
+                with maximal customization and minimal programming?</p>
+        </div>
+        <a href="/sdk" role="button" class="primary-btn text-decoration-none">
+            <div class="">learn more</div>
+            <img src="assets/icons/arrow-right-icon.svg" alt="arrow right">
+        </a>
+    </div>
+
+    <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
+        <img src="assets/images/sdk-illustration.webp" alt="notebook connecting to phone with puzzle wire"
+             class="img-fluid">
+    </div>
+    <!--    gradients-->
+    <div class="gradient --sdk-radial-gradient-left">
+    </div>
+</section>
+
+<!--cloud-section-->
+<section class="cloud-section main-container row">
+
+    <div class="col-12 col-lg-6 mb-5 mb-lg-0 d-flex flex-column justify-content-center">
+        <div class="cloud-info-block">
+            <h2 class="h-2-home mb-2">Breez Cloud</h2>
+            <p class="home-text --text-2">Breez Cloud combines the sovereignty of
+                non-custodial Lightning with the versatility and convenience of custodial services, letting users send
+                and receive payments from any device at any time.</p>
+        </div>
+        <a href="/cloud" role="button" class="primary-btn text-decoration-none">
+            <div class="">learn more</div>
+            <img src="assets/icons/arrow-right-icon.svg" alt="arrow right">
+        </a>
+    </div>
+
+    <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
+        <img src="assets/images/cloud-illustration.webp" alt="bitcoin cloud network" class="img-fluid">
+    </div>
+
+
+</section>
+
+<!--contact-us-section-->
+<section id="contact-us-form" class="contact-us-section main-container row position-relative">
+
+    <div class="col-12 col-lg-7 mb-5 mb-lg-0">
+        <div class="contact-us-info-block">
+            <h2 class="h-2-home mb-2">Contact us</h2>
+            <p class="home-text --text-2">Stay up to date with our latest developments</p>
+        </div>
+
+        <div>
+            <p class="caption-1 mb-3">Follow us</p>
+
+            <ul class="d-flex align-items-center ms-auto">
+                <li class="social-media">
+                    <a href="https://twitter.com/breez_tech" target="blank" class="">
+                        <img src="assets/icons/twitter-icon.svg" alt="twitter icon" class="icon">
+                    </a>
+                </li>
+                <li class="social-media">
+                    <a href="https://t.me/breez_lightning" target="blank" class="">
+                        <img src="assets/icons/telegram-icon.svg" alt="telegram icon" class="icon">
+                    </a>
+                </li>
+                <li class="social-media">
+                    <a href="https://medium.com/breez-technology" target="blank" class="">
+                        <img src="assets/icons/medium-icon.svg" alt="medium icon" class="icon">
+                    </a>
+                </li>
+                <li class="social-media">
+                    <a href="https://github.com/breez/breezmobile" target="blank" class="">
+                        <img src="assets/icons/github-icon.svg" alt="github icon" class="icon">
+                    </a>
+                </li>
+                <li class="social-media">
+                    <a href="mailto:contact@breez.technology" class="">
+                        <img src="assets/icons/email-icon.svg" alt="email icon" class="icon">
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+
+<!--    <div class="col-12 col-lg-6 d-flex flex-column align-items-lg-end">-->
+    <div class="col-12 col-lg-5 d-flex align-items-center justify-content-center">
+
+                <!--        contact us form markup-->
+<!--                <div class="container">-->
+<!--                    <form id="form" class="form">-->
+<!--                        <div class="form-control">-->
+<!--                            <label for="name"></label>-->
+<!--                            <input type="text" id="name" placeholder="Your name">-->
+<!--                            <small>Error Message</small>-->
+<!--                        </div>-->
+
+<!--                        <div class="form-control">-->
+<!--                            <label for="email"></label>-->
+<!--                            <input type="text" id="email" placeholder="Your email">-->
+<!--                            <small>Error Message</small>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash;                <div class="form-control">&ndash;&gt;-->
+<!--                        &lt;!&ndash;                    <label for="password"></label>&ndash;&gt;-->
+<!--                        &lt;!&ndash;                    <input type="password" id="password" placeholder="Enter password">&ndash;&gt;-->
+<!--                        &lt;!&ndash;                    <small>Error Message</small>&ndash;&gt;-->
+<!--                        &lt;!&ndash;                </div>&ndash;&gt;-->
+<!--                        &lt;!&ndash;                <div class="form-control">&ndash;&gt;-->
+<!--                        &lt;!&ndash;                    <label for="password2"></label>&ndash;&gt;-->
+<!--                        &lt;!&ndash;                    <input type="password" id="password2" placeholder="Enter password again">&ndash;&gt;-->
+<!--                        &lt;!&ndash;                    <small>Error Message</small>&ndash;&gt;-->
+<!--                        &lt;!&ndash;                </div>&ndash;&gt;-->
+
+<!--                        <div class="form-control">-->
+<!--                            <label for="select"></label>-->
+<!--                            <select name="select" id="select">-->
+<!--                                <option value="" disabled selected>Topic</option>-->
+<!--                                <option value="dog">Dog</option>-->
+<!--                                <option value="cat">Cat</option>-->
+<!--                                <option value="hamster">Hamster</option>-->
+<!--                                <option value="parrot">Parrot</option>-->
+<!--                                <option value="spider">Spider</option>-->
+<!--                                <option value="goldfish">Goldfish</option>-->
+<!--                            </select>-->
+<!--                        </div>-->
+
+<!--                        <div class="form-control">-->
+<!--                            <label for="textarea"></label>-->
+<!--                            <textarea id="textarea" name="textarea" rows="4" cols="50" placeholder="Message"></textarea>-->
+<!--                        </div>-->
+
+<!--                        &lt;!&ndash;contact-form-btn&ndash;&gt;-->
+<!--                        <button class="contact-form-btn text-decoration-none border-0">-->
+<!--                            <span class="">send message</span>-->
+<!--                            <img src="assets/icons/lightning-icon.svg" alt="lightning icon">-->
+<!--                        </button>-->
+<!--                    </form>-->
+<!--                </div>-->
+
+        <!--        contact us form with validation-->
+        <div class="form-body">
+            <div class="row">
+                <div class="form-holder">
+                    <div class="form-content">
+                        <div class="form-items">
+
+                            <form class="requires-validation" novalidate>
+
+                                <div class="col-md-12">
+                                    <input class="form-control" type="text" name="name" placeholder="Your name"
+                                           required>
+                                    <div class="valid-feedback">Name field is valid!</div>
+                                    <div class="invalid-feedback">Name field is required</div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <input class="form-control" type="email" name="email" placeholder="Your email"
+                                           required>
+                                    <div class="valid-feedback">Email field is valid!</div>
+                                    <div class="invalid-feedback">Email is required and should be valid!</div>
+
+                                </div>
+
+                                <div class="col-md-12">
+                                    <select class="form-select mt-3" required>
+                                        <option selected disabled value="">Topic</option>
+                                        <option value="mobile">Mobile</option>
+                                        <option value="sdk-design-partner">SDK Design Partner</option>
+                                        <option value="cloud-early-access">Cloud Early Access</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <div class="valid-feedback">You selected a topic!</div>
+                                    <div class="invalid-feedback">Topic is required!</div>
+                                </div>
+
+                                <div class="col-md-12">
+<!--                                    <input class="form-control" type="text" name="name" placeholder="Your name" required>-->
+                                    <textarea class="form-control" type="text" name="textarea" rows="4" cols="50" placeholder="Message" required></textarea>
+                                    <div class="valid-feedback">Message field is valid!</div>
+                                    <div class="invalid-feedback">Message field is required</div>
+                                </div>
+
+                                <div class="form-button mt-3">
+                                    <!-- <button id="submit" type="submit" class="btn btn-primary">Register</button>-->
+                                    <!--contact-form-btn-->
+                                    <button id="submit" type="submit"
+                                            class="contact-form-btn text-decoration-none border-0">
+                                        <span class="">send message</span>
+                                        <img src="assets/icons/lightning-icon.svg" alt="lightning icon">
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!--    gradients-->
+    <div class="gradient --contact-us-radial-gradient-right">
+    </div>
+<!--        <div class="gradient &#45;&#45;contact-us-radial-gradient-left">-->
+<!--        </div>-->
+
+</section>
+
+<!--footer-->
+<footer class="footer main-container position-relative">
+    <div class="d-flex align-items-center justify-content-between py-4">
+        <a href="/">
+            <img class="me-5" src="assets/icons/logo-breez-footer.svg" alt="footer breez logo">
+        </a>
+        <span class="caption-2">&#169;2022 All right reserved</span>
+    </div>
+
+    <div class="gradient --contact-us-radial-gradient-left">
+    </div>
+</footer>
+
+
+
+
+
+<!--///////////////////////////////////////////////////////////////////////////////////-->
+
+<!--&lt;!&ndash;buttons&ndash;&gt;-->
+<!--&lt;!&ndash;google btn&ndash;&gt;-->
+<!--<a href="https://play.google.com/store/games" role="button" class="text-decoration-none">-->
+<!--    <img src="assets/icons/google-play-btn.svg" alt="google play button">-->
+<!--</a>-->
+<!--&lt;!&ndash;app store btn&ndash;&gt;-->
+<!--<a href="https://www.apple.com/ua/app-store/" role="button" class="text-decoration-none">-->
+<!--    <img src="assets/icons/app-store-btn.svg" alt="app store button">-->
+<!--</a>-->
+<!--&lt;!&ndash;transparent btn&ndash;&gt;-->
+<!--<a href="/mobile" role="button" class="primary-btn &#45;&#45;transparent text-decoration-none">-->
+<!--    <div class="">learn more</div>-->
+<!--    <img src="assets/icons/arrow-right-icon.svg" alt="arrow right">-->
+<!--</a>-->
+<!--&lt;!&ndash;primary btn&ndash;&gt;-->
+<!--<a href="/sdk" role="button" class="primary-btn text-decoration-none">-->
+<!--    <div class="">learn more</div>-->
+<!--    <img src="assets/icons/arrow-right-icon.svg" alt="arrow right">-->
+<!--</a>-->
+<!--&lt;!&ndash;primary btn&ndash;&gt;-->
+<!--<a href="/cloud" role="button" class="primary-btn text-decoration-none">-->
+<!--    <div class="">learn more</div>-->
+<!--    <img src="assets/icons/arrow-right-icon.svg" alt="arrow right">-->
+<!--</a>-->
+<!--&lt;!&ndash;contact-form-btn&ndash;&gt;-->
+<!--<button class="contact-form-btn text-decoration-none border-0">-->
+<!--    <span class="">send message</span>-->
+<!--    <img src="assets/icons/lightning-icon.svg" alt="lightning icon">-->
+<!--</button>-->
 
 </body>
 </html>

@@ -1,4 +1,5 @@
 const paths = require('./paths')
+const webpack = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -62,6 +63,10 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+    }),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       favicon: paths.src + '/assets/icons/logo-breez-header.svg',
