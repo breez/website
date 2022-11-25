@@ -6,3 +6,4 @@ import 'bootstrap/dist/js/bootstrap.bundle'
 
 import './javascript/contact-us-form'
 import './javascript/scroll-to-element'
+import './javascript/imgs-auto-change'
