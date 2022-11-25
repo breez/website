@@ -71,7 +71,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       favicon: paths.src + '/assets/icons/logo-breez-header.svg',
       template:  paths.src + '/index.html',
-      filename: 'index.html'
+      filename: 'index.html',
+      minify: {
+        removeComments: true,
+        removeRedundantAttributes: false, // do not remove type="text"
+      }
     }),
     new HtmlWebpackPlugin({
       favicon: paths.src + '/assets/icons/logo-breez-header.svg',
