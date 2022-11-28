@@ -1,0 +1,139 @@
+/* Particles */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  z-index: -1;
+  margin-top: -100px;
+}
+
+///////////////////////////////////
+.arrow-down{
+  width:60px;
+  height:40px;
+  margin:0 0 -100px -30px;
+  position:absolute;
+  left:50%;
+  bottom:0px;
+  -webkit-animation: arrow 0.5s 1s infinite ease-out alternate;
+
+}
+
+.arrow-down:hover{
+  -webkit-animation-play-state: paused;
+}
+
+.left{
+  position:absolute;
+  height:7px;
+  width:40px;
+  background: $white;
+  -webkit-transform:rotate(240deg);
+  top:10px;
+  left:10px;
+  -webkit-border-radius:4px;
+  -webkit-transform-origin:5px 50%;
+  -webkit-animation: leftArrow 0.5s 1s infinite ease-out alternate;
+}
+
+.right{
+  position:absolute;
+  height:7px;
+  width:40px;
+  background: $white;
+  -webkit-transform:rotate(-60deg);
+  top:10px;
+  left:12px;
+  -webkit-border-radius:4px;
+  -webkit-transform-origin:5px 50%;
+  -webkit-animation: rightArrow 0.5s 1s infinite ease-out alternate;
+}
+
+@-webkit-keyframes arrow{
+  0% {
+    bottom:0px;
+  }
+  100%{
+    bottom:40px;
+  }
+}
+
+
+@-webkit-keyframes leftArrow{
+  0% {
+  }
+  100%{
+    -webkit-transform:rotate(225deg);
+  }
+}
+
+@-webkit-keyframes rightArrow{
+  0% {
+  }
+  100%{
+    -webkit-transform:rotate(-45deg);
+  }
+}
+///////////////////////////////////
+
+.hero-section {
+  //margin: 148px 0 200px 0;
+  margin: 100px 0 200px 0;
+
+  @media (min-width: $screen-md-min) {
+    margin: 148px 0 200px 0;
+  }
+
+  .hero-info-block {
+    max-width: 720px;
+    margin-bottom: 52px !important;
+  }
+}
+
+.mobile-section {
+  margin-bottom: 200px;
+
+  .mobile-info-block {
+    max-width: 500px;
+  }
+}
+
+.sdk-section {
+  margin-bottom: 200px;
+
+  .sdk-info-block {
+    max-width: 560px;
+    margin-bottom: 60px;
+  }
+}
+
+.cloud-section {
+  margin-bottom: 200px;
+
+  .cloud-info-block {
+    max-width: 500px;
+    margin-bottom: 60px;
+  }
+}
+
+.contact-us-section {
+  margin-bottom: 100px;
+
+  .contact-us-info-block {
+    max-width: 560px;
+    margin-bottom: 60px;
+  }
+
+  .social-media {
+    width: 36px;
+    height: 36px;
+  }
+
+  .icon {
+    &:hover {
+      //filter: invert(39%) sepia(61%) saturate(4332%) hue-rotate(192deg) brightness(100%) contrast(106%); #0085FB
+      filter: invert(0.4) sepia(1) saturate(20) hue-rotate(183.6deg) brightness(0.7) contrast(170%);
+    }
+  }
+}

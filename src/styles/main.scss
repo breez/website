@@ -1,5 +1,9 @@
 @import "~bootstrap/scss/bootstrap";
 
+//slick-carousel
+@import "vendors/slick/slick";
+@import "vendors/slick/slick-theme";
+
 //custom bootstrap
 @import "vendors/bootstrap";
 
@@ -13,9 +17,12 @@
 
 //components
 @import "components/buttons";
+@import "components/gradients";
+@import "components/mobile-section-slider";
 
 //layouts
 @import "layouts/header";
+@import "layouts/contact-us-form";
 
 //pages
 @import "pages/home";

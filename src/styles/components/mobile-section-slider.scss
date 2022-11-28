@@ -1,0 +1,14 @@
+.mobile-section-slider {
+
+  .slick-dots {
+    bottom: -50px;
+  }
+
+  .slick-dots li button:before {
+    font-size: 50px;
+    color: $slick-dots;
+  }
+  .slick-dots li.slick-active button:before {
+    color: $white;
+  }
+}
