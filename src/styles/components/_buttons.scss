@@ -52,3 +52,20 @@
   color: $white;
 
 }
+
+@media (max-width: $screen-md-max) {
+  .android .download-btn--ios {
+    display: none;
+  }
+  .iphone .download-btn--android {
+    display: none;
+  }
+}
+//@media (max-width: 767px) {
+//  .android .badge-btn--ios {
+//    display: none;
+//  }
+//  .iphone .badge-btn--android {
+//    display: none;
+//  }
+//}

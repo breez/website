@@ -6,6 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Breez</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
 
@@ -97,7 +99,8 @@
                             Base</a>
                     </li>
                     <li class="header-links mx-0 mx-lg-2 mx-xl-4 my-2 my-lg-0">
-                        <a role="button" class="text-decoration-none js-scroll-to" data-scroll-to="#contact-us-form">Contact us</a>
+                        <a role="button" class="text-decoration-none js-scroll-to" data-scroll-to="#contact-us-form">Contact
+                            us</a>
                     </li>
                 </ul>
 
@@ -135,6 +138,7 @@
 </header>
 <!--hero section-->
 <section class="hero-section secondary-container position-relative">
+    <div id="particles-js"></div>
     <!--    without mobile adaptation-->
     <!--    <div class="text-center m-auto hero-info-block ">-->
     <!--        <h1 class="h-1-home mb-3">The Interface of <br/> the Lightning Economy </h1>-->
@@ -167,6 +171,19 @@
              class="col-12 col-md-4">
         <img src="assets/images/hero-illustration-3.webp" alt="pay for goods in a distance"
              class="col-12 col-md-4 d-none d-md-block">
+
+        <!--        expand arrow with animation-->
+        <div class="position-relative">
+            <div id="section04" class="">
+                <a href="#section04"><span></span></a>
+            </div>
+        </div>
+
+        <!--        <div class="position-relative">-->
+        <!--            <div id="section06" class="">-->
+        <!--                <a href="#section06"><span></span></a>-->
+        <!--            </div>-->
+        <!--        </div>-->
     </div>
 
     <!-- gradients-->
@@ -225,12 +242,12 @@
         <div class="d-flex d-lg-none flex-column flex-md-row">
             <!--google btn-->
             <a href="https://play.google.com/apps/testing/com.breez.client" role="button"
-               class="text-decoration-none mb-2 mb-md-0 me-0 me-md-4">
+               class="download-btn--android text-decoration-none mb-2 mb-md-0 me-0 me-md-4">
                 <img src="assets/icons/google-play-btn.svg" alt="google play button">
             </a>
             <!--app store btn-->
             <a href="https://apps.apple.com/us/app/breez-lightning-client-pos/id1463604142" role="button"
-               class="text-decoration-none mb-2 mb-md-0 me-0 me-md-4">
+               class="download-btn--ios text-decoration-none mb-2 mb-md-0 me-0 me-md-4">
                 <img src="assets/icons/app-store-btn.svg" alt="app store button">
             </a>
             <!--transparent btn-->
@@ -241,8 +258,11 @@
         </div>
     </div>
 
-    <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
-        <img src="assets/images/mobile-illustration-1.webp" alt="women on phone" class="img-fluid">
+    <div class="col-12 col-lg-6 mobile-section-slider align-self-center">
+        <img src="assets/images/pos-illustration.webp" alt="pos" class="img-fluid">
+        <img src="assets/images/balance-illustration.webp" alt="balance" class="img-fluid">
+        <img src="assets/images/podcast-illustration.webp" alt="podcast" class="img-fluid">
+
 
         <!--        ///////////////////////////-->
         <!--        img-auto-change-->
@@ -381,59 +401,59 @@
 
     </div>
 
-<!--    <div class="col-12 col-lg-6 d-flex flex-column align-items-lg-end">-->
+    <!--    <div class="col-12 col-lg-6 d-flex flex-column align-items-lg-end">-->
     <div class="col-12 col-lg-5 d-flex align-items-center justify-content-center">
 
-                <!--        contact us form markup-->
-<!--                <div class="container">-->
-<!--                    <form id="form" class="form">-->
-<!--                        <div class="form-control">-->
-<!--                            <label for="name"></label>-->
-<!--                            <input type="text" id="name" placeholder="Your name">-->
-<!--                            <small>Error Message</small>-->
-<!--                        </div>-->
+        <!--        contact us form markup-->
+        <!--                <div class="container">-->
+        <!--                    <form id="form" class="form">-->
+        <!--                        <div class="form-control">-->
+        <!--                            <label for="name"></label>-->
+        <!--                            <input type="text" id="name" placeholder="Your name">-->
+        <!--                            <small>Error Message</small>-->
+        <!--                        </div>-->
 
-<!--                        <div class="form-control">-->
-<!--                            <label for="email"></label>-->
-<!--                            <input type="text" id="email" placeholder="Your email">-->
-<!--                            <small>Error Message</small>-->
-<!--                        </div>-->
-<!--                        &lt;!&ndash;                <div class="form-control">&ndash;&gt;-->
-<!--                        &lt;!&ndash;                    <label for="password"></label>&ndash;&gt;-->
-<!--                        &lt;!&ndash;                    <input type="password" id="password" placeholder="Enter password">&ndash;&gt;-->
-<!--                        &lt;!&ndash;                    <small>Error Message</small>&ndash;&gt;-->
-<!--                        &lt;!&ndash;                </div>&ndash;&gt;-->
-<!--                        &lt;!&ndash;                <div class="form-control">&ndash;&gt;-->
-<!--                        &lt;!&ndash;                    <label for="password2"></label>&ndash;&gt;-->
-<!--                        &lt;!&ndash;                    <input type="password" id="password2" placeholder="Enter password again">&ndash;&gt;-->
-<!--                        &lt;!&ndash;                    <small>Error Message</small>&ndash;&gt;-->
-<!--                        &lt;!&ndash;                </div>&ndash;&gt;-->
+        <!--                        <div class="form-control">-->
+        <!--                            <label for="email"></label>-->
+        <!--                            <input type="text" id="email" placeholder="Your email">-->
+        <!--                            <small>Error Message</small>-->
+        <!--                        </div>-->
+        <!--                        &lt;!&ndash;                <div class="form-control">&ndash;&gt;-->
+        <!--                        &lt;!&ndash;                    <label for="password"></label>&ndash;&gt;-->
+        <!--                        &lt;!&ndash;                    <input type="password" id="password" placeholder="Enter password">&ndash;&gt;-->
+        <!--                        &lt;!&ndash;                    <small>Error Message</small>&ndash;&gt;-->
+        <!--                        &lt;!&ndash;                </div>&ndash;&gt;-->
+        <!--                        &lt;!&ndash;                <div class="form-control">&ndash;&gt;-->
+        <!--                        &lt;!&ndash;                    <label for="password2"></label>&ndash;&gt;-->
+        <!--                        &lt;!&ndash;                    <input type="password" id="password2" placeholder="Enter password again">&ndash;&gt;-->
+        <!--                        &lt;!&ndash;                    <small>Error Message</small>&ndash;&gt;-->
+        <!--                        &lt;!&ndash;                </div>&ndash;&gt;-->
 
-<!--                        <div class="form-control">-->
-<!--                            <label for="select"></label>-->
-<!--                            <select name="select" id="select">-->
-<!--                                <option value="" disabled selected>Topic</option>-->
-<!--                                <option value="dog">Dog</option>-->
-<!--                                <option value="cat">Cat</option>-->
-<!--                                <option value="hamster">Hamster</option>-->
-<!--                                <option value="parrot">Parrot</option>-->
-<!--                                <option value="spider">Spider</option>-->
-<!--                                <option value="goldfish">Goldfish</option>-->
-<!--                            </select>-->
-<!--                        </div>-->
+        <!--                        <div class="form-control">-->
+        <!--                            <label for="select"></label>-->
+        <!--                            <select name="select" id="select">-->
+        <!--                                <option value="" disabled selected>Topic</option>-->
+        <!--                                <option value="dog">Dog</option>-->
+        <!--                                <option value="cat">Cat</option>-->
+        <!--                                <option value="hamster">Hamster</option>-->
+        <!--                                <option value="parrot">Parrot</option>-->
+        <!--                                <option value="spider">Spider</option>-->
+        <!--                                <option value="goldfish">Goldfish</option>-->
+        <!--                            </select>-->
+        <!--                        </div>-->
 
-<!--                        <div class="form-control">-->
-<!--                            <label for="textarea"></label>-->
-<!--                            <textarea id="textarea" name="textarea" rows="4" cols="50" placeholder="Message"></textarea>-->
-<!--                        </div>-->
+        <!--                        <div class="form-control">-->
+        <!--                            <label for="textarea"></label>-->
+        <!--                            <textarea id="textarea" name="textarea" rows="4" cols="50" placeholder="Message"></textarea>-->
+        <!--                        </div>-->
 
-<!--                        &lt;!&ndash;contact-form-btn&ndash;&gt;-->
-<!--                        <button class="contact-form-btn text-decoration-none border-0">-->
-<!--                            <span class="">send message</span>-->
-<!--                            <img src="assets/icons/lightning-icon.svg" alt="lightning icon">-->
-<!--                        </button>-->
-<!--                    </form>-->
-<!--                </div>-->
+        <!--                        &lt;!&ndash;contact-form-btn&ndash;&gt;-->
+        <!--                        <button class="contact-form-btn text-decoration-none border-0">-->
+        <!--                            <span class="">send message</span>-->
+        <!--                            <img src="assets/icons/lightning-icon.svg" alt="lightning icon">-->
+        <!--                        </button>-->
+        <!--                    </form>-->
+        <!--                </div>-->
 
         <!--        contact us form with validation-->
         <div class="form-body">
@@ -461,7 +481,7 @@
 
                                 <div class="col-md-12">
                                     <select class="form-select mt-3" required>
-                                        <option selected disabled value="">Topic</option>
+                                        <option selected disabled value="" class="d-none">Topic</option>
                                         <option value="mobile">Mobile</option>
                                         <option value="sdk-design-partner">SDK Design Partner</option>
                                         <option value="cloud-early-access">Cloud Early Access</option>
@@ -472,8 +492,9 @@
                                 </div>
 
                                 <div class="col-md-12">
-<!--                                    <input class="form-control" type="text" name="name" placeholder="Your name" required>-->
-                                    <textarea class="form-control" type="text" name="textarea" rows="4" cols="50" placeholder="Message" required></textarea>
+                                    <!--                                    <input class="form-control" type="text" name="name" placeholder="Your name" required>-->
+                                    <textarea class="form-control" type="text" name="textarea" rows="4" cols="50"
+                                              placeholder="Message" required></textarea>
                                     <div class="valid-feedback">Message field is valid!</div>
                                     <div class="invalid-feedback">Message field is required</div>
                                 </div>
@@ -499,8 +520,8 @@
     <!--    gradients-->
     <div class="gradient --contact-us-radial-gradient-right">
     </div>
-<!--        <div class="gradient &#45;&#45;contact-us-radial-gradient-left">-->
-<!--        </div>-->
+    <!--        <div class="gradient &#45;&#45;contact-us-radial-gradient-left">-->
+    <!--        </div>-->
 
 </section>
 
@@ -516,9 +537,6 @@
     <div class="gradient --contact-us-radial-gradient-left">
     </div>
 </footer>
-
-
-
 
 
 <!--///////////////////////////////////////////////////////////////////////////////////-->
