@@ -1,0 +1,16 @@
+.sdk-page {
+
+  .sdk-hero-section {
+    //margin: 148px 0 200px 0;
+    margin: 100px 0 200px 0;
+
+    @media (min-width: $screen-md-min) {
+      margin: 148px 0 200px 0;
+    }
+
+    .sdk-hero-info-block {
+      max-width: 720px;
+      margin-bottom: 60px;
+    }
+  }
+}

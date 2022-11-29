@@ -94,3 +94,31 @@
   color: $white;
 }
 
+//pages
+.h-1 {
+  font-weight: $font-weight-bold;
+  font-size: 52px;
+  line-height: 60px;
+  letter-spacing: 0.02em;
+  color: $white;
+}
+
+.h-2 {
+  font-weight: $font-weight-light;
+  font-size: 44px;
+  line-height: 60px;
+  letter-spacing: 0.02em;
+  color: $white;
+}
+
+.body-text {
+  color: $white;
+
+  &.--text-1 {
+    font-weight: $font-weight-normal;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+}
+
