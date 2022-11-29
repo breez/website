@@ -28,6 +28,10 @@
     border: 1.5px solid $white;
   }
 
+  &.--hero-sdk {
+    width: 100%;
+    max-width: 306px;
+  }
 }
 
 .contact-form-btn {
