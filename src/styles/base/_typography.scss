@@ -105,9 +105,16 @@
 
 .h-2 {
   font-weight: $font-weight-light;
-  font-size: 44px;
+  font-size: 40px;
   line-height: 60px;
   letter-spacing: 0.02em;
+  color: $white;
+}
+
+.h-3 {
+  font-weight: $font-weight-normal;
+  font-size: 20px;
+  line-height: 32px;
   color: $white;
 }
 
@@ -118,6 +125,13 @@
     font-weight: $font-weight-normal;
     font-size: 16px;
     line-height: 24px;
+  }
+
+  &.--text-3 {
+    font-weight: $font-weight-normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: $cabaret-charm;
   }
 
 }
