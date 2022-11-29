@@ -168,4 +168,43 @@
     transform: rotate(220deg);
   }
 
+  // cloud page
+  &.--cloud-hero-radial-gradient-top {
+    position: absolute;
+    width: 960px;
+    height: 560px;
+    left: 258px;
+    top: -241px;
+    background: $common-radial-gradient;
+    opacity: 0.3;
+    filter: blur(150px);
+    z-index: -1;
+  }
+
+  &.--cloud-contact-us-radial-gradient-left {
+    position: absolute;
+    width: 760px;
+    height: 760px;
+    left: -54px;
+    top: -381px;
+    background: $common-radial-gradient-2;
+    opacity: 0.1;
+    filter: blur(150px);
+    z-index: -1;
+  }
+
+  &.--cloud-contact-us-radial-gradient-bottom-right {
+    position: absolute;
+    width: 457px;
+    height: 457px;
+    right: 0;
+    top: 235px;
+
+    //background: $common-radial-gradient;
+    background: $common-radial-gradient;
+    opacity: 0.42;
+    filter: blur(150px);
+    z-index: -1;
+  }
+
 }
