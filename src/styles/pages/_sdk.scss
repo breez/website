@@ -18,6 +18,12 @@
 
     .sdk-features-block-item {
       margin-bottom: 60px;
+
+      &.--gap {
+        @media (min-width: $screen-lg-min) {
+          margin-bottom: 80px;
+        }
+      }
     }
   }
 }
