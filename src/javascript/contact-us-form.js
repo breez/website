@@ -95,12 +95,42 @@
         if (!form.checkValidity()) {
           event.preventDefault()
           event.stopPropagation()
+        } else {
+          // $('.toast').show();
+
+          //   event.preventDefault();      //This stops page loading
+          //   $('.toast').show(); //Show toast
+          // setTimeout(() => {
+          //   form.reset();
+          // }, 2000);
         }
+
+        // function showSuccess() {
+        //   $('.toast').show();
+        // }
+
+        // if (form.checkValidity()) {
+        //   $('.toast').show();
+        //   // setTimeout(showSuccess, 2000);
+        // }
 
         form.classList.add('was-validated')
       }, false)
     })
 })()
+
+
+//open
+// $('#submit').on('click', function () {
+//   $('.toast').show();
+// })
+
+//close
+$('.toast .btn-close').on('click', function () {
+  $('.toast').hide()
+})
+
+
 
 // //check email is valid
 // function checkEmail(input) {
