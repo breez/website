@@ -1,0 +1,23 @@
+.mobile-page {
+
+  .mobile-hero-section {
+    margin: 100px 0 100px 0;
+
+    @media (min-width: $screen-md-min) {
+      margin: 160px 0 100px 0;
+    }
+
+    .mobile-hero-info-block {
+      max-width: 540px;
+      margin-bottom: 60px;
+    }
+  }
+
+  .mobile-features-section {
+    margin-bottom: 100px;
+
+    .mobile-features-item {
+     max-width: 200px;
+    }
+  }
+}
