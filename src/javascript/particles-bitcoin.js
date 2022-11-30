@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
           nb_sides: 5
         },
         image: {
-          src: "/bitcoin-3.png",
+          src: "/bitcoin.png",
           width: 100,
           height: 100,
         }

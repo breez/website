@@ -22,7 +22,11 @@
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBreez"
                     aria-controls="navbarBreez" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+<!--                <span class="navbar-toggler-icon"></span>-->
+
+                <div class="burger burger-slip">
+                    <div class="burger-lines"></div>
+                </div>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarBreez">
@@ -84,7 +88,7 @@
 <!--hero section-->
 <section class="hero-section secondary-container position-relative">
 <!--    bitcoins bg-->
-    <img src="assets/images/bitcoin-3.png" alt="" class="d-none">
+    <img src="assets/images/bitcoin.png" alt="" class="d-none">
     <div id="particles-js">
     </div>
 
@@ -178,12 +182,12 @@
         <!--    buttons show on mobile-->
         <div class="d-flex d-lg-none flex-column flex-md-row">
             <!--google btn-->
-            <a href="https://play.google.com/apps/testing/com.breez.client" role="button"
+            <a href="https://play.google.com/apps/testing/com.breez.client" target="_blank" role="button"
                class="download-btn--android text-decoration-none mb-2 mb-md-0 me-0 me-md-4">
                 <img src="assets/icons/google-play-btn.svg" alt="google play button">
             </a>
             <!--app store btn-->
-            <a href="https://apps.apple.com/us/app/breez-lightning-client-pos/id1463604142" role="button"
+            <a href="https://apps.apple.com/us/app/breez-lightning-client-pos/id1463604142" target="_blank" role="button"
                class="download-btn--ios text-decoration-none mb-2 mb-md-0 me-0 me-md-4">
                 <img src="assets/icons/app-store-btn.svg" alt="app store button">
             </a>
@@ -204,12 +208,12 @@
     <!--    buttons show on desktop-->
     <div class="d-none d-lg-flex flex-column flex-md-row">
         <!--google btn-->
-        <a href="https://play.google.com/apps/testing/com.breez.client" role="button"
+        <a href="https://play.google.com/apps/testing/com.breez.client" target="_blank" role="button"
            class="text-decoration-none mb-2 mb-md-0 me-0 me-md-4">
             <img src="assets/icons/google-play-btn.svg" alt="google play button">
         </a>
         <!--app store btn-->
-        <a href="https://apps.apple.com/us/app/breez-lightning-client-pos/id1463604142" role="button"
+        <a href="https://apps.apple.com/us/app/breez-lightning-client-pos/id1463604142" target="_blank" role="button"
            class="text-decoration-none mb-2 mb-md-0 me-0 me-md-4">
             <img src="assets/icons/app-store-btn.svg" alt="app store button">
         </a>
@@ -283,7 +287,9 @@
     <div class="col-12 col-lg-7 mb-5 mb-lg-0">
         <div class="contact-us-info-block">
             <h2 class="h-2-home mb-2">Contact us</h2>
-            <p class="home-text --text-2">Stay up to date with our latest developments</p>
+            <p class="home-text --text-2">Contact us if you have any questions
+                <br/>
+                or want to know more.</p>
         </div>
 
         <div>
@@ -387,15 +393,15 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="text" name="name" placeholder="Your name"
                                            required>
-                                    <div class="valid-feedback">Name field is valid!</div>
-                                    <div class="invalid-feedback">Name field is required</div>
+                                    <div class="valid-feedback"></div>
+                                    <div class="invalid-feedback">Name is required</div>
                                 </div>
 
                                 <div class="col-md-12">
                                     <input class="form-control" type="email" name="email" placeholder="Your email"
                                            required>
-                                    <div class="valid-feedback">Email field is valid!</div>
-                                    <div class="invalid-feedback">Email is required and should be valid!</div>
+                                    <div class="valid-feedback"></div>
+                                    <div class="invalid-feedback">Email is required!</div>
 
                                 </div>
 
@@ -407,7 +413,7 @@
                                         <option value="cloud-early-access">Cloud Early Access</option>
                                         <option value="other">Other</option>
                                     </select>
-                                    <div class="valid-feedback">You selected a topic!</div>
+                                    <div class="valid-feedback"></div>
                                     <div class="invalid-feedback">Topic is required!</div>
                                 </div>
 
@@ -415,8 +421,8 @@
                                     <!--                                    <input class="form-control" type="text" name="name" placeholder="Your name" required>-->
                                     <textarea class="form-control" type="text" name="textarea" rows="4" cols="50"
                                               placeholder="Message" required></textarea>
-                                    <div class="valid-feedback">Message field is valid!</div>
-                                    <div class="invalid-feedback">Message field is required</div>
+                                    <div class="valid-feedback"></div>
+                                    <div class="invalid-feedback">Message is required</div>
                                 </div>
 
                                 <div class="form-button mt-3">
@@ -428,6 +434,19 @@
                                         <img src="assets/icons/lightning-icon.svg" alt="lightning icon">
                                     </button>
                                 </div>
+
+                                <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+                                    <div id="success-submit" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                                        <div class="d-flex">
+                                            <div class="toast-body">
+                                                The message has been sent
+                                                <!--There was an error trying to send your message-->
+                                            </div>
+                                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </form>
                         </div>
                     </div>

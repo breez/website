@@ -8,7 +8,8 @@ import 'slick-carousel';
 
 import './javascript/contact-us-form'
 import './javascript/scroll-to-element'
-import './javascript/imgs-auto-change'
+import './javascript/active-header-link'
+import './javascript/burger-toggler'
 
 import './javascript/particles-bitcoin'
 import './javascript/mobile-os-checker'
