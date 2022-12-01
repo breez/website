@@ -44,6 +44,10 @@
     filter: blur(150px);
 
     z-index: -1;
+
+    @media (max-width: $screen-md-max) {
+      left: 0;
+    }
   }
 
   &.--mobile-radial-gradient-right {
@@ -100,6 +104,12 @@
     filter: blur(150px);
 
     z-index: -1;
+
+    @media (max-width: $screen-md-max) {
+      right: 0;
+      left: 0 !important;
+      width: 360px;
+    }
   }
 
   // sdk page
@@ -127,6 +137,11 @@
     opacity: 0.4;
     filter: blur(150px);
     z-index: -1;
+
+    @media (max-width: $screen-md-max) {
+      left: 0;
+    }
+
   }
 
   &.--sdk-features-radial-gradient-top-left {
@@ -166,6 +181,11 @@
     filter: blur(150px);
     z-index: -1;
     transform: rotate(220deg);
+
+    @media (max-width: $screen-md-max) {
+      left: 0;
+      transform: rotate(0deg);
+    }
   }
 
   // cloud page
@@ -179,6 +199,10 @@
     opacity: 0.3;
     filter: blur(150px);
     z-index: -1;
+
+    @media (max-width: $screen-md-max) {
+      left: 0;
+    }
   }
 
   &.--cloud-contact-us-radial-gradient-left {
