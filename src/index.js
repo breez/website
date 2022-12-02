@@ -14,5 +14,8 @@ import './javascript/burger-toggler'
 import './javascript/particles-bitcoin'
 import './javascript/mobile-os-checker'
 
-//mobile-section-slider
+// home & mobile section slider
 import './javascript/mobile-section-slider'
+
+// mobile page frame slider
+import './javascript/mobile-frame-slider'

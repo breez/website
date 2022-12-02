@@ -2,11 +2,11 @@
 .cloud-page {
 
   .cloud-hero-section {
-    margin: 100px 0 100px 0;
+    margin: 160px 0 100px 0;
 
-    @media (min-width: $screen-md-min) {
-      margin: 160px 0 100px 0;
-    }
+    //@media (min-width: $screen-md-min) {
+    //  margin: 160px 0 100px 0;
+    //}
 
     .cloud-hero-info-block {
       max-width: 530px;

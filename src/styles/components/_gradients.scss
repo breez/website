@@ -231,4 +231,76 @@
     z-index: -1;
   }
 
+
+  &.--mobile-page-hero-radial-gradient-top {
+    position: absolute;
+    width: 660px;
+    height: 409px;
+    left: -28px;
+    top: -96px;
+
+    background: $common-radial-gradient;
+    opacity: 0.3;
+    filter: blur(150px);
+    z-index: -1;
+  }
+
+  &.--mobile-page-hero-radial-gradient-right {
+    position: absolute;
+    width: 157px;
+    height: 357px;
+    right: 0;
+    top: -248px;
+
+    background: $common-radial-gradient;
+    opacity: 0.4;
+    filter: blur(150px);
+    z-index: -1;
+  }
+
+  &.--mobile-page-features-radial-gradient-left {
+    position: absolute;
+    width: 760px;
+    height: 760px;
+    left: -54px;
+    top: 581px;
+
+    background: $common-radial-gradient-2;
+    opacity: 0.2;
+    filter: blur(150px);
+    z-index: -1;
+
+    @media (max-width: $screen-md-max) {
+      width: 375px;
+      top: 1980px;
+    }
+  }
+
+  &.--mobile-page-features-radial-gradient-right {
+    position: absolute;
+    width: 376px;
+    height: 776px;
+    right: 0;
+    top: 668px;
+
+    background: $common-radial-gradient;
+    opacity: 0.3;
+    filter: blur(125px);
+    z-index: -1;
+  }
+
+  &.--mobile-page-contact-us-radial-gradient-top-left {
+    position: absolute;
+    width: 600px;
+    height: 760px;
+    left: -104px;
+    top: -464px;
+
+    background: $common-radial-gradient;
+    opacity: 0.3;
+    filter: blur(150px);
+    z-index: -1;
+  }
+
+
 }
