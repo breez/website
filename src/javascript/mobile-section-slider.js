@@ -15,6 +15,7 @@
     speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
+    fade: true,
     responsive: [
      {
       breakpoint: 1200,

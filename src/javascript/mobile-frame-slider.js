@@ -3,7 +3,7 @@ const mobileFrameSlider = () => {
   const $mobile_frame_slider = $('.mobile-frame-slider');
 
   $mobile_frame_slider.not('.slick-initialized').slick({
-    autoplay: true,
+    autoplay: false,
     // autoplaySpeed: 1000,
     autoplaySpeed: 8000,
     arrows: false,
@@ -37,7 +37,7 @@ const mobileFrameSlider = () => {
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 5,
+          slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
           dots: true
@@ -59,7 +59,6 @@ const mobileFrameSlider = () => {
           variableWidth: false,
           adaptiveHeight: false,
           centerMode: false
-          // centerPadding = slideWidth;
 
         }
       }
