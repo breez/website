@@ -82,7 +82,7 @@
 
 .hero-section {
   //margin: 148px 0 200px 0;
-  margin: 100px 0 200px 0;
+  margin: 50px 0 200px 0;
 
   @media (min-width: $screen-md-min) {
     margin: 148px 0 200px 0;
@@ -90,7 +90,11 @@
 
   .hero-info-block {
     max-width: 720px;
-    margin-bottom: 52px !important;
+
+    @media (min-width: $screen-md-min) {
+      margin-bottom: 52px !important;
+    }
+
   }
 }
 

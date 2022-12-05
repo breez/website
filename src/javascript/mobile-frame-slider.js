@@ -3,9 +3,10 @@ const mobileFrameSlider = () => {
   const $mobile_frame_slider = $('.mobile-frame-slider');
 
   $mobile_frame_slider.not('.slick-initialized').slick({
-    autoplay: false,
+    // autoplay: false,
     // autoplaySpeed: 1000,
-    autoplaySpeed: 8000,
+    autoplay: true,
+    autoplaySpeed: 4000,
     arrows: false,
     dots: false,
     infinite: true,
