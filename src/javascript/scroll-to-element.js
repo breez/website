@@ -15,7 +15,7 @@ function scrollTo(selector) {
   const navHeight = $('.navbar').innerHeight();
 
   if (element.length) {
-    $('html, body').animate({ scrollTop: element.offset().top - navHeight }, 500);
+    $('html, body').animate({ scrollTop: element.offset().top - navHeight }, 300);
   }
 }
 

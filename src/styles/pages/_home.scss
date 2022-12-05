@@ -1,3 +1,5 @@
+//d-flex flex-row flex-wrap
+
 /* Particles */
 #particles-js {
   position: absolute;
@@ -6,7 +8,7 @@
   background-color: transparent;
   z-index: -1;
   margin-top: -100px;
-
+  left: 0;
 }
 
 ///////////////////////////////////
@@ -27,8 +29,8 @@
 
 .left{
   position:absolute;
-  height:7px;
-  width:40px;
+  height: 5px;
+  width: 25px;
   background: $white;
   -webkit-transform:rotate(240deg);
   top:10px;
@@ -38,14 +40,14 @@
   -webkit-animation: leftArrow 0.5s 1s infinite ease-out alternate;
 }
 
-.right{
+.right {
   position:absolute;
-  height:7px;
-  width:40px;
+  height: 5px;
+  width: 25px;
   background: $white;
   -webkit-transform:rotate(-60deg);
   top:10px;
-  left:12px;
+  left:14px;
   -webkit-border-radius:4px;
   -webkit-transform-origin:5px 50%;
   -webkit-animation: rightArrow 0.5s 1s infinite ease-out alternate;
@@ -80,7 +82,7 @@
 
 .hero-section {
   //margin: 148px 0 200px 0;
-  margin: 100px 0 200px 0;
+  margin: 50px 0 200px 0;
 
   @media (min-width: $screen-md-min) {
     margin: 148px 0 200px 0;
@@ -88,7 +90,11 @@
 
   .hero-info-block {
     max-width: 720px;
-    margin-bottom: 52px !important;
+
+    @media (min-width: $screen-md-min) {
+      margin-bottom: 52px !important;
+    }
+
   }
 }
 

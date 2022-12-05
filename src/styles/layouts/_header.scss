@@ -1,13 +1,20 @@
 .header {
   .header-background {
-    background: $header-background;
+    background: $mobile-header-background;
+
+    @media (min-width: $screen-lg-min) {
+      background: $header-background;
+    }
+
   }
 
   .header-links {
     a {
       color: $white;
       &:hover {
-        color: $bubble-bobble-p2;
+        @media (min-width: $screen-lg-min) {
+          color: $bubble-bobble-p2;
+        }
       }
     }
 
@@ -30,10 +37,15 @@
   //}
 
   .icon {
-    &:hover {
-      //filter: invert(39%) sepia(61%) saturate(4332%) hue-rotate(192deg) brightness(100%) contrast(106%); #0085FB
-      filter: invert(0.4) sepia(1) saturate(20) hue-rotate(183.6deg) brightness(0.7) contrast(170%);
+    @media (min-width: $screen-lg-min) {
+      &:hover {
+        filter: invert(0.4) sepia(1) saturate(20) hue-rotate(183.6deg) brightness(0.7) contrast(170%);
+      }
     }
+    //&:hover {
+    //  //filter: invert(39%) sepia(61%) saturate(4332%) hue-rotate(192deg) brightness(100%) contrast(106%); #0085FB
+    //  filter: invert(0.4) sepia(1) saturate(20) hue-rotate(183.6deg) brightness(0.7) contrast(170%);
+    //}
   }
 
 

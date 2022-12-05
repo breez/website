@@ -1,11 +1,11 @@
 .mobile-page {
 
   .mobile-hero-section {
-    margin: 160px 0 100px 0;
+    margin: 100px 0 100px 0;
 
-    //@media (min-width: $screen-md-min) {
-    //  margin: 160px 0 100px 0;
-    //}
+    @media (min-width: $screen-md-min) {
+      margin: 160px 0 100px 0;
+    }
 
     .mobile-hero-info-block {
       max-width: 540px;
@@ -17,7 +17,10 @@
     margin-bottom: 100px;
 
     .mobile-features-item {
-      max-width: 200px;
+
+      @media (min-width: $screen-md-min) {
+        max-width: 200px;
+      }
     }
   }
 
@@ -33,14 +36,85 @@
     }
 
     .mobile-phone-frame {
-      //border: 2px solid #00ffe0;
-      //width: 220px;
-      height: 487px;
-      left: 470px;
-      margin-top: -24px;
-
       position: absolute;
       z-index: 0;
+      height: 488px;
+      margin-top: -26px;
+
+
+
+      //containers
+
+      //@media (min-width: 576px)
+      //.container, .container-sm {
+      //  max-width: 540px;
+      //}
+
+      //@media (min-width: 768px)
+      //.container, .container-sm, .container-md {
+      //  max-width: 720px;
+      //}
+
+      //@media (min-width: 992px)
+      //.container, .container-sm, .container-md, .container-lg {
+      //  max-width: 960px;
+      //}
+
+      //@media (min-width: 1200px)
+      //.container, .container-sm, .container-md, .container-lg, .container-xl {
+      //  max-width: 1140px;
+
+      //left: 442px;
+      //}
+
+      //@media (min-width: 1400px)
+      //.container, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
+      //  max-width: 1320px;
+      //}
+
+      @media (min-width: 768px)  {
+        //left: 227px;
+
+        left: 253px;
+        height: 419px;
+        margin-top: -23px;
+
+      }
+
+      @media (min-width: 992px) {
+        //left: 307px;
+        left: 332px;
+        height: 604px;
+        margin-top: -32px;
+      }
+
+      @media (min-width: 1200px) {
+        //left: 442px;
+
+        left: 470px;
+        height: 389px;
+        margin-top: -20px;
+      }
+
+      @media (min-width: 1400px)  {
+        //left: 514px;
+
+        left: 540px;
+        height: 475px;
+        margin-top: -26px;
+      }
+
+
+      //border: 2px solid #00ffe0;
+      //width: 220px;
+
+      //need////
+      //height: 487px;
+      //left: 470px;
+      //margin-top: -24px;
+      /////////
+
+
       //width: 208px;
       //left: 466px;
       //margin-top: -2px;
@@ -59,15 +133,15 @@
       //}
 
       // max 991
-      @media (max-width: $screen-md-max) {
-        width: 210px;
-        left: 220px;
-        height: 460px;
-
-        //width: 223px;
-        //left: 250px;
-        //padding-right: 5px;
-      }
+      //@media (max-width: $screen-md-max) {
+      //  //width: 210px;
+      //  left: 227px;
+      //  //height: 460px;
+      //
+      //  //width: 223px;
+      //  //left: 250px;
+      //  //padding-right: 5px;
+      //}
 
       //@media (max-width: 1199px) {
       //  width: 248px;
@@ -81,9 +155,19 @@
       //max-width: 210px;
       //width: 100%;
 
+      //max-width: 188px;
+      width: 100%;
 
-      max-width: 100%;
+      //@media (min-width: 576px) {
+      //  max-width: 210px;
+      //}
+
+
+      // original
+      //max-width: 100%;
       height: auto;
+      // the same size for all devices
+      //max-width: 210px;
 
 
 
@@ -102,14 +186,20 @@
 
 
     /* the slides */
-    .slick-slide {
-      margin: 0 12px;
-    }
+    //.slick-slide {
+    //  margin: 0 12px;
+    //  //margin: 0 30px;
+    //}
+    //
+    ///* the parent */
+    //.slick-list {
+    //  margin: 0 -12px;
+    //  //margin: 0 -30px;
+    //}
 
-    /* the parent */
-    .slick-list {
-      margin: 0 -12px;
-    }
+    //padding: 0 20px;
+    //max-width: 960px;
+    //margin: 0 auto;
 
 
     //// active
@@ -152,6 +242,38 @@
       }
     }
 
+
+
+    .slick-slide {
+      padding: 0 30px;
+    }
+
+    .slick-track {
+      @media (max-width: $screen-xs-max) {
+        margin-left: calc(30px - 12px); // 12px - container paddings on mobile
+      }
+
+    }
+
+    .slick-list {
+      //$top-bottom-space: 30px;
+
+      //overflow: hidden;
+      //margin: calc(#{$top-bottom-space} * -1) -20px;
+      //padding: $top-bottom-space 20px !important;
+
+      @media (min-width: $screen-sm-min) {
+        $left-right-space: calc((100vw - 750px) / 2 + 15px);
+
+        //margin: calc(#{$top-bottom-space} * -1) calc(#{$left-right-space} * -1);
+        //padding: $top-bottom-space $left-right-space !important;
+      }
+
+      //@media (min-width: $screen-md-min) {
+      //  margin: calc(#{$top-bottom-space} * -1) -30px;
+      //  padding: $top-bottom-space 30px !important;
+      //}
+    }
 
 
   }

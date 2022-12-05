@@ -14,7 +14,7 @@
 .h-1-home {
   font-weight: $font-weight-bold;
   font-size: 32px;
-  line-height: 43px;
+  line-height: 39px;
   letter-spacing: 0.02em;
   color: $white;
 
@@ -43,11 +43,15 @@
 
 .home-text {
   &.--text-1 {
-    //desktop
     font-weight: $font-weight-light;
-    font-size: 26px;
-    line-height: 36px;
+    font-size: 18px;
+    line-height: 22px;
     color: $white;
+
+    @media (min-width: $screen-md-min) {
+      font-size: 26px;
+      line-height: 36px;
+    }
   }
 
   &.--text-2 {
@@ -97,18 +101,30 @@
 //pages
 .h-1 {
   font-weight: $font-weight-bold;
-  font-size: 52px;
-  line-height: 60px;
+  font-size: 42px;
+  line-height: 51px;
   letter-spacing: 0.02em;
   color: $white;
+
+  @media (min-width: $screen-md-min) {
+    font-size: 52px;
+    line-height: 60px;
+  }
+
+
 }
 
 .h-2 {
   font-weight: $font-weight-light;
-  font-size: 40px;
-  line-height: 60px;
+  font-size: 30px;
+  line-height: 40px;
   letter-spacing: 0.02em;
   color: $white;
+
+  @media (min-width: $screen-md-min) {
+    font-size: 40px;
+    line-height: 60px;
+  }
 }
 
 .h-3 {
