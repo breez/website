@@ -1,4 +1,7 @@
-import 'jquery';
+import jquery from 'jquery';
+
+window.jQuery = jquery;
+window.$ = jquery;
 
 import './styles/main.scss'
 
@@ -16,7 +19,7 @@ import './javascript/scroll-to-element'
 import './javascript/active-header-link'
 import './javascript/burger-toggler'
 
-import './javascript/particles-bitcoin'
+
 import './javascript/mobile-os-checker'
 
 // home & mobile section slider
@@ -24,3 +27,4 @@ import './javascript/mobile-section-slider'
 
 // mobile page frame slider
 import './javascript/mobile-frame-slider'
+import './javascript/particles-bitcoin'
