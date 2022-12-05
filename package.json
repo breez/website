@@ -42,6 +42,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "aos": "^3.0.0-beta.6",
     "bootstrap": "^5.2.2",
     "css-minimizer-webpack-plugin": "^4.2.2",
     "jquery": "^3.6.1",
