@@ -1,5 +1,36 @@
 .mobile-page {
 
+  &.container {
+    --bs-gutter-x: 2rem;
+    //containers
+
+    @media (min-width: 576px) {
+      //max-width: 540px;
+      max-width: 488px;
+    }
+
+    @media (min-width: 768px) {
+      //max-width: 720px;
+      max-width: 680px;
+    }
+
+    @media (min-width: 992px) {
+      //max-width: 960px;
+      max-width: 943px;
+    }
+
+    @media (min-width: 1200px) {
+      //max-width: 1140px;
+      max-width: 944px;
+    }
+
+    @media (min-width: 1400px) {
+      //max-width: 1320px;
+      max-width: 1184px;
+    }
+
+  }
+
   .mobile-hero-section {
     margin: 100px 0 100px 0;
 
@@ -11,6 +42,14 @@
       max-width: 540px;
       margin-bottom: 60px;
     }
+
+    .mobile-btns {
+      // buttons for small devices
+      @media (max-width: 411px) {
+        flex-direction: column;
+      }
+    }
+
   }
 
   .mobile-features-section {
@@ -42,7 +81,6 @@
       margin-top: -26px;
 
 
-
       //containers
 
       //@media (min-width: 576px)
@@ -72,36 +110,29 @@
       //  max-width: 1320px;
       //}
 
-      @media (min-width: 768px)  {
-        //left: 227px;
-
-        left: 253px;
-        height: 419px;
-        margin-top: -23px;
+      @media (min-width: 768px) {
+        left: 238px;
+        height: 381px;
+        margin-top: -20px;
 
       }
 
       @media (min-width: 992px) {
-        //left: 307px;
-        left: 332px;
-        height: 604px;
-        margin-top: -32px;
+        left: 324px;
+        height: 585px;
+        margin-top: -30px;
       }
 
       @media (min-width: 1200px) {
-        //left: 442px;
-
-        left: 470px;
-        height: 389px;
-        margin-top: -20px;
+        left: 391px;
+        height: 294px;
+        margin-top: -14px;
       }
 
-      @media (min-width: 1400px)  {
-        //left: 514px;
-
-        left: 540px;
-        height: 475px;
-        margin-top: -26px;
+      @media (min-width: 1400px) {
+        left: 486px;
+        height: 407px;
+        margin-top: -21px;
       }
 
 
@@ -168,7 +199,6 @@
       height: auto;
       // the same size for all devices
       //max-width: 210px;
-
 
 
       //border: 2px solid #ffd400;
@@ -241,7 +271,6 @@
         filter: opacity(100%);
       }
     }
-
 
 
     .slick-slide {

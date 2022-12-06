@@ -1,9 +1,15 @@
 .header {
   .header-background {
-    background: $mobile-header-background;
+    //background: $mobile-header-background;
+
+    //border: 1px solid red;
+    background: $header-background;
+    backdrop-filter: blur(5px);
 
     @media (min-width: $screen-lg-min) {
       background: $header-background;
+
+      backdrop-filter: blur(0);
     }
 
   }

@@ -26,6 +26,9 @@
   &.--transparent {
     background: transparent;
     border: 1.5px solid $white;
+
+    //width: 177px;
+    min-width: 177px;
   }
 
   &.--hero-sdk {
