@@ -1,6 +1,37 @@
 
 .cloud-page {
 
+  &.container {
+    --bs-gutter-x: 2rem;
+    //containers
+
+    @media (min-width: 576px) {
+      //max-width: 540px;
+      max-width: 488px;
+    }
+
+    @media (min-width: 768px) {
+      //max-width: 720px;
+      max-width: 680px;
+    }
+
+    @media (min-width: 992px) {
+      //max-width: 960px;
+      max-width: 943px;
+    }
+
+    @media (min-width: 1200px) {
+      //max-width: 1140px;
+      max-width: 944px;
+    }
+
+    @media (min-width: 1400px) {
+      //max-width: 1320px;
+      max-width: 1184px;
+    }
+
+  }
+
   .cloud-hero-section {
     margin: 100px 0 100px 0;
 

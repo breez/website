@@ -135,7 +135,7 @@
     position: absolute;
     width: 457px;
     height: 357px;
-    left: 1070px;
+    right: 0;
     top: 319px;
 
     background: $common-radial-gradient;
@@ -145,6 +145,7 @@
 
     @media (max-width: $screen-md-max) {
       left: 0;
+
     }
 
   }
@@ -179,7 +180,8 @@
     position: absolute;
     width: 760px;
     height: 409px;
-    left: 900px;
+    //left: 900px;
+    right: 0;
     top: -70px;
     background: $common-radial-gradient;
     opacity: 0.3;

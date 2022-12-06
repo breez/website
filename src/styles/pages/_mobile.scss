@@ -252,16 +252,14 @@
     //  filter: opacity(100%);
     //}
 
-    .slick-slide,
-    .slick-slide.slick-cloned,
-    .slick-slide.slick-active,
-    .slick-slide.slick-active.slick-cloned {
-      filter: opacity(30%);
+    .slick-slide {
+      opacity: .3;
+      //filter: opacity(30%);
     }
 
-    .slick-slide.slick-active.slick-current.slick-center {
+    .slick-slide.slick-center {
       opacity: 1;
-      filter: opacity(100%);
+      //filter: opacity(100%);
     }
 
     .slick-slide.slick-active.slick-current {

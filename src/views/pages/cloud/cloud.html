@@ -84,7 +84,7 @@
     </nav>
 </header>
 
-<div class="cloud-page main-container">
+<div class="cloud-page container">
     <section class="cloud-hero-section row position-relative">
         <div class="col-12 col-lg-6 mb-5 mb-lg-0 d-flex flex-column justify-content-center">
             <div class="cloud-hero-info-block">
@@ -119,7 +119,7 @@
                     </p>
                 </article>
             </div>
-            <a role="button" class="primary-btn --cloud-sdk text-decoration-none js-scroll-to" data-scroll-to="#contact-us-form">
+            <a role="button" class="primary-btn --cloud-sdk text-decoration-none js-scroll-to" data-scroll-to="#contact-us-form-cloud">
                 <div class="">Get Early Access</div>
                 <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
             </a>
@@ -135,7 +135,7 @@
         </div>
     </section>
 
-    <section data-aos="fade-up" data-aos-duration="3000" class="contact-us-section row position-relative">
+    <section id="contact-us-form-cloud" data-aos="fade-up" data-aos-duration="3000" class="contact-us-section row position-relative">
 
         <div class="col-12 col-lg-7 mb-5 mb-lg-0">
             <div class="contact-us-info-block">
@@ -189,7 +189,7 @@
                         <div class="form-content">
                             <div class="form-items">
 
-                                <form class="requires-validation" novalidate>
+                                <form class="needs-validation" novalidate>
 
                                     <div class="col-md-12">
                                         <input class="form-control" type="text" name="name" placeholder="Your name"
@@ -199,10 +199,18 @@
                                     </div>
 
                                     <div class="col-md-12">
-                                        <input class="form-control" type="email" name="email" placeholder="Your email"
+<!--                                        <input class="form-control" type="email" name="email" placeholder="Your email"-->
+<!--                                               required>-->
+                                        <input class="form-control js-email-input"
+                                               pattern="([a-z0-9][-a-z0-9_\+\.]*[a-z0-9])@([a-z0-9][-a-z0-9\.]*[a-z0-9]\.(arpa|root|aero|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|ac|ad|ae|af|ag|ai|al|am|an|ao|aq|ar|as|at|au|aw|ax|az|ba|bb|bd|be|bf|bg|bh|bi|bj|bm|bn|bo|br|bs|bt|bv|bw|by|bz|ca|cc|cd|cf|cg|ch|ci|ck|cl|cm|cn|co|cr|cu|cv|cx|cy|cz|de|dj|dk|dm|do|dz|ec|ee|eg|er|es|et|eu|fi|fj|fk|fm|fo|fr|ga|gb|gd|ge|gf|gg|gh|gi|gl|gm|gn|gp|gq|gr|gs|gt|gu|gw|gy|hk|hm|hn|hr|ht|hu|id|ie|il|im|in|io|iq|ir|is|it|je|jm|jo|jp|ke|kg|kh|ki|km|kn|kr|kw|ky|kz|la|lb|lc|li|lk|lr|ls|lt|lu|lv|ly|ma|mc|md|mg|mh|mk|ml|mm|mn|mo|mp|mq|mr|ms|mt|mu|mv|mw|mx|my|mz|na|nc|ne|nf|ng|ni|nl|no|np|nr|nu|nz|om|pa|pe|pf|pg|ph|pk|pl|pm|pn|pr|ps|pt|pw|py|qa|re|ro|ru|rw|sa|sb|sc|sd|se|sg|sh|si|sj|sk|sl|sm|sn|so|sr|st|su|sv|sy|sz|tc|td|tf|tg|th|tj|tk|tl|tm|tn|to|tp|tr|tt|tv|tw|tz|ua|ug|uk|um|us|uy|uz|va|vc|ve|vg|vi|vn|vu|wf|ws|ye|yt|yu|za|zm|zw)|([0-9]{1,3}\.{3}[0-9]{1,3}))"
+                                               type="email" name="email" placeholder="Your email"
                                                required>
                                         <div class="valid-feedback"></div>
-                                        <div class="invalid-feedback">Email is required!</div>
+<!--                                        <div class="invalid-feedback">Email is required!</div>-->
+                                        <div class="invalid-feedback">
+                                            <div class="js-required-input-error d-none">Email is required!</div>
+                                            <div class="js-not-valid-email-error d-none">Email is not valid</div>
+                                        </div>
 
                                     </div>
 
@@ -234,6 +242,22 @@
                                             <img src="../../../assets/icons/lightning-icon.svg" alt="lightning icon">
                                         </button>
                                     </div>
+
+                                    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+                                        <div id="success-submit"
+                                             class="toast align-items-center text-white bg-success border-0"
+                                             role="alert" aria-live="assertive" aria-atomic="true">
+                                            <div class="d-flex">
+                                                <div class="toast-body">
+                                                    The message has been sent
+                                                    <!--There was an error trying to send your message-->
+                                                </div>
+                                                <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                                                        data-bs-dismiss="toast" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </form>
                             </div>
                         </div>
