@@ -4,30 +4,35 @@
     --bs-gutter-x: 2rem;
     //containers
 
-    @media (min-width: 576px) {
+    @media (min-width: $screen-sm-min) {
       //max-width: 540px;
       max-width: 488px;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: $screen-md-min) {
       //max-width: 720px;
       max-width: 680px;
     }
 
-    @media (min-width: 992px) {
+    @media (min-width: $screen-lg-min) {
       //max-width: 960px;
       max-width: 943px;
     }
 
-    @media (min-width: 1200px) {
+    @media (min-width: $screen-xl-min) {
       //max-width: 1140px;
       max-width: 944px;
     }
 
-    @media (min-width: 1400px) {
+    @media (min-width: $screen-xxl-min) {
       //max-width: 1320px;
       max-width: 1184px;
     }
+
+    @media (min-width: $screen-xxxl-min) {
+      max-width: 1400px;
+    }
+
 
   }
 
@@ -110,30 +115,37 @@
       //  max-width: 1320px;
       //}
 
-      @media (min-width: 768px) {
+      @media (min-width: $screen-md-min) {
         left: 238px;
         height: 381px;
         margin-top: -20px;
 
       }
 
-      @media (min-width: 992px) {
+      @media (min-width: $screen-lg-min) {
         left: 324px;
         height: 585px;
         margin-top: -30px;
       }
 
-      @media (min-width: 1200px) {
+      @media (min-width: $screen-xl-min) {
         left: 391px;
         height: 294px;
         margin-top: -14px;
       }
 
-      @media (min-width: 1400px) {
+      @media (min-width: $screen-xxl-min) {
         left: 486px;
         height: 407px;
         margin-top: -21px;
       }
+
+      @media (min-width: $screen-xxxl-min) {
+        left: 570px;
+        height: 508px;
+        margin-top: -27px;
+      }
+
 
 
       //border: 2px solid #00ffe0;
@@ -252,16 +264,14 @@
     //  filter: opacity(100%);
     //}
 
-    .slick-slide,
-    .slick-slide.slick-cloned,
-    .slick-slide.slick-active,
-    .slick-slide.slick-active.slick-cloned {
-      filter: opacity(30%);
+    .slick-slide {
+      opacity: .3;
+      //filter: opacity(30%);
     }
 
-    .slick-slide.slick-active.slick-current.slick-center {
+    .slick-slide.slick-center {
       opacity: 1;
-      filter: opacity(100%);
+      //filter: opacity(100%);
     }
 
     .slick-slide.slick-active.slick-current {

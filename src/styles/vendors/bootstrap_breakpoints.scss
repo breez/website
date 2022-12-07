@@ -4,12 +4,14 @@ $screen-md-min: 768px;
 $screen-lg-min: 992px;
 $screen-xl-min: 1200px;
 $screen-xxl-min: 1400px;
+$screen-xxxl-min: 1800px;
 
 $screen-xs-max: calc(#{$screen-sm-min} - 1px);
 $screen-sm-max: calc(#{$screen-md-min} - 1px);
 $screen-md-max: calc(#{$screen-lg-min} - 1px);
 $screen-lg-max: calc(#{$screen-xl-min} - 1px);
 $screen-xl-max: calc(#{$screen-xxl-min} - 1px);
+$screen-xxl-max: calc(#{$screen-xxxl-min} - 1px);
 
 $grid-breakpoints: (
         xs: $screen-xs-min,
@@ -18,4 +20,5 @@ $grid-breakpoints: (
         lg: $screen-lg-min,
         xl: $screen-xl-min,
         xxl: $screen-xxl-min,
+        xxxl: $screen-xxxl-min,
 )
