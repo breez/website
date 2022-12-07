@@ -1,5 +1,4 @@
 window.addEventListener('DOMContentLoaded', (event) => {
-//   $(document).ready(function() {
   'use strict';
 
   /* ---- particles.js config ---- */

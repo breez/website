@@ -1,9 +1,4 @@
-// export const destroy = () => {
-//   const $testimonials_slick_slider = $('.testimonials-slick-slider');
-//   $testimonials_slick_slider.slick('unslick');
-// }
-
- const mobileSectionSlider = () => {
+const mobileSectionSlider = () => {
   const $mobile_section_slider = $('.mobile-section-slider');
 
    $mobile_section_slider.not('.slick-initialized').slick({

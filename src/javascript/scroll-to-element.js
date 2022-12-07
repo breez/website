@@ -1,5 +1,3 @@
-// import $ from 'jquery';
-
 const scrollToElement = () => {
   const hash = window.location.hash;
 
