@@ -60,6 +60,13 @@
           margin-bottom: 80px;
         }
       }
+
+      &.--gap-big {
+        @media (min-width: $screen-xxxl-min) {
+          margin-bottom: 80px;
+        }
+      }
+
     }
   }
 }
