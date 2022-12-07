@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   'use strict';
 
   /* ---- particles.js config ---- */
-  setTimeout(() => {
+  // setTimeout(() => {
     particlesJS("particles-js", {
       particles: {
         number: {
@@ -114,6 +114,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
       },
       retina_detect: true
     });
-  }, 1000)
+  // }, 1000)
 
 });
