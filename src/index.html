@@ -340,7 +340,7 @@
                                 <form class="needs-validation" novalidate action="/contact" method="post">
 
                                     <div class="col-md-12">
-                                        <input class="form-control" type="text" name="name" placeholder="Your name"
+                                        <input class="form-control" type="text" name="fullname" placeholder="Your name"
                                                required>
                                         <div class="valid-feedback"></div>
                                         <div class="invalid-feedback">Name is required!</div>
@@ -360,7 +360,7 @@
                                     </div>
 
                                     <div class="col-md-12">
-                                        <select class="form-select mt-3" required>
+                                        <select class="form-select mt-3" name="contact_type" required>
                                             <option selected disabled value="" class="d-none">Topic</option>
                                             <option value="mobile">Mobile</option>
                                             <option value="sdk-design-partner">SDK Design Partner</option>
@@ -372,7 +372,7 @@
                                     </div>
 
                                     <div class="col-md-12">
-                                        <textarea class="form-control" type="text" name="textarea" rows="4" cols="50"
+                                        <textarea class="form-control" type="text" name="message" rows="4" cols="50"
                                                   placeholder="Message" required></textarea>
                                         <div class="valid-feedback"></div>
                                         <div class="invalid-feedback">Message is required!</div>
