@@ -145,9 +145,7 @@
 
     @media (max-width: $screen-md-max) {
       left: 0;
-
     }
-
   }
 
   &.--sdk-features-radial-gradient-top-left {
@@ -180,7 +178,6 @@
     position: absolute;
     width: 760px;
     height: 409px;
-    //left: 900px;
     right: 0;
     top: -70px;
     background: $common-radial-gradient;
@@ -231,7 +228,6 @@
     right: 0;
     top: 235px;
 
-    //background: $common-radial-gradient;
     background: $common-radial-gradient;
     opacity: 0.42;
     filter: blur(150px);
@@ -308,6 +304,5 @@
     filter: blur(150px);
     z-index: -1;
   }
-
 
 }
