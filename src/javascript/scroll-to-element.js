@@ -1,14 +1,23 @@
 const scrollToElement = () => {
   const hash = window.location.hash;
 
-  // fix start position for scroll from other pages
-  setTimeout(function (){
-    scrollTo(hash);
-  }, 200)
+  // close burger menu on click contact us link at mobile header only at home page
+  // $('.close-burger-mobile').on('click', function () {
+  //   $('.navbar-toggler').attr("aria-expanded","false");
+  //   $('.navbar-collapse').removeClass('show');
+  //   $('.burger-slip').removeClass('open');
+  // });
 
-  $('.js-scroll-to').on('click', function () {
-    scrollTo($(this).attr('data-scroll-to'))
-  });
+  // fix start position for scroll from other pages
+  setTimeout(function () {
+    scrollTo(hash);
+  }, 200);
+
+  // setTimeout(function () {
+    $('.js-scroll-to').on('click', function () {
+      scrollTo($(this).attr('data-scroll-to'));
+    });
+  // }, 200);
 };
 
 function scrollTo(selector) {

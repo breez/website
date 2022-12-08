@@ -19,14 +19,14 @@
 
         if (isValidated) {
           $('.toast').show();
-          form.reset()
-          form.classList.remove('was-validated')
-
           $.ajax({
             url: `${contactUsForm.attr('action')}`,
             type: `${contactUsForm.attr('method')}`,
             data: contactUsForm.serialize(),
           });
+          form.classList.remove('was-validated')
+
+          form.reset()
 
         } else {
           const emailValue = emailInput.value
