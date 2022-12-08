@@ -7,4 +7,10 @@ $(document).ready(function() {
     formLink.addClass('active');
   });
 
+  // close burger menu on click contact us link at mobile header only at home page
+  $('.close-burger-mobile').on('click', function () {
+      $('.navbar-collapse').removeClass('show')
+     $('.burger-slip').removeClass('open')
+  })
+
 });
