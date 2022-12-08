@@ -13,11 +13,11 @@ const scrollToElement = () => {
     scrollTo(hash);
   }, 200);
 
-  // setTimeout(function () {
     $('.js-scroll-to').on('click', function () {
-      scrollTo($(this).attr('data-scroll-to'));
+      setTimeout(() => {
+        scrollTo($(this).attr('data-scroll-to'));
+      }, 200)
     });
-  // }, 200);
 };
 
 function scrollTo(selector) {
