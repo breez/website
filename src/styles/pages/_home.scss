@@ -110,6 +110,7 @@
 
   @media (max-width: $screen-xs-max) {
     height: calc(100vh - 78px - 40px - 4px);
+    //height: calc(100vh - 148px - 40px - 4px);
   }
 
   @media (min-width: $screen-md-min) {
