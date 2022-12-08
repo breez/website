@@ -6,6 +6,7 @@
   const emailInput = document.querySelector('.js-email-input')
   const requiredInputError =  document.querySelector('.js-required-input-error')
   const notValidEmailError =  document.querySelector('.js-not-valid-email-error')
+  let contactUsForm = $('form')
 
   // Loop over them and prevent submission
   Array.from(forms)
@@ -20,6 +21,13 @@
           $('.toast').show();
           form.reset()
           form.classList.remove('was-validated')
+
+          $.ajax({
+            url: `${contactUsForm.attr('action')}`,
+            type: `${contactUsForm.attr('method')}`,
+            data: contactUsForm.serialize(),
+          });
+
         } else {
           const emailValue = emailInput.value
 
