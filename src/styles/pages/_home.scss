@@ -106,19 +106,50 @@
 
 .hero-section {
 
-  .images {
-    max-width: calc(100% - 20%);
-    margin-right: auto;
-    margin-left: auto;
-  }
+  //.images {
+  //  max-width: calc(100% - 20%);
+  //  margin-right: auto;
+  //  margin-left: auto;
+  //}
 
 
   margin: 50px 0 200px 0;
   padding-bottom: 10px;
 
   @media (max-width: $screen-xs-max) {
+
+    //0-320
+    //320-375
+    //375-412
+    //412-480
+    //480-576
+
+    .images {
+      max-width: calc(100% - 20%);
+      margin-right: auto;
+      margin-left: auto;
+
+      @media (min-width: 320px) {
+        max-width: calc(100% - 30%);
+      }
+
+      @media (min-width: 375px) {
+        max-width: calc(100% - 20%);
+      }
+
+      @media (min-width: 412px) {
+        max-width: calc(100% - 10%);
+      }
+
+      @media (min-width: 480px) {
+        max-width: calc(100% - 1%);
+      }
+
+    }
+
     //height: calc(100vh - 78px - 40px - 4px);
-    height: calc(100vh - 148px - 40px - 4px);
+    //height: calc(100vh - 148px - 40px - 4px); 1
+    height: calc(100vh - 165px - 40px - 4px); //2
     //height: calc(100vh - 78px - 40px - 4px - env(safe-area-inset-bottom));
   }
 
@@ -128,6 +159,7 @@
 
   .hero-info-block {
     max-width: 720px;
+    //margin: 30px 0;
 
     @media (min-width: $screen-md-min) {
       margin-bottom: 52px !important;
