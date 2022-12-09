@@ -4,8 +4,8 @@
   // Fetch all the forms we need to apply custom Bootstrap validation styles to
   const forms = document.querySelectorAll('.needs-validation')
   const emailInput = document.querySelector('.js-email-input')
-  const requiredInputError =  document.querySelector('.js-required-input-error')
-  const notValidEmailError =  document.querySelector('.js-not-valid-email-error')
+  const requiredInputError = document.querySelector('.js-required-input-error')
+  const notValidEmailError = document.querySelector('.js-not-valid-email-error')
   let contactUsForm = $('form')
 
   // Loop over them and prevent submission
@@ -23,11 +23,11 @@
             url: `${contactUsForm.attr('action')}`,
             type: `${contactUsForm.attr('method')}`,
             data: contactUsForm.serialize(),
+            success: function () {
+              form.reset()
+            },
           });
           form.classList.remove('was-validated')
-
-          form.reset()
-
         } else {
           const emailValue = emailInput.value
 

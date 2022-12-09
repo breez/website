@@ -28,3 +28,13 @@ import './javascript/mobile-section-slider'
 // mobile page frame slider
 import './javascript/mobile-frame-slider'
 import './javascript/particles-bitcoin'
+
+import { load } from 'recaptcha-v3'
+
+load('6LcXRpgUAAAAAME7hVWwxUI0BvOuz6QEocYmUpIa').then((recaptcha) => {
+    recaptcha.execute('contact').then((token) => {
+        var recaptchaResponse = document.getElementById('recaptcha_response');
+        recaptchaResponse.value = token;
+        console.log(token) // Will print the token
+    })
+})
