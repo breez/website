@@ -133,9 +133,12 @@
         max-width: calc(100% - 30%);
       }
 
-      @media (min-width: 375px) {
-        max-width: calc(100% - 20%);
+      @media screen and (min-width: 375px) and (max-width: 390px) {
+        max-width: calc(100% - 45%);
       }
+      //@media (min-width: 375px) {
+      //  max-width: calc(100% - 20%);
+      //}
 
       @media (min-width: 412px) {
         max-width: calc(100% - 10%);
@@ -162,14 +165,15 @@
     //margin: 30px 0;
 
     @media (min-width: $screen-md-min) {
-      margin-bottom: 52px !important;
+      //margin-bottom: 52px !important;
+      margin-bottom: 20px !important;
     }
 
   }
 }
 
 .mobile-section {
-  padding-top: 80px;
+  padding-top: 100px;
   margin-bottom: 200px;
 
   .mobile-info-block {
@@ -221,4 +225,11 @@
       filter: invert(0.4) sepia(1) saturate(20) hue-rotate(183.6deg) brightness(0.7) contrast(170%);
     }
   }
+}
+
+.min-margin {
+  @media screen and (min-width: 375px) and (max-width: 390px) {
+    margin-bottom: 5px;
+  }
+
 }
