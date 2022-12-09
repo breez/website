@@ -133,12 +133,16 @@
         max-width: calc(100% - 30%);
       }
 
-      @media screen and (min-width: 375px) and (max-width: 390px) {
+      @media screen and (min-width: 375px) and (max-width: 388px) {
         max-width: calc(100% - 45%);
       }
       //@media (min-width: 375px) {
       //  max-width: calc(100% - 20%);
       //}
+
+      @media (min-width: 389px) {
+        max-width: calc(100% - 20%);
+      }
 
       @media (min-width: 412px) {
         max-width: calc(100% - 10%);
