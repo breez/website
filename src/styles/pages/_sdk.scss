@@ -38,7 +38,11 @@
 
     .sdk-hero-info-block {
       max-width: 530px;
-      margin-bottom: 60px;
+      margin-bottom: 40px;
+
+      @media (min-width: $screen-lg-min) {
+        margin-bottom: 60px;
+      }
     }
   }
 

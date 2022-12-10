@@ -5,10 +5,10 @@
     background: $header-background;
     backdrop-filter: blur(5px);
 
-    @media (min-width: $screen-lg-min) {
-      background: $header-background;
-      backdrop-filter: blur(0);
-    }
+    //@media (min-width: $screen-lg-min) {
+    //  background: $header-background;
+    //  backdrop-filter: blur(0);
+    //}
   }
 
   /* if backdrop support: very transparent and blurred */
@@ -19,8 +19,7 @@
 
       @media (min-width: $screen-lg-min) {
         background: $header-background;
-
-        backdrop-filter: blur(0);
+        //backdrop-filter: blur(0);
       }
     }
   }

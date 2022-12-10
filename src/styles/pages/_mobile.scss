@@ -38,7 +38,11 @@
 
     .mobile-hero-info-block {
       max-width: 540px;
-      margin-bottom: 60px;
+      margin-bottom: 40px;
+
+      @media (min-width: $screen-lg-min) {
+        margin-bottom: 60px;
+      }
     }
 
     .mobile-btns {
