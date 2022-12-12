@@ -46,7 +46,7 @@ func contactMailer(w http.ResponseWriter, r *http.Request) {
 	success, score, err := recaptcha.Check(nil, "contact", r.FormValue("recaptcha_response"))
 	log.Printf("recaptcha.Verify: %v, score: %v, err: %v", success, score, err)
 
-	if score <= 0.5 {
+	if score <= 0.05 {
 		http.Error(w, "", http.StatusBadRequest)
 		return
 	}
