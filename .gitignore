@@ -13,3 +13,8 @@ node_modules/
 .Trashes
 ehthumbs.db
 Thumbs.db
+!/dist/apple-app-site-association
+!/dist/breez.technology.gpg
+!/dist/privacy.html
+!/dist/oim/
+!/dist/open-in-mobile.html
