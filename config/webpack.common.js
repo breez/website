@@ -70,7 +70,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       favicon: paths.src + '/assets/icons/favicon.svg',
-      template:  paths.src + '/index.html',
+      template: paths.src + '/index.html',
       filename: 'index.html',
       minify: {
         removeComments: true,
