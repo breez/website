@@ -106,10 +106,6 @@
 }
 
 .hero-section {
-  height: 100vh;
-  max-height: 100vh;
-  height: calc(var(--vh, 1vh) * 100);
-  max-height: calc(var(--vh, 1vh) * 100);
 
   .hero-section-wrapper {
     height: 100%;
@@ -132,12 +128,11 @@
   }
 
   @media (max-width: $screen-xs-max) {
+    height: 100vh;
+    max-height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    max-height: calc(var(--vh, 1vh) * 100);
 
-    //0-320
-    //320-375
-    //375-412
-    //412-480
-    //480-576
 
     .image-container {
       // (screen - navbar - arrow height - title - browser-bar) / 2
