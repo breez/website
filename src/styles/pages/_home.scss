@@ -1,3 +1,6 @@
+.spinner-wrapper{
+  display: none;
+}
 @media (max-width: $screen-xs-max) {
   .spinner-wrapper {
     background-color: black;
@@ -13,7 +16,7 @@
     transition: all 0.2s;
   }
 
-  .spinner-grow, .spinner-border {
+  .spinner-border {
     width: 60px;
     height: 60px;
   }
