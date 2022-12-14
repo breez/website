@@ -4,6 +4,8 @@ dist/*
 node_modules/
 *.log
 
+.idea
+
 # OS generated files
 .DS_Store
 .DS_Store?
