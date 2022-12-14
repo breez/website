@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: 'development',
@@ -103,6 +104,11 @@ module.exports = {
         removeComments: true,
         removeRedundantAttributes: false, // do not remove type="text"
       }
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: "static", to: "./" },
+      ],
     }),
   ],
   resolve: {
