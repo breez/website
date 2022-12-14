@@ -29,6 +29,8 @@ import './javascript/mobile-section-slider'
 import './javascript/mobile-frame-slider'
 import './javascript/particles-bitcoin'
 
+import './javascript/spinner-loader'
+
 import { load } from 'recaptcha-v3'
 
 
