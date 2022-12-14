@@ -21,7 +21,16 @@ footer, header, nav, section, main{
   display: block;
 }
 
+html {
+  height: fill-available;
+  height: -webkit-fill-available;
+}
+
 body {
+  min-height: 100vh;
+  min-height: fill-available;
+  min-height: -webkit-fill-available;
+
   background: $cynical-black;
   //body-text
   font-size: 22px;

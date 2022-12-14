@@ -1,28 +1,27 @@
-
 .container {
-    --bs-gutter-x: 2rem;
-    //containers
-    @media (min-width: 576px) {
-      max-width: 488px;
-    }
-
-    @media (min-width: 768px) {
-      max-width: 680px;
-    }
-
-    @media (min-width: 992px) {
-      max-width: 943px;
-    }
-
-    @media (min-width: 1200px) {
-      max-width: 944px;
-    }
-
-    @media (min-width: 1400px) {
-      max-width: 1184px;
-    }
-
+  --bs-gutter-x: 2rem;
+  //containers
+  @media (min-width: 576px) {
+    max-width: 488px;
   }
+
+  @media (min-width: 768px) {
+    max-width: 680px;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 943px;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 944px;
+  }
+
+  @media (min-width: 1400px) {
+    max-width: 1184px;
+  }
+
+}
 
 
 /* Particles */
@@ -38,13 +37,15 @@
 
 //hero section arrow
 .arrow-down{
-  width: 40px;
-  height:40px;
-  margin:0 0 -60px -30px;
-  position:absolute;
-  //left:50%;
-  left: calc(50% + 16px);
-  bottom:0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 20px;
+  position: relative;
+  left: calc(50% - 16px);
+  bottom: 0;
+  padding: 20px;
   -webkit-animation: arrow 0.5s 1s infinite ease-out alternate;
 }
 
@@ -105,16 +106,19 @@
 }
 
 .hero-section {
+  height: 100vh;
+  max-height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  max-height: calc(var(--vh, 1vh) * 100);
 
-  //.image-block {
-  //  max-width: calc(100% - 20%);
-  //  margin-right: auto;
-  //  margin-left: auto;
-  //}
+  .hero-section-wrapper {
+    height: 100%;
+    //padding: 0 0 200px 0;
 
-
-  margin: 50px 0 200px 0;
-  padding-bottom: 10px;
+    @media (max-width: $screen-xs-max) {
+      padding: 70px 0 200px 0;
+    }
+  }
 
   .image-container {
     display: flex;
@@ -137,13 +141,22 @@
 
     .image-container {
       // (screen - navbar - arrow height - title - browser-bar) / 2
-      height: calc((100vh - 78px - 78px - 216px - 60px) / 2);
+      //original //good for android 13version bug
+      //height: calc((100% - 70px - 40px - 4px - 216px) / 2);
+
+      // good for all devices except android 13version bug
+      //height: calc((var(--vh) * 100 - 50px - 40px - 216px) / 2);
+
+      //height: calc((100% - 78px - 40px - 216px) / 2);
+      //height: calc((100vh - 50px - 40px - 215px) / 2);
+      //height: calc((var(--vh, 1vh) * 100 - 50px - 40px - 215px ) / 2);
+
     }
 
 
     //height: calc(100vh - 78px - 40px - 4px);
     //height: calc(100vh - 148px - 40px - 4px); 1
-    height: calc(100vh - 165px - 40px - 4px); //2
+    //height: calc(100vh - 165px - 40px - 4px); //2
     //height: calc(100vh - 78px - 40px - 4px - env(safe-area-inset-bottom));
   }
 
