@@ -9,6 +9,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = merge(common, {
   mode: 'production',
   devtool: false,
+  output: {
+    publicPath: "https://breez.technology",
+  },
   module: {
     rules: [
       {
