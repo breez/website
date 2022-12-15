@@ -69,7 +69,8 @@
   height: 20px;
   position: relative;
   left: calc(50% - 16px);
-  bottom: 0;
+  //bottom: 0; !!!!!!
+  top: 14px;
   padding: 20px;
   -webkit-animation: arrow 0.5s 1s infinite ease-out alternate;
 }
@@ -106,10 +107,10 @@
 
 @-webkit-keyframes arrow {
   0% {
-    bottom: 0px;
+    top: 14px;
   }
   100% {
-    bottom: 10px;
+    top: 4px;
   }
 }
 
@@ -137,7 +138,8 @@
     //padding: 0 0 200px 0;
 
     @media (max-width: $screen-xs-max) {
-      padding: 70px 0 200px 0;
+      //padding: 70px 0 200px 0; !!!!!!!
+      padding: 48px 0 200px 0;
     }
   }
 
