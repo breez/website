@@ -1,26 +1,27 @@
-.spinner-wrapper{
-  display: none;
-}
-@media (max-width: $screen-xs-max) {
-  .spinner-wrapper {
-    background-color: black;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s;
-  }
-
-  .spinner-border {
-    width: 60px;
-    height: 60px;
-  }
-}
+//.spinner-wrapper{
+//  display: none;
+//}
+//@media (max-width: $screen-xs-max) {
+//  .spinner-wrapper {
+//
+//    background-color: black;
+//    position: fixed;
+//    top: 0;
+//    left: 0;
+//    width: 100%;
+//    height: 100%;
+//    z-index: 9999;
+//    display: flex;
+//    justify-content: center;
+//    align-items: center;
+//    transition: all 0.2s;
+//  }
+//
+//  .spinner-border {
+//    width: 60px;
+//    height: 60px;
+//  }
+//}
 
 
 .container {
@@ -48,6 +49,13 @@
 
 }
 
+.container-fluid {
+  @media (max-width: $screen-xs-max) {
+    --bs-gutter-x: 0 !important;
+  }
+
+}
+
 
 /* Particles */
 #particles-js {
@@ -70,8 +78,10 @@
   position: relative;
   left: calc(50% - 16px);
   //bottom: 0; !!!!!!
-  top: 14px;
-  padding: 20px;
+  top: 16px;
+  //padding: 20px;
+  //top: 0;
+  //margin: 16px 0;
   -webkit-animation: arrow 0.5s 1s infinite ease-out alternate;
 }
 
@@ -107,10 +117,10 @@
 
 @-webkit-keyframes arrow {
   0% {
-    top: 14px;
+    top: 16px;
   }
   100% {
-    top: 4px;
+    top: 6px;
   }
 }
 
