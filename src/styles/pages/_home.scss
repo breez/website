@@ -79,6 +79,10 @@
   left: calc(50% - 16px);
   //bottom: 0; !!!!!!
   top: 16px;
+
+  //top: 0px; // opt 2;
+  //margin-top: 16px; opt 2
+  //margin-bottom: 16px; opt 2
   //padding: 20px;
   //top: 0;
   //margin: 16px 0;
@@ -118,9 +122,11 @@
 @-webkit-keyframes arrow {
   0% {
     top: 16px;
+    //top: 10px; opt 2
   }
   100% {
     top: 6px;
+    //top: 0px; opt 2
   }
 }
 
