@@ -36,6 +36,13 @@
       margin: 160px 0 100px 0;
     }
 
+    .sdk-btns {
+      // buttons for small devices
+      @media (max-width: 576px) {
+        flex-direction: column;
+      }
+    }
+
     .sdk-hero-info-block {
       max-width: 530px;
       margin-bottom: 40px;

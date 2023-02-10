@@ -29,8 +29,14 @@
   }
 
   &.--hero-sdk {
-    width: 100%;
+    width: 210px;
+    padding: 12px 12px;
     max-width: 306px;
+  }
+
+  &.--hero-sdk-contribute {
+    width: 140px;
+    min-width: 0;
   }
 
   &.--cloud-sdk {
