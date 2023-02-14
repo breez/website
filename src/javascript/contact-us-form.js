@@ -18,14 +18,18 @@
         notValidEmailError.classList.add('d-none')
 
         if (isValidated) {
-          $('.toast').show();
+          $('.toast').hide();
           $.ajax({
             url: `${contactUsForm.attr('action')}`,
             type: `${contactUsForm.attr('method')}`,
             data: contactUsForm.serialize(),
             success: function () {
+              $('.toast#success-submit').show();
               form.reset()
             },
+            error: function () {
+              $('.toast#error-submit').show();
+            }
           });
           form.classList.remove('was-validated')
         } else {
