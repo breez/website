@@ -30,6 +30,9 @@ import './javascript/sdk-section-slider'
 import './javascript/mobile-frame-slider'
 import './javascript/particles-bitcoin'
 
+// sdk page slider
+import './javascript/sdk-partners-slider'
+
 import './javascript/spinner-loader'
 
 import { load } from 'recaptcha-v3'
