@@ -22,8 +22,9 @@ import './javascript/burger-toggler'
 
 import './javascript/mobile-os-checker'
 
-// home & mobile section slider
+// home, mobile & sdk section sliders
 import './javascript/mobile-section-slider'
+import './javascript/sdk-section-slider'
 
 // mobile page frame slider
 import './javascript/mobile-frame-slider'
