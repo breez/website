@@ -73,42 +73,4 @@
 
     }
   }
-
-  .sdk-partners-slider-section {
-    margin-bottom: 100px;
-
-    .sdk-partners-slider {
-      .slick-track {
-        display: flex;
-        align-items: center;
-      }
-    
-      .slick-slide {
-        margin: 0 36px;
-    
-        @media (max-width: $screen-xs-max) {
-          margin: 0 24px;
-        }
-    
-        a {
-          &:hover {
-            opacity: 70%;
-          }
-        }
-      }
-    
-      .slick-dots {
-        bottom: -50px;
-      }
-    
-      .slick-dots li button:before {
-        font-size: 50px;
-        color: $slick-dots;
-      }
-      .slick-dots li.slick-active button:before {
-        color: $white;
-      }
-    }
-    
-  }
 }

@@ -1,0 +1,41 @@
+.sdk-partners-slider-section {
+  margin-bottom: 200px;
+
+  .sdk-partners-slider {
+    .slick-track {
+      display: flex;
+      align-items: center;
+    }
+  
+    .slick-slide {
+      margin: 0 60px;
+  
+      @media (max-width: $screen-lg-max) {
+        margin: 0 50px;
+      }
+  
+      a {
+        &:hover {
+          opacity: 70%;
+        }
+      }
+
+      img {
+        max-height: 44px;
+      }
+    }
+  
+    .slick-dots {
+      bottom: -50px;
+    }
+  
+    .slick-dots li button:before {
+      font-size: 50px;
+      color: $slick-dots;
+    }
+    .slick-dots li.slick-active button:before {
+      color: $white;
+    }
+  }
+  
+}
