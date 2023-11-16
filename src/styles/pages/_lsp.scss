@@ -46,9 +46,20 @@
     }
   }
 
-  .lsp-features-section {
-    margin-bottom: 40px;
+  .lsp-description-section {
+    margin: 40px 0 100px 0;
 
+    .lsp-hero-info-block {
+      max-width: 530px;
+      margin-bottom: 40px;
+
+      @media (min-width: $screen-lg-min) {
+        margin-bottom: 60px;
+      }
+    }
+  }
+
+  .lsp-features-section {
     .lsp-features-block-item {
       margin-bottom: 60px;
 
