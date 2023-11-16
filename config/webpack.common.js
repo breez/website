@@ -98,6 +98,15 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       favicon: paths.src + '/assets/icons/favicon.svg',
+      template: paths.src + '/views/pages/lsp/lsp.html',
+      filename: 'lsp/index.html',
+      minify: {
+        removeComments: true,
+        removeRedundantAttributes: false, // do not remove type="text"
+      }
+    }),
+    new HtmlWebpackPlugin({
+      favicon: paths.src + '/assets/icons/favicon.svg',
       template: paths.src + '/views/pages/cloud/cloud.html',
       filename: 'cloud/index.html',
       minify: {
