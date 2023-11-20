@@ -16,16 +16,21 @@ const scrollToElement = () => {
     $('.js-scroll-to').on('click', function () {
       setTimeout(() => {
         scrollTo($(this).attr('data-scroll-to'));
-      }, 200)
+      }, 200);
     });
 };
 
 function scrollTo(selector) {
   const element = $(selector);
   const navHeight = $('.navbar').innerHeight();
+  const transformMatrixNumberPattern = /-?\d+\.?\d+|\d+/g;
+  let aosDistance = 0;
+  if (element.css('transform') !== 'none') {
+    aosDistance = Number(element.css('transform')?.match(transformMatrixNumberPattern)[5]);
+  }
 
   if (element.length) {
-    $('html, body').animate({ scrollTop: element.offset().top - navHeight }, 300);
+    $('html, body').animate({ scrollTop: element.offset().top - navHeight - aosDistance }, 300);
   }
 }
 
