@@ -49,14 +49,6 @@
     max-width: 252px;
     height: auto;
   }
-
-  &.--implementation-sdk {
-    width: 100%;
-
-    @media (min-width: $screen-lg-min) {
-      max-width: 493px;
-    }
-  }
 }
 
 .contact-form-btn {
