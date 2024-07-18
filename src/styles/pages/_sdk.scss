@@ -1,5 +1,4 @@
 .sdk-page {
-
   &.container {
     --bs-gutter-x: 2rem;
     //containers
@@ -26,7 +25,6 @@
     @media (min-width: $screen-xxxl-min) {
       max-width: 1400px;
     }
-
   }
 
   .sdk-hero-section {
@@ -54,7 +52,7 @@
   }
 
   .sdk-features-section {
-    margin-bottom: 40px;
+    margin-bottom: 200px;
 
     .sdk-features-block-item {
       margin-bottom: 60px;
@@ -70,7 +68,16 @@
           margin-bottom: 80px;
         }
       }
+    }
+  }
 
+  .sdk-implementation-section {
+    margin-bottom: 100px;
+
+    .sdk-implementation-block {
+      padding: 32px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
     }
   }
 }

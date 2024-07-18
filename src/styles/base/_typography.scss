@@ -1,4 +1,4 @@
-@import "src/styles/abstracts/_variables.scss";
+@import 'src/styles/abstracts/_variables.scss';
 
 .header-links {
   //desktop
@@ -74,7 +74,6 @@
     line-height: 22px;
     color: $cabaret-charm;
   }
-
 }
 
 .caption-1 {
@@ -115,7 +114,6 @@
     font-size: 52px;
     line-height: 60px;
   }
-
 }
 
 .h-2 {
@@ -136,6 +134,12 @@
   font-size: 20px;
   line-height: 32px;
   color: $white;
+
+  &.--big-heading {
+    font-size: 32px;
+    line-height: 47px;
+    letter-spacing: 0.02em;
+  }
 }
 
 .body-text {
@@ -153,6 +157,4 @@
     line-height: 22px;
     color: $cabaret-charm;
   }
-
 }
-
