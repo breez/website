@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/json"
 	"errors"
-	"io/ioutil"
+	"io"
 	"log"
 	"net"
 	"net/http"
@@ -59,7 +59,7 @@ func (r *Recaptcha) requestVerify(remoteAddr net.IP, captchaResponse string) (re
 	defer resp.Body.Close()
 
 	// read response body
-	body, err := ioutil.ReadAll(resp.Body)
+	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return recaptchaResponse{Success: false}, err
 	}
