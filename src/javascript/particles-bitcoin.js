@@ -3,6 +3,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   /* ---- particles.js config ---- */
   // setTimeout(() => {
+  if (typeof particlesJS === 'function') {
     particlesJS("particles-js", {
       particles: {
         number: {
@@ -113,6 +114,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
       },
       retina_detect: true
     });
-  // }, 1000)
-
+    // }, 1000)
+  }
 });
