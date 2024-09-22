@@ -1,10 +1,10 @@
-const spinnerWrapperEl = document.querySelector('.spinner-wrapper');
-
-  window.addEventListener('load', () => {
-    spinnerWrapperEl.style.opacity = '0';
+const spinnerWrapperEl = document.querySelector(".spinner-wrapper");
+if (spinnerWrapperEl !== null) {
+  window.addEventListener("load", () => {
+    spinnerWrapperEl.style.opacity = "0";
 
     setTimeout(() => {
-      spinnerWrapperEl.style.display = 'none';
+      spinnerWrapperEl.style.display = "none";
     }, 300);
-
   });
+}
