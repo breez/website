@@ -88,7 +88,7 @@ func sendAPIKey(c contact) error {
 
 	tpl := `
 Hello {{ .FullName }},<br /><br />
-Please use the following API key for the Breez SDK (Liquid implementation):<br /><br />
+Please use the following API key for the Breez SDK (Nodeless implementation):<br /><br />
 <pre>{{ .APIKey }}</pre><br />
 If you have any questions, you can reply to this email.<br />
 <br />
