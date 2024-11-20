@@ -80,9 +80,6 @@ module.exports = {
         'lsp/index': {
           import: paths.src + '/views/pages/lsp/lsp.html',
         },
-        'cloud/index': {
-          import: paths.src + '/views/pages/cloud/cloud.html',
-        },
       },
       loaderOptions: {
         sources: [
