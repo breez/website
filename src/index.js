@@ -33,6 +33,8 @@ import './javascript/particles-bitcoin'
 // sdk page slider
 import './javascript/sdk-partners-slider'
 
+import './javascript/sdk-section-collapsed'
+
 import './javascript/spinner-loader'
 
 import { load } from 'recaptcha-v3'
