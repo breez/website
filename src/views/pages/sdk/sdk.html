@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Breez | SDK</title>
     <meta property="og:image" content="../../../assets/images/open-graph-sdk.png" />
     <meta property="og:title" content="Breez | SDK - Lightning as a Service" />
     <meta property="og:description"
-          content="Breez is realizing the future of bitcoin by opening the world of Lightning payments to apps and services">
+        content="Breez is realizing the future of bitcoin by opening the world of Lightning payments to apps and services">
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -18,7 +18,7 @@
     <meta name="twitter:creator" content="@Breez_Tech" />
     <meta name="twitter:title" content="Breez | SDK - Lightning as a Service" />
     <meta name="twitter:description"
-          content="Breez is realizing the future of bitcoin by opening the world of Lightning payments to apps and services" />
+        content="Breez is realizing the future of bitcoin by opening the world of Lightning payments to apps and services" />
     <meta name="twitter:image" content="../../../assets/images/open-graph-sdk.png" />
     <link rel="icon" href="../../../assets/icons/favicon.svg">
     <script defer="defer" src="../../../index.js"></script>
@@ -26,497 +26,497 @@
 
 <body>
 
-<!--collapsed header-->
-<header class="header">
-    <nav class="navbar navbar-expand-lg navbar-dark header-container header-background fixed-top"
-         aria-label="Breez header">
-        <div class="container-fluid">
-            <a href="/">
-                <img class="me-5" src="../../../assets/icons/logo-breez-header.svg" alt="header breez logo">
-            </a>
+    <!--collapsed header-->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-dark header-container header-background fixed-top"
+            aria-label="Breez header">
+            <div class="container-fluid">
+                <a href="/">
+                    <img class="me-5" src="../../../assets/icons/logo-breez-header.svg" alt="header breez logo">
+                </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBreez"
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBreez"
                     aria-controls="navbarBreez" aria-expanded="false" aria-label="Toggle navigation">
 
-                <div class="burger burger-slip">
-                    <div class="burger-lines"></div>
-                </div>
-            </button>
+                    <div class="burger burger-slip">
+                        <div class="burger-lines"></div>
+                    </div>
+                </button>
 
-            <div class="collapse navbar-collapse" id="navbarBreez">
-                <ul class="d-lg-flex text-uppercase">
-                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
-                        <a href="/" class="text-decoration-none">Home</a>
-                    </li>
-                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0 active">
-                        <a href="/sdk" class="text-decoration-none">SDK</a>
-                    </li>
-                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
-                        <a href="/lsp" class="text-decoration-none">Open LSP</a>
-                    </li>
-                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
-                        <a href="/mobile" class="text-decoration-none">Mobile</a>
-                    </li>
-                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
-                        <a href="https://doc.breez.technology/" target="blank"
-                           class="text-decoration-none">Knowledge
-                            Base</a>
-                    </li>
-                    <li class="header-links form mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
-                        <a href="/#contact-us-form" role="button" class="text-decoration-none">Contact
-                            us</a>
-                    </li>
-                </ul>
-
-                <ul class="d-flex align-items-center ms-auto">
-                    <li class="social-media">
-                        <a href="https://twitter.com/breez_tech" target="blank" class="">
-                            <img src="../../../assets/icons/twitter-icon.svg" alt="twitter icon" class="icon">
-                        </a>
-                    </li>
-                    <li class="social-media">
-                        <a href="https://t.me/breez_lightning" target="blank" class="">
-                            <img src="../../../assets/icons/telegram-icon.svg" alt="telegram icon" class="icon">
-                        </a>
-                    </li>
-                    <li class="social-media">
-                        <a href="https://medium.com/breez-technology" target="blank" class="">
-                            <img src="../../../assets/icons/medium-icon.svg" alt="medium icon" class="icon">
-                        </a>
-                    </li>
-                    <li class="social-media">
-                        <a href="https://github.com/breez" target="blank" class="">
-                            <img src="../../../assets/icons/github-icon.svg" alt="github icon" class="icon">
-                        </a>
-                    </li>
-                    <li class="social-media">
-                        <a href="mailto:contact@breez.technology" class="">
-                            <img src="../../../assets/icons/email-icon.svg" alt="email icon" class="icon">
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
-
-<div class="sdk-page container">
-    <section class="sdk-hero-section row position-relative">
-        <div class="col-12 col-lg-6 mb-5 mb-lg-0 d-flex flex-column">
-            <div class="sdk-hero-info-block">
-                <h1 class="h-1 mb-2">Breez SDK</h1>
-                <h2 class="h-2 mb-2">Lightning-as-a-Service</h2>
-                <article>
-                    <p class="body-text --text-1">
-                        The Breez SDK provides developers with an end-to-end solution for integrating
-                        self-custodial Lightning payments into their apps and services, eliminating the
-                        need for third parties and simplifying the complexities of Bitcoin and Lightning.
-                    </p>
-                    <br>
-                    <p class="body-text --text-1">
-                        With just a few lines of code, developers can seamlessly onboard billions
-                        of users to the future of peer-to-peer payments. From social apps integrating
-                        tipping between users, to content creation apps adding Bitcoin monetization,
-                        or crypto wallets incorporating self-custodial payments — the potential use cases
-                        of the Breez SDK are endless.
-                    </p>
-                    <!--                    <br>-->
-                    <!--                    <p class="body-text &#45;&#45;text-1">-->
-                    <!--                        Our SDK is a work in progress. Years of providing non-custodial Lightning functionality have-->
-                    <!--                        taught-->
-                    <!--                        us a lot. But this SDK is the first of its kind, and we need your input on how to improve it for-->
-                    <!--                        those implementing it (you!) as well as those accessing it from the other side to send or-->
-                    <!--                        receive-->
-                    <!--                        sats (your users!).-->
-                    <!--                    </p>-->
-                    <!--                    <br>-->
-                    <!--                    <p class="body-text &#45;&#45;text-1">-->
-                    <!--                        Your needs are what inspired us to develop the SDK, so we’ll work closely with you to make sure-->
-                    <!--                        it-->
-                    <!--                        meets them.-->
-                    <!--                    </p>-->
-                </article>
-            </div>
-            <div class="d-flex sdk-btns">
-                <a role="button" class="primary-btn mb-3 me-sm-4 --hero-sdk text-decoration-none js-scroll-to"
-                   data-scroll-to="#contact-us-form-sdk">
-                    <div class="" style="margin: auto;">Become a Partner</div>
-                </a>
-                <a role="button" class="primary-btn --transparent --hero-sdk-contribute text-decoration-none js-scroll-to" data-scroll-to="#sdk-implementation-section">
-                    <div class="">Build</div>
-                    <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
-                </a>
-            </div>
-        </div>
-
-        <div class="col-12 col-lg-6">
-            <img src="../../../assets/images/sdk-illustration.webp"
-                 alt="notebook connecting to phone with puzzle wire" class="img-fluid">
-        </div>
-        <!--    gradients-->
-        <div class="gradient --sdk-hero-radial-gradient-top-left">
-        </div>
-        <div class="gradient --sdk-hero-radial-gradient-bottom-right">
-        </div>
-    </section>
-
-    <section class="col-12 sdk-partners-collapsed-section mb-5" data-aos="fade-up" data-aos-duration="3000">
-        <h3 class="h-2-home --small mb-5">Trusted By</h3>
-
-        <div class="d-flex flex-wrap sdk-partners-list collapsed js-collapsed-partners">
-            <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
-                <img src="../../../assets/images/logotypes/klever.svg" alt="Klever" class="img-fluid w-100">
-            </div>
-            <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
-                <img src="../../../assets/images/logotypes/relai.svg" alt="Relai" class="img-fluid w-100">
-            </div>
-            <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
-                <img src="../../../assets/images/logotypes/cake_wallet.svg" alt="Cake Wallet" class="img-fluid w-100">
-            </div>
-            <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
-                <img src="../../../assets/images/logotypes/crowdhealth.svg" alt="CrowdHealth" class="img-fluid w-100">
-            </div>
-            <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
-                <img src="../../../assets/images/logotypes/bitBox.svg" alt="BitBox" class="img-fluid w-100">
-            </div>
-            <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
-                <img src="../../../assets/images/logotypes/green.svg" alt="Green" class="img-fluid w-100">
-            </div>
-            <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
-                <img src="../../../assets/images/logotypes/yopaki.svg" alt="yopaki" class="img-fluid w-100">
-            </div>
-            <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
-                <img src="../../../assets/images/logotypes/volt.svg" alt="Volt" class="img-fluid w-100">
-            </div>
-            <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
-                <img src="../../../assets/images/logotypes/elysiumLab.svg" alt="ElysiumLab" class="img-fluid w-100">
-            </div>
-            <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
-                <img src="../../../assets/images/logotypes/bringin.svg" alt="Bringin" class="img-fluid w-100">
-            </div>
-            <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
-                <img src="../../../assets/images/logotypes/flash.svg" alt="flash" class="img-fluid w-100">
-            </div>
-            <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
-                <img src="../../../assets/images/logotypes/lipa.svg" alt="lipa" class="img-fluid w-100">
-            </div>
-            <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
-                <img src="../../../assets/images/logotypes/picnic_groups.svg" alt="Picnic Groups" class="img-fluid w-100">
-            </div>
-            <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
-                <img src="../../../assets/images/logotypes/invebit.svg" alt="Invebit" class="img-fluid w-100">
-            </div>
-        </div>
-
-        <div class="d-flex justify-content-center pt-5 pb-5 mb-5 js-collapse-btn" role="button">
-            <img class="arrow js-arrow" src="../../../assets/icons/arrow-down-icon.svg" alt="arrow down">
-        </div>
-    </section>
-
-    <section data-aos="fade-up" data-aos-duration="3000" class="sdk-features-section row position-relative">
-        <div class="sdk-features-block-1 col-12 col-lg-6">
-            <div class="d-flex align-items-center sdk-features-block-item">
-                <img src="../../../assets/icons/sdk-end-to-end-icon.svg" alt="end-to-end icon" class="me-4">
-                <div>
-                    <h3 class="h-3 mb-1">It’s <span class="fw-bold">End-to-end</span></h3>
-                    <p class="body-text --text-3">Including built-in liquidity services, on-chain interoperability,
-                        and
-                        third-party fiat on-ramps</p>
-                </div>
-            </div>
-
-            <div class="d-flex align-items-center sdk-features-block-item --gap">
-                <img src="../../../assets/icons/sdk-interoperable-icon.svg" alt="interoperable icon" class="me-4">
-                <div>
-                    <h3 class="h-3 mb-1">It’s <span class="fw-bold">Interoperable</span></h3>
-                    <p class="body-text --text-3">Multiple apps and services can interact with the same user node
-                    </p>
-                </div>
-            </div>
-
-            <div class="d-flex align-items-center sdk-features-block-item">
-                <img src="../../../assets/icons/sdk-frictionless-icon.svg" alt="frictionless icon" class="me-4">
-                <div>
-                    <h3 class="h-3 mb-1">It’s <span class="fw-bold">Frictionless</span></h3>
-                    <p class="body-text --text-3">No KYC is required, lowering barriers to adoption</p>
-                </div>
-            </div>
-        </div>
-        <div class="sdk-features-block-2 col-12 col-lg-6">
-            <div class="d-flex align-items-center sdk-features-block-item --gap-big">
-                <img src="../../../assets/icons/sdk-effortless-icon.svg" alt="effortless icon" class="me-4">
-                <div>
-                    <h3 class="h-3 mb-1">It’s <span class="fw-bold">Effortless</span></h3>
-                    <p class="body-text --text-3">Integrate Lightning payments into your app or service with just a
-                        few lines
-                        of
-                        code</p>
-                </div>
-            </div>
-
-            <div class="d-flex align-items-center sdk-features-block-item --gap-big">
-                <img src="../../../assets/icons/sdk-trustless-icon.svg" alt="trustless icon" class="me-4">
-                <div>
-                    <h3 class="h-3 mb-1">It’s <span class="fw-bold">Trustless</span></h3>
-                    <p class="body-text --text-3">Breez’s non-custodial infrastructure never takes possession of
-                        users’
-                        funds</p>
-                </div>
-            </div>
-
-            <div class="d-flex align-items-center sdk-features-block-item">
-                <img src="../../../assets/icons/sdk-global-icon.svg" alt="global icon" class="me-4">
-                <div>
-                    <h3 class="h-3 mb-1">It’s <span class="fw-bold">Global</span></h3>
-                    <p class="body-text --text-3">Our P2P solution avoids regulatory hurdle</p>
-                </div>
-            </div>
-        </div>
-        <!--    gradients-->
-        <div class="gradient --sdk-features-radial-gradient-top-left">
-        </div>
-        <div class="gradient --sdk-features-radial-gradient-bottom-left ">
-        </div>
-    </section>
-    <section data-aos="fade-up" data-aos-duration="3000" id="sdk-implementation-section"
-             class="sdk-implementation-section position-relative aos-init aos-animate">
-        <h2 class="h-2-home mb-5 pb-3">Build the Best Experience for Your Users</h2>
-        <div class="row g-0 gy-5 gx-lg-5">
-            <div class="col-12 col-lg-6 ps-0">
-                <div class="sdk-implementation-block d-flex flex-column align-items-center h-100">
-                    <img src="../../../assets/icons/chain.svg" alt="chain icon" class="mb-4 pb-3">
-                    <h3 class="h-3 --big-heading fw-bold">Nodeless</h3>
-                    <h4 class="h-3 mb-4 pb-3">Liquid Implementation</h4>
-                    <ul class="mb-4 pb-3 ms-0 me-auto">
-                        <li class="d-flex align-items-center mb-4 pb-2">
-                            <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
-                            <p class="body-text h-3">
-                                No channel management
-                            </p>
+                <div class="collapse navbar-collapse" id="navbarBreez">
+                    <ul class="d-lg-flex text-uppercase">
+                        <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                            <a href="/" class="text-decoration-none">Home</a>
                         </li>
-                        <li class="d-flex align-items-center mb-4 pb-2">
-                            <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
-                            <p class="body-text h-3">
-                                No LSP required
-                            </p>
+                        <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0 active">
+                            <a href="/sdk" class="text-decoration-none">SDK</a>
                         </li>
-                        <li class="d-flex align-items-center">
-                            <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
-                            <p class="body-text h-3">
-                                No setup fees for end-users
-                            </p>
+                        <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                            <a href="/lsp" class="text-decoration-none">Open LSP</a>
+                        </li>
+                        <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                            <a href="/mobile" class="text-decoration-none">Mobile</a>
+                        </li>
+                        <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                            <a href="https://doc.breez.technology/" target="blank"
+                                class="text-decoration-none">Knowledge
+                                Base</a>
+                        </li>
+                        <li class="header-links form mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                            <a href="/#contact-us-form" role="button" class="text-decoration-none">Contact
+                                us</a>
                         </li>
                     </ul>
-                    <a role="button" class="primary-btn mt-auto w-100 text-decoration-none"
-                       href="https://sdk-doc-liquid.breez.technology/" target="_blank">
-                        <div class="" style="margin: auto;">Build</div>
+
+                    <ul class="d-flex align-items-center ms-auto">
+                        <li class="social-media">
+                            <a href="https://twitter.com/breez_tech" target="blank" class="">
+                                <img src="../../../assets/icons/twitter-icon.svg" alt="twitter icon" class="icon">
+                            </a>
+                        </li>
+                        <li class="social-media">
+                            <a href="https://t.me/breez_lightning" target="blank" class="">
+                                <img src="../../../assets/icons/telegram-icon.svg" alt="telegram icon" class="icon">
+                            </a>
+                        </li>
+                        <li class="social-media">
+                            <a href="https://medium.com/breez-technology" target="blank" class="">
+                                <img src="../../../assets/icons/medium-icon.svg" alt="medium icon" class="icon">
+                            </a>
+                        </li>
+                        <li class="social-media">
+                            <a href="https://github.com/breez" target="blank" class="">
+                                <img src="../../../assets/icons/github-icon.svg" alt="github icon" class="icon">
+                            </a>
+                        </li>
+                        <li class="social-media">
+                            <a href="mailto:contact@breez.technology" class="">
+                                <img src="../../../assets/icons/email-icon.svg" alt="email icon" class="icon">
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="sdk-page container">
+        <section class="sdk-hero-section row position-relative">
+            <div class="col-12 col-lg-6 mb-5 mb-lg-0 d-flex flex-column">
+                <div class="sdk-hero-info-block">
+                    <h1 class="h-1 mb-2">Breez SDK</h1>
+                    <h2 class="h-2 mb-2">Lightning-as-a-Service</h2>
+                    <article>
+                        <p class="body-text --text-1">
+                            The Breez SDK provides developers with an end-to-end solution for integrating
+                            self-custodial Lightning payments into their apps and services, eliminating the
+                            need for third parties and simplifying the complexities of Bitcoin and Lightning.
+                        </p>
+                        <br>
+                        <p class="body-text --text-1">
+                            With just a few lines of code, developers can seamlessly onboard billions
+                            of users to the future of peer-to-peer payments. From social apps integrating
+                            tipping between users, to content creation apps adding Bitcoin monetization,
+                            or crypto wallets incorporating self-custodial payments — the potential use cases
+                            of the Breez SDK are endless.
+                        </p>
+                        <!--                    <br>-->
+                        <!--                    <p class="body-text &#45;&#45;text-1">-->
+                        <!--                        Our SDK is a work in progress. Years of providing non-custodial Lightning functionality have-->
+                        <!--                        taught-->
+                        <!--                        us a lot. But this SDK is the first of its kind, and we need your input on how to improve it for-->
+                        <!--                        those implementing it (you!) as well as those accessing it from the other side to send or-->
+                        <!--                        receive-->
+                        <!--                        sats (your users!).-->
+                        <!--                    </p>-->
+                        <!--                    <br>-->
+                        <!--                    <p class="body-text &#45;&#45;text-1">-->
+                        <!--                        Your needs are what inspired us to develop the SDK, so we’ll work closely with you to make sure-->
+                        <!--                        it-->
+                        <!--                        meets them.-->
+                        <!--                    </p>-->
+                    </article>
+                </div>
+                <div class="d-flex sdk-btns">
+                    <a role="button" class="primary-btn mb-3 me-sm-4 --hero-sdk text-decoration-none js-scroll-to"
+                        data-scroll-to="#contact-us-form-sdk">
+                        <div class="" style="margin: auto;">Become a Partner</div>
+                    </a>
+                    <a role="button" class="primary-btn --transparent --hero-sdk-contribute text-decoration-none js-scroll-to" data-scroll-to="#sdk-implementation-section">
+                        <div class="">Build</div>
+                        <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
                     </a>
                 </div>
             </div>
-            <div class=" col-12 col-lg-6 pe-0">
-                <div class="sdk-implementation-block d-flex flex-column align-items-center h-100">
-                    <img src="../../../assets/icons/lightning.svg" alt="lightning icon" class="mb-4 pb-3">
-                    <h3 class="h-3 --big-heading fw-bold">Native</h3>
-                    <h4 class="h-3 mb-4 pb-3">Greenlight Implementation</h4>
-                    <ul class="mb-4 pb-3 ms-0 me-auto">
-                        <li class="d-flex align-items-center mb-4 pb-2">
-                            <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
-                            <p class="body-text h-3">
-                                Pure Lightning Network implementation
-                            </p>
-                        </li>
-                        <li class="d-flex align-items-center mb-4 pb-2">
-                            <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
-                            <p class="body-text h-3">
-                                Lightning Service Provider (LSP) for liquidity
-                            </p>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
-                            <p class="body-text h-3">
-                                No minimum limit for transactions
-                            </p>
-                        </li>
-                    </ul>
-                    <a role="button" class="primary-btn mt-auto w-100 text-decoration-none"
-                       href="https://sdk-doc.breez.technology/" target="_blank">
-                        <div class="" style="margin: auto;">Build</div>
-                    </a>
+
+            <div class="col-12 col-lg-6">
+                <img src="../../../assets/images/sdk-illustration.webp"
+                    alt="notebook connecting to phone with puzzle wire" class="img-fluid">
+            </div>
+            <!--    gradients-->
+            <div class="gradient --sdk-hero-radial-gradient-top-left">
+            </div>
+            <div class="gradient --sdk-hero-radial-gradient-bottom-right">
+            </div>
+        </section>
+
+        <section class="col-12 sdk-partners-collapsed-section mb-5" data-aos="fade-up" data-aos-duration="3000">
+            <h3 class="h-2-home --small mb-5">Trusted By</h3>
+
+            <div class="d-flex flex-wrap sdk-partners-list collapsed js-collapsed-partners">
+                <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
+                    <img src="../../../assets/images/logotypes/klever.svg" alt="Klever" class="img-fluid w-100">
+                </div>
+                <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
+                    <img src="../../../assets/images/logotypes/relai.svg" alt="Relai" class="img-fluid w-100">
+                </div>
+                <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
+                    <img src="../../../assets/images/logotypes/cake_wallet.svg" alt="Cake Wallet" class="img-fluid w-100">
+                </div>
+                <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
+                    <img src="../../../assets/images/logotypes/crowdhealth.svg" alt="CrowdHealth" class="img-fluid w-100">
+                </div>
+                <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
+                    <img src="../../../assets/images/logotypes/bitBox.svg" alt="BitBox" class="img-fluid w-100">
+                </div>
+                <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
+                    <img src="../../../assets/images/logotypes/green.svg" alt="Green" class="img-fluid w-100">
+                </div>
+                <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
+                    <img src="../../../assets/images/logotypes/yopaki.svg" alt="yopaki" class="img-fluid w-100">
+                </div>
+                <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
+                    <img src="../../../assets/images/logotypes/volt.svg" alt="Volt" class="img-fluid w-100">
+                </div>
+                <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
+                    <img src="../../../assets/images/logotypes/elysiumLab.svg" alt="ElysiumLab" class="img-fluid w-100">
+                </div>
+                <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
+                    <img src="../../../assets/images/logotypes/bringin.svg" alt="Bringin" class="img-fluid w-100">
+                </div>
+                <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
+                    <img src="../../../assets/images/logotypes/flash.svg" alt="flash" class="img-fluid w-100">
+                </div>
+                <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
+                    <img src="../../../assets/images/logotypes/lipa.svg" alt="lipa" class="img-fluid w-100">
+                </div>
+                <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
+                    <img src="../../../assets/images/logotypes/picnic_groups.svg" alt="Picnic Groups" class="img-fluid w-100">
+                </div>
+                <div class="d-flex align-items-center justify-content-center sdk-partners-list-item">
+                    <img src="../../../assets/images/logotypes/invebit.svg" alt="Invebit" class="img-fluid w-100">
                 </div>
             </div>
-        </div>
-        <!--    gradients-->
-        <div class="gradient --sdk-implementation-radial-gradient-top-left">
-        </div>
-        <div class="gradient --sdk-implementation-radial-gradient-bottom-right ">
-        </div>
-    </section>
 
-    <section id="contact-us-form-sdk" data-aos="fade-up" data-aos-duration="3000"
-             class="contact-us-section row position-relative">
+            <div class="d-flex justify-content-center pt-5 pb-5 mb-5 js-collapse-btn" role="button">
+                <img class="arrow js-arrow" src="../../../assets/icons/arrow-down-icon.svg" alt="arrow down">
+            </div>
+        </section>
 
-        <div class="col-12 col-lg-7 mb-5 mb-lg-0">
-            <div class="contact-us-info-block">
-                <h2 class="h-2-home mb-4"><%if (form_topic == "sdk-design-partner") { %>Become a Design Partner<% } %><%if (form_topic == "sdk-liquid-api-key") { %>Get an API key<% } %></h2>
-                <p class="home-text --text-2">Interested in becoming a design partner<%if (form_topic == "sdk-liquid-api-key") { %> for the Nodeless implementation<% } %>?
-                    <br>
-                    Please<%if (form_topic == "sdk-design-partner") { %> get in touch.<% } %><%if (form_topic == "sdk-liquid-api-key") { %> fill this form to receive an API key.<% } %>
-                </p>
+        <section data-aos="fade-up" data-aos-duration="3000" class="sdk-features-section row position-relative">
+            <div class="sdk-features-block-1 col-12 col-lg-6">
+                <div class="d-flex align-items-center sdk-features-block-item">
+                    <img src="../../../assets/icons/sdk-end-to-end-icon.svg" alt="end-to-end icon" class="me-4">
+                    <div>
+                        <h3 class="h-3 mb-1">It’s <span class="fw-bold">End-to-end</span></h3>
+                        <p class="body-text --text-3">Including built-in liquidity services, on-chain interoperability,
+                            and
+                            third-party fiat on-ramps</p>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center sdk-features-block-item --gap">
+                    <img src="../../../assets/icons/sdk-interoperable-icon.svg" alt="interoperable icon" class="me-4">
+                    <div>
+                        <h3 class="h-3 mb-1">It’s <span class="fw-bold">Interoperable</span></h3>
+                        <p class="body-text --text-3">Multiple apps and services can interact with the same user node
+                        </p>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center sdk-features-block-item">
+                    <img src="../../../assets/icons/sdk-frictionless-icon.svg" alt="frictionless icon" class="me-4">
+                    <div>
+                        <h3 class="h-3 mb-1">It’s <span class="fw-bold">Frictionless</span></h3>
+                        <p class="body-text --text-3">No KYC is required, lowering barriers to adoption</p>
+                    </div>
+                </div>
+            </div>
+            <div class="sdk-features-block-2 col-12 col-lg-6">
+                <div class="d-flex align-items-center sdk-features-block-item --gap-big">
+                    <img src="../../../assets/icons/sdk-effortless-icon.svg" alt="effortless icon" class="me-4">
+                    <div>
+                        <h3 class="h-3 mb-1">It’s <span class="fw-bold">Effortless</span></h3>
+                        <p class="body-text --text-3">Integrate Lightning payments into your app or service with just a
+                            few lines
+                            of
+                            code</p>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center sdk-features-block-item --gap-big">
+                    <img src="../../../assets/icons/sdk-trustless-icon.svg" alt="trustless icon" class="me-4">
+                    <div>
+                        <h3 class="h-3 mb-1">It’s <span class="fw-bold">Trustless</span></h3>
+                        <p class="body-text --text-3">Breez’s non-custodial infrastructure never takes possession of
+                            users’
+                            funds</p>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center sdk-features-block-item">
+                    <img src="../../../assets/icons/sdk-global-icon.svg" alt="global icon" class="me-4">
+                    <div>
+                        <h3 class="h-3 mb-1">It’s <span class="fw-bold">Global</span></h3>
+                        <p class="body-text --text-3">Our P2P solution avoids regulatory hurdle</p>
+                    </div>
+                </div>
+            </div>
+            <!--    gradients-->
+            <div class="gradient --sdk-features-radial-gradient-top-left">
+            </div>
+            <div class="gradient --sdk-features-radial-gradient-bottom-left ">
+            </div>
+        </section>
+        <section data-aos="fade-up" data-aos-duration="3000" id="sdk-implementation-section"
+            class="sdk-implementation-section position-relative aos-init aos-animate">
+            <h2 class="h-2-home mb-5 pb-3">Build the Best Experience for Your Users</h2>
+            <div class="row g-0 gy-5 gx-lg-5">
+                <div class="col-12 col-lg-6 ps-0">
+                    <div class="sdk-implementation-block d-flex flex-column align-items-center h-100">
+                        <img src="../../../assets/icons/chain.svg" alt="chain icon" class="mb-4 pb-3">
+                        <h3 class="h-3 --big-heading fw-bold">Nodeless</h3>
+                        <h4 class="h-3 mb-4 pb-3">Liquid Implementation</h4>
+                        <ul class="mb-4 pb-3 ms-0 me-auto">
+                            <li class="d-flex align-items-center mb-4 pb-2">
+                                <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
+                                <p class="body-text h-3">
+                                    No channel management
+                                </p>
+                            </li>
+                            <li class="d-flex align-items-center mb-4 pb-2">
+                                <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
+                                <p class="body-text h-3">
+                                    No LSP required
+                                </p>
+                            </li>
+                            <li class="d-flex align-items-center">
+                                <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
+                                <p class="body-text h-3">
+                                    No setup fees for end-users
+                                </p>
+                            </li>
+                        </ul>
+                        <a role="button" class="primary-btn mt-auto w-100 text-decoration-none"
+                            href="https://sdk-doc-liquid.breez.technology/" target="_blank">
+                            <div class="" style="margin: auto;">Build</div>
+                        </a>
+                    </div>
+                </div>
+                <div class=" col-12 col-lg-6 pe-0">
+                    <div class="sdk-implementation-block d-flex flex-column align-items-center h-100">
+                        <img src="../../../assets/icons/lightning.svg" alt="lightning icon" class="mb-4 pb-3">
+                        <h3 class="h-3 --big-heading fw-bold">Native</h3>
+                        <h4 class="h-3 mb-4 pb-3">Greenlight Implementation</h4>
+                        <ul class="mb-4 pb-3 ms-0 me-auto">
+                            <li class="d-flex align-items-center mb-4 pb-2">
+                                <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
+                                <p class="body-text h-3">
+                                    Pure Lightning Network implementation
+                                </p>
+                            </li>
+                            <li class="d-flex align-items-center mb-4 pb-2">
+                                <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
+                                <p class="body-text h-3">
+                                    Lightning Service Provider (LSP) for liquidity
+                                </p>
+                            </li>
+                            <li class="d-flex align-items-center">
+                                <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
+                                <p class="body-text h-3">
+                                    No minimum limit for transactions
+                                </p>
+                            </li>
+                        </ul>
+                        <a role="button" class="primary-btn mt-auto w-100 text-decoration-none"
+                            href="https://sdk-doc.breez.technology/" target="_blank">
+                            <div class="" style="margin: auto;">Build</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--    gradients-->
+            <div class="gradient --sdk-implementation-radial-gradient-top-left">
+            </div>
+            <div class="gradient --sdk-implementation-radial-gradient-bottom-right ">
+            </div>
+        </section>
+
+        <section id="contact-us-form-sdk" data-aos="fade-up" data-aos-duration="3000"
+            class="contact-us-section row position-relative">
+
+            <div class="col-12 col-lg-7 mb-5 mb-lg-0">
+                <div class="contact-us-info-block">
+                    <h2 class="h-2-home mb-4"><%if (form_topic == "sdk-design-partner") { %>Become a Design Partner<% } %><%if (form_topic == "sdk-liquid-api-key") { %>Get an API key<% } %></h2>
+                    <p class="home-text --text-2">Interested in becoming a design partner<%if (form_topic == "sdk-liquid-api-key") { %> for the Nodeless implementation<% } %>?
+                        <br>
+                        Please<%if (form_topic == "sdk-design-partner") { %> get in touch.<% } %><%if (form_topic == "sdk-liquid-api-key") { %> fill this form to receive an API key.<% } %>
+                    </p>
+                </div>
+
+                <div>
+                    <p class="caption-1 mb-3">Follow us</p>
+
+                    <ul class="d-flex align-items-center ms-auto">
+                        <li class="social-media">
+                            <a href="https://twitter.com/breez_tech" target="blank" class="">
+                                <img src="../../../assets/icons/twitter-icon.svg" alt="twitter icon" class="icon">
+                            </a>
+                        </li>
+                        <li class="social-media">
+                            <a href="https://t.me/breez_lightning" target="blank" class="">
+                                <img src="../../../assets/icons/telegram-icon.svg" alt="telegram icon" class="icon">
+                            </a>
+                        </li>
+                        <li class="social-media">
+                            <a href="https://medium.com/breez-technology" target="blank" class="">
+                                <img src="../../../assets/icons/medium-icon.svg" alt="medium icon" class="icon">
+                            </a>
+                        </li>
+                        <li class="social-media">
+                            <a href="https://github.com/breez" target="blank" class="">
+                                <img src="../../../assets/icons/github-icon.svg" alt="github icon" class="icon">
+                            </a>
+                        </li>
+                        <li class="social-media">
+                            <a href="mailto:contact@breez.technology" class="">
+                                <img src="../../../assets/icons/email-icon.svg" alt="email icon" class="icon">
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
             </div>
 
-            <div>
-                <p class="caption-1 mb-3">Follow us</p>
+            <div class="col-12 col-lg-5 d-flex align-items-center justify-content-center">
+                <!--        contact us form with validation-->
+                <div class="form-body">
+                    <div class="row">
+                        <div class="form-holder">
+                            <div class="form-content">
+                                <div class="form-items">
 
-                <ul class="d-flex align-items-center ms-auto">
-                    <li class="social-media">
-                        <a href="https://twitter.com/breez_tech" target="blank" class="">
-                            <img src="../../../assets/icons/twitter-icon.svg" alt="twitter icon" class="icon">
-                        </a>
-                    </li>
-                    <li class="social-media">
-                        <a href="https://t.me/breez_lightning" target="blank" class="">
-                            <img src="../../../assets/icons/telegram-icon.svg" alt="telegram icon" class="icon">
-                        </a>
-                    </li>
-                    <li class="social-media">
-                        <a href="https://medium.com/breez-technology" target="blank" class="">
-                            <img src="../../../assets/icons/medium-icon.svg" alt="medium icon" class="icon">
-                        </a>
-                    </li>
-                    <li class="social-media">
-                        <a href="https://github.com/breez" target="blank" class="">
-                            <img src="../../../assets/icons/github-icon.svg" alt="github icon" class="icon">
-                        </a>
-                    </li>
-                    <li class="social-media">
-                        <a href="mailto:contact@breez.technology" class="">
-                            <img src="../../../assets/icons/email-icon.svg" alt="email icon" class="icon">
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="col-12 col-lg-5 d-flex align-items-center justify-content-center">
-            <!--        contact us form with validation-->
-            <div class="form-body">
-                <div class="row">
-                    <div class="form-holder">
-                        <div class="form-content">
-                            <div class="form-items">
-
-                                <form class="needs-validation" novalidate action="/contact" method="post">
-                                    <input type="hidden" name="recaptcha_response" id="recaptcha_response" />
-                                    <div class="col-md-12">
-                                        <input class="form-control" type="text" name="fullname"
-                                               placeholder="Your name" required>
-                                        <div class="valid-feedback"></div>
-                                        <div class="invalid-feedback">Please enter a name</div>
-                                    </div>
-
-                                    <div class="col-md-12">
-                                        <input class="form-control" type="text" name="company"
-                                               placeholder="Your company" required>
-                                        <div class="valid-feedback"></div>
-                                        <div class="invalid-feedback">Please enter a company</div>
-                                    </div>
-
-                                    <div class="col-md-12">
-
-                                        <input class="form-control js-email-input"
-                                               pattern="[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{1,63}$"
-                                               type="email" name="email" placeholder="Your email" required>
-                                        <div class="valid-feedback"></div>
-                                        <div class="invalid-feedback">
-                                            <div class="js-required-input-error d-none">Please enter an email
-                                                address</div>
-                                            <div class="js-not-valid-email-error d-none">Please enter a valid email
-                                            </div>
+                                    <form class="needs-validation" novalidate action="/contact" method="post">
+                                        <input type="hidden" name="recaptcha_response" id="recaptcha_response" />
+                                        <div class="col-md-12">
+                                            <input class="form-control" type="text" name="fullname"
+                                                placeholder="Your name" required>
+                                            <div class="valid-feedback"></div>
+                                            <div class="invalid-feedback">Please enter a name</div>
                                         </div>
 
-                                    </div>
+                                        <div class="col-md-12">
+                                            <input class="form-control" type="text" name="company"
+                                                placeholder="Your company" required>
+                                            <div class="valid-feedback"></div>
+                                            <div class="invalid-feedback">Please enter a company</div>
+                                        </div>
 
-                                    <div class="col-md-12">
-                                        <select class="form-select mt-3" name="contact_type" required>
-                                            <option disabled value="" class="d-none">Topic</option>
-                                            <option value="mobile">Mobile</option>
-                                            <option <% if (form_topic == "sdk-design-partner") { %>selected <% } %>value="sdk-design-partner">SDK Design Partner</option>
-                                            <option <% if (form_topic == "sdk-liquid-api-key") { %>selected <% } %>value="sdk-liquid-api-key">API Key for the Nodeless Implementation</option>
-                                            <option value="lsp-partner">LSP Partner</option>
-                                            <option value="other">Other</option>
-                                        </select>
-                                        <div class="valid-feedback"></div>
-                                        <div class="invalid-feedback">Please choose a topic</div>
-                                    </div>
+                                        <div class="col-md-12">
 
-                                    <div class="col-md-12">
+                                            <input class="form-control js-email-input"
+                                                pattern="[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{1,63}$"
+                                                type="email" name="email" placeholder="Your email" required>
+                                            <div class="valid-feedback"></div>
+                                            <div class="invalid-feedback">
+                                                <div class="js-required-input-error d-none">Please enter an email
+                                                    address</div>
+                                                <div class="js-not-valid-email-error d-none">Please enter a valid email
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <select class="form-select mt-3" name="contact_type" required>
+                                                <option disabled value="" class="d-none">Topic</option>
+                                                <option value="mobile">Mobile</option>
+                                                <option <% if (form_topic == "sdk-design-partner") { %>selected <% } %>value="sdk-design-partner">SDK Design Partner</option>
+                                                <option <% if (form_topic == "sdk-liquid-api-key") { %>selected <% } %>value="sdk-liquid-api-key">API Key for the Nodeless Implementation</option>
+                                                <option value="lsp-partner">LSP Partner</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                            <div class="valid-feedback"></div>
+                                            <div class="invalid-feedback">Please choose a topic</div>
+                                        </div>
+
+                                        <div class="col-md-12">
                                             <textarea class="form-control" type="text" name="message" rows="4" cols="50"
-                                                      placeholder="Message" required><% if (form_topic == "sdk-liquid-api-key") { %>I would like to receive an API key for the Nodeless implementation.<% } %></textarea>
-                                        <div class="valid-feedback"></div>
-                                        <div class="invalid-feedback">Please enter a message </div>
-                                    </div>
+                                                placeholder="Message" required><% if (form_topic == "sdk-liquid-api-key") { %>I would like to receive an API key for the Nodeless implementation.<% } %></textarea>
+                                            <div class="valid-feedback"></div>
+                                            <div class="invalid-feedback">Please enter a message </div>
+                                        </div>
 
-                                    <div class="form-button mt-3">
-                                        <!--contact-form-btn-->
-                                        <button id="submit" type="submit" name="send"
+                                        <div class="form-button mt-3">
+                                            <!--contact-form-btn-->
+                                            <button id="submit" type="submit" name="send"
                                                 class="contact-form-btn text-decoration-none border-0">
-                                            <span class="">send message</span>
-                                            <img src="../../../assets/icons/lightning-icon.svg"
-                                                 alt="lightning icon">
-                                        </button>
-                                    </div>
+                                                <span class="">send message</span>
+                                                <img src="../../../assets/icons/lightning-icon.svg"
+                                                    alt="lightning icon">
+                                            </button>
+                                        </div>
 
-                                    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
-                                        <div id="success-submit"
-                                             class="toast align-items-center text-white bg-success border-0"
-                                             role="alert" aria-live="assertive" aria-atomic="true">
-                                            <div class="d-flex">
-                                                <div class="toast-body">
-                                                    The message has been sent
-                                                </div>
-                                                <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                                        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+                                            <div id="success-submit"
+                                                class="toast align-items-center text-white bg-success border-0"
+                                                role="alert" aria-live="assertive" aria-atomic="true">
+                                                <div class="d-flex">
+                                                    <div class="toast-body">
+                                                        The message has been sent
+                                                    </div>
+                                                    <button type="button" class="btn-close btn-close-white me-2 m-auto"
                                                         data-bs-dismiss="toast" aria-label="Close"></button>
+                                                </div>
+                                            </div>
+                                            <div id="error-submit"
+                                                class="toast align-items-center text-white bg-warning border-0"
+                                                role="alert" aria-live="assertive" aria-atomic="true">
+                                                <div class="d-flex">
+                                                    <div class="toast-body">
+                                                        Failed to send message, please email us at contact@breez.technology
+                                                    </div>
+                                                    <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                                                        data-bs-dismiss="toast" aria-label="Close"></button>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div id="error-submit"
-                                             class="toast align-items-center text-white bg-warning border-0"
-                                             role="alert" aria-live="assertive" aria-atomic="true">
-                                            <div class="d-flex">
-                                                <div class="toast-body">
-                                                    Failed to send message, please email us at contact@breez.technology
-                                                </div>
-                                                <button type="button" class="btn-close btn-close-white me-2 m-auto"
-                                                        data-bs-dismiss="toast" aria-label="Close"></button>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                </form>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+            </div>
+            <!--    gradients-->
+            <div class="gradient --sdk-contact-us-radial-gradient-right">
             </div>
 
-        </div>
-        <!--    gradients-->
-        <div class="gradient --sdk-contact-us-radial-gradient-right">
-        </div>
+        </section>
 
-    </section>
-
-    <footer class="footer position-relative">
-        <div class="d-flex align-items-center justify-content-between py-4">
-            <a href="/">
-                <img class="me-5" src="../../../assets/icons/logo-breez-footer.svg" alt="footer breez logo">
-            </a>
-            <span class="caption-2">&#169;2024 All right reserved</span>
-        </div>
-    </footer>
-</div>
+        <footer class="footer position-relative">
+            <div class="d-flex align-items-center justify-content-between py-4">
+                <a href="/">
+                    <img class="me-5" src="../../../assets/icons/logo-breez-footer.svg" alt="footer breez logo">
+                </a>
+                <span class="caption-2">&#169;2024 All right reserved</span>
+            </div>
+        </footer>
+    </div>
 
 </body>
 
