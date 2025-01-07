@@ -7,7 +7,7 @@ module.exports = merge(common, {
   mode: "production",
   devtool: false,
   output: {
-    publicPath: "https://breez.technology",
+    publicPath: "/breez/",
   },
   performance: {
     hints: false,
