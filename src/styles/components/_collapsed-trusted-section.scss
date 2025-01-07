@@ -1,0 +1,158 @@
+.sdk-partners-collapsed-section {
+  .sdk-partners-list {
+    gap: 20px;
+    justify-content: flex-start;
+
+    @media (max-width: $screen-md-max) {
+      gap: 16px;
+    }
+
+    .sdk-partners-list-item {
+      flex: 1 1 calc(25% - 16px);
+      max-width: calc(25% - 16px);
+      height: 70px;
+      padding: 22px 0;
+      border-radius: 8px;
+      overflow: hidden;
+      background: $input-form;
+      opacity: 1;
+      visibility: visible;
+      transform: translate(0, 0);
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+      z-index: 1;
+
+      @media (max-width: $screen-lg-max) {
+        height: 50px;
+        flex: 1 1 calc(50% - 10px);
+        max-width: calc(50% - 10px);
+        padding: 16px 0;
+        border-radius: 4px;
+      }
+
+      img {
+        height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+      }
+    }
+
+    &:not(.visible) {
+      height: 250px;
+      .sdk-partners-list-item:nth-child(n + 13) {
+        opacity: 0;
+        visibility: collapse;
+        transform: translate(0, 50%);
+        pointer-events: none;
+      }
+
+      @media (max-width: $screen-lg-max) {
+        height: 184px;
+
+        .sdk-partners-list-item:nth-child(n + 7) {
+          opacity: 0;
+          visibility: collapse;
+          transform: translate(0, 50%);
+          pointer-events: none;
+        }
+      }
+    }
+
+    &.visible {
+      .sdk-partners-list-item:nth-child(n + 13) {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(0, 0);
+        pointer-events: auto;
+      }
+
+      .sdk-partners-list-item:nth-child(n + 13) {
+        $base-delay: 0.3s;
+        $increment: 0.1s;
+
+        &:nth-child(-n + 16) {
+          transition-delay: $base-delay;
+        }
+
+        &:nth-child(n + 17):nth-child(-n + 20) {
+          transition-delay: $base-delay + $increment;
+        }
+
+        &:nth-child(n + 21):nth-child(-n + 24) {
+          transition-delay: $base-delay + ($increment * 2);
+        }
+
+        &:nth-child(n + 25):nth-child(-n + 28) {
+          transition-delay: $base-delay + ($increment * 2);
+        }
+      }
+
+      @media (max-width: $screen-lg-max) {
+        $base-delay: 0.3s;
+        $increment: 0.1s;
+
+        .sdk-partners-list-item:nth-child(n + 7) {
+          opacity: 1;
+          visibility: visible;
+          transform: translate(0, 0);
+          pointer-events: auto;
+        }
+
+        // Apply transition delays for specific ranges
+        .sdk-partners-list-item {
+          &:nth-child(7), &:nth-child(8) {
+            transition-delay: $base-delay;
+          }
+
+          &:nth-child(9), &:nth-child(10) {
+            transition-delay: $base-delay + $increment;
+          }
+
+          &:nth-child(11), &:nth-child(12) {
+            transition-delay: $base-delay + ($increment * 2);
+          }
+
+          &:nth-child(n + 13):nth-child(-n + 16) {
+            transition-delay: $base-delay + ($increment * 3);
+          }
+
+          &:nth-child(n + 17):nth-child(-n + 20) {
+            transition-delay: $base-delay + ($increment * 4);
+          }
+
+          &:nth-child(n + 21):nth-child(-n + 24) {
+            transition-delay: $base-delay + ($increment * 5);
+          }
+
+          &:nth-child(n + 25):nth-child(-n + 28) {
+            transition-delay: $base-delay + ($increment * 6);
+          }
+          // Add more groups as needed
+        }
+      }
+    }
+  }
+
+  .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+
+    &.rotated {
+      transform: rotate(180deg);
+    }
+  }
+
+  @media (max-width: $screen-md-max) {
+    .sdk-partners-list-item {
+      flex: 1 1 calc(50% - 16px);
+      max-width: calc(50% - 16px);
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    .sdk-partners-list-item {
+      flex: 1 1 calc(100% - 16px);
+      max-width: calc(100% - 16px);
+    }
+  }
+}
+
