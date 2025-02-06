@@ -88,13 +88,18 @@ module.exports = {
             attributes: ['content'],
             // allow to handle an image in the 'content' attribute of the 'meta' tag
             // when the 'property' attribute contains one of: 'og:image', 'og:video'
+            // or the 'name' attribute contains 'twitter:image'
             filter: ({ attributes }) => {
-              const attrName = 'name';
-              const attrValues = ['twitter:image']; // allowed values of the property
-              if (!attributes[attrName] || attrValues.indexOf(attributes[attrName]) < 0) {
-                return false; // return false to disable processing
+              const attrs = {
+                "name": ["twitter:image"],
+                "property": ["og:image", "og:video"],
               }
-              // return true or undefined to enable processing
+              for (const [attrName, attrValues] of Object.entries(attrs)) {
+                if (attributes[attrName] && attrValues.indexOf(attributes[attrName]) >= 0) {
+                  return true; // return true or undefined to enable processing
+                }
+              }
+              return false; // return false to disable processing
             },
           },
         ],
