@@ -80,6 +80,9 @@ module.exports = {
         'lsp/index': {
           import: paths.src + '/views/pages/lsp/lsp.html',
         },
+        'report/index': {
+          import: paths.src + '/views/pages/report/report.html',
+        },
       },
       loaderOptions: {
         sources: [
