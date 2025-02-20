@@ -90,10 +90,10 @@ func sendAPIKey(c contact) error {
 Hello {{ .FullName }},<br /><br />
 Please use the following API key for the Breez SDK (Nodeless implementation):<br /><br />
 <pre>{{ .APIKey }}</pre><br />
-If you have any questions, you can reply to this email.<br />
+If you have any questions, you can reply to this email or join our telegram group: https://t.me/breezsdk<br />
 <br />
 Best,<br />
-The Breez team
+Breez
 	`
 	t, err := template.New("APIKeyEmail").Parse(tpl)
 	if err != nil {
