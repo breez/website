@@ -83,6 +83,9 @@ module.exports = {
         'report/index': {
           import: paths.src + '/views/pages/report/report.html',
         },
+        'misty/index': {
+          import: paths.src + '/views/pages/misty/misty.html',
+        },
       },
       loaderOptions: {
         sources: [
