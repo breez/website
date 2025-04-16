@@ -2,10 +2,13 @@ package main
 
 import (
 	"encoding/base64"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"log"
+	"net/http"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/Laisky/go-utils/v4/crypto"
@@ -70,4 +73,23 @@ func generateKey(fullName, email, company string) (string, error) {
 	b64Cert := base64.StdEncoding.EncodeToString(certDer)
 	log.Printf("apiKey for [%v, %v, %v] is %v", fullName, email, company, b64Cert)
 	return b64Cert, nil
+}
+
+func getKey(generatedKey string) (string, error) {
+	URLEncodedKey := strings.ReplaceAll(strings.ReplaceAll(generatedKey, "+", "-"), "/", "_")
+	getKeyURLFormat := os.Getenv("GETKEY_URL")
+	getKeyURL := strings.ReplaceAll(getKeyURLFormat, "{key}", URLEncodedKey)
+	resp, err := http.Get(getKeyURL)
+	if err != nil {
+		log.Printf("Error getting %v %v", getKeyURL, err)
+		return "", err
+	}
+	defer resp.Body.Close()
+	var key string
+	err = json.NewDecoder(resp.Body).Decode(&key)
+	if err != nil {
+		log.Printf("Error json decoding result: %v", err)
+		return "", err
+	}
+	return key, nil
 }

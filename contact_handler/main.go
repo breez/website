@@ -59,9 +59,13 @@ func contactMailer(w http.ResponseWriter, r *http.Request) {
 	apiKey := ""
 	contactType := r.FormValue("contact_type")
 	if contactType == "sdk-liquid-api-key" {
-		apiKey, err = generateKey(fullName, email, company)
+		generatedKey, err := generateKey(fullName, email, company)
 		if err != nil {
 			log.Printf("Error in generateKey(\"%v\",\"%v\",\"%v\"): %v", fullName, email, company, err)
+		}
+		apiKey, err = getKey(generatedKey)
+		if err != nil {
+			log.Printf("Error in getKey(\"%v\"): %v", generatedKey, err)
 		}
 	}
 
