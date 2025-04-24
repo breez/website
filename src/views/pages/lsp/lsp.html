@@ -22,6 +22,40 @@
     <meta name="twitter:image" content="../../../assets/images/open-graph.png" />
     <link rel="icon" href="../../../assets/icons/favicon.svg">
     <script defer="defer" src="../../../index.js"></script>
+    <style>
+        body {
+            background-color: #0a0a0a;
+        }
+    
+        .gradient.--hero-radial-gradient-top-right,
+        .gradient.--hero-radial-gradient-bottom-left,
+        .gradient.--mobile-radial-gradient-top,
+        .gradient.--mobile-radial-gradient-right,
+        .gradient.--sdk-radial-gradient-left,
+        .gradient.--contact-us-radial-gradient-right,
+        .gradient.--contact-us-radial-gradient-left,
+        .gradient.--sdk-hero-radial-gradient-top-left,
+        .gradient.--sdk-hero-radial-gradient-bottom-right,
+        .gradient.--sdk-features-radial-gradient-top-left,
+        .gradient.--sdk-features-radial-gradient-bottom-left,
+        .gradient.--sdk-implementation-radial-gradient-top-left,
+        .gradient.--sdk-implementation-radial-gradient-bottom-right,
+        .gradient.--sdk-contact-us-radial-gradient-right {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(
+                circle at top left,
+                #0050a0 0%,
+                #003366 40%,
+                #0a0a0a 100%
+            ) !important;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+    </style>
+    
 </head>
 
 <body>

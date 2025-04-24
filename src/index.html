@@ -23,6 +23,30 @@
     <link rel="icon" href="./assets/icons/favicon.svg">
     <script defer="defer" src="./index.js"></script>
     <style>
+       body {
+  background-color: #0a0a0a;
+}
+
+.gradient.--hero-radial-gradient-top-right,
+.gradient.--hero-radial-gradient-bottom-left,
+.gradient.--mobile-radial-gradient-top,
+.gradient.--mobile-radial-gradient-right,
+.gradient.--sdk-radial-gradient-left,
+.gradient.--contact-us-radial-gradient-right,
+.gradient.--contact-us-radial-gradient-left {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(
+    circle at top left,
+    #0050a0 0%,
+    #003366 40%,
+    #0a0a0a 100%
+  ) !important;
+  opacity: 0.5;
+  pointer-events: none;
+}
         .spinner-wrapper {
             display: none;
         }
@@ -433,7 +457,7 @@ class="mobile-section main-container row position-relative">
     <div>
         <div class="mobile-info-block mb-5">
             <h2 class="h-2-home">Misty Breez</h2>
-            <p class="home-text --text-2">The simplest self-custodial app for sending and receiving bitcoin payments.</p>
+            <p class="home-text --text-2">The simplest self-custodial app for bitcoin payments.</p>
         </div>
 
         <!-- Info Blocks -->
