@@ -1,20 +1,20 @@
 //background color
-$cynical-black: #171717;
+$body-background: #0a0a0a;
 $header-background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
 $mobile-header-background: linear-gradient(180deg, #171717 0%, rgba(0, 0, 0, 0) 160%);
 $input-form: rgba(255, 255, 255, 0.05);
 
 //radial-gradients
-$hero-radial-gradient-top-right: radial-gradient(53.9% 53.9% at 77.01% 30.21%, rgba(31, 195, 231, 0.84375) 0%, #1F34E7 100%);
-$hero-radial-gradient-bottom-left: radial-gradient(53.9% 53.9% at 77.01% 30.21%, rgba(31, 195, 231, 0.84375) 0%, #1F34E7 100%);
-$mobile-radial-gradient-top: radial-gradient(53.9% 53.9% at 77.01% 30.21%, rgba(31, 195, 231, 0.84375) 0%, #1F34E7 100%);
-$mobile-radial-gradient-right: radial-gradient(53.9% 53.9% at 77.01% 30.21%, #1F34E7 0%, rgba(31, 195, 231, 0.84375) 65.1%);
-$sdk-radial-gradient-left: radial-gradient(53.9% 53.9% at 77.01% 30.21%, rgba(31, 195, 231, 0.84375) 0%, #1F34E7 100%);
-$contact-us-radial-gradient-right: radial-gradient(53.9% 53.9% at 77.01% 30.21%, rgba(31, 195, 231, 0.84375) 0%, #1F34E7 100%);
-$contact-us-radial-gradient-left: radial-gradient(53.9% 53.9% at 77.01% 30.21%, rgba(31, 195, 231, 0.84375) 0%, #1F34E7 100%);
+$hero-radial-gradient-top-right: radial-gradient(circle at top left, #0050a0 0%, #003366 40%, #0a0a0a 100%);
+$hero-radial-gradient-bottom-left: radial-gradient(circle at top left, #0050a0 0%, #003366 40%, #0a0a0a 100%);
+$mobile-radial-gradient-top: radial-gradient(circle at top left, #0050a0 0%, #003366 40%, #0a0a0a 100%);
+$mobile-radial-gradient-right: radial-gradient(circle at top left, #0050a0 0%, #003366 40%, #0a0a0a 100%);
+$sdk-radial-gradient-left: radial-gradient(circle at top left, #0050a0 0%, #003366 40%, #0a0a0a 100%);
+$contact-us-radial-gradient-right: radial-gradient(circle at top left, #0050a0 0%, #003366 40%, #0a0a0a 100%);
+$contact-us-radial-gradient-left: radial-gradient(circle at top left, #0050a0 0%, #003366 40%, #0a0a0a 100%);
 // pages
-$common-radial-gradient: radial-gradient(53.9% 53.9% at 77.01% 30.21%, rgba(31, 195, 231, 0.84375) 0%, #1F34E7 100%);
-$common-radial-gradient-2: radial-gradient(53.9% 53.9% at 77.01% 30.21%, #1F34E7 0%, rgba(31, 195, 231, 0.84375) 65.1%);
+$common-radial-gradient: radial-gradient(circle at top left, #0050a0 0%, #003366 40%, #0a0a0a 100%);
+$common-radial-gradient-2: radial-gradient(circle at top left, #0050a0 0%, #003366 40%, #0a0a0a 100%);
   //body text
 $white: #ffffff;
 $cabaret-charm: #7C92A6;
