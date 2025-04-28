@@ -45,7 +45,7 @@ module.exports = {
             options: { sourceMap: true, importLoaders: 2, modules: false },
           },
           { loader: 'postcss-loader', options: { sourceMap: true } },
-          { loader: 'sass-loader', options: { sourceMap: true } },
+          { loader: 'sass-loader', options: { sourceMap: true, sassOptions: {"silenceDeprecations": ["mixed-decls", "color-functions", "global-builtin", "import"]} } },
         ],
       },
     ]
