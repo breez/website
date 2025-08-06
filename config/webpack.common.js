@@ -86,6 +86,9 @@ module.exports = {
         'misty/index': {
           import: paths.src + '/views/pages/misty/misty.html',
         },
+        'spark/index': {
+          import: paths.src + '/views/pages/spark/spark.html',
+        },    
       },
       loaderOptions: {
         sources: [
