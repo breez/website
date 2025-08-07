@@ -21,6 +21,7 @@
       min-height: 100vh;
       color: white;
       position: relative;
+      z-index: 10;
     }
 
     .waitlist-page h1.h-1 {
@@ -143,6 +144,8 @@
       justify-content: center;
       height: 100%;
       padding-right: 2rem;
+      position: relative;
+      z-index: 10;
     }
 
     .form-section {
@@ -159,6 +162,8 @@
       padding: 2rem;
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      z-index: 10;
     }
 
     .form-title {
@@ -239,6 +244,11 @@
       .waitlist-logos {
         gap: 16px;
       }
+
+      /* Reduce spacing between logos and content on mobile */
+      .row {
+        margin-top: 0.5rem !important;
+      }
     }
 
     .landing-circle2, .about-circle1, .feature-circle1, .home-circle1, .screenshot-circle1, .team-circle2, .testi-circle2, .fly-block {
@@ -248,8 +258,6 @@
 </head>
 
 <body>
-
-<div id="particles-js"></div>
 
 <header class="header">
   <nav class="navbar navbar-expand-lg navbar-dark header-container header-background fixed-top" aria-label="Breez header">
@@ -338,28 +346,6 @@
   <img src="../../../assets/icons/logo-breez-footer.svg" alt="footer breez logo" class="mb-2"><br>
   <span class="caption-2">&#169;2025 All rights reserved</span>
 </footer>
-
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script>
-particlesJS("particles-js", {
-  "particles": {
-    "number": { "value": 12 },
-    "shape": {
-      "type": "image",
-      "image": {
-        "src": "../../../assets/images/bitcoin.png",
-        "width": 32,
-        "height": 32
-      }
-    },
-    "opacity": { "value": 0.8, "random": true },
-    "size": { "value": 24, "random": true },
-    "move": { "enable": true, "speed": 2, "direction": "none", "random": true, "out_mode": "out" }
-  },
-  "interactivity": { "events": { "onhover": { "enable": false }, "onclick": { "enable": false } } },
-  "retina_detect": true
-});
-</script>
 
 </body>
 </html>
