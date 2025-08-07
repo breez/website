@@ -17,31 +17,31 @@
 
   <style>
     .waitlist-page {
-      padding-top: 120px;
+      padding-top: 150px;
       min-height: 100vh;
       color: white;
-      text-align: center;
       position: relative;
     }
 
     .waitlist-page h1.h-1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.25rem; /* very tight */
-}
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      text-align: left;
+    }
 
-.waitlist-page h2.h-2 {
-  font-size: 1.75rem;
-  margin-top: 0;
-  margin-bottom: 0.75rem; /* tighter below */
-  font-weight: 400;
-}
+    .waitlist-page h2.h-2 {
+      font-size: 1.75rem;
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+      text-align: left;
+    }
 
     .waitlist-page p.body-text {
       font-size: 1rem;
-      max-width: 720px;
-      margin-left: auto;
-      margin-right: auto;
       line-height: 1.6;
+      text-align: left;
+      margin-bottom: 1rem;
     }
 
     .waitlist-page p.caption-1 {
@@ -49,6 +49,7 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       opacity: 0.7;
+      text-align: left;
     }
 
     .waitlist-page form .form-control {
@@ -67,11 +68,11 @@
       color: white;
       border-radius: 4px;
       transition: background 0.2s;
-      border: none;               /* Remove grey border */
-      outline: none;              /* Remove default outline */
-      box-shadow: none;           /* Remove default shadow */
-      appearance: none;           /* Reset browser styling */
-      -webkit-appearance: none;   /* Safari reset */
+      border: none;
+      outline: none;
+      box-shadow: none;
+      appearance: none;
+      -webkit-appearance: none;
     }
 
     .waitlist-page button.primary-btn:hover {
@@ -92,45 +93,162 @@
       opacity: 0.7;
     }
 
-    /* Keep gradients below everything */
     .gradient {
       position: absolute;
       width: 100%;
       height: 100%;
       pointer-events: none;
     }
-    
+
+    /* New centered logo section */
+    .logo-section {
+      text-align: center;
+      margin-bottom: 0;
+    }
 
     .waitlist-logos {
-  display: flex;
-  justify-content: center;
-  align-items: baseline; /* Align by text baseline */
-  gap: 28px; /* a bit more spacing */
-  margin: 24px 0;
-}
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      gap: 48px;
+      margin: 0;
+    }
 
-.waitlist-logos img {
-  display: block;
-}
+    .waitlist-logos img {
+      display: block;
+    }
 
-.logo-breez {
-  height: 40px;
-}
+    .logo-breez {
+      height: 80px;
+      position: relative;
+      top: -100px;
+    }
 
-.logo-spark {
-  height: 32px;
-  position: relative;
-  top: 3.5px; /* or adjust to taste */
-}
+    .logo-spark {
+      height: 64px;
+      position: relative;
+      top: -102px;
+    }
 
+    .logo-lnbolt {
+      height: 224px;
+      position: relative;
+      top: -20px;
+    }
 
+    /* Layout styles */
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      padding-right: 2rem;
+    }
+
+    .form-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      padding-left: 2rem;
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .form-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .form-subtitle {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 2rem;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* Responsive design */
+    @media (max-width: 991px) {
+      .logo-section {
+        margin-bottom: 0;
+      }
+
+      .hero-content {
+        padding-right: 0;
+        margin-bottom: 3rem;
+        text-align: center;
+      }
+
+      .form-section {
+        padding-left: 0;
+      }
+
+      .waitlist-page h1.h-1,
+      .waitlist-page h2.h-2,
+      .waitlist-page p.caption-1 {
+        text-align: center;
+      }
+
+      .waitlist-page p.body-text {
+        text-align: center;
+      }
+
+      .form-container {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .logo-breez {
+        height: 50px;
+        position: relative;
+        top: -60px;
+      }
+
+      .logo-spark {
+        height: 40px;
+        position: relative;
+        top: -55px;
+      }
+
+      .logo-lnbolt {
+        height: 120px;
+      }
+
+      .waitlist-page h1.h-1 {
+        font-size: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .form-container {
+        padding: 1.5rem;
+        width: 100%;
+        max-width: none;
+      }
+
+      .form-container {
+        padding: 1.5rem;
+      }
+      .waitlist-logos {
+        gap: 16px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
 <div id="particles-js"></div>
-
 
 <header class="header">
   <nav class="navbar navbar-expand-lg navbar-dark header-container header-background fixed-top" aria-label="Breez header">
@@ -148,61 +266,69 @@
   <div class="gradient --mobile-page-hero-radial-gradient-top"></div>
   <div class="gradient --mobile-page-hero-radial-gradient-right"></div>
 
-  
-
-<!-- Hero Section -->
-<section class="row text-center mb-5">
-    <div class="col-12 col-lg-8 offset-lg-2">
-      <h1 class="h-1">The Next Evolution of the Breez SDK</h1>
-      <h2 class="h-2">Join the Beta for Early Access</h2>
-  
-      <!-- Two logos side by side -->
-      <div class="waitlist-logos">
-        <img class="logo-breez" src="../../../assets/icons/logo-breez-header.svg" alt="Breez Logo">
-        <img class="logo-spark" src="../../../assets/images/logotypes/spark.svg" alt="Spark Logo">
-      </div>
-  
-      <p class="body-text mb-4">
-        We’re opening the beta for our new <strong>Nodeless</strong> implementation, built on Spark’s Bitcoin‑native Layer 2, making it easier than ever to bring bitcoin to everyday apps and services.
-      </p>
-      <p class="body-text mb-4">
-        As part of the beta, you’ll get early access to Breez’s best‑in‑class Lightning SDK — with bindings for all major languages and frameworks, support for LNURL, Lightning addresses, Bolt11, Bolt12, BIP353, Nostr Wallet Connect, WebLN, and more to come.
-      </p>
-      <p class="body-text mb-4">
-        Be among the first to shape the next generation of bitcoin-powered apps: stream payments, monetize social apps, settle micro‑transactions, and unlock even more real‑world use cases.      </p>
-      
-      <p class="caption-1 mb-4">Note: Not all features will be available in the beta</p>
+  <!-- Centered Logo Section -->
+  <section class="logo-section">
+    <div class="waitlist-logos">
+      <img class="logo-breez" src="../../../assets/icons/logo-breez-header.svg" alt="Breez Logo">
+      <img class="logo-lnbolt" src="../../../assets/images/lnbolt.png" alt="Lightning Bolt">
+      <img class="logo-spark" src="../../../assets/images/logotypes/spark.svg" alt="Spark Logo">
     </div>
   </section>
 
-  <!-- Waitlist Form -->
-  <section class="row justify-content-center mb-5">
-    <div class="col-12 col-md-6">
-      <form class="needs-validation" novalidate action="/contact" method="post">
-        <input type="hidden" name="form_type" value="waitlist" />
-        <input type="hidden" name="recaptcha_response" id="recaptcha_response" />
-
-        <div class="mb-3">
-          <input class="form-control" type="text" name="fullname" placeholder="Name" required>
-          <div class="invalid-feedback">Please enter your name</div>
-        </div>
-
-        <div class="mb-3">
-          <input class="form-control" type="email" name="email" placeholder="Email" required>
-          <div class="invalid-feedback">Please enter a valid email</div>
-        </div>
-
-        <div class="mb-3">
-          <input class="form-control" type="text" name="company" placeholder="Company">
-        </div>
-
-        <div class="form-button mt-3">
-          <button type="submit" class="primary-btn">
-            JOIN THE WAITLIST
-          </button>
-        </div>
-      </form>
+  <!-- Main Content Section -->
+  <section class="row" style="margin-top: 2rem;">
+    
+    <!-- Left Side - Content -->
+    <div class="col-12 col-lg-6">
+      <div class="hero-content">
+        <h1 class="h-1">Join the Breez SDK Beta Program</h1>
+    
+        <p class="body-text">
+          We're opening the beta program for our new Nodeless implementation of the Breez SDK, built on <a href="https://www.spark.money/" target="_blank" style="color: #0085ff; text-decoration: none;">Spark</a>'s Bitcoin-native Layer 2, making it even easier to bring bitcoin into everyday apps and services without the need for nodes, channels, or liquidity.
+        </p>
+        <p class="body-text">
+        Fully Bitcoin-native, Spark is a shared signing protocol enabling instant, low-fee, self-custodial transactions, with full support for Lightning and native stablecoins issued using its token standard (<a href="https://docs.spark.money/lrc20/hello-btkn" target="_blank" style="color: #0085ff; text-decoration: none;">BTKN</a>).
+        </p>
+        <p class="body-text">
+          As part of the beta, you'll get early access to Breez's best-in-class Lightning SDK, including bindings for all major languages and frameworks, support for LNURL, Lightning addresses, BOLT11, BOLT12, BIP353, Nostr Wallet Connect, WebLN, and more features to come.
+        </p>
+        
+        <p class="caption-1">Note: Not all features will be available in the beta program</p>
+      </div>
     </div>
+
+    <!-- Right Side - Form -->
+    <div class="col-12 col-lg-6">
+      <div class="form-section">
+        <div class="form-container">             
+          <form class="needs-validation" novalidate action="/contact" method="post">
+            <input type="hidden" name="form_type" value="waitlist" />
+            <input type="hidden" name="recaptcha_response" id="recaptcha_response" />
+
+            <div class="mb-3">
+              <input class="form-control" type="text" name="fullname" placeholder="Name" required>
+              <div class="invalid-feedback">Please enter your name</div>
+            </div>
+
+            <div class="mb-3">
+              <input class="form-control" type="email" name="email" placeholder="Email" required>
+              <div class="invalid-feedback">Please enter a valid email</div>
+            </div>
+
+            <div class="mb-3">
+              <input class="form-control" type="text" name="company" placeholder="Company">
+            </div>
+
+            <div class="form-button mt-3">
+              <button type="submit" class="primary-btn">
+                GET EARLY ACCESS
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
   </section>
 
 </div>
@@ -233,7 +359,6 @@ particlesJS("particles-js", {
   "retina_detect": true
 });
 </script>
-
 
 </body>
 </html>
