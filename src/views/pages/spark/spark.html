@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Breez | Join the Waitlist</title>
+  <title>Breez | Breez SDK Beta Program</title>
   <meta property="og:image" content="../../../assets/images/open-graph.png" />
   <meta property="og:title" content="Breez | Join the Breez SDK Beta Program" />
   <meta property="og:description"
@@ -164,6 +164,10 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       position: relative;
       z-index: 10;
+      min-height: 400px; /* Added minimum height for better balance */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .form-title {
@@ -181,7 +185,48 @@
       line-height: 1.5;
     }
 
+    .form-subtitle .header-line {
+      font-size: 1.1rem;
+      font-weight: 500;
+      opacity: 1;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-title-custom {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      line-height: 1.3;
+    }
+
     /* Responsive design */
+    @media (max-width: 1199px) {
+      /* iPad and smaller desktop breakpoint */
+      .logo-breez {
+        height: 70px;
+        position: relative;
+        top: -80px;
+      }
+
+      .logo-spark {
+        height: 56px;
+        position: relative;
+        top: -82px;
+      }
+
+      .logo-lnbolt {
+        height: 180px;
+        position: relative;
+        top: -10px;
+      }
+
+      .waitlist-logos {
+        gap: 32px;
+      }
+    }
+
     @media (max-width: 991px) {
       .logo-section {
         margin-bottom: 0;
@@ -210,6 +255,30 @@
       .form-container {
         max-width: 500px;
         margin: 0 auto;
+        min-height: 350px; /* Slightly reduced for mobile */
+      }
+
+      /* Adjust logo positioning for tablet */
+      .logo-breez {
+        height: 60px;
+        position: relative;
+        top: -70px;
+      }
+
+      .logo-spark {
+        height: 48px;
+        position: relative;
+        top: -72px;
+      }
+
+      .logo-lnbolt {
+        height: 160px;
+        position: relative;
+        top: -5px;
+      }
+
+      .waitlist-logos {
+        gap: 24px;
       }
     }
 
@@ -293,10 +362,14 @@
         <h1 class="h-1">Join the Breez SDK Beta Program</h1>
     
         <p class="body-text">
-          We're opening the beta program for our new Nodeless implementation of the Breez SDK, built on <a href="https://www.spark.money/" target="_blank" style="color: #0085ff; text-decoration: none;">Spark</a>'s Bitcoin-native Layer 2, making it even easier to bring bitcoin into everyday apps and services.
+          We're opening the beta program for our new Nodeless implementation of the Breez SDK,
+          built on <a href="https://www.spark.money/" target="_blank" style="color: #0085ff; text-decoration: none;">Spark</a>,
+          making it even easier to bring bitcoin into everyday apps and services.
         </p>
         <p class="body-text">
-        Fully Bitcoin-native, Spark is a shared signing protocol enabling instant, low-fee, self-custodial transactions, with full support for Lightning and native stablecoins issued using its token standard (<a href="https://docs.spark.money/lrc20/hello-btkn" target="_blank" style="color: #0085ff; text-decoration: none;">BTKN</a>).
+          Spark is a fully Bitcoin-native Layer 2, enabling real-time, near-zero-cost, self-custodial
+          transactions with support for Lightning and native stablecoins issued using its own token standard (<a href="https://docs.spark.money/lrc20/hello-btkn" target="_blank" style="color: #0085ff; text-decoration: none;">BTKN</a>).
+          No separate blockchain, no wrapping of assets, no smart contracts needed — everything is native to Bitcoin.
         </p>
         <p class="body-text">
           As part of the beta, you'll get early access to Breez's best-in-class Lightning SDK, including bindings for all major languages and frameworks, support for LNURL, Lightning addresses, BOLT11, BOLT12, BIP353, Nostr Wallet Connect, WebLN, and more features to come.
@@ -310,25 +383,32 @@
     <div class="col-12 col-lg-6">
       <div class="form-section">
         <div class="form-container">             
+          <div class="form-header">
+            <p class="form-subtitle">
+              <span class="header-line">Ready to Bring Bitcoin to Your App?</span>
+              Sign up for the beta and we'll be in touch soon.
+            </p>
+          </div>
+          
           <form class="needs-validation" novalidate action="/contact" method="post">
             <input type="hidden" name="form_type" value="waitlist" />
             <input type="hidden" name="recaptcha_response" id="recaptcha_response" />
 
-            <div class="mb-3">
-              <input class="form-control" type="text" name="fullname" placeholder="Name" required>
-              <div class="invalid-feedback">Please enter your name</div>
+            <div class="mb-4">
+              <input class="form-control" type="text" name="fullname" placeholder="Name & Title" required>
+              <div class="invalid-feedback">Please enter your name and job title</div>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-4">
               <input class="form-control" type="email" name="email" placeholder="Email" required>
               <div class="invalid-feedback">Please enter a valid email</div>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-4">
               <input class="form-control" type="text" name="company" placeholder="Company">
             </div>
 
-            <div class="form-button mt-3">
+            <div class="form-button mt-4">
               <button type="submit" class="primary-btn">
                 JOIN THE WAITLIST
               </button>
