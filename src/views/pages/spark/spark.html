@@ -2,430 +2,362 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Breez | Breez SDK Beta Program</title>
-  <meta property="og:image" content="../../../assets/images/open-graph.png" />
-  <meta property="og:title" content="Breez | Join the Breez SDK Beta Program" />
-  <meta property="og:description"
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Breez | Beta</title>
+    <meta property="og:image" content="../../../assets/images/open-graph.png" />
+    <meta property="og:title" content="Breez | Join the Breez SDK Beta Program" />
+    <meta property="og:description"
         content="Be the first to try the new Nodeless implementation of the Breez SDK.">
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@Breez_Tech" />
-  <meta name="twitter:creator" content="@Breez_Tech" />
-  <link rel="icon" href="../../../assets/icons/favicon.svg">
-  <script defer="defer" src="../../../index.js"></script>
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Breez_Tech" />
+    <meta name="twitter:creator" content="@Breez_Tech" />
+    <meta name="twitter:title" content="Breez | Join the Breez SDK Beta Program" />
+    <meta name="twitter:description"
+        content="Be the first to try the new Nodeless implementation of the Breez SDK." />
+    <meta name="twitter:image" content="../../../assets/images/open-graph.png" />
+    <link rel="icon" href="../../../assets/icons/favicon.svg">
+    <script defer="defer" src="../../../index.js"></script>
 
-  <style>
-    .waitlist-page {
-      padding-top: 150px;
-      min-height: 100vh;
-      color: white;
-      position: relative;
-      z-index: 10;
-    }
+    <style>
+        /* Logo styling */
+        .logo-section {
+            text-align: center;
+            margin-bottom: 0;
+        }
 
-    .waitlist-page h1.h-1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      text-align: left;
-    }
+        .waitlist-logos {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            gap: 48px;
+            margin: 0;
+        }
 
-    .waitlist-page h2.h-2 {
-      font-size: 1.75rem;
-      margin-top: 0;
-      margin-bottom: 1.5rem;
-      font-weight: 400;
-      text-align: left;
-    }
+        .waitlist-logos img {
+            display: block;
+        }
 
-    .waitlist-page p.body-text {
-      font-size: 1rem;
-      line-height: 1.6;
-      text-align: left;
-      margin-bottom: 1rem;
-    }
+        .logo-breez {
+            height: 80px;
+            position: relative;
+            top: -100px;
+        }
 
-    .waitlist-page p.caption-1 {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      opacity: 0.7;
-      text-align: left;
-    }
+        .logo-spark {
+            height: 64px;
+            position: relative;
+            top: -102px;
+        }
 
-    .waitlist-page form .form-control {
-      height: 48px;
-      font-size: 16px;
-    }
+        .logo-lnbolt {
+            height: 224px;
+            position: relative;
+            top: -20px;
+        }
 
-    .waitlist-page button.primary-btn {
-      height: 48px;
-      font-size: 16px;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #0085ff;
-      color: white;
-      border-radius: 4px;
-      transition: background 0.2s;
-      border: none;
-      outline: none;
-      box-shadow: none;
-      appearance: none;
-      -webkit-appearance: none;
-    }
+        /* Responsive logo design */
+        @media (max-width: 1199px) {
+            .logo-breez {
+                height: 70px;
+                position: relative;
+                top: -80px;
+            }
 
-    .waitlist-page button.primary-btn:hover {
-      background-color: #0073e6;
-      border: none;
-      outline: none;
-      box-shadow: none;
-    }
+            .logo-spark {
+                height: 56px;
+                position: relative;
+                top: -82px;
+            }
 
-    .waitlist-page button img {
-      height: 16px;
-      margin-left: 8px;
-    }
+            .logo-lnbolt {
+                height: 180px;
+                position: relative;
+                top: -10px;
+            }
 
-    footer.footer {
-      color: white;
-      margin-top: 80px;
-      opacity: 0.7;
-    }
+            .waitlist-logos {
+                gap: 32px;
+            }
+        }
 
-    .gradient {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-    }
+        @media (max-width: 991px) {
+            .logo-breez {
+                height: 60px;
+                position: relative;
+                top: -70px;
+            }
 
-    /* New centered logo section */
-    .logo-section {
-      text-align: center;
-      margin-bottom: 0;
-    }
+            .logo-spark {
+                height: 48px;
+                position: relative;
+                top: -72px;
+            }
 
-    .waitlist-logos {
-      display: flex;
-      justify-content: center;
-      align-items: baseline;
-      gap: 48px;
-      margin: 0;
-    }
+            .logo-lnbolt {
+                height: 160px;
+                position: relative;
+                top: -5px;
+            }
 
-    .waitlist-logos img {
-      display: block;
-    }
+            .waitlist-logos {
+                gap: 24px;
+            }
 
-    .logo-breez {
-      height: 80px;
-      position: relative;
-      top: -100px;
-    }
+            /* Fix mobile spacing and subheader */
+            .mobile-section-slider {
+                padding-left: 0 !important;
+                margin-top: 0;
+            }
 
-    .logo-spark {
-      height: 64px;
-      position: relative;
-      top: -102px;
-    }
+            .h-2 {
+                white-space: normal !important;
+                font-size: 1.5rem !important;
+            }
 
-    .logo-lnbolt {
-      height: 224px;
-      position: relative;
-      top: -20px;
-    }
+            /* Remove text padding on mobile */
+            .mobile-hero-info-block {
+                padding-right: 0 !important;
+            }
 
-    /* Layout styles */
-    .hero-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      height: 100%;
-      padding-right: 2rem;
-      position: relative;
-      z-index: 10;
-    }
+            /* Force remove all spacing between columns on mobile */
+            .col-12.col-lg-6 {
+                margin-bottom: 0 !important;
+                padding-bottom: 0 !important;
+            }
 
-    .form-section {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      height: 100%;
-      padding-left: 2rem;
-    }
+            .col-12.col-lg-6:first-child {
+                margin-bottom: 0 !important;
+                padding-bottom: 0 !important;
+            }
 
-    .form-container {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 12px;
-      padding: 2rem;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      position: relative;
-      z-index: 10;
-      min-height: 400px; /* Added minimum height for better balance */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+            /* Fix mobile logo overlap */
+            .logo-section {
+                margin-top: -2rem !important;
+            }
+        }
 
-    .form-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
+        @media (max-width: 575px) {
+            .logo-breez {
+                height: 50px;
+                position: relative;
+                top: -60px;
+            }
 
-    .form-subtitle {
-      font-size: 0.9rem;
-      opacity: 0.8;
-      margin-bottom: 2rem;
-      text-align: center;
-      line-height: 1.5;
-    }
+            .logo-spark {
+                height: 40px;
+                position: relative;
+                top: -62px;
+            }
 
-    .form-subtitle .header-line {
-      font-size: 1.1rem;
-      font-weight: 500;
-      opacity: 1;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
+            .logo-lnbolt {
+                height: 120px;
+                position: relative;
+                top: -20px;
+            }
 
-    .form-title-custom {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-      text-align: center;
-      line-height: 1.3;
-    }
-
-    /* Responsive design */
-    @media (max-width: 1199px) {
-      /* iPad and smaller desktop breakpoint */
-      .logo-breez {
-        height: 70px;
-        position: relative;
-        top: -80px;
-      }
-
-      .logo-spark {
-        height: 56px;
-        position: relative;
-        top: -82px;
-      }
-
-      .logo-lnbolt {
-        height: 180px;
-        position: relative;
-        top: -10px;
-      }
-
-      .waitlist-logos {
-        gap: 32px;
-      }
-    }
-
-    @media (max-width: 991px) {
-      .logo-section {
-        margin-bottom: 0;
-      }
-
-      .hero-content {
-        padding-right: 0;
-        margin-bottom: 3rem;
-        text-align: center;
-      }
-
-      .form-section {
-        padding-left: 0;
-      }
-
-      .waitlist-page h1.h-1,
-      .waitlist-page h2.h-2,
-      .waitlist-page p.caption-1 {
-        text-align: center;
-      }
-
-      .waitlist-page p.body-text {
-        text-align: center;
-      }
-
-      .form-container {
-        max-width: 500px;
-        margin: 0 auto;
-        min-height: 350px; /* Slightly reduced for mobile */
-      }
-
-      /* Adjust logo positioning for tablet */
-      .logo-breez {
-        height: 60px;
-        position: relative;
-        top: -70px;
-      }
-
-      .logo-spark {
-        height: 48px;
-        position: relative;
-        top: -72px;
-      }
-
-      .logo-lnbolt {
-        height: 160px;
-        position: relative;
-        top: -5px;
-      }
-
-      .waitlist-logos {
-        gap: 24px;
-      }
-    }
-
-    @media (max-width: 575px) {
-      .logo-breez {
-        height: 50px;
-        position: relative;
-        top: -60px;
-      }
-
-      .logo-spark {
-        height: 40px;
-        position: relative;
-        top: -62px;
-      }
-
-      .logo-lnbolt {
-        height: 120px;
-      }
-
-      .waitlist-page h1.h-1 {
-        font-size: 1.5rem;
-        line-height: 1.2;
-      }
-
-      .form-container {
-        padding: 1.5rem;
-        width: 100%;
-        max-width: none;
-      }
-
-      .waitlist-logos {
-        gap: 16px;
-      }
-
-      /* Reduce spacing between logos and content on mobile */
-      .row {
-        margin-top: 0.5rem !important;
-      }
-    }
-
-    .landing-circle2, .about-circle1, .feature-circle1, .home-circle1, .screenshot-circle1, .team-circle2, .testi-circle2, .fly-block {
-        animation: none !important;
-    }
-  </style>
+            .waitlist-logos {
+                gap: 16px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header class="header">
-  <nav class="navbar navbar-expand-lg navbar-dark header-container header-background fixed-top" aria-label="Breez header">
-    <div class="container-fluid">
-      <a href="/">
-        <img class="me-5" src="../../../assets/icons/logo-breez-header.svg" alt="header breez logo">
-      </a>
-    </div>
-  </nav>
-</header>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-dark header-container header-background fixed-top"
+            aria-label="Breez header">
+            <div class="container-fluid">
+                <a href="/">
+                    <img class="me-5" src="../../../assets/icons/logo-breez-header.svg" alt="header breez logo">
+                </a>
 
-<div class="container waitlist-page">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBreez"
+                    aria-controls="navbarBreez" aria-expanded="false" aria-label="Toggle navigation">
 
-  <!-- Gradients for visual consistency -->
-  <div class="gradient --mobile-page-hero-radial-gradient-top"></div>
-  <div class="gradient --mobile-page-hero-radial-gradient-right"></div>
+                    <div class="burger burger-slip">
+                        <div class="burger-lines"></div>
+                    </div>
+                </button>
 
-  <!-- Centered Logo Section -->
-  <section class="logo-section">
-    <div class="waitlist-logos">
-      <img class="logo-breez" src="../../../assets/icons/logo-breez-header.svg" alt="Breez Logo">
-      <img class="logo-lnbolt" src="../../../assets/images/lnbolt.png" alt="Lightning Bolt">
-      <img class="logo-spark" src="../../../assets/images/logotypes/spark.svg" alt="Spark Logo">
-    </div>
-  </section>
+                <div class="collapse navbar-collapse" id="navbarBreez">
+                    <ul class="d-lg-flex text-uppercase">
+                        <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                            <a href="/" class="text-decoration-none">Home</a>
+                        </li>
+                        <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                            <a href="/sdk" class="text-decoration-none">SDK</a>
+                        </li>
+                        <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                            <a href="/misty" class="text-decoration-none">Misty Breez</a>
+                        </li>
+                        <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                            <a href="https://blog.breez.technology" target="blank" class="text-decoration-none">Blog</a>
+                        </li>
+                        <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                            <a href="/report" class="text-decoration-none">Report</a>
+                        </li>
+                        <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                            <a href="https://doc.breez.technology/" target="blank"
+                                class="text-decoration-none">Knowledge
+                                Base</a>
+                        </li>
+                        <li class="header-links form mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0 close-burger-mobile">
+                            <a role="button" class="text-decoration-none js-scroll-to"
+                                data-scroll-to="#contact-us-form">Contact us</a>
+                        </li>
+                    </ul>
 
-  <!-- Main Content Section -->
-  <section class="row" style="margin-top: 2rem;">
-    
-    <!-- Left Side - Content -->
-    <div class="col-12 col-lg-6">
-      <div class="hero-content">
-        <h1 class="h-1">Join the Breez SDK Beta Program</h1>
-    
-        <p class="body-text">
-          We're opening the beta program for our new Nodeless implementation of the Breez SDK,
-          built on <a href="https://www.spark.money/" target="_blank" style="color: #0085ff; text-decoration: none;">Spark</a>,
-          making it even easier to bring bitcoin into everyday apps and services.
-        </p>
-        <p class="body-text">
-          Spark is a fully Bitcoin-native Layer 2, enabling real-time, near-zero-cost, self-custodial
-          transactions with support for Lightning and native stablecoins issued using its own token standard (<a href="https://docs.spark.money/lrc20/hello-btkn" target="_blank" style="color: #0085ff; text-decoration: none;">BTKN</a>).
-          No separate blockchain, no wrapping of assets, no smart contracts needed — everything is native to Bitcoin.
-        </p>
-        <p class="body-text">
-          As part of the beta, you'll get early access to Breez's best-in-class Lightning SDK, including bindings for all major languages and frameworks, support for LNURL, Lightning addresses, BOLT11, BOLT12, BIP353, Nostr Wallet Connect, WebLN, and more features to come.
-        </p>
-        
-        <p class="caption-1">Note: Not all features will be available in the beta program</p>
-      </div>
-    </div>
+                    <ul class="d-flex align-items-center ms-auto">
+                        <li class="social-media">
+                            <a href="https://twitter.com/breez_tech" target="blank" class="">
+                                <img src="../../../assets/icons/twitter-icon.svg" alt="twitter icon" class="icon">
+                            </a>
+                        </li>
+                        <li class="social-media">
+                            <a href="https://t.me/breez_lightning" target="blank" class="">
+                                <img src="../../../assets/icons/telegram-icon.svg" alt="telegram icon" class="icon">
+                            </li>
+                        <li class="social-media">
+                            <a href="https://medium.com/breez-technology" target="blank" class="">
+                                <img src="../../../assets/icons/medium-icon.svg" alt="medium icon" class="icon">
+                            </a>
+                        </li>
+                        <li class="social-media">
+                            <a href="https://github.com/breez" target="blank" class="">
+                                <img src="../../../assets/icons/github-icon.svg" alt="github icon" class="icon">
+                            </a>
+                        </li>
+                        <li class="social-media">
+                            <a href="mailto:contact@breez.technology" class="">
+                                <img src="../../../assets/icons/email-icon.svg" alt="email icon" class="icon">
+                            </a>
+                        </li>
 
-    <!-- Right Side - Form -->
-    <div class="col-12 col-lg-6">
-      <div class="form-section">
-        <div class="form-container">             
-          <div class="form-header">
-            <p class="form-subtitle">
-              <span class="header-line">Ready to Bring Bitcoin to Your App?</span>
-              Sign up for the beta and we'll be in touch soon.
-            </p>
-          </div>
-          
-          <form class="needs-validation" novalidate action="/contact" method="post">
-            <input type="hidden" name="form_type" value="waitlist" />
-            <input type="hidden" name="recaptcha_response" id="recaptcha_response" />
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--mobile section-->
+    <div class="mobile-page container">
+        <section class="mobile-hero-section row position-relative">
 
-            <div class="mb-4">
-              <input class="form-control" type="text" name="fullname" placeholder="Name & Title" required>
-              <div class="invalid-feedback">Please enter your name and job title</div>
+            <div class="col-12 col-lg-6 mb-5 mb-lg-0">
+                <div class="mobile-hero-info-block">
+                    <h1 class="h-1 mb-0">Breez SDK Beta</h1>
+                    <h2 class="h-2 mb-3" style="font-size: 1.75rem; white-space: nowrap;">Introducing Nodeless on Spark</h2>
+                    <article>
+                        <p class="body-text --text-1">
+                            We're excited to open the beta program for the new Nodeless implementation of the Breez SDK, built on <a href="https://www.spark.money/" target="_blank" style="color: #0085ff; text-decoration: none;">Spark</a>, making it even easier for developers to bring bitcoin into everyday apps and services.
+                        </p>
+                        <br>
+                        <p class="body-text --text-1">
+                            Spark is a Bitcoin-native Layer 2 delivering the fastest, cheapest way to build on bitcoin. It offers real-time, low-fee, self-custodial payments and support for Bitcoin-native assets like stablecoins.
+                        </p>
+                        <br>
+                        <p class="body-text --text-1">
+                            As part of the beta, you'll get early access to Breez's best-in-class Lightning SDK, with bindings for all major languages and frameworks. You'll also have built-in support for LNURL, Lightning addresses, BOLT12, BIP353, Nostr Wallet Connect, WebLN, and more features to come.
+                        </p>
+                    </article>
+                </div>
             </div>
 
-            <div class="mb-4">
-              <input class="form-control" type="email" name="email" placeholder="Email" required>
-              <div class="invalid-feedback">Please enter a valid email</div>
+            <div class="col-12 col-lg-6 mobile-section-slider align-self-center" style="padding-left: 4rem;">
+                <!-- Contact Form instead of image -->
+                <div class="form-body">
+                    <div class="row">
+                        <div class="form-holder">
+                            <div class="form-content">
+                                <div class="form-items">
+
+                                    <form class="needs-validation" novalidate action="/contact" method="post">
+                                        <input type="hidden" name="form_type" value="waitlist" />
+                                        <input type="hidden" name="recaptcha_response" id="recaptcha_response" />
+
+                                        <div class="col-md-12">
+                                            <input class="form-control" type="text" name="fullname" placeholder="Name" required>
+                                            <div class="valid-feedback"></div>
+                                            <div class="invalid-feedback">Please enter your name</div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <input class="form-control" type="text" name="job_title" placeholder="Job title" required>
+                                            <div class="valid-feedback"></div>
+                                            <div class="invalid-feedback">Please enter your job title</div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <input class="form-control" type="text" name="company" placeholder="Company" required>
+                                            <div class="valid-feedback"></div>
+                                            <div class="invalid-feedback">Please enter your company</div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <input class="form-control js-email-input"
+                                                pattern="[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{1,63}$"
+                                                type="email" name="email" placeholder="Email" required>
+                                            <div class="valid-feedback"></div>
+                                            <div class="invalid-feedback">
+                                                <div class="js-required-input-error d-none">Please enter an email address</div>
+                                                <div class="js-not-valid-email-error d-none">Please enter a valid email</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-button mt-3">
+                                            <button type="submit" class="contact-form-btn text-decoration-none border-0">
+                                                <span class="">JOIN THE WAITLIST</span>
+                                                <img src="../../../assets/icons/lightning-icon.svg" alt="lightning icon" style="margin-left: 8px;">
+                                            </button>
+                                        </div>
+                                    </form>
+
+                                    <!-- Styled NOTE section -->
+                                    <div class="mt-4 text-center">
+                                        <p class="caption-1" style="opacity: 0.7; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em;">
+                                            Note: Not all features will be available in the beta
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="mb-4">
-              <input class="form-control" type="text" name="company" placeholder="Company">
+            <!--    gradients-->
+            <div class="gradient --mobile-page-hero-radial-gradient-top">
             </div>
 
-            <div class="form-button mt-4">
-              <button type="submit" class="primary-btn">
-                JOIN THE WAITLIST
-              </button>
+            <div class="gradient --mobile-page-hero-radial-gradient-right">
             </div>
-          </form>
-        </div>
-      </div>
+
+        </section>
+
+        <!-- Centered Logo Section with proper spacing -->
+        <section class="logo-section" style="margin-top: -6rem;">
+            <div class="waitlist-logos">
+                <img class="logo-breez" src="../../../assets/icons/logo-breez-header.svg" alt="Breez Logo">
+                <img class="logo-lnbolt" src="../../../assets/images/lnbolt.png" alt="Lightning Bolt">
+                <img class="logo-spark" src="../../../assets/images/logotypes/spark.svg" alt="Spark Logo">
+            </div>
+        </section>
+
+        <footer class="footer position-relative" style="margin-top: 4rem;">
+            <div class="d-flex align-items-center justify-content-between py-4">
+                <a href="/">
+                    <img class="me-5" src="../../../assets/icons/logo-breez-footer.svg" alt="footer breez logo">
+                </a>
+                <span class="caption-2">&#169;2025 All rights reserved</span>
+            </div>
+        </footer>
     </div>
-
-  </section>
-
-</div>
-
-<footer class="footer text-center py-4">
-  <img src="../../../assets/icons/logo-breez-footer.svg" alt="footer breez logo" class="mb-2"><br>
-  <span class="caption-2">&#169;2025 All rights reserved</span>
-</footer>
 
 </body>
+
 </html>
