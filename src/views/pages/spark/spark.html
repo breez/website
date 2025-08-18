@@ -138,6 +138,46 @@
             /* Fix mobile logo overlap */
             .logo-section {
                 margin-top: -2rem !important;
+                display: none !important;
+            }
+
+            /* Mobile logos styling - using correct mobile sizes */
+            .d-lg-none .waitlist-logos {
+                gap: 16px;
+                justify-content: flex-start !important;
+                align-items: baseline;
+                padding-left: 0;
+                margin-left: 0;
+            }
+
+            /* Override Bootstrap column padding on mobile */
+            .col-12.col-lg-6 .d-lg-none {
+                padding-left: 0 !important;
+                margin-left: 0 !important;
+            }
+
+            /* Remove right padding from mobile-hero-info-block on mobile */
+            .mobile-hero-info-block {
+                padding-right: 0 !important;
+                padding-left: 0 !important;
+            }
+
+            .d-lg-none .logo-breez {
+                height: 50px;
+                position: relative;
+                top: -60px;
+            }
+
+            .d-lg-none .logo-lnbolt {
+                height: 120px;
+                position: relative;
+                top: -20px;
+            }
+
+            .d-lg-none .logo-spark {
+                height: 40px;
+                position: relative;
+                top: -62px;
             }
         }
 
@@ -252,18 +292,29 @@
                 <div class="mobile-hero-info-block">
                     <h1 class="h-1 mb-0">Breez SDK Beta</h1>
                     <h2 class="h-2 mb-3" style="font-size: 1.75rem; white-space: nowrap;">Introducing Nodeless on Spark</h2>
-                    <article>
-                        <p class="body-text --text-1">
+                    
+                    <article style="margin-top: 0;">
+                        <p class="body-text --text-1" style="margin-top: 0;">
                             We're excited to open the beta program for the new Nodeless implementation of the Breez SDK, built on <a href="https://www.spark.money/" target="_blank" style="color: #0085ff; text-decoration: none;">Spark</a>, making it even easier for developers to bring bitcoin into everyday apps and services.
                         </p>
                         <br>
                         <p class="body-text --text-1">
-                            Spark is a Bitcoin-native Layer 2 delivering the fastest, cheapest way to build on bitcoin. It offers real-time, low-fee, self-custodial payments and support for Bitcoin-native assets like stablecoins.
+                            Spark is a Bitcoin-native Layer 2 delivering a faster, cheaper way to build on bitcoin.
+                            It offers real-time, low-fee, self-custodial payments and support for Bitcoin-native assets like stablecoins.
                         </p>
                         <br>
                         <p class="body-text --text-1">
                             As part of the beta, you'll get early access to Breez's best-in-class Lightning SDK, with bindings for all major languages and frameworks. You'll also have built-in support for LNURL, Lightning addresses, BOLT12, BIP353, Nostr Wallet Connect, WebLN, and more features to come.
                         </p>
+                        
+                        <!-- Mobile-only logos inside article -->
+                        <div class="d-lg-none" style="margin: 50px 0 -1.5rem 0;">
+                            <div class="waitlist-logos">
+                                <img class="logo-breez" src="../../../assets/icons/logo-breez-header.svg" alt="Breez Logo">
+                                <img class="logo-lnbolt" src="../../../assets/images/lnbolt.png" alt="Lightning Bolt">
+                                <img class="logo-spark" src="../../../assets/images/logotypes/spark.svg" alt="Spark Logo">
+                            </div>
+                        </div>
                     </article>
                 </div>
             </div>
@@ -298,6 +349,7 @@
                                             <div class="invalid-feedback">Please enter your company</div>
                                         </div>
 
+                                        
                                         <div class="col-md-12">
                                             <input class="form-control js-email-input"
                                                 pattern="[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{1,63}$"
