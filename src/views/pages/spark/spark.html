@@ -141,13 +141,14 @@
                 display: none !important;
             }
 
-            /* Mobile logos styling - using correct mobile sizes */
+            /* Mobile logos styling - MINIMAL SCALING ONLY WHERE NEEDED */
             .d-lg-none .waitlist-logos {
                 gap: 16px;
-                justify-content: flex-start !important;
+                justify-content: center !important;
                 align-items: baseline;
                 padding-left: 0;
                 margin-left: 0;
+                /* No scaling by default - keep original sizes */
             }
 
             /* Override Bootstrap column padding on mobile */
@@ -162,6 +163,7 @@
                 padding-left: 0 !important;
             }
 
+            /* Keep original sizes and positioning, let transform handle scaling */
             .d-lg-none .logo-breez {
                 height: 50px;
                 position: relative;
@@ -178,6 +180,23 @@
                 height: 40px;
                 position: relative;
                 top: -62px;
+            }
+        }
+
+        /* iPad-specific fix - prevent form centering on tablets */
+        @media (min-width: 768px) and (max-width: 991px) {
+            /* Override the align-self-center that's causing centering */
+            .mobile-section-slider.align-self-center {
+                align-self: flex-start !important;
+            }
+            
+            /* Ensure form content is left-aligned */
+            .mobile-section-slider .form-body,
+            .mobile-section-slider .form-items,
+            .mobile-section-slider form {
+                text-align: left !important;
+                margin-left: 0 !important;
+                padding-left: 0 !important;
             }
         }
 
@@ -203,7 +222,28 @@
             .waitlist-logos {
                 gap: 16px;
             }
+
+            /* Small phones - minimal scaling only if needed */
+            .d-lg-none .waitlist-logos {
+                transform: scale(0.8);
+            }
         }
+
+        @media (max-width: 480px) {
+            /* Very small phones - minimal scaling */
+            .d-lg-none .waitlist-logos {
+                transform: scale(0.75);
+            }
+        }
+
+        @media (max-width: 375px) {
+            /* iPhone SE and similar - minimal scaling only */
+            .d-lg-none .waitlist-logos {
+                transform: scale(0.7);
+            }
+        }
+
+
     </style>
 </head>
 
