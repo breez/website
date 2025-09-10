@@ -338,66 +338,81 @@
         </section>
         <section data-aos="fade-up" data-aos-duration="3000" id="sdk-implementation-section"
             class="sdk-implementation-section position-relative aos-init aos-animate">
-            <h2 class="h-2-home mb-5 pb-3">Build the Best Experience for Your Users</h2>
             <div class="row g-0 gy-5 gx-lg-5">
+                <div class="col-12 ps-0">
+                    <h2 class="h-2-home mb-4" style="font-size: 36px;">Choose Your Integration</h2>
+                    <p class="home-text --text-2 mb-5">
+                        The simplest developer experience, the best user experience.<br>
+                        <em>No channels. No LSP. No setup fees.</em>
+                    </p>
+                </div>
+            </div>
+            <div class="row g-0 gy-5 gx-lg-5">
+                <!-- Spark Implementation (Left - Newest) -->
                 <div class="col-12 col-lg-6 ps-0">
-                    <div class="sdk-implementation-block d-flex flex-column align-items-center h-100">
-                        <img src="../../../assets/icons/chain.svg" alt="chain icon" class="mb-4 pb-3">
-                        <h3 class="h-3 --big-heading fw-bold">Nodeless</h3>
-                        <h4 class="h-3 mb-4 pb-3">Liquid Implementation</h4>
+                    <div class="sdk-implementation-block d-flex flex-column align-items-center h-100 position-relative">
+                        <!-- Beta sticker -->
+                        <div class="position-absolute" style="top: 20px; right: 20px; z-index: 10;">
+                            <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold" style="font-size: 0.75rem;">
+                                BETA
+                            </span>
+                        </div>
+                        <img src="../../../assets/icons/spark_icon.svg" alt="spark icon" class="mb-4 pb-3">
+                        <h3 class="h-3 --big-heading fw-bold">Spark Implementation</h3>
+                        <h4 class="h-3 mb-4 pb-3">Nodeless</h4>
                         <ul class="mb-4 pb-3 ms-0 me-auto">
                             <li class="d-flex align-items-center mb-4 pb-2">
                                 <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
                                 <p class="body-text h-3">
-                                    No channel management
+                                Unilateral exit to L1
                                 </p>
                             </li>
                             <li class="d-flex align-items-center mb-4 pb-2">
                                 <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
                                 <p class="body-text h-3">
-                                    No LSP required
+                                 Multi-asset support including stablecoins
                                 </p>
                             </li>
                             <li class="d-flex align-items-center">
                                 <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
                                 <p class="body-text h-3">
-                                    No setup fees for end-users
+                                 No minimum limit, instant settlement
+                                </p>
+                            </li>
+                        </ul>
+                        <a role="button" class="primary-btn mt-auto w-100 text-decoration-none"
+                            href="https://sdk-doc-spark.breez.technology/" target="_blank">
+                            <div class="" style="margin: auto;">Build</div>
+                        </a>
+                    </div>
+                </div>
+                <!-- Liquid Implementation (Right) -->
+                <div class=" col-12 col-lg-6 pe-0">
+                    <div class="sdk-implementation-block d-flex flex-column align-items-center h-100">
+                        <img src="../../../assets/icons/chain.svg" alt="chain icon" class="mb-4 pb-3">
+                        <h3 class="h-3 --big-heading fw-bold">Liquid Implementation</h3>
+                        <h4 class="h-3 mb-4 pb-3">Nodeless</h4>
+                        <ul class="mb-4 pb-3 ms-0 me-auto">
+                            <li class="d-flex align-items-center mb-4 pb-2">
+                                <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
+                                <p class="body-text h-3">
+                                Native USDT Support
+                                </p>
+                            </li>
+                            <li class="d-flex align-items-center mb-4 pb-2">
+                                <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
+                                <p class="body-text h-3">
+                                Latest Lightning standards                                </p>
+                            </li>
+                            <li class="d-flex align-items-center">
+                                <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
+                                <p class="body-text h-3">
+                                 Static, low fees
                                 </p>
                             </li>
                         </ul>
                         <a role="button" class="primary-btn mt-auto w-100 text-decoration-none"
                             href="https://sdk-doc-liquid.breez.technology/" target="_blank">
-                            <div class="" style="margin: auto;">Build</div>
-                        </a>
-                    </div>
-                </div>
-                <div class=" col-12 col-lg-6 pe-0">
-                    <div class="sdk-implementation-block d-flex flex-column align-items-center h-100">
-                        <img src="../../../assets/icons/lightning.svg" alt="lightning icon" class="mb-4 pb-3">
-                        <h3 class="h-3 --big-heading fw-bold">Native</h3>
-                        <h4 class="h-3 mb-4 pb-3">Greenlight Implementation</h4>
-                        <ul class="mb-4 pb-3 ms-0 me-auto">
-                            <li class="d-flex align-items-center mb-4 pb-2">
-                                <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
-                                <p class="body-text h-3">
-                                    Pure Lightning Network implementation
-                                </p>
-                            </li>
-                            <li class="d-flex align-items-center mb-4 pb-2">
-                                <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
-                                <p class="body-text h-3">
-                                    Lightning Service Provider (LSP) for liquidity
-                                </p>
-                            </li>
-                            <li class="d-flex align-items-center">
-                                <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
-                                <p class="body-text h-3">
-                                    No minimum limit for transactions
-                                </p>
-                            </li>
-                        </ul>
-                        <a role="button" class="primary-btn mt-auto w-100 text-decoration-none"
-                            href="https://sdk-doc.breez.technology/" target="_blank">
                             <div class="" style="margin: auto;">Build</div>
                         </a>
                     </div>
