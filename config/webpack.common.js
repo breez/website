@@ -101,7 +101,7 @@ module.exports = {
             filter: ({ attributes }) => {
               const attrs = {
                 "name": ["twitter:image"],
-                "property": ["og:image", "og:video"],
+                "property": ["og:image", "og:image:secure_url", "og:video"],
               }
               for (const [attrName, attrValues] of Object.entries(attrs)) {
                 if (attributes[attrName] && attrValues.indexOf(attributes[attrName]) >= 0) {
