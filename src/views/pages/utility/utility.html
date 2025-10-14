@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Utility of Bitcoin | Breez</title>
+    <meta property="og:image" content="../../../assets/images/open-graph.png" />
+    <meta property="og:title" content="The Utility of Bitcoin | Breez" />
+    <meta property="og:description"
+        content="Moving value like information. The internet unlocked information; bitcoin is unlocking value.">
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Breez_Tech" />
+    <meta name="twitter:creator" content="@Breez_Tech" />
+    <meta name="twitter:title" content="The Utility of Bitcoin | Breez" />
+    <meta name="twitter:description"
+        content="Moving value like information. The internet unlocked information; bitcoin is unlocking value." />
+    <meta name="twitter:image" content="../../../assets/images/open-graph.png" />
+    <link rel="icon" href="../../../assets/icons/favicon.svg">
+    <script defer="defer" src="../../../index.js"></script>
+    
+    <style>
+        /* Manifesto Page Styles */
+        .manifesto-page {
+            color: #fff;
+        }
+        
+        .manifesto-hero {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 120px 0 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .manifesto-hero {
+                text-align: left;
+                justify-content: flex-start;
+                align-items: flex-start;
+                padding: 80px 20px 40px 20px;
+                min-height: auto;
+            }
+        }
+        
+        .manifesto-hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+        
+        @media (max-width: 768px) {
+            .manifesto-hero h1 {
+                text-align: left;
+                margin-bottom: 1.5rem;
+            }
+        }
+        
+        .manifesto-hero .subtitle {
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 800px;
+            margin: 0 auto 0.6rem auto;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+        }
+        
+        @media (max-width: 768px) {
+            .manifesto-hero .subtitle {
+                text-align: left;
+                margin: 0 0 1rem 0;
+            }
+        }
+        
+        .manifesto-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 20px 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .manifesto-content p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+        }
+        
+        .manifesto-content h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            color: #fff;
+        }
+        
+        .manifesto-content strong {
+            color: #fff;
+            font-weight: 500;
+        }
+        
+        .manifesto-content a {
+            color: #0085ff;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0, 133, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .manifesto-content a:hover {
+            border-bottom-color: #0085ff;
+        }
+        
+        .pull-quote {
+            font-size: clamp(1.125rem, 2vw, 1.25rem);
+            font-weight: 500;
+            line-height: 1.6;
+            margin: 2.5rem 0;
+            padding: 1.5rem 2rem;
+            position: relative;
+            text-align: center;
+            background: rgba(0, 133, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 133, 255, 0.2);
+        }
+        
+        .section-divider {
+            width: 60px;
+            height: 1.5px;
+            background: #0085FB;
+            margin: 2rem auto;
+        }
+        
+        /* Reading progress indicator */
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #0085ff, #4f46e5);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+        
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .manifesto-hero h1 {
+                font-size: clamp(3rem, 8vw, 4.5rem);
+                line-height: 1.1;
+                margin-bottom: 1rem;
+            }
+            
+            .manifesto-hero .subtitle {
+                font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+                line-height: 1.3;
+                margin-bottom: 1.5rem;
+            }
+            
+            .manifesto-content {
+                padding: 20px 20px 40px;
+            }
+            
+            .pull-quote {
+                padding: 1rem 1.5rem;
+                margin: 2rem 0;
+                font-size: 1rem;
+            }
+            
+            /* Images constrained to text width on mobile */
+            .hero-image,
+            .content-image {
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+            
+            /* Reduce spacing between subheader and image on mobile */
+            .hero-image {
+                margin-top: 0.5rem !important;
+                margin-bottom: 2rem !important;
+            }
+        }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* First letter styling for opening paragraph */
+        .manifesto-content > p:first-of-type::first-letter {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1;
+            float: left;
+            margin-right: 0.1em;
+            margin-top: 0.05em;
+            color: #0085ff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-dark header-container header-background fixed-top"
+            aria-label="Breez header">
+            <div class="container-fluid">
+                <a href="/">
+                    <img class="me-5" src="../../../assets/icons/logo-breez-header.svg" alt="header breez logo">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBreez"
+                    aria-controls="navbarBreez" aria-expanded="false" aria-label="Toggle navigation">
+
+                    <div class="burger burger-slip">
+                        <div class="burger-lines"></div>
+                    </div>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarBreez">
+                    <ul class="d-lg-flex text-uppercase">
+                        <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                            <a href="/" class="text-decoration-none">Home</a>
+                        </li>
+                        <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                            <a href="/sdk" class="text-decoration-none">SDK</a>
+                        </li>
+                        <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                            <a href="/misty" class="text-decoration-none">Misty Breez</a>
+                        </li>
+                        <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                            <a href="https://blog.breez.technology" target="blank" class="text-decoration-none">Blog</a>
+                        </li>
+                        <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                            <a href="/report" class="text-decoration-none">Report</a>
+                        </li>
+                        <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                            <a href="https://doc.breez.technology/" target="blank"
+                                class="text-decoration-none">Knowledge
+                                Base</a>
+                        </li>
+                        <li class="header-links form mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0 close-burger-mobile">
+                            <a role="button" class="text-decoration-none js-scroll-to"
+                                data-scroll-to="#contact-us-form">Contact
+                                us</a>
+                        </li>
+                    </ul>
+
+                    <ul class="d-flex align-items-center ms-auto">
+                        <li class="social-media">
+                            <a href="https://twitter.com/breez_tech" target="blank" class="">
+                                <img src="../../../assets/icons/twitter-icon.svg" alt="twitter icon" class="icon">
+                            </a>
+                        </li>
+                        <li class="social-media">
+                            <a href="https://t.me/breez_lightning" target="blank" class="">
+                                <img src="../../../assets/icons/telegram-icon.svg" alt="telegram icon" class="icon">
+                            </a>
+                        </li>
+                        <li class="social-media">
+                            <a href="https://medium.com/breez-technology" target="blank" class="">
+                                <img src="../../../assets/icons/medium-icon.svg" alt="medium icon" class="icon">
+                            </a>
+                        </li>
+                        <li class="social-media">
+                            <a href="https://github.com/breez" target="blank" class="">
+                                <img src="../../../assets/icons/github-icon.svg" alt="github icon" class="icon">
+                            </a>
+                        </li>
+                        <li class="social-media">
+                            <a href="mailto:contact@breez.technology" class="">
+                                <img src="../../../assets/icons/email-icon.svg" alt="email icon" class="icon">
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Reading Progress Indicator -->
+    <div class="reading-progress"></div>
+    
+    <div class="p-3">
+        <!--manifesto page-->
+        <div class="main-container manifesto-page">
+            
+            <!-- Hero Section -->
+            <section class="manifesto-hero secondary-container position-relative">
+                <div class="container">
+                    <h1 data-aos="fade-up" data-aos-duration="1000">The Utility of Bitcoin</h1>
+                    <p class="subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Moving Value Like Information</p>
+                </div>
+                
+                <!--    gradients-->
+                <div class="gradient --hero-radial-gradient-top-right"></div>
+                <div class="gradient --hero-radial-gradient-bottom-left"></div>
+            </section>
+            
+            <!-- Hero Image -->
+            <div class="d-flex justify-content-center mt-2 mb-3" data-aos="fade-up" data-aos-duration="1000">
+                <img src="../../../assets/images/hero-illustration-2.webp" alt="exchange with friends with phone" class="img-fluid hero-image" style="max-width: 600px;">
+            </div>
+            
+            <!-- Main Content -->
+            <article class="manifesto-content main-container position-relative">
+            
+            <p data-aos="fade-up" data-aos-duration="1000">You'd be forgiven for thinking that technological development was following a predetermined trajectory. In the past few decades, we've seen the rise of personal computers, the internet, mobile devices, and now, the advent of Bitcoin.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">It's already well-established that bitcoin is the best asset. That's just a matter of basic financial literacy. If you can read a graph, the evidence is obvious.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">What's less obvious is Bitcoin's utility, and how that is going to recast our economic lives in the coming decades. Beyond its properties as an asset, which are getting most of the attention and recognition, Bitcoin is a way to move value. That's its core utility. And it's not about buying coffee or underwear (at least not yet). Since it's a currency designed on and for the internet, retail adoption will likely come after it goes mainstream online. And how it will go mainstream online is by commoditizing value transfer — letting anyone move value anywhere for any purpose without intermediaries.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">Moving value is such a big part of our lives that expanding that realm of possibilities means changing our behavior and the shape of our societies. When it comes to moving value, borders will evaporate, colossal institutions like banks will shrivel, and new connections will sprout like blossoms in spring. The scale of the transformation will rival that of the internet itself.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">Physical books were hard to obtain and easy to ban (and sometimes burn). The internet liberated information, giving far more people access to far more ideas than we had ever had before. Conventional money is locked in the walled gardens and preferred pathways of market incumbents. Bitcoin represents the end of this system and the beginning of another.</p>
+
+            <div class="pull-quote" data-aos="fade-up" data-aos-duration="1000">
+                The internet unlocked information; bitcoin is unlocking value.
+            </div>
+
+            <div class="section-divider"></div>
+
+            <h2 data-aos="fade-up" data-aos-duration="1000">Payments ≠ Value Transfer</h2>
+
+            <p data-aos="fade-up" data-aos-duration="1000">To grasp the potential of the current transformation and to differentiate it from boilerplate pro-Bitcoin rhetoric, think of it as a shift from the fiat-based payment paradigm to the Bitcoin-based value-transfer paradigm. This sounds more abstract than it really is.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">First, let's recall the familiar: payments. Conventional <strong>payments are instructions to clear a debt</strong>, a definition <a href="https://doi.org/10.1016/j.jfi.2008.09.001" target="_blank" rel="noopener">echoed</a> by professional economists. If someone sells you a coffee or cuts your hair, you owe them, and you settle that debt by paying them. Note that, in practice, paying them requires instructing intermediaries — banks, apps, cards, middle men — to actually move the value.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">Contrast that with value transfer. There are two key differences. First, as we conceptualize it, value transfer is direct. It's not an instruction to an intermediary to perform an action; it's the act itself. Second, value transfer need not settle a debt. Payment is a quid pro quo. Value transfer is just quid. You can send value at a whim; it doesn't necessarily imply a trade, though it can.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">Cash makes the differences between payments and value transfer readily apparent. When you pay someone in cash, you're not asking permission. You are physically transferring value from one hand to another. And cash can do more than settle debts, i.e. more than payments. Dropping some change into a busker's hat or giving your kid an allowance are simple transfers of value without prior debt. You can "push" value with cash rather than just trade it.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">However, cash is <a href="https://www.ecb.europa.eu/stats/ecb_surveys/space/html/ecb.space2024~19d46f0f17.ga.html" target="_blank" rel="noopener">being marginalized</a> by the authorities and it's poorly suited to our digital world, so we're losing our ability to transfer value. We trust these third-party intermediaries, like banks, credit card companies, and fintech providers, to honor our payment instructions and fulfill our requests, but payment instructions are often denied or delayed.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">More importantly, these payment instructions are limited to predefined patterns dictated by the intermediaries' siloed structures (e.g. from customer to merchant, from employer to employee, from one bank account to another if the banks share a wire-transfer protocol). This might sound like an exaggeration, but consider platforms like Uber, OnlyFans, AirBnB, and Spotify. On the surface, they all look like decentralization: the platforms just connect service providers with consumers. But the payments all run along the platforms' predefined paths, which include long chains of greedy intermediaries — banks, fintech apps, credit card companies. etc. Each of these intermediaries adds cost, a potential point of failure, and a source of permissioned friction, regulatory and otherwise.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">The contrast to value transfer is stark. Simply put, value transfer distills the permissionlessness, instantaneousness, and flexibility of cash payments without the constraints of having to hold and move physical objects.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">But how do we reimagine cash in a digital world? How do we move from the limitations of payments to the empowerment of value transfer? If only we had a way to send and receive peer-to-peer electronic cash…</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">Bitcoin is more programmable, more flexible, more adaptable than digital payments can be. Bitcoin lets us store and move value just as smoothly and easily as our phones store and share a snapshot. By treating value as just another kind of information, Bitcoin will enable new patterns of economic activity built on entire ecosystems of particular use cases.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">And yes, it must be Bitcoin.</p>
+
+            <div class="section-divider"></div>
+
+            <h2 data-aos="fade-up" data-aos-duration="1000">Only Bitcoin Can Facilitate Value Transfer</h2>
+
+            <p data-aos="fade-up" data-aos-duration="1000">Value transfer — moving value at will directly between sender and recipient — represents a momentous shift from the conventional payment paradigm. So why isn't fintech making it happen? Isn't this what stablecoins are for? Why is bitcoin the necessary foundation for an economy based on value transfer?</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">The short answer is that payments are deeply embedded in the architecture of the fiat system, including fintech.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">A fintech payment involves an indefinite chain of intermediaries. For each intermediary to earn revenue from the transaction, they need a billing model. And they opt for discrete payments because that is what regulated money transmitters are allowed to do. Thanks to the KYC, AML, and risk assessment involved, it's an expensive business, so their fees are commensurately high.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">Beyond cost, intermediation necessarily introduces friction. Each intermediary is subject to regulatory constraints that vary across borders and jurisdictions, which limits their markets and their reach. They must also consider extraneous business concerns, like the risk of large clients in one sector revoking their business because of unrelated transactions in another sector. Moreover, these payments are no more programmable than the intermediaries allow, and they are neither final nor instantaneous. The intermediaries can process them at their leisure, and the payer can often rescind the payment after the fact.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">Stablecoins, often touted as a solution, merely substitute one fiat-based promise for another. As MiCA and the GENIUS Act show, stablecoins are deeply vulnerable to currency controls. A given stablecoin might work for cross-border payments today, but not next quarter. USDT and nine other tokens were delisted from European exchanges at the beginning of 2025 in response to the new regulations. Stablecoins' issuers are subject to the same extraneous concerns as fintech providers, and they are only as programmable as these central entities allow them to be. Stablecoins are just fiat beheld through blockchain-colored glasses. Indeed, stablecoins and fintech are digital lipstick on a legacy-payments pig.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">Bitcoin succeeds where fintech and stablecoins fail. Where their costly intermediation requires payments, bitcoin enables value transfer. Where their operational constraints limit access and use cases, <strong>Bitcoin is an open, decentralized, neutral monetary network that works for anyone, anywhere, anytime</strong>. Where they attract regulatory scrutiny and become geopolitical pawns, Bitcoin offers a minimal regulatory footprint without a native jurisdiction. Where they limit programmability to protect established patterns and privileges, Bitcoin fosters innovation and the programmability that it requires.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">If we could go back to the dawn of the internet and design a currency optimized for the digital age, it would look like bitcoin. It is bitcoin.</p>
+
+            <!-- SDK Illustration -->
+            <div class="d-flex justify-content-center my-3" data-aos="fade-up" data-aos-duration="1000">
+                <img src="../../../assets/images/sdk-illustration.webp" alt="notebook connecting to phone with puzzle wire" class="img-fluid content-image" style="max-width: 600px;">
+            </div>
+
+            <div class="section-divider"></div>
+
+            <h2 data-aos="fade-up" data-aos-duration="1000">Bitcoin in Every App</h2>
+
+            <p data-aos="fade-up" data-aos-duration="1000">Apps are the vehicles of change. They are the nodes of our constant data streams, and they are the tools that alter how we work, how we move, how we love, and how we think. Apps define the digital environment to which we humans are adapting, and we build apps to adapt our environment to us. Value transfer is eclipsing payments, and apps are its conduits.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">To understand how apps will integrate and foster value transfer, consider the evolution of the digital camera. The first "filmless" cameras hit the market in the mid-1970s, but for the first two decades, they were single-purpose devices. Even the cameras attached to early cell phones were "just" cameras. They took pictures, nothing more.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">The revolution in what digital cameras can do and in our relation to them came in 2007 with the release of the first iPhone. It wasn't just the camera itself but the combination of the camera with apps that changed everything. Developers quickly integrated the camera into their apps, enabling users to take, modify, and share photos.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">The synergy of digital cameras and apps changed our reality and our behavior. Apps like TikTok, Instagram, and Pokemon GO make behaviors that would have seemed deranged 20 years ago (e.g. photographing hamburgers, chasing invisible monsters through parks, choking oneself to the point of blacking out, etc.) mainstream, maybe even aspirational. We're constantly capturing our lives and consuming others' lives through the images we see in our apps, on our phones. Even Meta's AI glasses are basically just a camera attached to an everything-app.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">What bitcoin does is commoditize value transfer, making it as versatile and freely adaptable as the digital camera on a phone. Any developer working on any kind of app can integrate value transfer. Messaging apps can let users attach value to their messages. Social apps can let users raise funds and split bills with the ease of liking a post. Building a marketplace — like Uber, Spotify, AirBnB, OnlyFans — no longer requires millions of dollars and navigating a labyrinth of walled payment gardens; any dev can do it.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">Payments require bankers and lawyers. Commoditized value transfer just needs Bitcoin and developers.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">Bitcoin is maturing out of its adolescence. Specifically, Bitcoin needed Lightning to increase throughput and enhance interoperability. For its part, Lightning needed to find its place as the common language for bitcoin-based value transfer.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">But we're there. A biome of distinct bitcoin subnetworks, including Spark, Ark, Liquid, Fedimint, Botanix, and Cashu has arisen, each with unique advantages. SDKs are now available that let any developer add value transfer to their apps. In terms of the digital camera analogy, it's 2007, the iPhone has just hit the market, and developers are starting to play with the camera API.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">It's an opportune moment. The technology is ripe, but the market has yet to price the transformation in. Value is about to start moving like information. It's late enough for solid projections of what's about to happen and early enough to take advantage of the disruption. <strong>The convergence of bitcoin-based value transfer and apps is as inevitable as it was to add a camera to a smartphone</strong>.</p>
+
+            <!-- Hero Illustration 3 -->
+            <div class="d-flex justify-content-center my-3" data-aos="fade-up" data-aos-duration="1000">
+                <img src="../../../assets/images/hero-illustration-3.webp" alt="pay for goods in a distance" class="img-fluid content-image" style="max-width: 600px;">
+            </div>
+
+            <div class="section-divider"></div>
+
+            <h2 data-aos="fade-up" data-aos-duration="1000">Let's Make Our Descendants Wonder How We Got By</h2>
+
+            <p data-aos="fade-up" data-aos-duration="1000">Payments are the camcorders of our age, the next technology whose time has passed. The new age that is just beginning will feel qualitatively different, like the moment Dorothy steps out of her black-and-white world into the vibrant colors of Oz. <strong>When value flows as freely as information, the economy changes, and society changes with it</strong>. Borders matter less. Wealth and value flow like the breeze (pun intended). Global interactions across political and class barriers shift from exceptional to ordinary.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">The components are all in place. Bitcoin is thriving, outstripping every other asset. Lightning allows any bitcoin endpoint to communicate with any other. Protocols now exist to serve a variety of uses and preferences. Developers are discovering SDKs that simplify the integration of bitcoin-based value transfer into their apps, and they're learning from each other about new ways to apply and leverage value transfer, ways that will make their apps as indispensable as utilities like ChatGPT and Google Maps.</p>
+
+            <p data-aos="fade-up" data-aos-duration="1000">We're living at the end of an age that our descendants will regard as primitive, like the age before electricity and running water. We're also living at the beginning of an age that they will consider transformative, like the Renaissance or the birth of the internet. Let's make them proud of all we've accomplished for them and astounded at how we ever got by without the tools we built.</p>
+
+            <!-- Author Attribution -->
+            <div class="text-end mt-5" data-aos="fade-up" data-aos-duration="1000">
+                <div style="font-size: 1.125rem; font-weight: 500; color: #fff; margin-bottom: 0.5rem;">Roy Sheinfeld</div>
+                <div style="font-size: 1rem; color: rgba(255, 255, 255, 0.8); margin-bottom: 0.25rem;">CEO, Breez</div>
+                <div style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.6);">2025</div>
+            </div>
+
+            <!--    gradients-->
+            <div class="gradient --sdk-radial-gradient-left"></div>
+        </article>
+
+        </div>
+        
+        <!--contact-us-section-->
+        <section id="contact-us-form" data-aos="fade-up" data-aos-duration="3000"
+            class="contact-us-section main-container row position-relative">
+
+            <div class="col-12 col-lg-7 mb-5 mb-lg-0">
+                <div class="contact-us-info-block">
+                    <h2 class="h-2-home mb-2">Contact Us</h2>
+                    <p class="home-text --text-2">Get in touch if you have any questions
+                        <br />
+                        or want to learn more.
+                    </p>
+                </div>
+
+                <div>
+                    <p class="caption-1 mb-3">Follow us</p>
+
+                    <ul class="d-flex align-items-center ms-auto">
+                        <li class="social-media">
+                            <a href="https://twitter.com/breez_tech" target="blank" class="">
+                                <img src="../../../assets/icons/twitter-icon.svg" alt="twitter icon" class="icon">
+                            </a>
+                        </li>
+                        <li class="social-media">
+                            <a href="https://t.me/breez_lightning" target="blank" class="">
+                                <img src="../../../assets/icons/telegram-icon.svg" alt="telegram icon" class="icon">
+                            </a>
+                        </li>
+                        <li class="social-media">
+                            <a href="https://medium.com/breez-technology" target="blank" class="">
+                                <img src="../../../assets/icons/medium-icon.svg" alt="medium icon" class="icon">
+                            </a>
+                        </li>
+                        <li class="social-media">
+                            <a href="https://github.com/breez" target="blank" class="">
+                                <img src="../../../assets/icons/github-icon.svg" alt="github icon" class="icon">
+                            </a>
+                        </li>
+                        <li class="social-media">
+                            <a href="mailto:contact@breez.technology" class="">
+                                <img src="../../../assets/icons/email-icon.svg" alt="email icon" class="icon">
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="col-12 col-lg-5 d-flex align-items-center justify-content-center">
+                <!--        contact us form with validation-->
+                <div class="form-body">
+                    <div class="row">
+                        <div class="form-holder">
+                            <div class="form-content">
+                                <div class="form-items">
+                                    <form class="needs-validation" novalidate action="/contact" method="post">
+                                        <input type="hidden" name="recaptcha_response" id="recaptcha_response" />
+                                        <div class="col-md-12">
+                                            <input class="form-control" type="text" name="fullname"
+                                                placeholder="Your name" required>
+                                            <div class="valid-feedback"></div>
+                                            <div class="invalid-feedback">Please enter a name</div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <input class="form-control" type="text" name="company"
+                                                placeholder="Your company" required>
+                                            <div class="valid-feedback"></div>
+                                            <div class="invalid-feedback">Please enter a company</div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <input class="form-control js-email-input"
+                                                pattern="[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{1,63}$"
+                                                type="email" name="email" placeholder="Your email" required>
+                                            <div class="valid-feedback"></div>
+                                            <div class="invalid-feedback">
+                                                <div class="js-required-input-error d-none">Please enter an email
+                                                    address
+                                                </div>
+                                                <div class="js-not-valid-email-error d-none">Please enter a valid email
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <select class="form-select mt-3" name="contact_type" required>
+                                                <option selected disabled value="" class="d-none">Topic</option>
+                                                <option value="support">Support</option>
+                                                <option value="sdk-design-partner">SDK Partner</option>
+                                                <option value="sdk-liquid-api-key">API Key for the Nodeless
+                                                    Implementation</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                            <div class="valid-feedback"></div>
+                                            <div class="invalid-feedback">Please choose a topic</div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <textarea class="form-control" type="text" name="message" rows="4" cols="50"
+                                                placeholder="Message" required></textarea>
+                                            <div class="valid-feedback"></div>
+                                            <div class="invalid-feedback">Please enter a message</div>
+                                        </div>
+
+                                        <div class="form-button mt-3">
+                                            <!--contact-form-btn-->
+                                            <button id="submit" type="submit" name="send"
+                                                class="contact-form-btn text-decoration-none border-0">
+                                                <span class="">send message</span>
+                                                <img src="../../../assets/icons/lightning-icon.svg" alt="lightning icon">
+                                            </button>
+                                        </div>
+
+                                        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+                                            <div id="success-submit"
+                                                class="toast align-items-center text-white bg-success border-0"
+                                                role="alert" aria-live="assertive" aria-atomic="true">
+                                                <div class="d-flex">
+                                                    <div class="toast-body">
+                                                        The message has been sent
+                                                    </div>
+                                                    <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                                                        data-bs-dismiss="toast" aria-label="Close"></button>
+                                                </div>
+                                            </div>
+                                            <div id="error-submit"
+                                                class="toast align-items-center text-white bg-warning border-0"
+                                                role="alert" aria-live="assertive" aria-atomic="true">
+                                                <div class="d-flex">
+                                                    <div class="toast-body">
+                                                        Failed to send message. Please disable any ad blockers or try a different browser.
+                                                        If the issue persists, contact us at contact@breez.technology.
+                                                    </div>
+                                                    <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                                                        data-bs-dismiss="toast" aria-label="Close"></button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!--    gradients-->
+            <div class="gradient --contact-us-radial-gradient-right">
+            </div>
+
+        </section>
+        
+        <!--footer-->
+        <footer class="footer main-container position-relative">
+            <div class="d-flex align-items-center justify-content-between py-4">
+                <a href="/">
+                    <img class="me-5" src="../../../assets/icons/logo-breez-footer.svg" alt="footer breez logo">
+                </a>
+                <span class="caption-2">&#169;2025 All right reserved</span>
+            </div>
+
+            <div class="gradient --contact-us-radial-gradient-left"></div>
+        </footer>
+    </div>
+
+<script>
+// Reading progress indicator
+(function() {
+    function updateReadingProgress() {
+        const progressBar = document.querySelector('.reading-progress');
+        if (!progressBar) return;
+        
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight - windowHeight;
+        const scrolled = window.scrollY;
+        const progress = (scrolled / documentHeight) * 100;
+        
+        progressBar.style.width = progress + '%';
+    }
+    
+    window.addEventListener('scroll', updateReadingProgress);
+    window.addEventListener('resize', updateReadingProgress);
+    updateReadingProgress();
+})();
+
+// Time2Build banner
+(function(){function mount(){var nav=document.querySelector('nav.fixed-top');if(!nav)return;var el=document.getElementById('t2b-top');if(!el){el=document.createElement('div');el.id='t2b-top';el.innerHTML=`<div style="max-width:1200px;margin:0 auto;padding:10px 16px;text-align:center;color:#fff;font-size:14px;line-height:1.4;">Join the global challenge to add bitcoin to open-source apps. <a href="https://www.time2build.dev/" class="text-decoration-none" style="color:#fff;text-decoration:underline;font-weight:600;">It's Time2Build.  →</a></div>`;document.body.insertBefore(el,document.body.firstChild);}el.style.cssText='position:fixed;left:0;right:0;top:0;z-index:1031;background:linear-gradient(90deg,#0a84ff,#4f46e5);color:#fff;border-bottom:1px solid rgba(255,255,255,.08)';nav.style.top=el.offsetHeight+'px';var spacer=document.getElementById('t2b-mobile-spacer');if(!spacer&&window.innerWidth<992){spacer=document.createElement('div');spacer.id='t2b-mobile-spacer';spacer.style.cssText='height:'+(el.offsetHeight+20)+'px;';document.body.insertBefore(spacer,document.body.firstChild);}else if(spacer&&window.innerWidth>=992){spacer.remove();}}if(document.readyState==='complete'){mount();}else{window.addEventListener('load',mount);}window.addEventListener('resize',mount);}());
+</script>
+</body>
+
+</html>
+
