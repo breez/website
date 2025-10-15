@@ -89,8 +89,8 @@ module.exports = {
         'spark/index': {
           import: paths.src + '/views/pages/spark/spark.html',
         },
-        'utility/index': {
-          import: paths.src + '/views/pages/utility/utility.html',
+        'vision/index': {
+          import: paths.src + '/views/pages/vision/vision.html',
         },
       },
       loaderOptions: {
