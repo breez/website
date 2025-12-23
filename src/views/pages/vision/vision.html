@@ -608,8 +608,6 @@
     updateReadingProgress();
 })();
 
-// Time2Build banner
-(function(){function mount(){var nav=document.querySelector('nav.fixed-top');if(!nav)return;var el=document.getElementById('t2b-top');if(!el){el=document.createElement('div');el.id='t2b-top';el.innerHTML=`<div style="max-width:1200px;margin:0 auto;padding:10px 16px;text-align:center;color:#fff;font-size:14px;line-height:1.4;">Join the global challenge to add bitcoin to open-source apps. <a href="https://www.time2build.dev/" class="text-decoration-none" style="color:#fff;text-decoration:underline;font-weight:600;">It's Time2Build.  →</a></div>`;document.body.insertBefore(el,document.body.firstChild);}el.style.cssText='position:fixed;left:0;right:0;top:0;z-index:1031;background:linear-gradient(90deg,#0a84ff,#4f46e5);color:#fff;border-bottom:1px solid rgba(255,255,255,.08)';nav.style.top=el.offsetHeight+'px';var spacer=document.getElementById('t2b-mobile-spacer');if(!spacer&&window.innerWidth<992){spacer=document.createElement('div');spacer.id='t2b-mobile-spacer';spacer.style.cssText='height:'+(el.offsetHeight+20)+'px;';document.body.insertBefore(spacer,document.body.firstChild);}else if(spacer&&window.innerWidth>=992){spacer.remove();}}if(document.readyState==='complete'){mount();}else{window.addEventListener('load',mount);}window.addEventListener('resize',mount);}());
 </script>
 </body>
 
