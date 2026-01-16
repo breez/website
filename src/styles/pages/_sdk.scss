@@ -56,6 +56,7 @@
 
     .sdk-features-block-item {
       margin-bottom: 60px;
+      min-height: 100px; // Ensure consistent heights to keep rows aligned across columns
 
       &.--gap {
         @media (min-width: $screen-xxl-min) {
