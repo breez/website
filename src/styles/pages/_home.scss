@@ -63,7 +63,7 @@
   -webkit-animation: arrow 0.5s 1s infinite ease-out alternate;
 
   @media (max-width: $screen-xs-max) {
-    margin-top: 15px;
+    margin-top: 40px;
   }
 
   @media (min-width: $screen-md-min) {
@@ -137,13 +137,19 @@
 
     @media (max-width: $screen-xs-max) {
       //padding: 70px 0 200px 0; !!!!!!
-      padding: 48px 0 200px 0;
+      padding: 82px 0 120px 0;
     }
   }
 
   .image-container {
     display: flex;
     justify-content: center;
+
+    @media (max-width: $screen-xs-max) {
+      &.image-container-sofa {
+        margin-top: 24px;
+      }
+    }
 
     img {
       max-width: 100%;
@@ -223,7 +229,7 @@
   }
 
   @media (min-width: $screen-md-min) {
-    margin: 148px 0 200px 0;
+    margin: 88px 0 120px 0;
   }
 
   .hero-info-block {
@@ -239,6 +245,48 @@
       margin-bottom: 15px !important;
     }
 
+    .hero-explore-label {
+      font-weight: $font-weight-normal;
+      font-size: 14px;
+      line-height: 24px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #9ca3af;
+
+      @media (max-width: $screen-xs-max) {
+        font-size: 11px;
+        flex-shrink: 0;
+      }
+    }
+
+    .hero-ai-link {
+      display: inline-block;
+      opacity: 0.82;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .hero-ai-link:hover {
+      opacity: 1;
+      transform: scale(1.04);
+    }
+
+    .hero-ai-btn {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+
+      @media (max-width: $screen-xs-max) {
+        height: 26px;
+      }
+    }
+
+    .hero-ai-buttons-mobile {
+      @media (max-width: $screen-xs-max) {
+        flex-wrap: nowrap;
+        gap: 8px;
+      }
+    }
   }
 }
 
@@ -269,9 +317,33 @@
 .sdk-section {
   margin-bottom: 100px;
 
+  .sdk-section__image {
+    @media (min-width: $screen-lg-min) {
+      max-width: 600px !important;
+      max-height: 600px !important;
+      width: auto !important;
+      height: auto !important;
+      object-fit: contain;
+    }
+  }
+
   .sdk-info-block {
     max-width: 560px;
     margin-bottom: 60px;
+  }
+
+  .sdk-hero-info-block {
+    max-width: 530px;
+    margin-bottom: 40px;
+
+    @media (min-width: $screen-lg-min) {
+      margin-bottom: 60px;
+    }
+  }
+
+  .sdk-section-subhead {
+    font-size: 1.75rem;
+    line-height: 1.35;
   }
 }
 
