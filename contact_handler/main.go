@@ -33,6 +33,40 @@ func addresses(a string) (addr []*string) {
 	return
 }
 
+func apiKeySender(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path != "/contact/apikey" || r.Method != "POST" {
+		http.Error(w, "404 not found.", http.StatusNotFound)
+		return
+	}
+	if err := r.ParseForm(); err != nil {
+		http.Error(w, "", http.StatusBadRequest)
+		return
+	}
+	log.Printf("Post from website! r.PostFrom = %v\n", r.PostForm)
+	c := contact{
+		FullName:    r.FormValue("fullname"),
+		Company:     r.FormValue("company"),
+		Email:       r.FormValue("email"),
+		ContactType: "sdk-liquid-api-key/api",
+		Message:     r.FormValue("message"),
+	}
+	generatedKey, err := generateKey(c.FullName, c.Email, c.Company)
+	if err != nil {
+		log.Printf("Error in generateKey(\"%v\",\"%v\",\"%v\"): %v", c.FullName, c.Email, c.Company, err)
+	}
+	c.APIKey, err = getKey(generatedKey)
+	if err != nil {
+		log.Printf("Error in getKey(\"%v\"): %v", generatedKey, err)
+	}
+	if err = contactNotification(c); err != nil {
+		http.Error(w, "", http.StatusBadRequest)
+		return
+	}
+	if c.APIKey != "" {
+		sendAPIKey(c)
+	}
+}
+
 func contactMailer(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/contact" || r.Method != "POST" {
 		http.Error(w, "404 not found.", http.StatusNotFound)
@@ -327,6 +361,7 @@ func main() {
 	handler := http.NewServeMux()
 	handler.Handle("/", http.FileServer(http.Dir(".")))
 	handler.HandleFunc("/paymentfailure", paymentFailure)
+	handler.HandleFunc("/contact/apikey", apiKeySender)
 	handler.HandleFunc("/contact", contactMailer)
 
 	if err := http.ListenAndServe(os.Getenv("HOSTNAME"), handler); err != nil {
