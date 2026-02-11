@@ -63,7 +63,7 @@
   -webkit-animation: arrow 0.5s 1s infinite ease-out alternate;
 
   @media (max-width: $screen-xs-max) {
-    margin-top: 40px;
+    margin-top: 15px;
   }
 
   @media (min-width: $screen-md-min) {
@@ -136,20 +136,13 @@
     //padding: 0 0 200px 0;
 
     @media (max-width: $screen-xs-max) {
-      //padding: 70px 0 200px 0; !!!!!!
-      padding: 82px 0 120px 0;
+      padding: 72px 0 120px 0;
     }
   }
 
   .image-container {
     display: flex;
     justify-content: center;
-
-    @media (max-width: $screen-xs-max) {
-      &.image-container-sofa {
-        margin-top: 24px;
-      }
-    }
 
     img {
       max-width: 100%;
@@ -161,12 +154,12 @@
       position: relative;
       width: 100%;
       max-width: 600px;
-      padding-top: 56.25%; // Maintain 16:9 for 1920x1080 SVGs
+      padding-top: 56.25%;
       display: block;
       overflow: hidden;
 
       @media (max-width: $screen-xs-max) {
-        max-width: 420px;
+        max-width: 357px; /* 85% of 420 — images ~15% smaller */
         padding-top: 70%;
         margin: 0 auto;
         overflow: visible;
@@ -240,7 +233,6 @@
     margin-bottom: 70px !important;
     }
 
-    // Mobile: Add padding between subheader and drone SVG
     @media (max-width: $screen-xs-max) {
       margin-bottom: 15px !important;
     }
@@ -285,6 +277,7 @@
       @media (max-width: $screen-xs-max) {
         flex-wrap: nowrap;
         gap: 8px;
+        margin-top: calc(1rem + 15px);
       }
     }
   }

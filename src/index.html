@@ -207,6 +207,9 @@
                             <a href="/sdk" class="text-decoration-none">SDK</a>
                         </li>
                         <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                            <a href="/misty" class="text-decoration-none">Misty Breez</a>
+                        </li>
+                        <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
                             <a href="/vision" class="text-decoration-none">Vision</a>
                         </li>
                         <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
@@ -290,7 +293,7 @@
                                 <object data="./assets/images/animate_dog.svg" type="image/svg+xml" class="hero-svg-object"></object>
                             </div>
                         </div>
-                        <div class="image-container image-container-sofa img-fluid col-12 col-md-4 order-2 order-md-0">
+                        <div class="image-container img-fluid col-12 col-md-4 order-2 order-md-0">
                             <div class="hero-svg-wrapper">
                                 <object id="breez-hero" data="./assets/images/cat.svg" type="image/svg+xml" class="hero-svg-object"></object>
                             </div>
@@ -316,7 +319,7 @@
                             </div>
                         </div>
 
-                        <div class="image-container img-fluid col-12 col-md-4 d-none d-md-block">
+                        <div class="image-container img-fluid col-12 col-md-4 order-0 order-md-0">
                             <div class="hero-svg-wrapper hero-svg-wrapper-drone">
                                 <object data="./assets/images/plant.svg" type="image/svg+xml" class="hero-svg-object"></object>
                             </div>
@@ -504,30 +507,117 @@
             class="sdk-section main-container row position-relative">
 
             <div class="col-12 col-lg-6 mb-5 mb-lg-0 d-flex flex-column justify-content-center">
-                <div class="sdk-info-block sdk-hero-info-block">
+                <div class="sdk-info-block">
                     <h2 class="h-2-home mb-2">Breez SDK</h2>
-                    <h3 class="h-2 mb-3 sdk-section-subhead">Make Value Move Like Information</h3>
-                    <article>
-                        <p class="body-text --text-1">
-                            Add instant, self‑custodial bitcoin to your app in hours, not weeks,
-                            removing third‑party dependencies and delivering the best bitcoin UX. Trusted by 50+ teams including Cake Wallet and Deblock.
-                        </p>
-                    </article>
+                    <p class="home-text --text-2">Add Lightning to your app with maximum flexibility and minimal effort.</p>
                 </div>
                 <a href="/sdk" role="button" class="primary-btn text-decoration-none mb-5">
-                    <div class="">Learn More</div>
+                    <div class="">learn more</div>
                     <img src="./assets/icons/arrow-right-icon.svg" alt="arrow right">
                 </a>
             </div>
 
-            <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center sdk-section__image-col">
+            <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
                 <img src="./assets/images/sdk-illustration.webp" alt="notebook connecting to phone with puzzle wire"
-                    class="img-fluid sdk-section__image">
+                    class="img-fluid">
             </div>
             <!--    gradients-->
             <div class="gradient --sdk-radial-gradient-left">
             </div>
         </section>
+
+
+       <!--misty section-->
+<section data-aos="fade-up" data-aos-duration="3000"
+class="mobile-section main-container row position-relative">
+
+<div class="col-12 col-lg-6 mb-5 mb-lg-0 d-flex flex-column justify-content-between">
+    <div>
+        <div class="mobile-info-block mb-5">
+            <h2 class="h-2-home">Misty Breez</h2>
+            <p class="home-text --text-2">The simplest self-custodial app for sending and receiving bitcoin payments.</p>
+        </div>
+
+        <!-- Info Blocks -->
+        <div class="info-blocks">
+            <div class="d-flex align-items-center mb-5">
+                <img src="./assets/icons/sdk-effortless-icon.svg" alt="effortless icon" class="me-4">
+                <div>
+                    <h3 class="h-3-home mb-1">Lightning Made Easy</h3>
+                    <p class="home-text --text-3">No channels. No setup fees. Just permissionless P2P payments.</p>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center mb-5">
+                <img src="./assets/icons/network-icon.svg" alt="network icon" class="me-4">
+                <div>
+                    <h3 class="h-3-home mb-1">Receive Offline Payments</h3>
+                    <p class="home-text --text-3">Receive payments offline using mobile notifications.</p>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center mb-5">
+                <img src="./assets/icons/email_.svg" alt="email icon" class="me-4">
+                <div>
+                    <h3 class="h-3-home mb-1">Lightning Address Support</h3>
+                    <p class="home-text --text-3">Accept payments with a customizable Lightning address.</p>
+                </div>
+            </div>
+
+
+            <div class="d-flex align-items-center mb-5">
+                <img src="./assets/icons/sdk_toolbox_.svg" alt="toolbox icon" class="me-4">
+                <div>
+                    <h3 class="h-3-home mb-1">Powered by the Breez SDK</h3>
+                    <p class="home-text --text-3">Built on the <a href="https://sdk-doc-liquid.breez.technology/" target="_blank" style="text-decoration: none;">Breez SDK - Nodeless</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Buttons -->
+    <div class="d-flex d-lg-none flex-md-row mobile-btns">
+        <a href="https://play.google.com/store/apps/details?id=com.breez.misty" target="_blank"
+            role="button" class="download-btn--android text-decoration-none mb-2 mb-md-0 me-3 me-md-4">
+            <img src="./assets/icons/google-play-btn.svg" alt="google play button" class="google-btn">
+        </a>
+        <a href="https://testflight.apple.com/join/nEegHvBX" target="_blank"
+            role="button" class="download-btn--ios text-decoration-none mb-2 mb-md-0 me-3 me-md-4">
+            <img src="./assets/icons/app-store-btn.svg" alt="app store button" class="app-store-btn">
+        </a>
+        <a href="/misty" target="_blank"
+        role="button" class="primary-btn --transparent text-decoration-none">
+            <div>learn more</div>
+            <img src="./assets/icons/arrow-right-icon.svg" alt="arrow right">
+        </a>
+    </div>
+</div>
+
+<div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
+    <img src="./assets/images/balance-illustration.webp" alt="balance" class="img-fluid">
+</div>
+
+<!-- Desktop Buttons -->
+<div class="d-none d-lg-flex flex-column flex-md-row">
+    <a href="https://play.google.com/store/apps/details?id=com.breez.misty" target="_blank" role="button"
+        class="text-decoration-none mb-2 mb-md-0 me-0 me-md-4">
+        <img src="./assets/icons/google-play-btn.svg" alt="google play button" class="google-btn">
+    </a>
+    <a href="https://testflight.apple.com/join/nEegHvBX" target="_blank" role="button"
+        class="text-decoration-none mb-2 mb-md-0 me-0 me-md-4">
+        <img src="./assets/icons/app-store-btn.svg" alt="app store button" class="app-store-btn">
+    </a>
+    <a href="/misty" target="_blank" role="button" class="primary-btn --transparent text-decoration-none">
+        <div>learn more</div>
+        <img src="./assets/icons/arrow-right-icon.svg" alt="arrow right">
+    </a>
+</div>
+
+<!-- Gradients -->
+<div class="gradient --mobile-radial-gradient-top"></div>
+<div class="gradient --mobile-radial-gradient-right"></div>
+</section>
+
         <!--contact-us-section-->
         <section id="contact-us-form" data-aos="fade-up" data-aos-duration="3000"
             class="contact-us-section main-container row position-relative">
@@ -684,6 +774,7 @@
 
         </section>
 
+
     </div>
     <!--footer-->
     <footer class="footer main-container position-relative">
@@ -724,16 +815,10 @@
             if (window.innerHeight <= 915 && window.innerWidth <= 576) {
                 const heroHeight = $('.hero-section').height();
                 const infoHeight = $('#hero-info-block').height();
-
-                const imageHeight = (heroHeight - infoHeight - 118) / 2;
-                // const imageHeight = (heroHeight - infoHeight - 100) / 2;
+                const reserved = 200; // space for arrow, padding; higher = shorter images, arrow above fold
+                const imageHeight = (heroHeight - infoHeight - reserved) / 2;
                 const imgContainer = $('.image-container');
-
-                imgContainer.css('height', imageHeight + 'px');
-
-                console.log(heroHeight, 'heroHeight');
-                console.log(infoHeight, 'infoHeight');
-                console.log(imageHeight, 'imageHeight');
+                imgContainer.css('height', Math.max(0, imageHeight) + 'px');
             }
         };
 
