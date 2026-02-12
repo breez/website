@@ -45,6 +45,13 @@
     min-width: 0;
   }
 
+  img {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    object-fit: contain;
+  }
+
   &.--cloud-sdk {
     width: 100%;
     max-width: 236px;

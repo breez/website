@@ -21,6 +21,171 @@
         content="Breez is realizing the future of bitcoin by opening the world of Lightning payments to apps and services" />
     <meta name="twitter:image" content="../../../assets/images/open-graph-sdk-update.png" />
     <link rel="icon" href="../../../assets/icons/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+      /* Terminal card: isolation from Breez site resets (font: inherit, body 22px, hr: 0) */
+      .terminal-card {
+        all: initial;
+        display: block;
+        max-width: 900px;
+        width: 100%;
+        box-sizing: border-box;
+        font-family: 'JetBrains Mono', monospace !important;
+        font-size: 13px !important;
+        line-height: 1.6 !important;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .terminal-card * {
+        all: revert;
+        box-sizing: border-box;
+      }
+      .terminal-card,
+      .terminal-card .tc-title-bar,
+      .terminal-card .tc-body,
+      .terminal-card .tc-line,
+      .terminal-card .tc-comment,
+      .terminal-card .tc-code,
+      .terminal-card .tc-success {
+        font-family: 'JetBrains Mono', monospace !important;
+        font-size: 13px !important;
+        line-height: 1.6 !important;
+      }
+      .terminal-card .tc-title-label {
+        font-family: 'Inter', sans-serif !important;
+        font-size: 11px !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.08em !important;
+        text-transform: uppercase !important;
+        color: #7C92A6 !important;
+      }
+      .terminal-card .tc-code span {
+        font: inherit !important;
+        white-space: inherit !important;
+      }
+      .terminal-card hr.tc-divider {
+        border: none !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+        margin: 0 0 24px 0 !important;
+      }
+      .terminal-card .tc-title-bar {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .terminal-card .tc-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .terminal-card .tc-dot-red { background: #ff5f57; }
+      .terminal-card .tc-dot-yellow { background: #febc2e; }
+      .terminal-card .tc-dot-green { background: #28c840; }
+      .terminal-card .tc-title-label { margin-left: 8px; }
+      .terminal-card .tc-body {
+        padding: 32px 32px 36px;
+        color: #ffffff !important;
+      }
+      .terminal-card .tc-output { margin-bottom: 24px !important; }
+      .terminal-card .tc-comment { margin-bottom: 14px !important; }
+      .terminal-card .tc-code {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        padding: 20px 24px;
+        margin-bottom: 28px;
+        white-space: pre !important;
+        overflow-x: auto;
+      }
+      .terminal-card .tc-prompt { color: #7C92A6 !important; }
+      .terminal-card .tc-output { color: #7C92A6 !important; }
+      .terminal-card .tc-comment { color: #7C92A6 !important; }
+      .terminal-card .tc-plain { color: #ffffff !important; }
+      .terminal-card .tc-keyword { color: #0085FB !important; }
+      .terminal-card .tc-string { color: #2acc80 !important; }
+      .terminal-card .tc-value { color: #febc2e !important; }
+      .terminal-card .tc-success {
+        color: #2acc80 !important;
+        font-weight: 500 !important;
+        text-shadow: 0 0 20px rgba(42, 204, 128, 0.3) !important;
+      }
+
+      @media (max-width: 767px) {
+        .terminal-card {
+          max-width: 100%;
+          width: 100%;
+          font-size: 11px !important;
+          margin: 0 16px;
+          box-sizing: border-box;
+        }
+        .terminal-card .tc-body {
+          padding: 20px 16px 24px;
+          max-height: 400px;
+          overflow-y: auto;
+        }
+        .terminal-card .tc-code {
+          padding: 12px 16px;
+          font-size: 11px !important;
+        }
+      }
+
+      /* Choose Your Integration section layout */
+      #sdk-implementation-section .choose-ux-grid {
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        gap: 80px;
+        align-items: start;
+      }
+      #sdk-implementation-section .choose-ux-grid__code {
+        min-width: 0;
+        width: 100%;
+      }
+      #sdk-implementation-section .choose-ux-grid__code .terminal-card {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* SDK page snippet: smaller type, slightly taller line spacing */
+      #sdk-implementation-section .terminal-card,
+      #sdk-implementation-section .terminal-card .tc-body,
+      #sdk-implementation-section .terminal-card .tc-line,
+      #sdk-implementation-section .terminal-card .tc-comment,
+      #sdk-implementation-section .terminal-card .tc-code,
+      #sdk-implementation-section .terminal-card .tc-success {
+        font-size: 11px !important;
+        line-height: 1.55 !important;
+      }
+      #sdk-implementation-section .terminal-card .tc-body {
+        padding: 24px 24px 28px;
+      }
+      #sdk-implementation-section .terminal-card .tc-code {
+        padding: 14px 18px;
+        margin-bottom: 20px;
+        white-space: pre-wrap !important;
+        word-break: break-word;
+        overflow-x: visible;
+      }
+      #sdk-implementation-section .terminal-card .tc-output { margin-bottom: 16px !important; }
+      #sdk-implementation-section .terminal-card .tc-comment { margin-bottom: 10px !important; }
+      #sdk-implementation-section .terminal-card hr.tc-divider { margin: 0 0 18px 0 !important; }
+
+      @media (max-width: 991.98px) {
+        #sdk-implementation-section .choose-ux-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        /* Code widget after subheader on mobile */
+        #sdk-implementation-section .choose-ux-grid__code { order: 1; }
+        #sdk-implementation-section .choose-ux-grid__features { order: 2; }
+      }
+    </style>
     <script defer="defer" src="../../../index.js"></script>
 </head>
 
@@ -50,9 +215,6 @@
                         </li>
                         <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
                             <a href="/sdk" class="text-decoration-none">SDK</a>
-                        </li>
-                        <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
-                            <a href="/misty" class="text-decoration-none">Misty Breez</a>
                         </li>
                         <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
                             <a href="/vision" class="text-decoration-none">Vision</a>
@@ -133,9 +295,10 @@
                 </div>
             </div>
 
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
                 <img src="../../../assets/images/sdk-illustration.webp"
-                    alt="notebook connecting to phone with puzzle wire" class="img-fluid">
+                     alt="notebook connecting to phone with puzzle wire"
+                     class="img-fluid sdk-section__image">
             </div>
             <!--    gradients-->
             <div class="gradient --sdk-hero-radial-gradient-top-left">
@@ -364,88 +527,170 @@
             <div class="gradient --sdk-features-radial-gradient-bottom-left ">
             </div>
         </section>
-        <section data-aos="fade-up" data-aos-duration="3000" id="sdk-implementation-section"
-            class="sdk-implementation-section position-relative aos-init aos-animate">
-            <div class="row g-0 gy-5 gx-lg-5">
-                <div class="col-12 ps-0">
-                    <h2 class="h-2-home mb-2" style="font-size: clamp(32px, 4vw, 36px);">Choose Your Integration</h2>
-                    <p class="home-text --text-2 mb-5">
-                        The simplest developer experience, the best user experience.
-                    </p>
-                </div>
+        <section id="sdk-implementation-section" data-aos="fade-up" data-aos-duration="3000"
+            class="row position-relative" style="padding: 40px 0 80px;">
+    <!-- Section Header (outside grid, left-aligned) -->
+    <div style="margin-bottom: 60px;">
+      <h2 class="h-2-home mb-2" style="font-size: clamp(32px, 4vw, 48px);">
+        Add Instant Bitcoin to Your App
+      </h2>
+      <p class="home-text --text-2">
+        The simplest developer experience, the best user experience.
+      </p>
+    </div>
+
+    <!-- Two Column Layout -->
+    <div class="choose-ux-grid">
+      
+      <!-- Left Column: Features (on mobile, shows after code widget via order) -->
+      <div class="choose-ux-grid__features">
+        <!-- Eyebrow label -->
+        <div style="
+          font-family: 'Inter', sans-serif;
+          font-size: 11px;
+          font-weight: 500;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: #7C92A6;
+          margin-bottom: 24px;
+        ">
+          BREEZ SDK (SPARK) FEATURES
+        </div>
+
+        <div style="margin-bottom: 32px;">
+          <h3 style="
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: #ffffff;
+            margin: 0 0 8px 0;
+          ">
+            Integrate in hours, not weeks
+          </h3>
+          <p style="
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: #7C92A6;
+            margin: 0;
+            line-height: 1.6;
+          ">
+            Effortless to add to any app or service.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 32px;">
+          <h3 style="
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: #ffffff;
+            margin: 0 0 8px 0;
+          ">
+            Instant settlement, no minimums
+          </h3>
+          <p style="
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: #7C92A6;
+            margin: 0;
+            line-height: 1.6;
+          ">
+            Payments settle in seconds with no transaction limits.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 32px;">
+          <h3 style="
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: #ffffff;
+            margin: 0 0 8px 0;
+          ">
+            Multi-asset support including stablecoins
+          </h3>
+          <p style="
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: #7C92A6;
+            margin: 0;
+            line-height: 1.6;
+          ">
+            Accept bitcoin, USDB, and other digital assets.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 48px;">
+          <h3 style="
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: #ffffff;
+            margin: 0 0 8px 0;
+          ">
+            Users are always in control
+          </h3>
+          <p style="
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: #7C92A6;
+            margin: 0;
+            line-height: 1.6;
+          ">
+            Self-custodial by design, so users manage their funds.
+          </p>
+        </div>
+
+        <!-- CTA -->
+        <a href="https://sdk-doc-spark.breez.technology/" target="_blank" role="button"
+          class="primary-btn text-decoration-none">
+          <div class="">Build</div>
+          <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
+        </a>
+      </div>
+
+      <!-- Right Column: Code widget (on mobile, shows after subheader via order) -->
+      <div class="choose-ux-grid__code" style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      ">
+        <div class="terminal-card">
+          <div class="tc-title-bar">
+            <span class="tc-dot tc-dot-red"></span>
+            <span class="tc-dot tc-dot-yellow"></span>
+            <span class="tc-dot tc-dot-green"></span>
+            <span class="tc-title-label">Breez SDK</span>
+          </div>
+          <div class="tc-body">
+            <div class="tc-line">
+              <span class="tc-prompt">$</span> <span class="tc-plain">npm install @breeztech/breez-sdk-spark</span>
             </div>
-            <div class="row g-0 gy-5 gx-lg-5">
-                <!-- Spark Implementation -->
-                <div class="col-12 col-lg-6 ps-0">
-                    <div class="sdk-implementation-block d-flex flex-column align-items-center h-100 position-relative">
-                        <img src="../../../assets/icons/spark_icon.svg" alt="spark icon" class="mb-4 pb-3">
-                        <h3 class="h-3 --big-heading fw-bold">Nodeless</h3>
-                        <h4 class="h-3 mb-4 pb-3">Spark Implementation</h4>
-                        <ul class="mb-4 pb-3 ms-0 me-auto">
-                            <li class="d-flex align-items-center mb-4 pb-2">
-                                <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
-                                <p class="body-text h-3">
-                                Native Bitcoin Layer 2
-                                </p>
-                            </li>
-                            <li class="d-flex align-items-center mb-4 pb-2">
-                                <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
-                                <p class="body-text h-3">
-                                 No minimum limit, instant settlement
-                                </p>
-                            </li>
-                            <li class="d-flex align-items-center">
-                                <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
-                                <p class="body-text h-3">
-                                Stablecoins and multi-asset
-                                </p>
-                            </li>
-                        </ul>
-                        <a role="button" class="primary-btn mt-auto w-100 text-decoration-none"
-                            href="https://sdk-doc-spark.breez.technology/" target="_blank">
-                            <div class="" style="margin: auto;">Build</div>
-                        </a>
-                    </div>
-                </div>
-                <!-- Liquid Implementation -->
-                <div class=" col-12 col-lg-6 pe-0">
-                    <div class="sdk-implementation-block d-flex flex-column align-items-center h-100">
-                        <img src="../../../assets/icons/chain.svg" alt="chain icon" class="mb-4 pb-3">
-                        <h3 class="h-3 --big-heading fw-bold">Nodeless</h3>
-                        <h4 class="h-3 mb-4 pb-3">Liquid Implementation</h4>
-                        <ul class="mb-4 pb-3 ms-0 me-auto">
-                            <li class="d-flex align-items-center mb-4 pb-2">
-                                <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
-                                <p class="body-text h-3">
-                                    Native USDT and multi-asset
-                                </p>
-                            </li>
-                            <li class="d-flex align-items-center mb-4 pb-2">
-                                <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
-                                <p class="body-text h-3">
-                                    Liquid confidential transactions
-                            </p>
-                            </li>
-                            <li class="d-flex align-items-center">
-                                <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
-                                <p class="body-text h-3">
-                                    BOLT 12 & BIP 353 functionality
-                            </p>
-                            </li>
-                        </ul>
-                        <a role="button" class="primary-btn mt-auto w-100 text-decoration-none"
-                            href="https://sdk-doc-liquid.breez.technology/" target="_blank">
-                            <div class="" style="margin: auto;">Build</div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!--    gradients-->
-            <div class="gradient --sdk-implementation-radial-gradient-top-left">
-            </div>
-            <div class="gradient --sdk-implementation-radial-gradient-bottom-right ">
-            </div>
-        </section>
+            <div class="tc-line tc-output">+ @breeztech/breez-sdk-spark@0.8.0</div>
+            <hr class="tc-divider">
+            <div class="tc-comment"># Connect &amp; pay</div>
+            <div class="tc-code"><span class="tc-keyword">import</span> <span class="tc-plain">{ connect, defaultConfig }</span> <span class="tc-keyword">from</span> <span class="tc-string">'@breeztech/breez-sdk-spark'</span><br><br>
+<span class="tc-keyword">const</span> <span class="tc-plain">config</span> = <span class="tc-plain">defaultConfig</span>(<span class="tc-string">'mainnet'</span>)<br>
+<span class="tc-plain">config.apiKey</span> = <span class="tc-value">YOUR_API_KEY</span><br><br>
+<span class="tc-keyword">const</span> <span class="tc-plain">sdk</span> = <span class="tc-keyword">await</span> <span class="tc-plain">connect</span>({ config, seed, storageDir: <span class="tc-string">'./.data'</span> })</div>
+            <div class="tc-comment"># Send payment</div>
+            <div class="tc-code"><span class="tc-keyword">const</span> <span class="tc-plain">prep</span> = <span class="tc-keyword">await</span> <span class="tc-plain">sdk.prepareSendPayment</span>({ paymentRequest: <span class="tc-string">'lnbc50u1p...'</span> })<br><br>
+<span class="tc-keyword">await</span> <span class="tc-plain">sdk.sendPayment</span>({ prepareResponse: prep })</div>
+            <div class="tc-success">✓ Payment sent: 50,000 sats</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  <!-- gradients -->
+  <div class="gradient --sdk-implementation-radial-gradient-top-left"></div>
+  <div class="gradient --sdk-implementation-radial-gradient-bottom-right"></div>
+</section>
 
         <section id="contact-us-form-sdk" data-aos="fade-up" data-aos-duration="3000"
             class="contact-us-section row position-relative">

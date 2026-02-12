@@ -21,6 +21,7 @@
         content="Breez is realizing the future of bitcoin by opening the world of self-custodial Lightning payments to apps and services" />
     <meta name="twitter:image" content="./assets/images/open-graph-update.png" />
     <link rel="icon" href="./assets/icons/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script defer="defer" src="./index.js"></script>
     <style>
         .spinner-wrapper {
@@ -69,6 +70,171 @@
             40%,
             100% {
                 fill: rgba(0, 133, 251, 1);
+            }
+        }
+
+        /* Terminal card (SDK code snippet) */
+        .terminal-card {
+            all: initial;
+            display: block;
+            max-width: 900px;
+            width: 100%;
+            box-sizing: border-box;
+            font-family: 'JetBrains Mono', monospace !important;
+            font-size: 13px !important;
+            line-height: 1.6 !important;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .terminal-card * {
+            all: revert;
+            box-sizing: border-box;
+        }
+        .terminal-card,
+        .terminal-card .tc-title-bar,
+        .terminal-card .tc-body,
+        .terminal-card .tc-line,
+        .terminal-card .tc-comment,
+        .terminal-card .tc-code,
+        .terminal-card .tc-success {
+            font-family: 'JetBrains Mono', monospace !important;
+            font-size: 13px !important;
+            line-height: 1.6 !important;
+        }
+        .terminal-card .tc-title-label {
+            font-family: 'Inter', sans-serif !important;
+            font-size: 11px !important;
+            font-weight: 500 !important;
+            letter-spacing: 0.08em !important;
+            text-transform: uppercase !important;
+            color: #7C92A6 !important;
+        }
+        .terminal-card .tc-code span {
+            font: inherit !important;
+            white-space: inherit !important;
+        }
+        .terminal-card hr.tc-divider {
+            border: none !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+            margin: 0 0 24px 0 !important;
+        }
+        .terminal-card .tc-title-bar {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .terminal-card .tc-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .terminal-card .tc-dot-red { background: #ff5f57; }
+        .terminal-card .tc-dot-yellow { background: #febc2e; }
+        .terminal-card .tc-dot-green { background: #28c840; }
+        .terminal-card .tc-title-label { margin-left: 8px; }
+        .terminal-card .tc-body {
+            padding: 32px 32px 36px;
+            color: #ffffff !important;
+        }
+        .terminal-card .tc-output { margin-bottom: 24px !important; }
+        .terminal-card .tc-comment { margin-bottom: 14px !important; }
+        .terminal-card .tc-code {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 28px;
+            white-space: pre !important;
+            overflow-x: auto;
+        }
+        .terminal-card .tc-prompt { color: #7C92A6 !important; }
+        .terminal-card .tc-output { color: #7C92A6 !important; }
+        .terminal-card .tc-comment { color: #7C92A6 !important; }
+        .terminal-card .tc-plain { color: #ffffff !important; }
+        .terminal-card .tc-keyword { color: #0085FB !important; }
+        .terminal-card .tc-string { color: #2acc80 !important; }
+        .terminal-card .tc-value { color: #febc2e !important; }
+        .terminal-card .tc-success {
+            color: #2acc80 !important;
+            font-weight: 500 !important;
+            text-shadow: 0 0 20px rgba(42, 204, 128, 0.3) !important;
+        }
+        @media (max-width: 767px) {
+            .terminal-card {
+                max-width: 100%;
+                width: 100%;
+                font-size: 11px !important;
+                margin: 0 16px;
+                box-sizing: border-box;
+            }
+            .terminal-card .tc-body {
+                padding: 20px 16px 24px;
+                max-height: 400px;
+                overflow-y: auto;
+            }
+            .terminal-card .tc-code {
+                padding: 12px 16px;
+                font-size: 11px !important;
+            }
+        }
+
+        /* Homepage terminal: smaller type, tighter line spacing */
+        #breez-sdk .terminal-card,
+        #breez-sdk .terminal-card .tc-body,
+        #breez-sdk .terminal-card .tc-line,
+        #breez-sdk .terminal-card .tc-comment,
+        #breez-sdk .terminal-card .tc-code,
+        #breez-sdk .terminal-card .tc-success {
+            font-size: 11px !important;
+            line-height: 1.35 !important;
+        }
+        #breez-sdk .terminal-card .tc-body {
+            padding: 24px 24px 28px;
+        }
+        #breez-sdk .terminal-card .tc-code {
+            padding: 14px 18px;
+            margin-bottom: 20px;
+        }
+        #breez-sdk .terminal-card .tc-output { margin-bottom: 16px !important; }
+        #breez-sdk .terminal-card .tc-comment { margin-bottom: 10px !important; }
+        #breez-sdk .terminal-card hr.tc-divider { margin: 0 0 18px 0 !important; }
+
+        /* Update terminal card for homepage - prevent horizontal scroll */
+        #breez-sdk .terminal-card .tc-code {
+            white-space: pre-wrap !important;
+            word-break: break-word;
+            overflow-x: visible;
+        }
+
+        /* Make terminal larger on homepage */
+        #breez-sdk .terminal-card {
+            max-width: 1000px !important;
+        }
+
+        /* Improve mobile responsiveness */
+        @media (max-width: 991.98px) {
+            #breez-sdk .col-lg-6 {
+                max-width: 100%;
+            }
+
+            #breez-sdk .terminal-card {
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 767px) {
+            #breez-sdk .terminal-card {
+                margin: 0 16px;
+            }
+
+            #breez-sdk .terminal-card .tc-code {
+                padding: 12px 16px;
+                font-size: 11px !important;
             }
         }
     </style>
@@ -207,9 +373,6 @@
                             <a href="/sdk" class="text-decoration-none">SDK</a>
                         </li>
                         <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
-                            <a href="/misty" class="text-decoration-none">Misty Breez</a>
-                        </li>
-                        <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
                             <a href="/vision" class="text-decoration-none">Vision</a>
                         </li>
                         <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
@@ -270,16 +433,16 @@
                     <p class="home-text --text-1">SDKs that make value move as easily as information. <br> Built for apps, services, and billions of users worldwide.</p>
                     <div class="d-flex align-items-center justify-content-center flex-wrap gap-3 mt-4">
                         <span class="hero-explore-label">Explore with AI</span>
-                        <a href="https://claude.ai/new?q=I%27m%20building%20a%20product%20and%20want%20to%20understand%20how%20the%20Breez%20SDK%20(breez.technology)%20can%20help.%0A%0ABreez%20SDK%20lets%20you%20add%20instant%2C%20self-custodial%20bitcoin%20to%20your%20app.%20Bringing%20value%20transfer%20as%20a%20feature%2C%20in%20days%2C%20not%20months.%0A%0AExplain%20what%20the%20Breez%20SDK%20(Spark%20implementation)%20could%20do%20for%20my%20product%20and%20show%20me%20what%20teams%20are%20already%20building%20with%20it." target="_blank" rel="noopener noreferrer" class="hero-ai-link text-decoration-none">
+                        <a href="https://claude.ai/new?q=I%27m%20building%20a%20product%20and%20want%20to%20understand%20how%20the%20Breez%20SDK%20%28breez.technology%29%20can%20help.%0A%0ABreez%20SDK%20lets%20you%20add%20instant%2C%20self-custodial%20bitcoin%20to%20your%20app.%20Bringing%20value%20transfer%20as%20a%20feature%2C%20in%20hours%2C%20not%20weeks.%0A%0AExplain%20what%20the%20Breez%20SDK%20%28Spark%20implementation%29%20could%20do%20for%20my%20product%20and%20show%20me%20what%20teams%20are%20already%20building%20with%20it." target="_blank" rel="noopener noreferrer" class="hero-ai-link text-decoration-none">
                             <img src="./assets/images/claude_button.png" alt="Claude" class="hero-ai-btn">
                         </a>
-                        <a href="https://chatgpt.com/?q=I%27m%20building%20a%20product%20and%20want%20to%20understand%20how%20the%20Breez%20SDK%20(breez.technology)%20can%20help.%0A%0ABreez%20SDK%20lets%20you%20add%20instant%2C%20self-custodial%20bitcoin%20to%20your%20app.%20Bringing%20value%20transfer%20as%20a%20feature%2C%20in%20days%2C%20not%20months.%0A%0AExplain%20what%20the%20Breez%20SDK%20(Spark%20implementation)%20could%20do%20for%20my%20product%20and%20show%20me%20what%20teams%20are%20already%20building%20with%20it." target="_blank" rel="noopener noreferrer" class="hero-ai-link text-decoration-none">
+                        <a href="https://chatgpt.com/?q=I%27m%20building%20a%20product%20and%20want%20to%20understand%20how%20the%20Breez%20SDK%20%28breez.technology%29%20can%20help.%0A%0ABreez%20SDK%20lets%20you%20add%20instant%2C%20self-custodial%20bitcoin%20to%20your%20app.%20Bringing%20value%20transfer%20as%20a%20feature%2C%20in%20hours%2C%20not%20weeks.%0A%0AExplain%20what%20the%20Breez%20SDK%20%28Spark%20implementation%29%20could%20do%20for%20my%20product%20and%20show%20me%20what%20teams%20are%20already%20building%20with%20it." target="_blank" rel="noopener noreferrer" class="hero-ai-link text-decoration-none">
                             <img src="./assets/images/chatgpt_button.png" alt="ChatGPT" class="hero-ai-btn">
                         </a>
-                        <a href="https://aistudio.google.com/prompts/new_chat?prompt=I%27m%20building%20a%20product%20and%20want%20to%20understand%20how%20the%20Breez%20SDK%20(breez.technology)%20can%20help.%20Breez%20SDK%20lets%20you%20add%20instant,%20self-custodial%20bitcoin%20to%20your%20app.%20Bringing%20value%20transfer%20as%20a%20feature,%20in%20days,%20not%20months.%20Explain%20what%20the%20Breez%20SDK%20(Spark%20implementation)%20could%20do%20for%20my%20product%20and%20show%20me%20what%20teams%20are%20already%20building%20with%20it." target="_blank" rel="noopener noreferrer" class="hero-ai-link text-decoration-none">
+                        <a href="https://aistudio.google.com/prompts/new_chat?prompt=I%27m%20building%20a%20product%20and%20want%20to%20understand%20how%20the%20Breez%20SDK%20%28breez.technology%29%20can%20help.%0A%0ABreez%20SDK%20lets%20you%20add%20instant%2C%20self-custodial%20bitcoin%20to%20your%20app.%20Bringing%20value%20transfer%20as%20a%20feature%2C%20in%20hours%2C%20not%20weeks.%0A%0AExplain%20what%20the%20Breez%20SDK%20%28Spark%20implementation%29%20could%20do%20for%20my%20product%20and%20show%20me%20what%20teams%20are%20already%20building%20with%20it." target="_blank" rel="noopener noreferrer" class="hero-ai-link text-decoration-none">
                             <img src="./assets/images/gemini_button.png" alt="Gemini" class="hero-ai-btn">
                         </a>
-                        <a href="https://x.com/i/grok?text=I%27m%20building%20a%20product%20and%20want%20to%20understand%20how%20the%20Breez%20SDK%20(breez.technology)%20can%20help.%0A%0ABreez%20SDK%20lets%20you%20add%20instant%2C%20self-custodial%20bitcoin%20to%20your%20app.%20Bringing%20value%20transfer%20as%20a%20feature%2C%20in%20days%2C%20not%20months.%0A%0AExplain%20what%20the%20Breez%20SDK%20(Spark%20implementation)%20could%20do%20for%20my%20product%20and%20show%20me%20what%20teams%20are%20already%20building%20with%20it." target="_blank" rel="noopener noreferrer" class="hero-ai-link text-decoration-none">
+                        <a href="https://x.com/i/grok?text=I%27m%20building%20a%20product%20and%20want%20to%20understand%20how%20the%20Breez%20SDK%20%28breez.technology%29%20can%20help.%0A%0ABreez%20SDK%20lets%20you%20add%20instant%2C%20self-custodial%20bitcoin%20to%20your%20app.%20Bringing%20value%20transfer%20as%20a%20feature%2C%20in%20hours%2C%20not%20weeks.%0A%0AExplain%20what%20the%20Breez%20SDK%20%28Spark%20implementation%29%20could%20do%20for%20my%20product%20and%20show%20me%20what%20teams%20are%20already%20building%20with%20it." target="_blank" rel="noopener noreferrer" class="hero-ai-link text-decoration-none">
                             <img src="./assets/images/grok_button.png" alt="Grok" class="hero-ai-btn">
                         </a>
                     </div>
@@ -304,16 +467,16 @@
                             <p class="home-text --text-1 min-margin mb-3">SDKs that make value move as easily as information. Built for apps, services, and billions of users worldwide.</p>
                             <div class="d-flex align-items-center justify-content-center flex-nowrap gap-2 mt-3 hero-ai-buttons-mobile">
                                 <span class="hero-explore-label">Explore with AI</span>
-                                <a href="https://claude.ai/new?q=I%27m%20building%20a%20product%20and%20want%20to%20understand%20how%20the%20Breez%20SDK%20(breez.technology)%20can%20help.%0A%0ABreez%20SDK%20lets%20you%20add%20instant%2C%20self-custodial%20bitcoin%20to%20your%20app.%20Bringing%20value%20transfer%20as%20a%20feature%2C%20in%20days%2C%20not%20months.%0A%0AExplain%20what%20the%20Breez%20SDK%20(Spark%20implementation)%20could%20do%20for%20my%20product%20and%20show%20me%20what%20teams%20are%20already%20building%20with%20it." target="_blank" rel="noopener noreferrer" class="hero-ai-link text-decoration-none">
+                                <a href="https://claude.ai/new?q=I%27m%20building%20a%20product%20and%20want%20to%20understand%20how%20the%20Breez%20SDK%20%28breez.technology%29%20can%20help.%0A%0ABreez%20SDK%20lets%20you%20add%20instant%2C%20self-custodial%20bitcoin%20to%20your%20app.%20Bringing%20value%20transfer%20as%20a%20feature%2C%20in%20hours%2C%20not%20weeks.%0A%0AExplain%20what%20the%20Breez%20SDK%20%28Spark%20implementation%29%20could%20do%20for%20my%20product%20and%20show%20me%20what%20teams%20are%20already%20building%20with%20it." target="_blank" rel="noopener noreferrer" class="hero-ai-link text-decoration-none">
                                     <img src="./assets/images/claude_button.png" alt="Claude" class="hero-ai-btn">
                                 </a>
-                                <a href="https://chatgpt.com/?q=I%27m%20building%20a%20product%20and%20want%20to%20understand%20how%20the%20Breez%20SDK%20(breez.technology)%20can%20help.%0A%0ABreez%20SDK%20lets%20you%20add%20instant%2C%20self-custodial%20bitcoin%20to%20your%20app.%20Bringing%20value%20transfer%20as%20a%20feature%2C%20in%20days%2C%20not%20months.%0A%0AExplain%20what%20the%20Breez%20SDK%20(Spark%20implementation)%20could%20do%20for%20my%20product%20and%20show%20me%20what%20teams%20are%20already%20building%20with%20it." target="_blank" rel="noopener noreferrer" class="hero-ai-link text-decoration-none">
+                                <a href="https://chatgpt.com/?q=I%27m%20building%20a%20product%20and%20want%20to%20understand%20how%20the%20Breez%20SDK%20%28breez.technology%29%20can%20help.%0A%0ABreez%20SDK%20lets%20you%20add%20instant%2C%20self-custodial%20bitcoin%20to%20your%20app.%20Bringing%20value%20transfer%20as%20a%20feature%2C%20in%20hours%2C%20not%20weeks.%0A%0AExplain%20what%20the%20Breez%20SDK%20%28Spark%20implementation%29%20could%20do%20for%20my%20product%20and%20show%20me%20what%20teams%20are%20already%20building%20with%20it." target="_blank" rel="noopener noreferrer" class="hero-ai-link text-decoration-none">
                                     <img src="./assets/images/chatgpt_button.png" alt="ChatGPT" class="hero-ai-btn">
                                 </a>
-                                <a href="https://aistudio.google.com/prompts/new_chat?prompt=I%27m%20building%20a%20product%20and%20want%20to%20understand%20how%20the%20Breez%20SDK%20(breez.technology)%20can%20help.%20Breez%20SDK%20lets%20you%20add%20instant,%20self-custodial%20bitcoin%20to%20your%20app.%20Bringing%20value%20transfer%20as%20a%20feature,%20in%20days,%20not%20months.%20Explain%20what%20the%20Breez%20SDK%20(Spark%20implementation)%20could%20do%20for%20my%20product%20and%20show%20me%20what%20teams%20are%20already%20building%20with%20it." target="_blank" rel="noopener noreferrer" class="hero-ai-link text-decoration-none">
+                                <a href="https://aistudio.google.com/prompts/new_chat?prompt=I%27m%20building%20a%20product%20and%20want%20to%20understand%20how%20the%20Breez%20SDK%20%28breez.technology%29%20can%20help.%0A%0ABreez%20SDK%20lets%20you%20add%20instant%2C%20self-custodial%20bitcoin%20to%20your%20app.%20Bringing%20value%20transfer%20as%20a%20feature%2C%20in%20hours%2C%20not%20weeks.%0A%0AExplain%20what%20the%20Breez%20SDK%20%28Spark%20implementation%29%20could%20do%20for%20my%20product%20and%20show%20me%20what%20teams%20are%20already%20building%20with%20it." target="_blank" rel="noopener noreferrer" class="hero-ai-link text-decoration-none">
                                     <img src="./assets/images/gemini_button.png" alt="Gemini" class="hero-ai-btn">
                                 </a>
-                                <a href="https://x.com/i/grok?text=I%27m%20building%20a%20product%20and%20want%20to%20understand%20how%20the%20Breez%20SDK%20(breez.technology)%20can%20help.%0A%0ABreez%20SDK%20lets%20you%20add%20instant%2C%20self-custodial%20bitcoin%20to%20your%20app.%20Bringing%20value%20transfer%20as%20a%20feature%2C%20in%20days%2C%20not%20months.%0A%0AExplain%20what%20the%20Breez%20SDK%20(Spark%20implementation)%20could%20do%20for%20my%20product%20and%20show%20me%20what%20teams%20are%20already%20building%20with%20it." target="_blank" rel="noopener noreferrer" class="hero-ai-link text-decoration-none">
+                                <a href="https://x.com/i/grok?text=I%27m%20building%20a%20product%20and%20want%20to%20understand%20how%20the%20Breez%20SDK%20%28breez.technology%29%20can%20help.%0A%0ABreez%20SDK%20lets%20you%20add%20instant%2C%20self-custodial%20bitcoin%20to%20your%20app.%20Bringing%20value%20transfer%20as%20a%20feature%2C%20in%20hours%2C%20not%20weeks.%0A%0AExplain%20what%20the%20Breez%20SDK%20%28Spark%20implementation%29%20could%20do%20for%20my%20product%20and%20show%20me%20what%20teams%20are%20already%20building%20with%20it." target="_blank" rel="noopener noreferrer" class="hero-ai-link text-decoration-none">
                                     <img src="./assets/images/grok_button.png" alt="Grok" class="hero-ai-btn">
                                 </a>
                             </div>
@@ -503,120 +666,50 @@
         </section>
 
         <!--sdk-section-->
-        <section id="breez-sdk" data-aos="fade-up" data-aos-duration="3000"
-            class="sdk-section main-container row position-relative">
-
+        <section id="breez-sdk" data-aos="fade-up" data-aos-duration="3000" class="sdk-section main-container row position-relative">
             <div class="col-12 col-lg-6 mb-5 mb-lg-0 d-flex flex-column justify-content-center">
-                <div class="sdk-info-block">
+                <div class="sdk-info-block sdk-hero-info-block">
                     <h2 class="h-2-home mb-2">Breez SDK</h2>
-                    <p class="home-text --text-2">Add Lightning to your app with maximum flexibility and minimal effort.</p>
+                    <h3 class="h-2 mb-4 sdk-section-subhead">Make Value Move Like Information</h3>
+                    <article>
+                        <p class="body-text --text-1 mb-0">Add instant, self‑custodial bitcoin to your app in hours, not weeks, remove third‑party dependencies and deliver the best bitcoin UX.</p>
+                        <p class="body-text --text-1 mt-2 mb-0">Trusted by 50+ teams including Garden, Cake Wallet, and Deblock.</p>
+                    </article>
                 </div>
                 <a href="/sdk" role="button" class="primary-btn text-decoration-none mb-5">
-                    <div class="">learn more</div>
+                    <div class="">Learn More</div>
                     <img src="./assets/icons/arrow-right-icon.svg" alt="arrow right">
                 </a>
             </div>
-
-            <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
-                <img src="./assets/images/sdk-illustration.webp" alt="notebook connecting to phone with puzzle wire"
-                    class="img-fluid">
+            <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center sdk-section__image-col">
+                <div class="terminal-card" style="max-width: 100%;">
+                    <div class="tc-title-bar">
+                        <span class="tc-dot tc-dot-red"></span>
+                        <span class="tc-dot tc-dot-yellow"></span>
+                        <span class="tc-dot tc-dot-green"></span>
+                        <span class="tc-title-label">Breez SDK</span>
+                    </div>
+                    <div class="tc-body">
+                        <div class="tc-line">
+                            <span class="tc-prompt">$</span> <span class="tc-plain">npm install @breeztech/breez-sdk-spark</span>
+                        </div>
+                        <div class="tc-line tc-output">+ @breeztech/breez-sdk-spark@0.8.0</div>
+                        <hr class="tc-divider">
+                        <div class="tc-comment"># Connect &amp; pay</div>
+                        <div class="tc-code"><span class="tc-keyword">import</span> <span class="tc-plain">{ connect, defaultConfig }</span> <span class="tc-keyword">from</span> <span class="tc-string">'@breeztech/breez-sdk-spark'</span><br><br>
+<span class="tc-keyword">const</span> <span class="tc-plain">config</span> = <span class="tc-plain">defaultConfig</span>(<span class="tc-string">'mainnet'</span>)<br>
+<span class="tc-plain">config.apiKey</span> = <span class="tc-value">YOUR_API_KEY</span><br><br>
+<span class="tc-keyword">const</span> <span class="tc-plain">sdk</span> = <span class="tc-keyword">await</span> <span class="tc-plain">connect</span>({ config, seed, storageDir: <span class="tc-string">'./.data'</span> })</div>
+                        <div class="tc-comment"># Send payment</div>
+                        <div class="tc-code"><span class="tc-keyword">const</span> <span class="tc-plain">prep</span> = <span class="tc-keyword">await</span> <span class="tc-plain">sdk.prepareSendPayment</span>({ paymentRequest: <span class="tc-string">'lnbc50u1p...'</span> })<br><br>
+<span class="tc-keyword">await</span> <span class="tc-plain">sdk.sendPayment</span>({ prepareResponse: prep })</div>
+                        <div class="tc-success">✓ Payment sent: 50,000 sats</div>
+                    </div>
+                </div>
             </div>
-            <!--    gradients-->
-            <div class="gradient --sdk-radial-gradient-left">
-            </div>
+            <div class="gradient --sdk-radial-gradient-left"></div>
         </section>
 
-
-       <!--misty section-->
-<section data-aos="fade-up" data-aos-duration="3000"
-class="mobile-section main-container row position-relative">
-
-<div class="col-12 col-lg-6 mb-5 mb-lg-0 d-flex flex-column justify-content-between">
-    <div>
-        <div class="mobile-info-block mb-5">
-            <h2 class="h-2-home">Misty Breez</h2>
-            <p class="home-text --text-2">The simplest self-custodial app for sending and receiving bitcoin payments.</p>
-        </div>
-
-        <!-- Info Blocks -->
-        <div class="info-blocks">
-            <div class="d-flex align-items-center mb-5">
-                <img src="./assets/icons/sdk-effortless-icon.svg" alt="effortless icon" class="me-4">
-                <div>
-                    <h3 class="h-3-home mb-1">Lightning Made Easy</h3>
-                    <p class="home-text --text-3">No channels. No setup fees. Just permissionless P2P payments.</p>
-                </div>
-            </div>
-
-            <div class="d-flex align-items-center mb-5">
-                <img src="./assets/icons/network-icon.svg" alt="network icon" class="me-4">
-                <div>
-                    <h3 class="h-3-home mb-1">Receive Offline Payments</h3>
-                    <p class="home-text --text-3">Receive payments offline using mobile notifications.</p>
-                </div>
-            </div>
-
-            <div class="d-flex align-items-center mb-5">
-                <img src="./assets/icons/email_.svg" alt="email icon" class="me-4">
-                <div>
-                    <h3 class="h-3-home mb-1">Lightning Address Support</h3>
-                    <p class="home-text --text-3">Accept payments with a customizable Lightning address.</p>
-                </div>
-            </div>
-
-
-            <div class="d-flex align-items-center mb-5">
-                <img src="./assets/icons/sdk_toolbox_.svg" alt="toolbox icon" class="me-4">
-                <div>
-                    <h3 class="h-3-home mb-1">Powered by the Breez SDK</h3>
-                    <p class="home-text --text-3">Built on the <a href="https://sdk-doc-liquid.breez.technology/" target="_blank" style="text-decoration: none;">Breez SDK - Nodeless</a>.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Mobile Buttons -->
-    <div class="d-flex d-lg-none flex-md-row mobile-btns">
-        <a href="https://play.google.com/store/apps/details?id=com.breez.misty" target="_blank"
-            role="button" class="download-btn--android text-decoration-none mb-2 mb-md-0 me-3 me-md-4">
-            <img src="./assets/icons/google-play-btn.svg" alt="google play button" class="google-btn">
-        </a>
-        <a href="https://testflight.apple.com/join/nEegHvBX" target="_blank"
-            role="button" class="download-btn--ios text-decoration-none mb-2 mb-md-0 me-3 me-md-4">
-            <img src="./assets/icons/app-store-btn.svg" alt="app store button" class="app-store-btn">
-        </a>
-        <a href="/misty" target="_blank"
-        role="button" class="primary-btn --transparent text-decoration-none">
-            <div>learn more</div>
-            <img src="./assets/icons/arrow-right-icon.svg" alt="arrow right">
-        </a>
-    </div>
-</div>
-
-<div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
-    <img src="./assets/images/balance-illustration.webp" alt="balance" class="img-fluid">
-</div>
-
-<!-- Desktop Buttons -->
-<div class="d-none d-lg-flex flex-column flex-md-row">
-    <a href="https://play.google.com/store/apps/details?id=com.breez.misty" target="_blank" role="button"
-        class="text-decoration-none mb-2 mb-md-0 me-0 me-md-4">
-        <img src="./assets/icons/google-play-btn.svg" alt="google play button" class="google-btn">
-    </a>
-    <a href="https://testflight.apple.com/join/nEegHvBX" target="_blank" role="button"
-        class="text-decoration-none mb-2 mb-md-0 me-0 me-md-4">
-        <img src="./assets/icons/app-store-btn.svg" alt="app store button" class="app-store-btn">
-    </a>
-    <a href="/misty" target="_blank" role="button" class="primary-btn --transparent text-decoration-none">
-        <div>learn more</div>
-        <img src="./assets/icons/arrow-right-icon.svg" alt="arrow right">
-    </a>
-</div>
-
-<!-- Gradients -->
-<div class="gradient --mobile-radial-gradient-top"></div>
-<div class="gradient --mobile-radial-gradient-right"></div>
-</section>
 
         <!--contact-us-section-->
         <section id="contact-us-form" data-aos="fade-up" data-aos-duration="3000"
@@ -773,7 +866,6 @@ class="mobile-section main-container row position-relative">
             </div>
 
         </section>
-
 
     </div>
     <!--footer-->

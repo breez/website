@@ -34,6 +34,19 @@
       margin: 160px 0 100px 0;
     }
 
+    /* Only size the illustration in the right column, not the Build button arrow */
+    .col-lg-6:nth-child(2) img {
+      width: 100%;
+      height: auto;
+      max-width: 450px;
+    }
+    /* Pull image up to align with headline on desktop only */
+    @media (min-width: $screen-lg-min) {
+      .col-lg-6:nth-child(2) img {
+        margin-top: -60px;
+      }
+    }
+
     .sdk-btns {
       // buttons for small devices
       @media (max-width: 576px) {
