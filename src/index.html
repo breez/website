@@ -183,22 +183,22 @@
             }
         }
 
-        /* Homepage terminal: smaller type, tighter line spacing */
+        /* Homepage terminal: match SDK page design (slightly bigger text, more spacing) */
         #breez-sdk .terminal-card,
         #breez-sdk .terminal-card .tc-body,
         #breez-sdk .terminal-card .tc-line,
         #breez-sdk .terminal-card .tc-comment,
         #breez-sdk .terminal-card .tc-code,
         #breez-sdk .terminal-card .tc-success {
-            font-size: 11px !important;
-            line-height: 1.35 !important;
+            font-size: 14px !important;
+            line-height: 1.7 !important;
         }
         #breez-sdk .terminal-card .tc-body {
-            padding: 24px 24px 28px;
+            padding: 32px 32px 36px;
         }
         #breez-sdk .terminal-card .tc-code {
-            padding: 14px 18px;
-            margin-bottom: 20px;
+            padding: 24px 28px;
+            margin-bottom: 28px;
         }
         #breez-sdk .terminal-card .tc-output { margin-bottom: 16px !important; }
         #breez-sdk .terminal-card .tc-comment { margin-bottom: 10px !important; }
@@ -229,7 +229,8 @@
 
         @media (max-width: 767px) {
             #breez-sdk .terminal-card {
-                margin: 0 16px;
+                margin: 0;
+                width: 100%;
             }
 
             #breez-sdk .terminal-card .tc-code {
@@ -682,26 +683,20 @@
                 </a>
             </div>
             <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center sdk-section__image-col">
-                <div class="terminal-card" style="max-width: 100%;">
+                <div class="terminal-card sdk-section__terminal" style="max-width: 100%;">
                     <div class="tc-title-bar">
                         <span class="tc-dot tc-dot-red"></span>
                         <span class="tc-dot tc-dot-yellow"></span>
                         <span class="tc-dot tc-dot-green"></span>
-                        <span class="tc-title-label">Breez SDK</span>
+                        <span class="tc-title-label">Breez SDK (Spark)</span>
                     </div>
                     <div class="tc-body">
-                        <div class="tc-line">
+                        <div class="tc-line" style="margin-bottom: 20px;">
                             <span class="tc-prompt">$</span> <span class="tc-plain">npm install @breeztech/breez-sdk-spark</span>
                         </div>
-                        <div class="tc-line tc-output">+ @breeztech/breez-sdk-spark@0.8.0</div>
-                        <hr class="tc-divider">
-                        <div class="tc-comment"># Connect &amp; pay</div>
                         <div class="tc-code"><span class="tc-keyword">import</span> <span class="tc-plain">{ connect, defaultConfig }</span> <span class="tc-keyword">from</span> <span class="tc-string">'@breeztech/breez-sdk-spark'</span><br><br>
-<span class="tc-keyword">const</span> <span class="tc-plain">config</span> = <span class="tc-plain">defaultConfig</span>(<span class="tc-string">'mainnet'</span>)<br>
-<span class="tc-plain">config.apiKey</span> = <span class="tc-value">YOUR_API_KEY</span><br><br>
-<span class="tc-keyword">const</span> <span class="tc-plain">sdk</span> = <span class="tc-keyword">await</span> <span class="tc-plain">connect</span>({ config, seed, storageDir: <span class="tc-string">'./.data'</span> })</div>
-                        <div class="tc-comment"># Send payment</div>
-                        <div class="tc-code"><span class="tc-keyword">const</span> <span class="tc-plain">prep</span> = <span class="tc-keyword">await</span> <span class="tc-plain">sdk.prepareSendPayment</span>({ paymentRequest: <span class="tc-string">'lnbc50u1p...'</span> })<br><br>
+<span class="tc-keyword">const</span> <span class="tc-plain">sdk</span> = <span class="tc-keyword">await</span> <span class="tc-plain">connect</span>({ config, seed, storageDir: <span class="tc-string">'./.data'</span> })<br><br>
+<span class="tc-keyword">const</span> <span class="tc-plain">prep</span> = <span class="tc-keyword">await</span> <span class="tc-plain">sdk.prepareSendPayment</span>({ paymentRequest: <span class="tc-string">'lnbc50u1p...'</span> })<br>
 <span class="tc-keyword">await</span> <span class="tc-plain">sdk.sendPayment</span>({ prepareResponse: prep })</div>
                         <div class="tc-success">✓ Payment sent: 50,000 sats</div>
                     </div>
@@ -718,8 +713,8 @@
             <div class="col-12 col-lg-7 mb-5 mb-lg-0">
                 <div class="contact-us-info-block">
                     <h2 class="h-2-home mb-2">Contact Us</h2>
-                    <p class="home-text --text-2">Get in touch if you have any questions
-                        <br />
+                    <p class="home-text --text-2">Get in touch if you have any questions<span class="d-inline d-md-none">&nbsp;</span>
+                        <br class="d-none d-md-block" />
                         or want to learn more.
                     </p>
                 </div>

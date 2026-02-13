@@ -48,6 +48,12 @@
     }
 
     .sdk-btns {
+      // Hero EXPLORE button: match Build style (left-aligned text, arrow right), same size
+      .primary-btn {
+        width: 210px;
+        min-width: 210px;
+        padding: 12px 24px;
+      }
       // buttons for small devices
       @media (max-width: 576px) {
         flex-direction: column;
@@ -87,6 +93,12 @@
 
   .sdk-implementation-section {
     margin-bottom: 100px;
+
+    // Build button: match hero button width
+    .choose-ux-grid__features .primary-btn {
+      width: 210px;
+      min-width: 210px;
+    }
 
     .sdk-implementation-block {
       padding: 32px;
