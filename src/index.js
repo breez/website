@@ -38,6 +38,7 @@ import './javascript/sdk-section-collapsed'
 import './javascript/spinner-loader'
 
 import { load } from 'recaptcha-v3'
+import './javascript/case-studies-filters'
 
 
 // /////// decrease time loader

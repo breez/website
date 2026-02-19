@@ -92,6 +92,12 @@ module.exports = {
         'vision/index': {
           import: paths.src + '/views/pages/vision/vision.html',
         },
+        'case-studies/index': {
+          import: paths.src + '/views/pages/case-studies/case-studies.html',
+        },
+        'case-studies/deblock/index': {
+          import: paths.src + '/views/pages/case-studies/case-study-deblock.html',
+        },
       },
       loaderOptions: {
         sources: [

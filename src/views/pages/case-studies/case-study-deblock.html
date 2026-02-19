@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Deblock × Breez SDK | Case Study</title>
+    <meta property="og:image" content="../../../assets/images/open-graph-update.png" />
+    <meta property="og:title" content="Deblock × Breez SDK | Case Study" />
+    <meta property="og:description"
+          content="How Deblock integrated instant, self-custodial bitcoin using the Breez SDK." />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Breez_Tech" />
+    <meta name="twitter:creator" content="@Breez_Tech" />
+    <meta name="twitter:title" content="Deblock × Breez SDK | Case Study" />
+    <meta name="twitter:description"
+          content="How Deblock integrated instant, self-custodial bitcoin using the Breez SDK." />
+    <meta name="twitter:image" content="../../../assets/images/deblock_casestudy_header.png" />
+    <link rel="icon" href="../../../assets/icons/favicon.svg">
+    <script defer="defer" src="../../../index.js"></script>
+</head>
+
+<body>
+
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark header-container header-background fixed-top"
+         aria-label="Breez header">
+        <div class="container-fluid">
+            <a href="/">
+                <img class="me-5" src="../../../assets/icons/logo-breez-header.svg" alt="header breez logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBreez"
+                    aria-controls="navbarBreez" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="burger burger-slip">
+                    <div class="burger-lines"></div>
+                </div>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarBreez">
+                <ul class="d-lg-flex text-uppercase">
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/" class="text-decoration-none">Home</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/sdk" class="text-decoration-none">SDK</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/case-studies/deblock" class="text-decoration-none">Case Studies</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/vision" class="text-decoration-none">Vision</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="https://blog.breez.technology" target="blank" class="text-decoration-none">Blog</a>
+                    </li>
+                    <li class="header-links form mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/#contact-us-form" role="button" class="text-decoration-none">
+                            Contact us
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="d-flex align-items-center ms-auto">
+                    <li class="social-media">
+                        <a href="https://twitter.com/breez_tech" target="blank" class="">
+                            <img src="../../../assets/icons/twitter-icon.svg" alt="twitter icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://t.me/breez_lightning" target="blank" class="">
+                            <img src="../../../assets/icons/telegram-icon.svg" alt="telegram icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://medium.com/breez-technology" target="blank" class="">
+                            <img src="../../../assets/icons/medium-icon.svg" alt="medium icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://github.com/breez" target="blank" class="">
+                            <img src="../../../assets/icons/github-icon.svg" alt="github icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="mailto:contact@breez.technology" class="">
+                            <img src="../../../assets/icons/email-icon.svg" alt="email icon" class="icon">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="case-study-page container position-relative">
+    <div class="case-study-breadcrumb">
+        <a href="/case-studies/deblock">Case Studies</a>
+        <span class="separator">→</span>
+        Fintechs &amp; Neobanks
+    </div>
+
+    <header class="case-study-header">
+        <h1 class="h-1">
+            Deblock: Instant Bitcoin, at Scale
+        </h1>
+    </header>
+
+    <section class="case-study-hero" aria-label="Deblock case study">
+        <div class="case-study-hero-inner">
+            <img src="../../../assets/images/deblock_casestudy_header.png" alt="Deblock case study" class="case-study-hero-img">
+        </div>
+    </section>
+
+    <section class="case-study-meta-strip" aria-label="Case study metadata">
+        <div class="case-study-meta-item">
+            <div class="case-study-meta-label">Use Case</div>
+            <div class="case-study-meta-value">Neobank</div>
+        </div>
+        <div class="case-study-meta-item">
+            <div class="case-study-meta-label">Region</div>
+            <div class="case-study-meta-value">Europe</div>
+        </div>
+        <div class="case-study-meta-item">
+            <div class="case-study-meta-label">Products Used</div>
+            <div class="case-study-meta-value">Breez SDK (Spark)</div>
+        </div>
+        <div class="case-study-meta-item">
+            <div class="case-study-meta-label">Key Metric</div>
+            <div class="case-study-meta-value">300K+ users</div>
+        </div>
+    </section>
+
+    <section class="case-study-section">
+        <div class="case-study-section-label">Who's Deblock?</div>
+        <div class="case-study-partner-header">
+            <div class="case-study-partner-logo-box">
+                <img src="../../../assets/images/logotypes/Deblock.webp" alt="Deblock">
+            </div>
+            <div class="case-study-partner-name">Deblock</div>
+        </div>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                Though it started only in 2024, <a href="https://deblock.com/en-FR" target="_blank" rel="noopener noreferrer">Deblock</a> is already a sizable neobank with ambition and momentum. This should come as no surprise, as their C-Suite contains former executives from Revolut and Ledger.
+            </p>
+            <p class="body-text --text-1">
+                Their mission, as CEO Jean Meyer tells it, is simple: "We built Deblock because people shouldn't have to choose between the convenience of a bank and the sovereignty of crypto."
+            </p>
+            <p class="body-text --text-1">
+                The banking side of the equation was largely in place. Deblock had already obtained the status of an electronic money institution (EMI) registered with the Banque de France and a MiCA license from the Autorité des Marchés Financiers (AMF). Their users enjoy current accounts, IBANs, debit cards, and all the trappings of modern banking.
+            </p>
+            <p class="body-text --text-1">
+                Combining a modern neobank with a full bitcoin functionality and self-custody has obvious appeal, as their 300,000 active users attest. But the simplicity of the mission conceals a daunting challenge in the execution.
+            </p>
+        </div>
+    </section>
+
+    <div class="case-study-divider"></div>
+
+    <section class="case-study-section">
+        <div class="case-study-section-label">Deblock's Challenge</div>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                Despite the regulatory hurdles of becoming a bank in Europe, the greater challenge for Deblock was on the bitcoin side. The bitcoin UX is one of the major impediments to its use as a medium of exchange. On-chain bitcoin transfers preserve self-custody, but they come with sometimes prohibitive costs and delays. Transfers directly over the Lightning Network are faster, but they come with a steeper learning curve, forcing users to consider the mechanics of invoices and the economics of payment channels. Custodial services can spare users complexity, but they come with incalculable counterparty risks and increasingly arduous regulatory barriers.
+            </p>
+            <p class="body-text --text-1">
+                Deblock, however, was unwilling to compromise. About 50% of the assets their users hold are in bitcoin, so Deblock's bitcoin offering is existentially important to the enterprise. They insisted on providing their users with speed, economy, self-custody, and convenience simultaneously. It's a tall order, one bitcoin has been unable to deliver. Until now.
+            </p>
+        </div>
+    </section>
+
+    <div class="case-study-divider"></div>
+
+    <section class="case-study-section">
+        <div class="case-study-section-label">The Breez SDK Solution</div>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                Deblock has chosen the Breez SDK to bring bitcoin transfers to their hundreds of thousands of users because it offers the self-custody, economy, speed, and convenience users want, the clever design and support developers need, and the scalability to grow as fast as they can add new users.
+            </p>
+        </div>
+
+        <p class="body-text --text-1 case-study-solution-label --top"><strong>For users:</strong></p>
+        <ul class="case-study-benefit-list">
+            <li class="body-text --text-1">
+                <strong>Speed:</strong> With the <a href="https://sdk-doc-spark.breez.technology/" target="_blank" rel="noopener noreferrer">Spark implementation of the Breez SDK</a>, bitcoin transfers are effectively instantaneous. No block confirmation times, no routing failures.
+            </li>
+            <li class="body-text --text-1">
+                <strong>Economy:</strong> Fees are infinitesimal. They're small enough to let developers build the tiniest microtransactions into their apps. Users can use bitcoin for everyday payments and reliably build their stacks with dollar-cost averaging.
+            </li>
+            <li class="body-text --text-1">
+                <strong>Self-custody:</strong> Building on Spark's commitment to user sovereignty, the Breez SDK leaves users' funds in their own hands, which increases the range of peer-to-peer use cases while minimizing an app's regulatory footprint.
+            </li>
+            <li class="body-text --text-1">
+                <strong>Convenience:</strong> With the Breez SDK, users get the speed and robustness of Lightning without the complexity of payment channels and routing nodes. Features that have eluded self-custodied Lightning, like offline payments, and those that custodial providers simply can't deliver, like instant settlement and negligible counterparty risk, are built in.
+            </li>
+        </ul>
+
+        <section class="case-study-quote" aria-label="Partner quote">
+            <p class="body-text --text-1 case-study-quote-text">
+                "With this integration, we can finally deliver both: buy or sell bitcoin in seconds, and it's yours the moment you do."
+            </p>
+            <p class="caption-1 case-study-quote-attribution">
+                Jean Meyer, CEO — Deblock
+            </p>
+        </section>
+
+        <p class="body-text --text-1 case-study-solution-label"><strong>For developers:</strong></p>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                The Breez SDK is built by developers, for developers. It's why Deblock's lean team of one backend developer and two mobile developers were able to get the implementation ready for production within just a few weeks.
+            </p>
+            <p class="body-text --text-1">
+                Mario Eguiluz, Deblock's CTO, has nothing but praise for the Breez SDK and the developer experience. According to him, the Breez team is both "super responsive" and "very helpful." His advice to other developers who are thinking about adding bitcoin to their apps is unequivocal: "If you want to offer bitcoin to your users, Breez is the best partner. They're really helpful and understand the use case that you're building for."
+            </p>
+        </div>
+
+        <p class="body-text --text-1 case-study-solution-label --top"><strong>For growth:</strong></p>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                The Breez SDK was able to absorb Deblock's 300,000 new users with the flick of a switch. And Deblock is just one of <a href="https://blog.breez.technology/subpage/5d37fa94e76f" target="_blank" rel="noopener noreferrer">Breez's many partners</a>, with more joining every month. Thriving without the liquidity bottlenecks that plague some other Lightning offerings, the Breez SDK can grow as fast as any partner.
+            </p>
+            <p class="body-text --text-1">
+                In fact, Deblock is already considering features that they haven't been able to offer until now. For example, they now have the ability to offer cash-back bonuses in the form of bitcoin for purchases made with the debit card, which had been impossible until recently due to fees and complexity.
+            </p>
+            <p class="body-text --text-1">
+                The benefits Deblock is reaping with the Breez SDK are ready for a range of other services to enjoy, including remittance apps, payroll platforms, apps that already contain bitcoin on- and offramps as well as bitcoin-ready retail. With the Breez SDK, bitcoin can scale indefinitely within companies, across industries, and throughout economies, one app at a time.
+            </p>
+        </div>
+    </section>
+
+    <section class="case-study-cta-section position-relative">
+        <div class="case-study-cta-inner">
+            <h3 class="h-3 --big-heading fw-bold mb-2">Ready to Get Started?</h3>
+            <p class="body-text mb-3">
+                Join Deblock and 50+ apps adding instant, self-custodial bitcoin with the Breez SDK.
+            </p>
+            <a href="https://breez.technology/sdk" role="button" class="primary-btn text-decoration-none">
+                <div style="margin: auto;">Start Building</div>
+            </a>
+        </div>
+        <div class="gradient --case-study-cta-radial-gradient-bottom-left"></div>
+        <div class="gradient --case-study-cta-bright-blue-gradient"></div>
+    </section>
+
+    <div class="gradient --sdk-implementation-radial-gradient-top-left"></div>
+    <div class="gradient --sdk-implementation-radial-gradient-bottom-right"></div>
+</div>
+
+<footer class="footer position-relative">
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-between py-4">
+            <a href="/">
+                <img class="me-5" src="../../../assets/icons/logo-breez-footer.svg" alt="footer breez logo">
+            </a>
+            <span class="caption-2">&#169;2026 All right reserved</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+
+</html>

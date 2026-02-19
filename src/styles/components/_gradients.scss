@@ -199,6 +199,34 @@
     z-index: -1;
   }
 
+  // case study CTA section (bottom of page)
+  &.--case-study-cta-radial-gradient-bottom-left {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: -250px;
+    bottom: -150px;
+
+    background: $common-radial-gradient;
+    opacity: 0.5;
+    filter: blur(150px);
+    z-index: -1;
+  }
+
+  // brighter blue gradient for case study CTA
+  &.--case-study-cta-bright-blue-gradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: -200px;
+    top: -100px;
+
+    background: $bright-blue-radial-gradient;
+    opacity: 0.4;
+    filter: blur(120px);
+    z-index: -1;
+  }
+
   &.--sdk-contact-us-radial-gradient-right {
     position: absolute;
     width: 100%;
