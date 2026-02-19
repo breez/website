@@ -385,18 +385,25 @@ body.case-studies-hub-page .case-studies-page {
     text-transform: uppercase;
     color: $bubble-bobble-p2;
     margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 
     a {
       color: inherit;
       text-decoration: none;
+      display: inline-flex;
+      align-items: center;
 
       &:hover {
         opacity: 0.8;
       }
     }
 
-    span.separator {
-      margin: 0 6px;
+    .breadcrumb-separator {
+      display: inline-flex;
+      align-items: center;
+      line-height: 1;
     }
   }
 
