@@ -22,6 +22,33 @@
     <meta name="twitter:image" content="../../../assets/images/open-graph-sdk-update.png" />
     <link rel="icon" href="../../../assets/icons/favicon.svg">
     <script defer="defer" src="../../../index.js"></script>
+
+    <style>
+        .sdk-implementation-block {
+            border: 1px solid transparent;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .sdk-implementation-block--spark {
+            border-color: rgba(80, 150, 255, 0.3);
+            box-shadow: 0 0 30px rgba(80, 150, 255, 0.15), 0 0 60px rgba(80, 150, 255, 0.06);
+        }
+        .sdk-implementation-block--glow {
+            border-color: rgba(80, 150, 255, 0.3);
+            box-shadow: 0 0 30px rgba(80, 150, 255, 0.15), 0 0 60px rgba(80, 150, 255, 0.06);
+        }
+        .sdk-implementation-block--dim {
+            border-color: transparent;
+            box-shadow: none;
+        }
+        .sdk-implementation-block .h-3.--big-heading {
+            font-size: 29px;
+            line-height: 1.35;
+        }
+        @media (max-width: 991.98px) {
+            .sdk-contact-br { display: none; }
+            .sdk-contact-next::before { content: " "; }
+        }
+    </style>
 </head>
 
 <body>
@@ -377,10 +404,11 @@
             <div class="row g-0 gy-5 gx-lg-5">
                 <!-- Spark Implementation -->
                 <div class="col-12 col-lg-6 ps-0">
-                    <div class="sdk-implementation-block d-flex flex-column align-items-center h-100 position-relative">
-                        <img src="../../../assets/icons/spark_icon.svg" alt="spark icon" class="mb-4 pb-3">
-                        <h3 class="h-3 --big-heading fw-bold">Nodeless</h3>
-                        <h4 class="h-3 mb-4 pb-3">Spark Implementation</h4>
+                    <div class="sdk-implementation-block sdk-implementation-block--spark d-flex flex-column align-items-center h-100 position-relative">
+                        <div class="w-100 text-center">
+                            <img src="../../../assets/icons/spark_icon.svg" alt="spark icon" class="mb-4 pb-3">
+                            <h3 class="h-3 --big-heading fw-bold mb-4 pb-3">Breez SDK - Spark</h3>
+                        </div>
                         <ul class="mb-4 pb-3 ms-0 me-auto">
                             <li class="d-flex align-items-center mb-4 pb-2">
                                 <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
@@ -410,9 +438,10 @@
                 <!-- Liquid Implementation -->
                 <div class=" col-12 col-lg-6 pe-0">
                     <div class="sdk-implementation-block d-flex flex-column align-items-center h-100">
-                        <img src="../../../assets/icons/chain.svg" alt="chain icon" class="mb-4 pb-3">
-                        <h3 class="h-3 --big-heading fw-bold">Nodeless</h3>
-                        <h4 class="h-3 mb-4 pb-3">Liquid Implementation</h4>
+                        <div class="w-100 text-center">
+                            <img src="../../../assets/icons/chain.svg" alt="chain icon" class="mb-4 pb-3">
+                            <h3 class="h-3 --big-heading fw-bold mb-4 pb-3">Breez SDK - Liquid</h3>
+                        </div>
                         <ul class="mb-4 pb-3 ms-0 me-auto">
                             <li class="d-flex align-items-center mb-4 pb-2">
                                 <img src="../../../assets/icons/plus.svg" alt="plus icon" class="me-4">
@@ -457,8 +486,8 @@
                                 <%if (form_topic=="sdk-liquid-api-key" ) { %>Get an API key<% } %>
                     </h2>
                     <p class="home-text --text-2">
-                        <%if (form_topic=="sdk-design-partner" ) { %>Join 50+ apps building with the Breez SDK.<br>Get in touch to get started.<% } %>
-                        <%if (form_topic=="sdk-liquid-api-key" ) { %>Interested in becoming a partner for the Nodeless implementation?<br>Please fill this form to receive an API key.<% } %>
+                        <%if (form_topic=="sdk-design-partner" ) { %>Join 75+ apps already building with the Breez SDK.<br class="sdk-contact-br"><span class="sdk-contact-next">Get</span> in touch to get started.<% } %>
+                        <%if (form_topic=="sdk-liquid-api-key" ) { %>Interested in becoming a partner for the Breez SDK?<br>Please fill this form to receive an API key.<% } %>
                     </p>
                 </div>
 
@@ -543,8 +572,7 @@
                                                 <option <% if (form_topic=="sdk-design-partner" ) { %>selected <% } %>
                                                         value="sdk-design-partner">SDK Partner</option>
                                                 <option <% if (form_topic=="sdk-liquid-api-key" ) { %>selected <% } %>
-                                                        value="sdk-liquid-api-key">API Key for the Nodeless
-                                                        Implementation</option>
+                                                        value="sdk-liquid-api-key">API Key for the Breez SDK</option>
                                                 <option value="other">Other</option>
                                             </select>
                                             <div class="valid-feedback"></div>
@@ -554,7 +582,7 @@
                                         <div class="col-md-12">
                                             <textarea class="form-control" type="text" name="message" rows="4" cols="50"
                                                 placeholder="Message"
-                                                required><% if (form_topic == "sdk-liquid-api-key") { %>I would like to receive an API key for the Nodeless implementation.<% } %></textarea>
+                                                required><% if (form_topic == "sdk-liquid-api-key") { %>I would like to receive an API key for the Breez SDK.<% } %></textarea>
                                             <div class="valid-feedback"></div>
                                             <div class="invalid-feedback">Please enter a message </div>
                                         </div>
@@ -619,6 +647,45 @@
         </footer>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var spark = document.querySelector('.sdk-implementation-block--spark');
+            var liquid = document.querySelector('.sdk-implementation-block:not(.sdk-implementation-block--spark)');
+            var liquidFocused = false;
+
+            function setLiquidFocus(focus) {
+                if (focus) {
+                    spark.classList.add('sdk-implementation-block--dim');
+                    liquid.classList.add('sdk-implementation-block--glow');
+                } else {
+                    spark.classList.remove('sdk-implementation-block--dim');
+                    liquid.classList.remove('sdk-implementation-block--glow');
+                }
+            }
+
+            liquid.addEventListener('mouseenter', function () {
+                setLiquidFocus(true);
+            });
+            liquid.addEventListener('mouseleave', function () {
+                setLiquidFocus(false);
+            });
+
+            liquid.addEventListener('click', function (e) {
+                if (window.matchMedia('(hover: none)').matches && !e.target.closest('a')) {
+                    e.preventDefault();
+                    liquidFocused = !liquidFocused;
+                    setLiquidFocus(liquidFocused);
+                }
+            });
+            spark.addEventListener('click', function (e) {
+                if (window.matchMedia('(hover: none)').matches && liquidFocused && !e.target.closest('a')) {
+                    e.preventDefault();
+                    liquidFocused = false;
+                    setLiquidFocus(false);
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
