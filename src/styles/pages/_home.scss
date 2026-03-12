@@ -239,6 +239,42 @@
       margin-bottom: 15px !important;
     }
 
+    .hero-explore-label {
+      font-weight: $font-weight-normal;
+      font-size: 14px;
+      line-height: 24px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #9ca3af;
+
+      @media (max-width: $screen-xs-max) {
+        font-size: 11px;
+        flex-shrink: 0;
+      }
+    }
+
+    .hero-ai-link {
+      display: inline-block;
+      opacity: 0.82;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+
+      &:hover {
+        opacity: 1;
+        transform: scale(1.04);
+      }
+    }
+
+    .hero-ai-btn {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+
+      @media (max-width: $screen-xs-max) {
+        height: 26px;
+      }
+    }
+
   }
 }
 
@@ -272,6 +308,20 @@
   .sdk-info-block {
     max-width: 560px;
     margin-bottom: 60px;
+
+    .h-2-home {
+      font-size: 44px;
+      line-height: 56px;
+    }
+
+    .home-text.--text-2 {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+
+  img {
+    max-height: 560px;
   }
 }
 

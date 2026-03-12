@@ -12,7 +12,7 @@ module.exports = merge(common, {
 
   // Spin up a server for quick development
   devServer: {
-    port: 3000,
+    port: 8080,
     open: true,
     hot: true,
     compress: true,
