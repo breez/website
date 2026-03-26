@@ -133,14 +133,13 @@
       &:hover {
         border-color: rgba($bubble-bobble-p2, 0.2);
         box-shadow: 0 0 40px rgba($bubble-bobble-p2, 0.06), 0 0 80px rgba($bubble-bobble-p2, 0.03);
-        transform: translateY(-2px);
 
         &::before {
-          opacity: 1;
+          opacity: 0.5;
         }
 
         &::after {
-          opacity: 1;
+          opacity: 0.6;
         }
       }
     }
@@ -214,7 +213,7 @@
   }
 
   .sdk-implementation-section {
-    margin-bottom: 100px;
+    margin-bottom: 140px;
 
     .sdk-implementation-block {
       padding: 32px;
@@ -227,6 +226,13 @@
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 8px;
+      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba($bubble-bobble-p2, 0.2);
+        box-shadow: 0 0 30px rgba($bubble-bobble-p2, 0.06);
+      }
     }
 
     .sdk-other-link {
@@ -235,16 +241,18 @@
       color: $bubble-bobble-p2;
       transition: opacity 0.2s ease;
       white-space: nowrap;
-
-      &:hover {
-        opacity: 0.8;
-      }
     }
   }
 
   .sdk-capabilities-section {
     margin-bottom: 120px;
     isolation: isolate;
+
+    .sdk-capabilities-header {
+      @media (min-width: $screen-lg-min) {
+        margin-left: -24px;
+      }
+    }
 
     .sdk-capabilities-label {
       font-size: 13px;
@@ -293,6 +301,8 @@
 
       @media (min-width: $screen-lg-min) {
         grid-template-columns: repeat(4, 1fr);
+        margin-left: -24px;
+        margin-right: -24px;
       }
     }
 
@@ -344,20 +354,22 @@
     }
 
     .sdk-feature-card-title {
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 600;
       color: $white;
       margin-bottom: 4px;
       letter-spacing: 0.01em;
+      white-space: nowrap;
 
       @media (min-width: $screen-md-min) {
         font-size: 15px;
         margin-bottom: 6px;
+        white-space: normal;
       }
     }
 
     .sdk-feature-card-desc {
-      font-size: 12px;
+      font-size: 11px;
       line-height: 1.4;
       color: rgba(255, 255, 255, 0.45);
       margin-bottom: 0;

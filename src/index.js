@@ -12,7 +12,9 @@ import 'slick-carousel';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
-AOS.init();
+AOS.init({
+  once: true,
+});
 
 import './javascript/contact-us-form'
 import './javascript/scroll-to-element'
