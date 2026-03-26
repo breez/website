@@ -28,16 +28,24 @@
   }
 
   .sdk-hero-section {
-    margin: 100px 0 100px 0;
+    margin-top: 100px;
+    margin-bottom: 100px;
 
     @media (min-width: $screen-md-min) {
-      margin: 160px 0 100px 0;
+      margin-top: 160px;
+      margin-bottom: 100px;
     }
 
     .sdk-btns {
       // buttons for small devices
       @media (max-width: 576px) {
         flex-direction: column;
+      }
+    }
+
+    .sdk-hero-illustration {
+      @media (min-width: $screen-lg-min) {
+        max-width: 75%;
       }
     }
 
@@ -51,23 +59,156 @@
     }
   }
 
-  .sdk-features-section {
+  .sdk-value-section {
     margin-bottom: 120px;
 
-    .sdk-features-block-item {
-      margin-bottom: 60px;
-      min-height: 100px; // Ensure consistent heights to keep rows aligned across columns
+    .sdk-value-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
 
-      &.--gap {
-        @media (min-width: $screen-xxl-min) {
-          margin-bottom: 80px;
-        }
+      @media (min-width: $screen-md-min) {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      &.--gap-big {
-        @media (min-width: $screen-xxxl-min) {
-          margin-bottom: 80px;
+      @media (min-width: $screen-lg-min) {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin-left: -24px;
+        margin-right: -24px;
+      }
+    }
+
+    .sdk-value-card {
+      padding: 24px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.04) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+
+      @media (min-width: $screen-lg-min) {
+        padding: 20px;
+      }
+
+      @media (min-width: $screen-xxl-min) {
+        padding: 24px;
+      }
+      transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+      position: relative;
+      overflow: hidden;
+
+      // Top-edge shimmer line
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba($bubble-bobble-p2, 0.3) 30%,
+          rgba($bubble-bobble-p2, 0.6) 50%,
+          rgba($bubble-bobble-p2, 0.3) 70%,
+          transparent 100%
+        );
+        opacity: 0.15;
+        transition: opacity 0.4s ease;
+      }
+
+      // Subtle inner glow at top
+      &::after {
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: 20%;
+        right: 20%;
+        height: 60px;
+        background: radial-gradient(ellipse at top, rgba($bubble-bobble-p2, 0.08) 0%, transparent 70%);
+        opacity: 0.3;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+      }
+
+      &:hover {
+        border-color: rgba($bubble-bobble-p2, 0.2);
+        box-shadow: 0 0 40px rgba($bubble-bobble-p2, 0.06), 0 0 80px rgba($bubble-bobble-p2, 0.03);
+        transform: translateY(-2px);
+
+        &::before {
+          opacity: 1;
         }
+
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+
+    .sdk-value-card-visual {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .sdk-value-illustration {
+      max-width: 100%;
+    }
+
+    .sdk-value-heading {
+      font-size: 20px;
+      line-height: 28px;
+      letter-spacing: 0.02em;
+      color: $white;
+      position: relative;
+      z-index: 1;
+
+      @media (min-width: $screen-lg-min) {
+        font-size: 16px;
+        line-height: 24px;
+      }
+
+      @media (min-width: $screen-xl-min) {
+        font-size: 18px;
+        line-height: 26px;
+      }
+
+      @media (min-width: $screen-xxl-min) {
+        font-size: 20px;
+        line-height: 28px;
+      }
+
+      @media (min-width: $screen-xxxl-min) {
+        font-size: 24px;
+        line-height: 32px;
+      }
+    }
+
+    .body-text {
+      position: relative;
+      z-index: 1;
+
+      @media (min-width: $screen-lg-min) {
+        font-size: 13px;
+        line-height: 20px;
+      }
+
+      @media (min-width: $screen-xl-min) {
+        font-size: 14px;
+        line-height: 21px;
+      }
+
+      @media (min-width: $screen-xxl-min) {
+        font-size: 15px;
+        line-height: 22px;
+      }
+
+      @media (min-width: $screen-xxxl-min) {
+        font-size: 16px;
+        line-height: 24px;
       }
     }
   }
@@ -79,6 +220,159 @@
       padding: 32px;
       background: rgba(255, 255, 255, 0.05);
       border-radius: 8px;
+    }
+
+    .sdk-implementation-block--other {
+      padding: 16px 24px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+    }
+
+    .sdk-other-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: $bubble-bobble-p2;
+      transition: opacity 0.2s ease;
+      white-space: nowrap;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .sdk-capabilities-section {
+    margin-bottom: 120px;
+    isolation: isolate;
+
+    .sdk-capabilities-label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: $bubble-bobble-p2;
+    }
+
+    // Spec columns (Languages + Protocols) — compact inline style
+    .sdk-spec-column {
+      height: 100%;
+    }
+
+    .sdk-spec-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+
+      li {
+        display: inline-flex;
+        align-items: center;
+        padding: 4px 12px;
+        font-size: 13px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.6);
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 4px;
+        letter-spacing: 0.01em;
+      }
+    }
+
+    // Features grid — 2x2 on mobile, 4-col on desktop
+    .sdk-features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+
+      @media (min-width: $screen-md-min) {
+        gap: 16px;
+      }
+
+      @media (min-width: $screen-lg-min) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .sdk-feature-card {
+      padding: 20px 16px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+
+      @media (min-width: $screen-md-min) {
+        padding: 24px 20px;
+      }
+
+      &:hover {
+        border-color: rgba($bubble-bobble-p2, 0.15);
+        transform: translateY(-2px);
+      }
+
+      &--coming-soon {
+        opacity: 0.55;
+        position: relative;
+      }
+    }
+
+    .sdk-feature-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: $bubble-bobble-p2;
+      background: rgba($bubble-bobble-p2, 0.1);
+      border: 1px solid rgba($bubble-bobble-p2, 0.2);
+      border-radius: 4px;
+      padding: 2px 6px;
+      line-height: 1.4;
+    }
+
+    .sdk-feature-card-icon {
+      margin-bottom: 12px;
+      opacity: 0.9;
+
+      @media (min-width: $screen-md-min) {
+        margin-bottom: 16px;
+      }
+    }
+
+    .sdk-feature-card-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: $white;
+      margin-bottom: 4px;
+      letter-spacing: 0.01em;
+
+      @media (min-width: $screen-md-min) {
+        font-size: 15px;
+        margin-bottom: 6px;
+      }
+    }
+
+    .sdk-feature-card-desc {
+      font-size: 12px;
+      line-height: 1.4;
+      color: rgba(255, 255, 255, 0.45);
+      margin-bottom: 0;
+      letter-spacing: 0.01em;
+
+      @media (min-width: $screen-md-min) {
+        font-size: 13px;
+        line-height: 1.5;
+      }
+    }
+
+    // CTAs
+    .sdk-cta-primary {
+      padding: 12px 32px;
+      width: auto;
     }
   }
 }
