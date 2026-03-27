@@ -72,7 +72,7 @@
       }
 
       @media (min-width: $screen-lg-min) {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 16px;
         margin-left: -24px;
         margin-right: -24px;
@@ -315,6 +315,10 @@
 
       @media (min-width: $screen-md-min) {
         padding: 24px 20px;
+      }
+
+      @media (min-width: $screen-lg-min) {
+        height: 180px;
       }
 
       &:hover {
