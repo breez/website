@@ -1,6 +1,4 @@
 .sdk-page {
-  overflow-x: hidden;
-
   &.container {
     --bs-gutter-x: 2rem;
     //containers
@@ -256,6 +254,41 @@
       }
     }
 
+    .sdk-capabilities-label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: $bubble-bobble-p2;
+    }
+
+    // Spec columns (Languages + Protocols) — compact inline style
+    .sdk-spec-column {
+      height: 100%;
+    }
+
+    .sdk-spec-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+
+      li {
+        display: inline-flex;
+        align-items: center;
+        padding: 4px 12px;
+        font-size: 13px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.6);
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 4px;
+        letter-spacing: 0.01em;
+      }
+    }
+
     // Features grid — 2x2 on mobile, 4-col on desktop
     .sdk-features-grid {
       display: grid;
@@ -285,7 +318,7 @@
       }
 
       @media (min-width: $screen-lg-min) {
-        min-height: 180px;
+        height: 180px;
       }
 
       &:hover {
