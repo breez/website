@@ -300,15 +300,15 @@
                                 <!-- Globe base -->
                                 <circle cx="120" cy="40" r="36" fill="#0085FB" opacity="0.05"/>
                                 <circle cx="120" cy="40" r="34" stroke="#0085FB" stroke-width="1.5" opacity="0.45"/>
-                                <!-- Meridians -->
-                                <ellipse cx="120" cy="40" rx="14" ry="34" stroke="#0085FB" stroke-width="1" opacity="0.3">
-                                    <animate attributeName="rx" values="14;-14;14" dur="20s" repeatCount="indefinite"/>
+                                <!-- Meridians — 3 lines phased 120° apart, 12s cycle for gentle rotation -->
+                                <ellipse cx="120" cy="40" rx="34" ry="34" stroke="#0085FB" stroke-width="1" opacity="0.3">
+                                    <animate attributeName="rx" values="34;0;-34;0;34" dur="12s" keyTimes="0;0.25;0.5;0.75;1" repeatCount="indefinite"/>
                                 </ellipse>
-                                <ellipse cx="120" cy="40" rx="26" ry="34" stroke="#0085FB" stroke-width="0.8" opacity="0.25">
-                                    <animate attributeName="rx" values="26;-26;26" dur="20s" repeatCount="indefinite"/>
+                                <ellipse cx="120" cy="40" rx="-17" ry="34" stroke="#0085FB" stroke-width="0.8" opacity="0.25">
+                                    <animate attributeName="rx" values="-17;-34;0;34;-17" dur="12s" keyTimes="0;0.25;0.5;0.75;1" repeatCount="indefinite"/>
                                 </ellipse>
-                                <ellipse cx="120" cy="40" rx="4" ry="34" stroke="#0085FB" stroke-width="0.8" opacity="0.2">
-                                    <animate attributeName="rx" values="4;-30;4" dur="20s" repeatCount="indefinite"/>
+                                <ellipse cx="120" cy="40" rx="17" ry="34" stroke="#0085FB" stroke-width="0.8" opacity="0.25">
+                                    <animate attributeName="rx" values="17;34;0;-34;17" dur="12s" keyTimes="0;0.25;0.5;0.75;1" repeatCount="indefinite"/>
                                 </ellipse>
                                 <!-- Parallels -->
                                 <ellipse cx="120" cy="25" rx="32" ry="6" stroke="#0085FB" stroke-width="0.8" opacity="0.25"/>
