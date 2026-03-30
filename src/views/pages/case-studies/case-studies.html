@@ -53,7 +53,7 @@
                         <a href="/sdk" class="text-decoration-none">SDK</a>
                     </li>
                     <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
-                        <a href="/case-studies/deblock" class="text-decoration-none">Case Studies</a>
+                        <a href="/case-studies" class="text-decoration-none">Case Studies</a>
                     </li>
                     <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
                         <a href="/vision" class="text-decoration-none">Vision</a>
@@ -102,21 +102,81 @@
 
 <div class="case-studies-page container position-relative">
     <section class="case-studies-hub position-relative">
-        <h1 class="h-1 mb-2">SDK Case Studies</h1>
-        <p class="home-text --text-2 case-studies-hub-sub mb-4 mb-md-5">
-            See how apps and services use Breez SDK to move value inside their products.
-        </p>
-        <a href="/case-studies/deblock" class="case-studies-hub-card-link d-block text-decoration-none">
-            <div class="case-studies-hub-card position-relative">
-                <img src="../../../assets/images/deblock_casestudy_header.png" alt="Deblock case study — Partner Case Studies" class="img-fluid w-100 d-block" style="border-radius: 12px;">
-                <h2 class="h-3-home case-studies-hub-card-title mb-0">Deblock: Instant Bitcoin, at Scale</h2>
+        <div class="cs-hero-header row g-0 gx-lg-5">
+            <div class="col-12 col-lg-5 d-flex flex-column mb-4 mb-lg-0">
+                <h1 class="h-1 mb-2">Case Studies</h1>
+                <h2 class="h-2 mb-3 cs-hero-tagline">Why Teams Build with Breez</h2>
+                <p class="body-text --text-1 case-studies-hub-sub">
+                    From crypto wallets to neobanks to mainstream apps, teams across the world use the Breez SDK to bring instant, non-custodial bitcoin to millions of users.
+                </p>
+                <p class="body-text --text-1 case-studies-hub-sub">
+                    These are their stories: what they built, how they did it, and what it meant for their users.
+                </p>
+                <div class="d-flex cs-hero-btns">
+                    <a role="button" class="primary-btn --hero-sdk mb-3 me-sm-4 text-decoration-none js-scroll-to" data-scroll-to=".case-studies-showcase">
+                        <div style="margin: auto;">Explore Stories</div>
+                    </a>
+                    <a role="button" class="primary-btn --transparent --hero-sdk-contribute text-decoration-none" href="/sdk">
+                        <div>Build</div>
+                        <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
+                    </a>
+                </div>
             </div>
-        </a>
+            <div class="col-12 col-lg-7 d-flex align-items-center">
+                <div class="cs-globe-wrap">
+                    <canvas id="globe-canvas"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-studies-showcase">
+            <a href="/case-studies/garden" class="cs-card text-decoration-none" data-aos="fade-up" data-aos-duration="600">
+                <div class="cs-card-glow"></div>
+                <div class="cs-card-inner">
+                    <div class="cs-card-logo-col">
+                        <img src="../../../assets/images/logotypes/gardenfi.svg" alt="Garden">
+                    </div>
+                    <div class="cs-card-body">
+                        <span class="cs-card-category">Swaps &amp; Bridges</span>
+                        <h2 class="cs-card-title">Garden: 120x Faster Bitcoin Across Chains</h2>
+                        <p class="cs-card-excerpt">Cross-chain swaps that took 10 minutes now settle in 5 seconds.</p>
+                        <span class="cs-card-btn primary-btn">Read case study</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/case-studies/deblock" class="cs-card text-decoration-none" data-aos="fade-up" data-aos-duration="600" data-aos-delay="150">
+                <div class="cs-card-glow"></div>
+                <div class="cs-card-inner">
+                    <div class="cs-card-logo-col">
+                        <img src="../../../assets/images/logotypes/Deblock.webp" alt="Deblock">
+                    </div>
+                    <div class="cs-card-body">
+                        <span class="cs-card-category">Neobank</span>
+                        <h2 class="cs-card-title">Deblock: Instant Bitcoin, at Scale</h2>
+                        <p class="cs-card-excerpt">A European neobank brought instant bitcoin to hundreds of thousands of users.</p>
+                        <span class="cs-card-btn primary-btn">Read case study</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <section class="case-study-cta-section position-relative">
+            <div class="case-study-cta-inner">
+                <h3 class="h-3 --big-heading fw-bold mb-2">Ready to Get Started?</h3>
+                <p class="body-text mb-3">
+                    Join 75+ apps and services adding instant, non-custodial bitcoin with the Breez SDK.
+                </p>
+                <a href="/sdk" role="button" class="primary-btn text-decoration-none">
+                    <div style="margin: auto;">Start Building</div>
+                </a>
+            </div>
+            <div class="gradient --case-study-cta-radial-gradient-bottom-left"></div>
+            <div class="gradient --case-study-cta-bright-blue-gradient"></div>
+        </section>
     </section>
-    <div class="gradient --sdk-implementation-radial-gradient-top-left"></div>
-    <div class="gradient --sdk-implementation-radial-gradient-bottom-right"></div>
-    <div class="gradient --case-study-cta-radial-gradient-bottom-left"></div>
-    <div class="gradient --case-study-cta-bright-blue-gradient"></div>
+    <div class="gradient --sdk-hero-radial-gradient-top-left"></div>
+    <div class="gradient --sdk-hero-radial-gradient-bottom-right"></div>
 </div>
 
 <footer class="footer position-relative">
@@ -133,4 +193,3 @@
 </body>
 
 </html>
-

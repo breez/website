@@ -41,6 +41,7 @@ import './javascript/spinner-loader'
 
 import { load } from 'recaptcha-v3'
 import './javascript/case-studies-filters'
+import './javascript/globe-lightning'
 
 
 // /////// decrease time loader

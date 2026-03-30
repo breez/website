@@ -98,6 +98,9 @@ module.exports = {
         'case-studies/deblock/index': {
           import: paths.src + '/views/pages/case-studies/case-study-deblock.html',
         },
+        'case-studies/garden/index': {
+          import: paths.src + '/views/pages/case-studies/case-study-garden.html',
+        },
       },
       loaderOptions: {
         sources: [
