@@ -101,6 +101,9 @@ module.exports = {
         'case-studies/garden/index': {
           import: paths.src + '/views/pages/case-studies/case-study-garden.html',
         },
+        'case-studies/yolat/index': {
+          import: paths.src + '/views/pages/case-studies/case-study-yolat.html',
+        },
       },
       loaderOptions: {
         sources: [

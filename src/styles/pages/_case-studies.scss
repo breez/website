@@ -874,7 +874,7 @@ body.case-studies-hub-page .case-studies-page {
 
     @media (min-width: 992px) {
       &::before {
-        padding-bottom: 56.25%; // 16:9
+        padding-bottom: 28.16%; // 355/1261 – match mobile ratio
       }
     }
   }
