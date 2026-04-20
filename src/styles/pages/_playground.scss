@@ -1,0 +1,705 @@
+@import 'src/styles/abstracts/_variables.scss';
+
+// No forced min-height on body — let the page end at the footer naturally.
+
+.playground-page {
+  &.container {
+    --bs-gutter-x: 2rem;
+
+    @media (min-width: $screen-sm-min) {
+      max-width: 488px;
+    }
+
+    @media (min-width: $screen-md-min) {
+      max-width: 680px;
+    }
+
+    @media (min-width: $screen-lg-min) {
+      max-width: 943px;
+    }
+
+    @media (min-width: $screen-xl-min) {
+      max-width: 944px;
+    }
+
+    @media (min-width: $screen-xxl-min) {
+      max-width: 1184px;
+    }
+
+    @media (min-width: $screen-xxxl-min) {
+      max-width: 1400px;
+    }
+  }
+
+  padding-bottom: 0;
+}
+
+// Hero section — mimics sdk.html structure
+.playground-hero-section {
+  margin-top: 100px;
+  margin-bottom: 100px;
+
+  @media (min-width: $screen-md-min) {
+    margin-top: 160px;
+    margin-bottom: 120px;
+  }
+
+  .playground-hero-btns {
+    // Override the narrow --hero-sdk-contribute width so "READ DOCS" fits on one line
+    .primary-btn.--hero-sdk-contribute {
+      width: auto;
+      min-width: 177px;
+      padding: 12px 24px;
+      white-space: nowrap;
+
+      > div {
+        white-space: nowrap;
+      }
+    }
+
+    // Mobile: 50/50 split, equal width, matched height, matched padding
+    @media (max-width: 576px) {
+      gap: 12px;
+      width: 100%;
+
+      .primary-btn {
+        flex: 1 1 0;
+        width: auto;
+        min-width: 0;
+        margin: 0 !important;
+        padding: 12px 16px;
+        height: 48px;
+        justify-content: center;
+      }
+    }
+  }
+
+  .playground-hero-info-block {
+    max-width: 530px;
+    margin-bottom: 40px;
+
+    @media (min-width: $screen-lg-min) {
+      margin-bottom: 60px;
+    }
+  }
+}
+
+// Typography scoped to playground (for panel section headlines)
+.playground-h2 {
+  font-size: clamp(26px, 3.2vw, 36px);
+  line-height: 1.18;
+  font-weight: $font-weight-bold;
+  letter-spacing: -0.005em;
+  margin: 0 0 16px;
+  color: $white;
+}
+
+.playground-h3 {
+  font-size: clamp(24px, 2.6vw, 32px);
+  line-height: 1.2;
+  font-weight: $font-weight-bold;
+  margin: 0 0 12px;
+  color: $white;
+}
+
+.playground-section__eyebrow {
+  display: inline-block;
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $bubble-bobble-p2;
+  margin-bottom: 16px;
+}
+
+// ----------------------------------------------------------------
+// Hero image — smaller, matches sdk-hero-illustration sizing
+// ----------------------------------------------------------------
+.playground-hero-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  display: block;
+
+  @media (min-width: $screen-lg-min) {
+    max-width: 75%;
+  }
+}
+
+// ----------------------------------------------------------------
+// Reference-app sections — stacked on all breakpoints (no tabs)
+// ----------------------------------------------------------------
+.playground-tabs {
+  position: relative;
+  margin-bottom: 80px;
+
+  @media (min-width: $screen-md-min) {
+    margin-bottom: 120px;
+  }
+
+  &__panels {
+    position: relative;
+  }
+}
+
+.playground-panel {
+  display: block;
+  position: relative;
+
+  & + .playground-panel {
+    margin-top: 96px;
+
+    @media (min-width: $screen-md-min) {
+      margin-top: 140px;
+    }
+  }
+
+  &__copy {
+    max-width: 530px;
+
+    @media (min-width: $screen-lg-min) {
+      // Don't constrain the col below its col-lg-6 width at lg+ — otherwise
+      // the visual col shifts left and breaks alignment with the hero image.
+      max-width: none;
+    }
+  }
+
+  &__visual {
+    display: flex;
+    justify-content: center;
+
+    // Frames cap at 400px to match the hero image cap exactly, so stacked
+    // layouts align visually. On lg+ they can grow to 440px since they sit
+    // beside the copy column with their own breathing room. Centering is
+    // preserved at all breakpoints so the frame centers in its col-lg-6,
+    // aligning with the hero image above.
+    .glow-frame {
+      width: 100%;
+      max-width: 400px;
+
+      @media (min-width: $screen-lg-min) {
+        max-width: 440px;
+      }
+    }
+  }
+
+  // Terminal frame matches the others exactly (same max width)
+  &__visual .glow-frame--terminal {
+    max-width: 400px;
+
+    @media (min-width: $screen-lg-min) {
+      max-width: 440px;
+    }
+  }
+
+  // All three frames share identical width on desktop. No per-app overrides.
+
+  &__btns {
+    flex-wrap: wrap;
+    margin-top: 40px;
+
+    @media (min-width: $screen-lg-min) {
+      margin-top: 60px;
+    }
+
+    .primary-btn {
+      min-width: 184px;
+      width: auto;
+      padding: 12px 24px;
+      white-space: nowrap;
+
+      > div {
+        white-space: nowrap;
+      }
+    }
+
+    // Mobile: 50/50 split matching the hero
+    @media (max-width: 576px) {
+      gap: 12px;
+      width: 100%;
+      flex-wrap: nowrap;
+
+      .primary-btn {
+        flex: 1 1 0;
+        min-width: 0;
+        margin: 0 !important;
+        padding: 12px 16px;
+        height: 48px;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+// ----------------------------------------------------------------
+// Glow frame — unified wrapper for all 3 apps. Same width, same chrome,
+// same aspect ratio. Internal content (image or terminal) varies.
+// ----------------------------------------------------------------
+.glow-frame {
+  margin: 0;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(20, 24, 32, 0.95) 0%, rgba(10, 13, 18, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 30px 80px -30px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+  display: flex;
+  flex-direction: column;
+
+  // Bare frames (no chrome) — used for web and pay. App content sits
+  // on the page bg, no card wrapper.
+  &--bare {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    border-radius: 0;
+    overflow: visible;
+
+    .glow-frame__media {
+      background: transparent;
+      aspect-ratio: auto;
+    }
+  }
+
+  &__chrome {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.025);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    flex-shrink: 0;
+  }
+
+  &__dots {
+    display: flex;
+    gap: 7px;
+    flex-shrink: 0;
+
+    .dot {
+      display: inline-block;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+
+      &--red { background: #FF5F57; }
+      &--yellow { background: #FEBC2E; }
+      &--green { background: #28C840; }
+    }
+  }
+
+  &__url {
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.55);
+    letter-spacing: 0.01em;
+  }
+
+  // Media slot — sizes to its content
+  &__media {
+    position: relative;
+    background: #000;
+    overflow: hidden;
+
+    &--terminal {
+      background: linear-gradient(180deg, #0f141a 0%, #0a0d11 100%);
+      padding: 20px 22px;
+      aspect-ratio: auto; // let the terminal size to its content
+      overflow: visible;
+    }
+
+    &--web {
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      padding: 22px 20px 0;
+    }
+
+    &--pay {
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 16px;
+    }
+  }
+
+  &--terminal {
+    justify-content: flex-start !important; // chrome sticks to top, content below
+
+    .glow-frame__chrome {
+      background: rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+// ----------------------------------------------------------------
+// Glow Web — accurate wallet mockup (black, gold accents, payments)
+// ----------------------------------------------------------------
+.gw-balance {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px 0 18px;
+  background:
+    radial-gradient(ellipse 60% 50% at center 60%, rgba(228, 195, 138, 0.18) 0%, transparent 70%);
+
+  &__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 8px;
+  }
+
+  &__pill {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    padding: 2px 7px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  &__amount {
+    font-size: 34px;
+    font-weight: $font-weight-bold;
+    color: #f7f5f0;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  &__symbol {
+    color: rgba(255, 255, 255, 0.85);
+    margin-right: 4px;
+  }
+
+  &__fiat {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+    color: rgba(228, 195, 138, 0.85);
+    letter-spacing: 0.05em;
+  }
+
+  &__rule {
+    display: inline-block;
+    width: 16px;
+    height: 1px;
+    background: rgba(228, 195, 138, 0.5);
+  }
+}
+
+.gw-payments {
+  flex: 1;
+  padding: 14px 2px 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+
+  &__label {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    margin-bottom: 8px;
+  }
+}
+
+.gw-row {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 0;
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 7px;
+    font-size: 12px;
+
+    &--in {
+      background: rgba(42, 204, 128, 0.12);
+      color: #2acc80;
+    }
+
+    &--out {
+      background: rgba(77, 181, 255, 0.12);
+      color: #4db5ff;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 0;
+  }
+
+  &__title {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.9);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__time {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  &__amt {
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+    font-size: 12px;
+
+    &--in {
+      color: #2acc80;
+    }
+
+    &--out {
+      color: #4db5ff;
+    }
+  }
+}
+
+.gw-dock {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  gap: 8px;
+  align-items: center;
+  padding: 12px 0 18px;
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 38px;
+    border-radius: 10px;
+    border: 0;
+    font-size: 13px;
+    font-weight: $font-weight-bold;
+    color: #0a0a0a;
+    cursor: default;
+
+    &--send {
+      background: linear-gradient(135deg, #6fc7ff 0%, #3d9be0 100%);
+    }
+
+    &--receive {
+      background: linear-gradient(135deg, #7fe3a3 0%, #3fb671 100%);
+    }
+  }
+
+  &__arrow {
+    font-size: 13px;
+    font-weight: $font-weight-bold;
+  }
+
+  &__scan {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    margin: 0 auto;
+
+    &-corner {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border: 1.5px solid rgba(228, 195, 138, 0.9);
+
+      &:nth-child(1) { top: 0; left: 0; border-right: 0; border-bottom: 0; }
+      &:nth-child(2) { top: 0; right: 0; border-left: 0; border-bottom: 0; }
+      &:nth-child(3) { bottom: 0; left: 0; border-right: 0; border-top: 0; }
+      &:nth-child(4) { bottom: 0; right: 0; border-left: 0; border-top: 0; }
+    }
+  }
+}
+
+// ----------------------------------------------------------------
+// Glow Pay — accurate checkout mockup (Boxed, purple accent, QR)
+// ----------------------------------------------------------------
+.gp-card {
+  position: relative;
+  width: 100%;
+  // Match the other panels' frame widths (400 mobile, 440 lg+) so all
+  // three visuals have equal column weight.
+  max-width: 400px;
+  padding: 28px 32px 24px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  @media (min-width: $screen-lg-min) {
+    max-width: 440px;
+  }
+}
+
+.gp-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 2px;
+
+  &__mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, #d6b8ff 0%, #8f5cff 100%);
+    color: $white;
+    font-weight: $font-weight-bold;
+    font-size: 19px;
+  }
+
+  &__name {
+    font-size: 19px;
+    font-weight: $font-weight-bold;
+    color: $white;
+  }
+}
+
+.gp-amount {
+  font-size: 30px;
+  font-weight: $font-weight-bold;
+  color: #b891ff;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+.gp-memo {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  text-align: center;
+  max-width: 260px;
+  line-height: 1.3;
+}
+
+.gp-qr {
+  position: relative;
+  margin-top: 2px;
+  width: 168px;
+  height: 168px;
+  padding: 10px;
+  border-radius: 12px;
+  background: #fff;
+
+  &__halo {
+    position: absolute;
+    inset: -14px;
+    background: radial-gradient(circle at center, rgba(228, 195, 138, 0.35) 0%, rgba(228, 195, 138, 0.05) 60%, transparent 80%);
+    filter: blur(10px);
+    z-index: -1;
+  }
+
+  &__svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
+
+.gp-timer {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.gp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.02);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+  font-weight: $font-weight-medium;
+}
+
+.gp-poweredby {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.35);
+  padding-top: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  width: 100%;
+  text-align: center;
+
+  &__link {
+    color: #b891ff;
+    text-decoration: none;
+
+    &:hover {
+      color: #cfb3ff;
+    }
+  }
+}
+
+// Terminal content
+.glow-terminal {
+  margin: 0;
+  padding: 0;
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.85);
+  white-space: pre;
+
+  .term-line {
+    display: block;
+
+    &--out {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    &--cont {
+      color: rgba(255, 255, 255, 0.85);
+    }
+  }
+
+  .term-prompt {
+    color: $bubble-bobble-p2;
+    font-weight: $font-weight-bold;
+    margin-right: 8px;
+  }
+
+  .term-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.85);
+    vertical-align: middle;
+    margin-left: 3px;
+    animation: term-blink 1s steps(1) infinite;
+  }
+}
+
+@keyframes term-blink {
+  50% { opacity: 0; }
+}
+

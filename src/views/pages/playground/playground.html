@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Breez Playground | Three Reference Apps for the Breez SDK</title>
+    <meta name="description" content="Glow is our playground for builders, a set of open-source reference apps built with the Breez SDK. Starting points for developers to explore the future of bitcoin UX.">
+    <meta property="og:image" content="../../../assets/images/open-graph-update.png" />
+    <meta property="og:title" content="Breez Playground | Three Reference Apps for the Breez SDK" />
+    <meta property="og:description"
+          content="Our playground for builders. Open-source reference apps built on the Breez SDK." />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Breez_Tech" />
+    <meta name="twitter:creator" content="@Breez_Tech" />
+    <meta name="twitter:title" content="Breez Playground | Three Reference Apps for the Breez SDK" />
+    <meta name="twitter:description"
+          content="Our playground for builders. Open-source reference apps built on the Breez SDK." />
+    <meta name="twitter:image" content="../../../assets/images/open-graph-update.png" />
+    <meta property="og:url" content="https://breez.technology/playground/" />
+    <link rel="canonical" href="https://breez.technology/playground/" />
+    <link rel="icon" href="../../../assets/icons/favicon.svg">
+    <script defer="defer" src="../../../index.js"></script>
+
+    <style>
+        @media (max-width: 991.98px) {
+            .sdk-contact-br { display: none; }
+            .sdk-contact-next::before { content: " "; }
+        }
+    </style>
+</head>
+
+<body class="playground-page-body">
+
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark header-container header-background fixed-top"
+         aria-label="Breez header">
+        <div class="container-fluid">
+            <a href="/">
+                <img class="me-5" src="../../../assets/icons/logo-breez-header.svg" alt="header breez logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBreez"
+                    aria-controls="navbarBreez" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="burger burger-slip">
+                    <div class="burger-lines"></div>
+                </div>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarBreez">
+                <ul class="d-lg-flex text-uppercase">
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/" class="text-decoration-none">Home</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/sdk" class="text-decoration-none">SDK</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/playground" class="text-decoration-none">Playground</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/case-studies" class="text-decoration-none">Case Studies</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/vision" class="text-decoration-none">Vision</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="https://blog.breez.technology" target="_blank" class="text-decoration-none">Blog</a>
+                    </li>
+                    <li class="header-links form mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/#contact-us-form" role="button" class="text-decoration-none">
+                            Contact us
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="d-flex align-items-center ms-auto">
+                    <li class="social-media">
+                        <a href="https://x.com/breez_tech" target="_blank" class="">
+                            <img src="../../../assets/icons/x-icon.svg" alt="x icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://t.me/breezsdk" target="_blank" class="">
+                            <img src="../../../assets/icons/telegram-icon.svg" alt="telegram icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://newsletter.breez.technology" target="_blank" class="">
+                            <img src="../../../assets/icons/substack-icon.svg" alt="substack icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://github.com/breez" target="_blank" class="">
+                            <img src="../../../assets/icons/github-icon.svg" alt="github icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="mailto:contact@breez.technology" class="">
+                            <img src="../../../assets/icons/email-icon.svg" alt="email icon" class="icon">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="playground-page container position-relative">
+
+    <section class="playground-hero-section row g-0 gx-lg-5 position-relative">
+        <div class="col-12 col-lg-6 ps-0 mb-5 mb-lg-0 d-flex flex-column">
+            <div class="playground-hero-info-block">
+                <h1 class="h-1 mb-2">SDK Playground</h1>
+                <h2 class="h-2 mb-3" style="font-size: 1.75rem;">Experience the Future of Bitcoin UX</h2>
+                <article>
+                    <p class="body-text --text-1">
+                        Glow is our playground for builders, a set of open-source reference apps built with the Breez SDK. We've built the starting points for developers to explore the future of bitcoin UX.
+                    </p>
+                    <br>
+                    <p class="body-text --text-1">
+                        Try them out, learn from them, and build what's next.
+                    </p>
+                </article>
+            </div>
+            <div class="d-flex playground-hero-btns">
+                <a role="button" class="primary-btn mb-3 me-sm-4 --hero-sdk text-decoration-none js-scroll-to"
+                    data-scroll-to="#playground-tabs">
+                    <div class="" style="margin: auto;">Explore Apps</div>
+                </a>
+                <a role="button"
+                    class="primary-btn --transparent --hero-sdk-contribute text-decoration-none"
+                    href="/sdk">
+                    <div class="">Build</div>
+                    <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
+                </a>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-6 pe-0 d-flex align-items-center justify-content-center">
+            <img src="../../../assets/images/static_playground_img.webp"
+                 alt="Glow reference apps: three bitcoin surfaces built on the Breez SDK"
+                 class="img-fluid playground-hero-image">
+        </div>
+
+        <!-- gradients -->
+        <div class="gradient --sdk-hero-radial-gradient-top-left"></div>
+        <div class="gradient --sdk-hero-radial-gradient-bottom-right"></div>
+
+        <!-- scroll chevron -->
+        <div role="button" class="arrow-down js-scroll-to" data-scroll-to="#playground-tabs" aria-label="Scroll to apps">
+            <div class="left"></div>
+            <div class="right"></div>
+        </div>
+    </section>
+
+    <section id="playground-tabs" class="playground-tabs" aria-label="Reference apps">
+
+        <div class="playground-tabs__panels">
+                <article class="playground-panel" id="tab-panel-web" data-aos="fade-up" data-aos-duration="1200">
+                    <div class="row align-items-center g-4 g-lg-5">
+                        <div class="col-12 col-lg-6 ps-lg-0 playground-panel__copy">
+                            <h2 class="h-2-home mb-4">Glow Web</h2>
+                            <p class="body-text --text-1">
+                                The best of bitcoin UX in one app that runs in your browser, with features including Contacts API, Passkey Login, and Stable Balance.
+                            </p>
+                            <div class="d-flex playground-panel__btns">
+                                <a role="button" class="primary-btn mb-3 me-sm-4 text-decoration-none" href="https://glow-app.co" target="_blank" rel="noopener">
+                                    <div style="margin: auto;">Get Started</div>
+                                </a>
+                                <a role="button" class="primary-btn --transparent text-decoration-none" href="https://github.com/breez/glow-web" target="_blank" rel="noopener">
+                                    <div>Read Docs</div>
+                                    <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 pe-lg-0 playground-panel__visual">
+                            <figure class="glow-frame glow-frame--web">
+                                <div class="glow-frame__media glow-frame__media--web">
+                                    <div class="gw-balance">
+                                        <span class="gw-balance__label">
+                                            Balance
+                                            <span class="gw-balance__pill">SATS</span>
+                                        </span>
+                                        <span class="gw-balance__amount">
+                                            <span class="gw-balance__symbol">₿</span>91&nbsp;375
+                                        </span>
+                                        <span class="gw-balance__fiat">
+                                            <span class="gw-balance__rule"></span>
+                                            $70.65
+                                            <span class="gw-balance__rule"></span>
+                                        </span>
+                                    </div>
+                                    <div class="gw-payments">
+                                        <span class="gw-payments__label">Payments</span>
+                                        <div class="gw-row">
+                                            <span class="gw-row__icon gw-row__icon--in">↓</span>
+                                            <span class="gw-row__meta">
+                                                <span class="gw-row__title">Lightning Payment</span>
+                                                <span class="gw-row__time">32m ago</span>
+                                            </span>
+                                            <span class="gw-row__amt gw-row__amt--in">+₿21,000</span>
+                                        </div>
+                                        <div class="gw-row">
+                                            <span class="gw-row__icon gw-row__icon--in">↓</span>
+                                            <span class="gw-row__meta">
+                                                <span class="gw-row__title">Lightning Payment</span>
+                                                <span class="gw-row__time">3h ago</span>
+                                            </span>
+                                            <span class="gw-row__amt gw-row__amt--in">+₿5,400</span>
+                                        </div>
+                                    </div>
+                                    <div class="gw-dock">
+                                        <button type="button" class="gw-dock__btn gw-dock__btn--send" aria-hidden="true">
+                                            <span class="gw-dock__arrow">↑</span> Send
+                                        </button>
+                                        <span class="gw-dock__scan" aria-hidden="true">
+                                            <span class="gw-dock__scan-corner"></span>
+                                            <span class="gw-dock__scan-corner"></span>
+                                            <span class="gw-dock__scan-corner"></span>
+                                            <span class="gw-dock__scan-corner"></span>
+                                        </span>
+                                        <button type="button" class="gw-dock__btn gw-dock__btn--receive" aria-hidden="true">
+                                            <span class="gw-dock__arrow">↓</span> Receive
+                                        </button>
+                                    </div>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="gradient --sdk-hero-radial-gradient-top-left"></div>
+                </article>
+
+                <article class="playground-panel" id="tab-panel-pay" data-aos="fade-up" data-aos-duration="1200">
+                    <div class="row align-items-center g-4 g-lg-5">
+                        <div class="col-12 col-lg-6 ps-lg-0 playground-panel__copy">
+                            <h2 class="h-2-home mb-4">Glow Pay</h2>
+                            <p class="body-text --text-1">
+                                The easiest way to add payments to any website, with features including a REST API, WooCommerce plugin, and mobile POS mode.
+                            </p>
+                            <div class="d-flex playground-panel__btns">
+                                <a role="button" class="primary-btn mb-3 me-sm-4 text-decoration-none" href="https://glow-pay.co" target="_blank" rel="noopener">
+                                    <div style="margin: auto;">Get Started</div>
+                                </a>
+                                <a role="button" class="primary-btn --transparent text-decoration-none" href="https://github.com/breez/glow-pay" target="_blank" rel="noopener">
+                                    <div>Read Docs</div>
+                                    <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 pe-lg-0 playground-panel__visual">
+                                    <div class="gp-card">
+                                        <div class="gp-brand">
+                                            <span class="gp-brand__mark">B</span>
+                                            <span class="gp-brand__name">My Bitcoin Store</span>
+                                        </div>
+                                        <div class="gp-amount">1,000 sats</div>
+                                        <div class="gp-memo">Bitcoin Plushie for DS</div>
+                                        <div class="gp-qr" aria-hidden="true">
+                                            <div class="gp-qr__halo"></div>
+                                            <svg class="gp-qr__svg" viewBox="0 0 29 29" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+                                                <rect width="29" height="29" fill="#fff"/>
+                                                <!-- Corner finders -->
+                                                <g fill="#0a0a0a">
+                                                    <rect x="0" y="0" width="7" height="7"/>
+                                                    <rect x="22" y="0" width="7" height="7"/>
+                                                    <rect x="0" y="22" width="7" height="7"/>
+                                                </g>
+                                                <g fill="#fff">
+                                                    <rect x="1" y="1" width="5" height="5"/>
+                                                    <rect x="23" y="1" width="5" height="5"/>
+                                                    <rect x="1" y="23" width="5" height="5"/>
+                                                </g>
+                                                <g fill="#0a0a0a">
+                                                    <rect x="2" y="2" width="3" height="3"/>
+                                                    <rect x="24" y="2" width="3" height="3"/>
+                                                    <rect x="2" y="24" width="3" height="3"/>
+                                                </g>
+                                                <!-- Data modules (deterministic pattern to look like a QR) -->
+                                                <g fill="#0a0a0a">
+                                                    <rect x="8" y="0" width="1" height="1"/><rect x="10" y="0" width="1" height="1"/><rect x="13" y="0" width="1" height="1"/><rect x="15" y="0" width="1" height="1"/><rect x="17" y="0" width="1" height="1"/><rect x="20" y="0" width="1" height="1"/>
+                                                    <rect x="9" y="1" width="1" height="1"/><rect x="12" y="1" width="1" height="1"/><rect x="14" y="1" width="1" height="1"/><rect x="18" y="1" width="1" height="1"/><rect x="20" y="1" width="1" height="1"/>
+                                                    <rect x="8" y="2" width="1" height="1"/><rect x="11" y="2" width="1" height="1"/><rect x="13" y="2" width="1" height="1"/><rect x="16" y="2" width="1" height="1"/><rect x="19" y="2" width="1" height="1"/><rect x="21" y="2" width="1" height="1"/>
+                                                    <rect x="10" y="3" width="1" height="1"/><rect x="12" y="3" width="1" height="1"/><rect x="15" y="3" width="1" height="1"/><rect x="17" y="3" width="1" height="1"/><rect x="19" y="3" width="1" height="1"/>
+                                                    <rect x="8" y="4" width="1" height="1"/><rect x="11" y="4" width="1" height="1"/><rect x="14" y="4" width="1" height="1"/><rect x="16" y="4" width="1" height="1"/><rect x="18" y="4" width="1" height="1"/><rect x="21" y="4" width="1" height="1"/>
+                                                    <rect x="9" y="5" width="1" height="1"/><rect x="13" y="5" width="1" height="1"/><rect x="15" y="5" width="1" height="1"/><rect x="20" y="5" width="1" height="1"/>
+                                                    <rect x="8" y="6" width="1" height="1"/><rect x="10" y="6" width="1" height="1"/><rect x="12" y="6" width="1" height="1"/><rect x="14" y="6" width="1" height="1"/><rect x="17" y="6" width="1" height="1"/><rect x="19" y="6" width="1" height="1"/><rect x="21" y="6" width="1" height="1"/>
+                                                    <rect x="0" y="8" width="1" height="1"/><rect x="2" y="8" width="1" height="1"/><rect x="4" y="8" width="1" height="1"/><rect x="6" y="8" width="1" height="1"/><rect x="9" y="8" width="1" height="1"/><rect x="11" y="8" width="1" height="1"/><rect x="13" y="8" width="1" height="1"/><rect x="16" y="8" width="1" height="1"/><rect x="18" y="8" width="1" height="1"/><rect x="20" y="8" width="1" height="1"/><rect x="22" y="8" width="1" height="1"/><rect x="24" y="8" width="1" height="1"/><rect x="27" y="8" width="1" height="1"/>
+                                                    <rect x="1" y="9" width="1" height="1"/><rect x="3" y="9" width="1" height="1"/><rect x="5" y="9" width="1" height="1"/><rect x="8" y="9" width="1" height="1"/><rect x="10" y="9" width="1" height="1"/><rect x="14" y="9" width="1" height="1"/><rect x="17" y="9" width="1" height="1"/><rect x="19" y="9" width="1" height="1"/><rect x="23" y="9" width="1" height="1"/><rect x="25" y="9" width="1" height="1"/><rect x="26" y="9" width="1" height="1"/><rect x="28" y="9" width="1" height="1"/>
+                                                    <rect x="0" y="10" width="1" height="1"/><rect x="2" y="10" width="1" height="1"/><rect x="4" y="10" width="1" height="1"/><rect x="7" y="10" width="1" height="1"/><rect x="9" y="10" width="1" height="1"/><rect x="11" y="10" width="1" height="1"/><rect x="13" y="10" width="1" height="1"/><rect x="15" y="10" width="1" height="1"/><rect x="18" y="10" width="1" height="1"/><rect x="21" y="10" width="1" height="1"/><rect x="24" y="10" width="1" height="1"/><rect x="27" y="10" width="1" height="1"/>
+                                                    <rect x="1" y="11" width="1" height="1"/><rect x="3" y="11" width="1" height="1"/><rect x="5" y="11" width="1" height="1"/><rect x="8" y="11" width="1" height="1"/><rect x="12" y="11" width="1" height="1"/><rect x="14" y="11" width="1" height="1"/><rect x="16" y="11" width="1" height="1"/><rect x="19" y="11" width="1" height="1"/><rect x="22" y="11" width="1" height="1"/><rect x="25" y="11" width="1" height="1"/><rect x="28" y="11" width="1" height="1"/>
+                                                    <rect x="0" y="12" width="1" height="1"/><rect x="4" y="12" width="1" height="1"/><rect x="6" y="12" width="1" height="1"/><rect x="9" y="12" width="1" height="1"/><rect x="11" y="12" width="1" height="1"/><rect x="13" y="12" width="1" height="1"/><rect x="17" y="12" width="1" height="1"/><rect x="20" y="12" width="1" height="1"/><rect x="23" y="12" width="1" height="1"/><rect x="26" y="12" width="1" height="1"/>
+                                                    <rect x="2" y="13" width="1" height="1"/><rect x="5" y="13" width="1" height="1"/><rect x="7" y="13" width="1" height="1"/><rect x="10" y="13" width="1" height="1"/><rect x="12" y="13" width="1" height="1"/><rect x="15" y="13" width="1" height="1"/><rect x="18" y="13" width="1" height="1"/><rect x="21" y="13" width="1" height="1"/><rect x="24" y="13" width="1" height="1"/><rect x="27" y="13" width="1" height="1"/>
+                                                    <rect x="0" y="14" width="1" height="1"/><rect x="3" y="14" width="1" height="1"/><rect x="6" y="14" width="1" height="1"/><rect x="9" y="14" width="1" height="1"/><rect x="13" y="14" width="1" height="1"/><rect x="16" y="14" width="1" height="1"/><rect x="19" y="14" width="1" height="1"/><rect x="22" y="14" width="1" height="1"/><rect x="25" y="14" width="1" height="1"/><rect x="28" y="14" width="1" height="1"/>
+                                                    <rect x="1" y="15" width="1" height="1"/><rect x="4" y="15" width="1" height="1"/><rect x="7" y="15" width="1" height="1"/><rect x="10" y="15" width="1" height="1"/><rect x="14" y="15" width="1" height="1"/><rect x="17" y="15" width="1" height="1"/><rect x="20" y="15" width="1" height="1"/><rect x="23" y="15" width="1" height="1"/><rect x="26" y="15" width="1" height="1"/>
+                                                    <rect x="2" y="16" width="1" height="1"/><rect x="5" y="16" width="1" height="1"/><rect x="8" y="16" width="1" height="1"/><rect x="11" y="16" width="1" height="1"/><rect x="15" y="16" width="1" height="1"/><rect x="18" y="16" width="1" height="1"/><rect x="21" y="16" width="1" height="1"/><rect x="24" y="16" width="1" height="1"/><rect x="27" y="16" width="1" height="1"/>
+                                                    <rect x="0" y="17" width="1" height="1"/><rect x="3" y="17" width="1" height="1"/><rect x="6" y="17" width="1" height="1"/><rect x="9" y="17" width="1" height="1"/><rect x="12" y="17" width="1" height="1"/><rect x="16" y="17" width="1" height="1"/><rect x="19" y="17" width="1" height="1"/><rect x="22" y="17" width="1" height="1"/><rect x="25" y="17" width="1" height="1"/><rect x="28" y="17" width="1" height="1"/>
+                                                    <rect x="1" y="18" width="1" height="1"/><rect x="4" y="18" width="1" height="1"/><rect x="7" y="18" width="1" height="1"/><rect x="10" y="18" width="1" height="1"/><rect x="13" y="18" width="1" height="1"/><rect x="17" y="18" width="1" height="1"/><rect x="20" y="18" width="1" height="1"/><rect x="23" y="18" width="1" height="1"/><rect x="26" y="18" width="1" height="1"/>
+                                                    <rect x="2" y="19" width="1" height="1"/><rect x="5" y="19" width="1" height="1"/><rect x="8" y="19" width="1" height="1"/><rect x="11" y="19" width="1" height="1"/><rect x="14" y="19" width="1" height="1"/><rect x="18" y="19" width="1" height="1"/><rect x="21" y="19" width="1" height="1"/><rect x="24" y="19" width="1" height="1"/><rect x="27" y="19" width="1" height="1"/>
+                                                    <rect x="0" y="20" width="1" height="1"/><rect x="3" y="20" width="1" height="1"/><rect x="6" y="20" width="1" height="1"/><rect x="9" y="20" width="1" height="1"/><rect x="12" y="20" width="1" height="1"/><rect x="15" y="20" width="1" height="1"/><rect x="19" y="20" width="1" height="1"/><rect x="22" y="20" width="1" height="1"/><rect x="25" y="20" width="1" height="1"/><rect x="28" y="20" width="1" height="1"/>
+                                                    <rect x="1" y="21" width="1" height="1"/><rect x="4" y="21" width="1" height="1"/><rect x="7" y="21" width="1" height="1"/><rect x="10" y="21" width="1" height="1"/><rect x="13" y="21" width="1" height="1"/><rect x="16" y="21" width="1" height="1"/><rect x="20" y="21" width="1" height="1"/><rect x="23" y="21" width="1" height="1"/><rect x="26" y="21" width="1" height="1"/>
+                                                    <rect x="8" y="22" width="1" height="1"/><rect x="10" y="22" width="1" height="1"/><rect x="12" y="22" width="1" height="1"/><rect x="15" y="22" width="1" height="1"/><rect x="18" y="22" width="1" height="1"/><rect x="20" y="22" width="1" height="1"/><rect x="21" y="22" width="1" height="1"/><rect x="24" y="22" width="1" height="1"/><rect x="27" y="22" width="1" height="1"/>
+                                                    <rect x="9" y="23" width="1" height="1"/><rect x="13" y="23" width="1" height="1"/><rect x="16" y="23" width="1" height="1"/><rect x="19" y="23" width="1" height="1"/><rect x="22" y="23" width="1" height="1"/><rect x="25" y="23" width="1" height="1"/><rect x="28" y="23" width="1" height="1"/>
+                                                    <rect x="8" y="24" width="1" height="1"/><rect x="11" y="24" width="1" height="1"/><rect x="14" y="24" width="1" height="1"/><rect x="17" y="24" width="1" height="1"/><rect x="20" y="24" width="1" height="1"/><rect x="23" y="24" width="1" height="1"/><rect x="26" y="24" width="1" height="1"/>
+                                                    <rect x="9" y="25" width="1" height="1"/><rect x="10" y="25" width="1" height="1"/><rect x="12" y="25" width="1" height="1"/><rect x="15" y="25" width="1" height="1"/><rect x="18" y="25" width="1" height="1"/><rect x="21" y="25" width="1" height="1"/><rect x="24" y="25" width="1" height="1"/><rect x="27" y="25" width="1" height="1"/>
+                                                    <rect x="8" y="26" width="1" height="1"/><rect x="11" y="26" width="1" height="1"/><rect x="13" y="26" width="1" height="1"/><rect x="16" y="26" width="1" height="1"/><rect x="19" y="26" width="1" height="1"/><rect x="22" y="26" width="1" height="1"/><rect x="25" y="26" width="1" height="1"/><rect x="28" y="26" width="1" height="1"/>
+                                                    <rect x="9" y="27" width="1" height="1"/><rect x="12" y="27" width="1" height="1"/><rect x="14" y="27" width="1" height="1"/><rect x="17" y="27" width="1" height="1"/><rect x="20" y="27" width="1" height="1"/><rect x="23" y="27" width="1" height="1"/><rect x="26" y="27" width="1" height="1"/>
+                                                    <rect x="8" y="28" width="1" height="1"/><rect x="10" y="28" width="1" height="1"/><rect x="13" y="28" width="1" height="1"/><rect x="15" y="28" width="1" height="1"/><rect x="18" y="28" width="1" height="1"/><rect x="21" y="28" width="1" height="1"/><rect x="24" y="28" width="1" height="1"/><rect x="27" y="28" width="1" height="1"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div class="gp-timer">
+                                            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+                                            Expires in 9:53
+                                        </div>
+                                        <div class="gp-btn">
+                                            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                                            Copy Payment Code
+                                        </div>
+                                        <div class="gp-poweredby">
+                                            Powered by <a href="#" class="gp-poweredby__link">glow-pay</a>
+                                        </div>
+                                    </div>
+                        </div>
+                    </div>
+                    <div class="gradient --sdk-hero-radial-gradient-bottom-right"></div>
+                </article>
+
+                <article class="playground-panel" id="tab-panel-cloud" data-aos="fade-up" data-aos-duration="1200">
+                    <div class="row align-items-center g-4 g-lg-5">
+                        <div class="col-12 col-lg-6 ps-lg-0 playground-panel__copy">
+                            <h2 class="h-2-home mb-4">Glow Cloud</h2>
+                            <p class="body-text --text-1">
+                                Your own Lightning API in the cloud, deployed in minutes and free to run, with features including a CLI, scoped API keys, and spending budgets.
+                            </p>
+                            <div class="d-flex playground-panel__btns">
+                                <a role="button" class="primary-btn mb-3 me-sm-4 text-decoration-none" href="https://github.com/kingonly/glow-cloud" target="_blank" rel="noopener">
+                                    <div style="margin: auto;">Get Started</div>
+                                </a>
+                                <a role="button" class="primary-btn --transparent text-decoration-none" href="https://github.com/kingonly/glow-cloud" target="_blank" rel="noopener">
+                                    <div>Read Docs</div>
+                                    <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 pe-lg-0 playground-panel__visual">
+                            <figure class="glow-frame glow-frame--terminal">
+                                <div class="glow-frame__chrome">
+                                    <div class="glow-frame__dots">
+                                        <span class="dot dot--red"></span>
+                                        <span class="dot dot--yellow"></span>
+                                        <span class="dot dot--green"></span>
+                                    </div>
+                                    <div class="glow-frame__url">glow-cloud / CLI</div>
+                                </div>
+                                <div class="glow-frame__media glow-frame__media--terminal">
+                                    <pre class="glow-terminal"><span class="term-line"><span class="term-prompt">$</span> glow balance</span>
+<span class="term-line term-line--out">  1,847,200 sats ≈ $692.70</span>
+<span class="term-line"> </span>
+<span class="term-line"><span class="term-prompt">$</span> glow send user@domain.com --amount 500</span>
+<span class="term-line term-line--out">  ✓ sent in 1.3s</span>
+<span class="term-line"> </span>
+<span class="term-line"><span class="term-prompt">$</span> glow keys create myapp --budget 10000</span>
+<span class="term-line term-line--out">  key: gck_live_3f9a...c82b</span><span class="term-cursor"></span></pre>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="gradient --sdk-hero-radial-gradient-top-left"></div>
+                </article>
+
+        </div>
+    </section>
+
+    <!--contact-us-section-->
+    <section id="contact-us-form" data-aos="fade-up" data-aos-duration="3000"
+        class="contact-us-section row position-relative">
+
+        <div class="col-12 col-lg-7 mb-5 mb-lg-0">
+            <div class="contact-us-info-block">
+                <h2 class="h-2-home mb-4">Become a Partner</h2>
+                <p class="home-text --text-2">
+                    Join 75+ teams already building with the Breez SDK.<br class="sdk-contact-br"><span class="sdk-contact-next">Get</span> in touch to get started.
+                </p>
+            </div>
+
+            <div>
+                <p class="caption-1 mb-3">Follow us</p>
+
+                <ul class="d-flex align-items-center ms-auto">
+                    <li class="social-media">
+                        <a href="https://x.com/breez_tech" target="_blank" rel="noopener noreferrer" class="">
+                            <img src="../../../assets/icons/x-icon.svg" alt="x icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://t.me/breezsdk" target="_blank" rel="noopener noreferrer" class="">
+                            <img src="../../../assets/icons/telegram-icon.svg" alt="telegram icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://newsletter.breez.technology" target="_blank" rel="noopener noreferrer" class="">
+                            <img src="../../../assets/icons/substack-icon.svg" alt="substack icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://github.com/breez" target="_blank" rel="noopener noreferrer" class="">
+                            <img src="../../../assets/icons/github-icon.svg" alt="github icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="mailto:contact@breez.technology" class="">
+                            <img src="../../../assets/icons/email-icon.svg" alt="email icon" class="icon">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-5 d-flex align-items-center justify-content-center">
+            <div class="form-body">
+                <div class="row">
+                    <div class="form-holder">
+                        <div class="form-content">
+                            <div class="form-items">
+                                <form class="needs-validation" novalidate action="/contact" method="post">
+                                    <input type="hidden" name="recaptcha_response" id="recaptcha_response" />
+                                    <div class="col-md-12">
+                                        <input class="form-control" type="text" name="fullname"
+                                            placeholder="Your name" required>
+                                        <div class="valid-feedback"></div>
+                                        <div class="invalid-feedback">Please enter a name</div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <input class="form-control" type="text" name="company"
+                                            placeholder="Your company" required>
+                                        <div class="valid-feedback"></div>
+                                        <div class="invalid-feedback">Please enter a company</div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <input class="form-control js-email-input"
+                                            pattern="[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{1,63}$"
+                                            type="email" name="email" placeholder="Your email" required>
+                                        <div class="valid-feedback"></div>
+                                        <div class="invalid-feedback">
+                                            <div class="js-required-input-error d-none">Please enter an email address</div>
+                                            <div class="js-not-valid-email-error d-none">Please enter a valid email</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <select class="form-select mt-3" name="contact_type" required>
+                                            <option selected disabled value="" class="d-none">Topic</option>
+                                            <option value="support">Support</option>
+                                            <option value="sdk-design-partner">SDK Partner</option>
+                                            <option value="sdk-liquid-api-key">API Key for the Breez SDK</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                        <div class="valid-feedback"></div>
+                                        <div class="invalid-feedback">Please choose a topic</div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <textarea class="form-control" type="text" name="message" rows="4" cols="50"
+                                            placeholder="Message" required></textarea>
+                                        <div class="valid-feedback"></div>
+                                        <div class="invalid-feedback">Please enter a message</div>
+                                    </div>
+
+                                    <div class="form-button mt-3">
+                                        <button id="submit" type="submit" name="send"
+                                            class="contact-form-btn text-decoration-none border-0">
+                                            <span class="">send message</span>
+                                            <img src="../../../assets/icons/lightning-icon.svg" alt="lightning icon">
+                                        </button>
+                                    </div>
+
+                                    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+                                        <div id="success-submit"
+                                            class="toast align-items-center text-white bg-success border-0"
+                                            role="alert" aria-live="assertive" aria-atomic="true">
+                                            <div class="d-flex">
+                                                <div class="toast-body">The message has been sent</div>
+                                                <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                                                    data-bs-dismiss="toast" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                        <div id="error-submit"
+                                            class="toast align-items-center text-white bg-warning border-0"
+                                            role="alert" aria-live="assertive" aria-atomic="true">
+                                            <div class="d-flex">
+                                                <div class="toast-body">
+                                                    Failed to send message. Please disable any ad blockers or try a different browser.
+                                                    If the issue persists, contact us at contact@breez.technology.
+                                                </div>
+                                                <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                                                    data-bs-dismiss="toast" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer class="footer position-relative">
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-between py-4">
+            <a href="/">
+                <img class="me-5" src="../../../assets/icons/logo-breez-footer.svg" alt="footer breez logo">
+            </a>
+            <span class="caption-2">&#169;2026 All rights reserved</span>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+
+</html>

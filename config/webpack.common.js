@@ -104,6 +104,9 @@ module.exports = {
         'case-studies/yolat/index': {
           import: paths.src + '/views/pages/case-studies/case-study-yolat.html',
         },
+        'playground/index': {
+          import: paths.src + '/views/pages/playground/playground.html',
+        },
       },
       loaderOptions: {
         sources: [
