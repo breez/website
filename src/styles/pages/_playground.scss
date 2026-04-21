@@ -59,16 +59,6 @@
       margin-bottom: 60px;
     }
   }
-
-  // Hide the scroll chevron on mobile — it crowds the hero. The scroll
-  // intent is already clear from the primary CTA.
-  .arrow-down {
-    display: none;
-
-    @media (min-width: $screen-md-min) {
-      display: flex;
-    }
-  }
 }
 
 // Typography scoped to playground (for panel section headlines)
@@ -182,38 +172,10 @@
   // All three frames share identical width on desktop. No per-app overrides.
 
   &__btns {
-    flex-wrap: wrap;
     margin-top: 40px;
 
     @media (min-width: $screen-lg-min) {
       margin-top: 60px;
-    }
-
-    .primary-btn {
-      min-width: 184px;
-      width: auto;
-      padding: 12px 24px;
-      white-space: nowrap;
-
-      > div {
-        white-space: nowrap;
-      }
-    }
-
-    // Mobile: 50/50 split matching the hero
-    @media (max-width: 576px) {
-      gap: 12px;
-      width: 100%;
-      flex-wrap: nowrap;
-
-      .primary-btn {
-        flex: 1 1 0;
-        min-width: 0;
-        margin: 0 !important;
-        padding: 12px 16px;
-        height: 48px;
-        justify-content: center;
-      }
     }
   }
 }
@@ -534,6 +496,11 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
+
+  // Use Geist (same font as glow-pay.co and getboxed.shop) scoped to this
+  // card so it reads as a screenshot of a real checkout, not part of the
+  // surrounding Breez page.
+  font-family: 'Geist', 'Inter', sans-serif;
 
   @media (min-width: $screen-lg-min) {
     max-width: 440px;

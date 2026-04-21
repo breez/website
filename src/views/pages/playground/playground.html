@@ -6,24 +6,27 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Breez Playground | Three Reference Apps for the Breez SDK</title>
-    <meta name="description" content="Glow is our playground for builders, a set of open-source reference apps built with the Breez SDK. Starting points for developers to explore the future of bitcoin UX.">
+    <title>Breez | Glow Playground for the Breez SDK</title>
+    <meta name="description" content="Our playground for builders. Open-source reference apps built with the Breez SDK.">
     <meta property="og:image" content="../../../assets/images/open-graph-update.png" />
-    <meta property="og:title" content="Breez Playground | Three Reference Apps for the Breez SDK" />
+    <meta property="og:title" content="Breez | Glow Playground for the Breez SDK" />
     <meta property="og:description"
-          content="Our playground for builders. Open-source reference apps built on the Breez SDK." />
+          content="Our playground for builders. Open-source reference apps built with the Breez SDK." />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@Breez_Tech" />
     <meta name="twitter:creator" content="@Breez_Tech" />
-    <meta name="twitter:title" content="Breez Playground | Three Reference Apps for the Breez SDK" />
+    <meta name="twitter:title" content="Breez | Glow Playground for the Breez SDK" />
     <meta name="twitter:description"
-          content="Our playground for builders. Open-source reference apps built on the Breez SDK." />
+          content="Our playground for builders. Open-source reference apps built with the Breez SDK." />
     <meta name="twitter:image" content="../../../assets/images/open-graph-update.png" />
     <meta property="og:url" content="https://breez.technology/playground/" />
     <link rel="canonical" href="https://breez.technology/playground/" />
     <link rel="icon" href="../../../assets/icons/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script defer="defer" src="../../../index.js"></script>
 
     <style>
@@ -142,7 +145,7 @@
         </div>
 
         <div class="col-12 col-lg-6 pe-0 d-flex align-items-center justify-content-center">
-            <img src="../../../assets/images/static_playground_img.webp"
+            <img src="../../../assets/images/img_playground_hero.webp"
                  alt="Glow reference apps: three bitcoin surfaces built on the Breez SDK"
                  class="img-fluid playground-hero-image">
         </div>
@@ -150,12 +153,6 @@
         <!-- gradients -->
         <div class="gradient --sdk-hero-radial-gradient-top-left"></div>
         <div class="gradient --sdk-hero-radial-gradient-bottom-right"></div>
-
-        <!-- scroll chevron -->
-        <div role="button" class="arrow-down js-scroll-to" data-scroll-to="#playground-tabs" aria-label="Scroll to apps">
-            <div class="left"></div>
-            <div class="right"></div>
-        </div>
     </section>
 
     <section id="playground-tabs" class="playground-tabs" aria-label="Reference apps">
@@ -168,12 +165,9 @@
                             <p class="body-text --text-1">
                                 The best of bitcoin UX in one app, available on web and mobile, with features including Contacts API, Passkey Login, and Stable Balance.
                             </p>
-                            <div class="d-flex playground-panel__btns">
-                                <a role="button" class="primary-btn mb-3 me-sm-4 text-decoration-none" href="https://glow-app.co" target="_blank" rel="noopener">
-                                    <div style="margin: auto;">Get Started</div>
-                                </a>
-                                <a role="button" class="primary-btn --transparent text-decoration-none" href="https://github.com/breez/glow-web" target="_blank" rel="noopener">
-                                    <div>Read Docs</div>
+                            <div class="playground-panel__btns">
+                                <a role="button" class="primary-btn text-decoration-none" href="https://glow-app.co" target="_blank" rel="noopener">
+                                    <div>Get Started</div>
                                     <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
                                 </a>
                             </div>
@@ -242,12 +236,9 @@
                             <p class="body-text --text-1">
                                 The easiest way to accept bitcoin payments, in your e-commerce site or in-person, with features including a REST API, WooCommerce plugin, and mobile POS mode.
                             </p>
-                            <div class="d-flex playground-panel__btns">
-                                <a role="button" class="primary-btn mb-3 me-sm-4 text-decoration-none" href="https://glow-pay.co" target="_blank" rel="noopener">
-                                    <div style="margin: auto;">Get Started</div>
-                                </a>
-                                <a role="button" class="primary-btn --transparent text-decoration-none" href="https://github.com/breez/glow-pay" target="_blank" rel="noopener">
-                                    <div>Read Docs</div>
+                            <div class="playground-panel__btns">
+                                <a role="button" class="primary-btn text-decoration-none" href="https://glow-pay.co" target="_blank" rel="noopener">
+                                    <div>Get Started</div>
                                     <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
                                 </a>
                             </div>
@@ -255,11 +246,15 @@
                         <div class="col-12 col-lg-6 pe-lg-0 playground-panel__visual">
                                     <div class="gp-card">
                                         <div class="gp-brand">
-                                            <span class="gp-brand__mark">B</span>
-                                            <span class="gp-brand__name">My Bitcoin Store</span>
+                                            <span class="gp-brand__mark" aria-hidden="true">
+                                                <svg viewBox="0 0 24 24" width="26" height="26" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill="currentColor" fill-rule="evenodd" d="M12 2c-3.2 0-5.8 3-5.8 10s2.6 10 5.8 10 5.8-3 5.8-10-2.6-10-5.8-10zM14.6 5.3l-5.2 7.4h3.1l-3 6.6 5.8-7.9h-3.1l2.4-6.1z"/>
+                                                </svg>
+                                            </span>
+                                            <span class="gp-brand__name">Proof of Roast</span>
                                         </div>
-                                        <div class="gp-amount">1,000 sats</div>
-                                        <div class="gp-memo">Bitcoin Plushie for DS</div>
+                                        <div class="gp-amount">4,200 Sats</div>
+                                        <div class="gp-memo">1 x Espresso</div>
                                         <div class="gp-qr" aria-hidden="true">
                                             <div class="gp-qr__halo"></div>
                                             <img class="gp-qr__svg" src="../../../assets/images/glow-pay-qr.svg" alt="">
@@ -288,12 +283,9 @@
                             <p class="body-text --text-1">
                                 Your own Lightning API for apps and AI agents, deployed in minutes and free to run, with features including a CLI, scoped API keys, and spending budgets.
                             </p>
-                            <div class="d-flex playground-panel__btns">
-                                <a role="button" class="primary-btn mb-3 me-sm-4 text-decoration-none" href="https://github.com/kingonly/glow-cloud" target="_blank" rel="noopener">
-                                    <div style="margin: auto;">Get Started</div>
-                                </a>
-                                <a role="button" class="primary-btn --transparent text-decoration-none" href="https://github.com/kingonly/glow-cloud" target="_blank" rel="noopener">
-                                    <div>Read Docs</div>
+                            <div class="playground-panel__btns">
+                                <a role="button" class="primary-btn text-decoration-none" href="https://github.com/kingonly/glow-cloud" target="_blank" rel="noopener">
+                                    <div>Get Started</div>
                                     <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
                                 </a>
                             </div>
