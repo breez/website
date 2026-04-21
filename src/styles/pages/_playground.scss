@@ -44,33 +44,10 @@
     margin-bottom: 120px;
   }
 
-  .playground-hero-btns {
-    // Override the narrow --hero-sdk-contribute width so "READ DOCS" fits on one line
-    .primary-btn.--hero-sdk-contribute {
-      width: auto;
-      min-width: 177px;
-      padding: 12px 24px;
-      white-space: nowrap;
-
-      > div {
-        white-space: nowrap;
-      }
-    }
-
-    // Mobile: 50/50 split, equal width, matched height, matched padding
+  // Mirror .sdk-btns from _sdk.scss — stack on small screens, row otherwise
+  .sdk-btns {
     @media (max-width: 576px) {
-      gap: 12px;
-      width: 100%;
-
-      .primary-btn {
-        flex: 1 1 0;
-        width: auto;
-        min-width: 0;
-        margin: 0 !important;
-        padding: 12px 16px;
-        height: 48px;
-        justify-content: center;
-      }
+      flex-direction: column;
     }
   }
 
@@ -80,6 +57,16 @@
 
     @media (min-width: $screen-lg-min) {
       margin-bottom: 60px;
+    }
+  }
+
+  // Hide the scroll chevron on mobile — it crowds the hero. The scroll
+  // intent is already clear from the primary CTA.
+  .arrow-down {
+    display: none;
+
+    @media (min-width: $screen-md-min) {
+      display: flex;
     }
   }
 }
