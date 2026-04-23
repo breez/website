@@ -26,7 +26,7 @@
     <link rel="icon" href="../../../assets/icons/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script defer="defer" src="../../../index.js"></script>
 
     <style>
@@ -165,9 +165,15 @@
                             <p class="body-text --text-1">
                                 The best of bitcoin UX in one app, available on web and mobile, with features including Contacts API, Passkey Login, and Stable Balance.
                             </p>
-                            <div class="playground-panel__btns">
-                                <a role="button" class="primary-btn text-decoration-none" href="https://glow-app.co" target="_blank" rel="noopener">
-                                    <div>Get Started</div>
+                            <div class="d-flex sdk-btns playground-panel__btns">
+                                <a role="button" class="primary-btn mb-3 me-sm-4 --hero-sdk text-decoration-none"
+                                    href="https://glow-app.co" target="_blank" rel="noopener">
+                                    <div class="" style="margin: auto;">Get Started</div>
+                                </a>
+                                <a role="button"
+                                    class="primary-btn --transparent --hero-sdk-contribute text-decoration-none"
+                                    href="https://github.com/breez/glow-web" target="_blank" rel="noopener">
+                                    <div class="">Build</div>
                                     <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
                                 </a>
                             </div>
@@ -176,51 +182,88 @@
                             <figure class="glow-frame glow-frame--web">
                                 <div class="glow-frame__media glow-frame__media--web">
                                     <div class="gw-balance">
+                                        <span class="gw-balance__glow" aria-hidden="true"></span>
                                         <span class="gw-balance__label">
                                             Balance
-                                            <span class="gw-balance__pill">SATS</span>
+                                            <span class="gw-balance__dot" aria-hidden="true">·</span>
+                                            <span class="gw-balance__pill">sats</span>
                                         </span>
                                         <span class="gw-balance__amount">
-                                            <span class="gw-balance__symbol">₿</span>91&nbsp;375
+                                            <span class="gw-balance__symbol" aria-hidden="true">₿</span><span class="gw-balance__value">91&thinsp;375</span>
                                         </span>
                                         <span class="gw-balance__fiat">
-                                            <span class="gw-balance__rule"></span>
-                                            $70.65
-                                            <span class="gw-balance__rule"></span>
+                                            <span class="gw-balance__rule gw-balance__rule--left" aria-hidden="true"></span>
+                                            <span class="gw-balance__fiat-value">$70.65</span>
+                                            <span class="gw-balance__rule gw-balance__rule--right" aria-hidden="true"></span>
                                         </span>
                                     </div>
                                     <div class="gw-payments">
-                                        <span class="gw-payments__label">Payments</span>
-                                        <div class="gw-row">
-                                            <span class="gw-row__icon gw-row__icon--in">↓</span>
-                                            <span class="gw-row__meta">
-                                                <span class="gw-row__title">Lightning Payment</span>
-                                                <span class="gw-row__time">32m ago</span>
-                                            </span>
-                                            <span class="gw-row__amt gw-row__amt--in">+₿21,000</span>
+                                        <div class="gw-payments__label">
+                                            <span>Payments</span>
+                                            <span class="gw-payments__rule" aria-hidden="true"></span>
                                         </div>
                                         <div class="gw-row">
-                                            <span class="gw-row__icon gw-row__icon--in">↓</span>
+                                            <span class="gw-row__icon gw-row__icon--in" aria-hidden="true">
+                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 13l-5 5m0 0l-5-5m5 5V6"/></svg>
+                                            </span>
                                             <span class="gw-row__meta">
-                                                <span class="gw-row__title">Lightning Payment</span>
+                                                <span class="gw-row__title">
+                                                    <span class="gw-row__title-text">Lightning Payment</span>
+                                                    <svg class="gw-row__bolt" aria-hidden="true" viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M13 3L4 14h7l-2 7 9-11h-7l2-7z"/></svg>
+                                                </span>
+                                                <span class="gw-row__time">32m ago</span>
+                                            </span>
+                                            <span class="gw-row__amt gw-row__amt--in">
+                                                <span class="gw-row__sign">+</span><span class="gw-row__sat" aria-hidden="true">₿</span>21,000
+                                            </span>
+                                        </div>
+                                        <div class="gw-row">
+                                            <span class="gw-row__icon gw-row__icon--out" aria-hidden="true">
+                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11l5-5m0 0l5 5m-5-5v12"/></svg>
+                                            </span>
+                                            <span class="gw-row__meta">
+                                                <span class="gw-row__title">
+                                                    <span class="gw-row__title-text">Lightning Payment</span>
+                                                    <svg class="gw-row__bolt" aria-hidden="true" viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M13 3L4 14h7l-2 7 9-11h-7l2-7z"/></svg>
+                                                </span>
                                                 <span class="gw-row__time">3h ago</span>
                                             </span>
-                                            <span class="gw-row__amt gw-row__amt--in">+₿5,400</span>
+                                            <span class="gw-row__amt gw-row__amt--out">
+                                                <span class="gw-row__sign">−</span><span class="gw-row__sat" aria-hidden="true">₿</span>5,400
+                                            </span>
+                                        </div>
+                                        <div class="gw-row">
+                                            <span class="gw-row__icon gw-row__icon--in" aria-hidden="true">
+                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 13l-5 5m0 0l-5-5m5 5V6"/></svg>
+                                            </span>
+                                            <span class="gw-row__meta">
+                                                <span class="gw-row__title">
+                                                    <span class="gw-row__title-text">Lightning Payment</span>
+                                                    <svg class="gw-row__bolt" aria-hidden="true" viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M13 3L4 14h7l-2 7 9-11h-7l2-7z"/></svg>
+                                                </span>
+                                                <span class="gw-row__time">1d ago</span>
+                                            </span>
+                                            <span class="gw-row__amt gw-row__amt--in">
+                                                <span class="gw-row__sign">+</span><span class="gw-row__sat" aria-hidden="true">₿</span>12,500
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="gw-dock">
-                                        <button type="button" class="gw-dock__btn gw-dock__btn--send" aria-hidden="true">
-                                            <span class="gw-dock__arrow">↑</span> Send
-                                        </button>
-                                        <span class="gw-dock__scan" aria-hidden="true">
-                                            <span class="gw-dock__scan-corner"></span>
-                                            <span class="gw-dock__scan-corner"></span>
-                                            <span class="gw-dock__scan-corner"></span>
-                                            <span class="gw-dock__scan-corner"></span>
+                                        <span class="gw-dock__btn gw-dock__btn--send" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11l5-5m0 0l5 5m-5-5v12"/></svg>
+                                            <span>Send</span>
                                         </span>
-                                        <button type="button" class="gw-dock__btn gw-dock__btn--receive" aria-hidden="true">
-                                            <span class="gw-dock__arrow">↓</span> Receive
-                                        </button>
+                                        <span class="gw-dock__scan" aria-hidden="true" aria-label="Scan QR">
+                                            <span class="gw-dock__scan-corner"></span>
+                                            <span class="gw-dock__scan-corner"></span>
+                                            <span class="gw-dock__scan-corner"></span>
+                                            <span class="gw-dock__scan-corner"></span>
+                                            <svg class="gw-dock__scan-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M3 11h8V3H3v8zm2-6h4v4H5V5zM3 21h8v-8H3v8zm2-6h4v4H5v-4zM13 3v8h8V3h-8zm6 6h-4V5h4v4zM19 13h2v2h-2zM13 13h2v2h-2zM15 15h2v2h-2zM13 17h2v2h-2zM15 19h2v2h-2zM17 17h2v2h-2zM17 13h2v2h-2zM19 15h2v2h-2zM19 19h2v2h-2z"/></svg>
+                                        </span>
+                                        <span class="gw-dock__btn gw-dock__btn--receive" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="5 12 12 19 19 12"/></svg>
+                                            <span>Receive</span>
+                                        </span>
                                     </div>
                                 </div>
                             </figure>
@@ -236,9 +279,15 @@
                             <p class="body-text --text-1">
                                 The easiest way to accept bitcoin payments, in your e-commerce site or in-person, with features including a REST API, WooCommerce plugin, and mobile POS mode.
                             </p>
-                            <div class="playground-panel__btns">
-                                <a role="button" class="primary-btn text-decoration-none" href="https://glow-pay.co" target="_blank" rel="noopener">
-                                    <div>Get Started</div>
+                            <div class="d-flex sdk-btns playground-panel__btns">
+                                <a role="button" class="primary-btn mb-3 me-sm-4 --hero-sdk text-decoration-none"
+                                    href="https://glow-pay.co" target="_blank" rel="noopener">
+                                    <div class="" style="margin: auto;">Get Started</div>
+                                </a>
+                                <a role="button"
+                                    class="primary-btn --transparent --hero-sdk-contribute text-decoration-none"
+                                    href="https://github.com/breez/glow-pay" target="_blank" rel="noopener">
+                                    <div class="">Build</div>
                                     <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
                                 </a>
                             </div>
@@ -283,9 +332,11 @@
                             <p class="body-text --text-1">
                                 Your own Lightning API for apps and AI agents, deployed in minutes and free to run, with features including a CLI, scoped API keys, and spending budgets.
                             </p>
-                            <div class="playground-panel__btns">
-                                <a role="button" class="primary-btn text-decoration-none" href="https://github.com/kingonly/glow-cloud" target="_blank" rel="noopener">
-                                    <div>Get Started</div>
+                            <div class="d-flex sdk-btns playground-panel__btns">
+                                <a role="button"
+                                    class="primary-btn --transparent --hero-sdk-contribute text-decoration-none"
+                                    href="https://github.com/kingonly/glow-cloud" target="_blank" rel="noopener">
+                                    <div class="">Build</div>
                                     <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
                                 </a>
                             </div>
@@ -308,7 +359,11 @@
 <span class="term-line term-line--out">  ✓ sent in 1.3s</span>
 <span class="term-line"> </span>
 <span class="term-line"><span class="term-prompt">$</span> glow keys create myapp --budget 10000</span>
-<span class="term-line term-line--out">  key: gck_live_3f9a...c82b</span><span class="term-cursor"></span></pre>
+<span class="term-line term-line--out">  key: gck_live_3f9a...c82b</span>
+<span class="term-line"> </span>
+<span class="term-line"><span class="term-prompt">$</span> glow invoice create --amount 2500</span>
+<span class="term-line term-line--out">  lnbc25u1p...m3q9x</span>
+<span class="term-line"><span class="term-cursor"></span></span></pre>
                                 </div>
                             </figure>
                         </div>

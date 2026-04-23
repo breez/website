@@ -171,8 +171,20 @@
 
   // All three frames share identical width on desktop. No per-app overrides.
 
+  // Match the hero's button rhythm exactly: same .sdk-btns container,
+  // same .--hero-sdk / .--hero-sdk-contribute modifier classes on the
+  // buttons themselves. Spacing between buttons comes entirely from
+  // the utility classes on the primary button (`mb-3 me-sm-4`), just
+  // like the hero — no `gap` on the container. Only additions here
+  // are the top margin (space from copy block to CTA row) and the
+  // small-screen stacking rule (_sdk.scss scopes that rule to
+  // .sdk-hero-section, which doesn't reach the panels).
   &__btns {
     margin-top: 40px;
+
+    @media (max-width: 576px) {
+      flex-direction: column;
+    }
 
     @media (min-width: $screen-lg-min) {
       margin-top: 60px;
@@ -187,6 +199,10 @@
 .glow-frame {
   margin: 0;
   width: 100%;
+  // All three showcase cards (Glow App, Glow Pay, Glow Cloud) share the same
+  // height so tab-switching doesn't cause layout jumps and the three panels
+  // feel visually balanced. 474px is Glow Pay's natural height.
+  min-height: 474px;
   background: linear-gradient(180deg, rgba(20, 24, 32, 0.95) 0%, rgba(10, 13, 18, 0.95) 100%);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
@@ -254,9 +270,16 @@
 
     &--terminal {
       background: linear-gradient(180deg, #0f141a 0%, #0a0d11 100%);
-      padding: 20px 22px;
+      padding: 14px 22px;
       aspect-ratio: auto; // let the terminal size to its content
       overflow: visible;
+      // Fill the frame and center the full command block (first line through
+      // blinking cursor) vertically so the terminal reads balanced rather
+      // than top-anchored with empty scrollback below.
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     &--web {
@@ -264,6 +287,8 @@
       display: flex;
       flex-direction: column;
       padding: 22px 20px 0;
+      // Stretch to fill the frame so the web card matches the shared height.
+      flex: 1;
     }
 
     &--pay {
@@ -285,196 +310,333 @@
 }
 
 // ----------------------------------------------------------------
-// Glow Web — accurate wallet mockup (black, gold accents, payments)
+// Glow Web — faithful recreation of the breez/glow-web wallet UI.
+// Token names (spark-*) and hex values lifted from the repo's
+// tailwind.config.js so the card reads as the real product, not
+// an interpretation.
 // ----------------------------------------------------------------
+.glow-frame--web {
+  // Scope the real app's fonts to this card only. Plus Jakarta Sans
+  // for labels/titles, JetBrains Mono for any numeric content.
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+
+  // Spark design tokens (lifted verbatim from glow-web's index.css
+  // and tailwind.config.js so accents match the real app).
+  --gw-surface: #151520;
+  --gw-border: rgba(255, 255, 255, 0.08);
+  --gw-text-primary: #ffffff;
+  --gw-text-secondary: rgba(255, 255, 255, 0.7);
+  --gw-text-muted: rgba(255, 255, 255, 0.4);
+  --gw-primary: #d4a574;                         // spark-primary (gold)
+  --gw-primary-light: #e8c9a8;                   // spark-primary-light
+  --gw-glow-primary: rgba(212, 165, 116, 0.35);  // glow-primary
+  --gw-electric: #00d4ff;                        // spark-electric (send)
+  --gw-electric-deep: #0099cc;                   // send gradient stop
+  --gw-glow-electric: rgba(0, 212, 255, 0.35);
+  --gw-success: #10b981;                         // spark-success (receive)
+  --gw-success-deep: #059669;                    // receive gradient stop
+  --gw-glow-success: rgba(16, 185, 129, 0.35);
+}
+
 .gw-balance {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 10px 0 18px;
-  background:
-    radial-gradient(ellipse 60% 50% at center 60%, rgba(228, 195, 138, 0.18) 0%, transparent 70%);
+  padding: 12px 0 20px;
+
+  // The real app stacks two radial glows behind the balance using
+  // spark-primary (the golden accent). Inner amber layer adds warmth.
+  &__glow {
+    position: absolute;
+    inset: -10px 10% 10px;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 70% 70% at center 60%, rgba(212, 165, 116, 0.28) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 50% at center 55%, rgba(251, 191, 36, 0.16) 0%, transparent 70%);
+    filter: blur(8px);
+    z-index: 0;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
 
   &__label {
     display: inline-flex;
     align-items: center;
     gap: 6px;
     font-size: 10px;
-    letter-spacing: 0.22em;
+    font-weight: 500;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.55);
-    margin-bottom: 8px;
+    color: var(--gw-text-muted);
+    margin-bottom: 6px;
+  }
+
+  &__dot {
+    color: rgba(255, 255, 255, 0.25);
   }
 
   &__pill {
     font-size: 9px;
-    letter-spacing: 0.18em;
+    font-weight: 500;
+    letter-spacing: 0.14em;
     padding: 2px 7px;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.08);
-    color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--gw-text-secondary);
   }
 
   &__amount {
+    position: relative;
+    display: inline-flex;
+    align-items: baseline;
     font-size: 34px;
-    font-weight: $font-weight-bold;
-    color: #f7f5f0;
-    letter-spacing: -0.02em;
+    font-weight: 500;
+    color: var(--gw-text-primary);
+    letter-spacing: -0.01em;
     line-height: 1;
     margin-bottom: 10px;
+    // Real app: text-shadow: 0 0 40px var(--glow-primary) — gold halo.
+    text-shadow: 0 0 40px var(--gw-glow-primary);
   }
 
   &__symbol {
-    color: rgba(255, 255, 255, 0.85);
-    margin-right: 4px;
+    // Real app: ₿ sits absolute-left at ~75% of the number size,
+    // 70% opacity, in monospace.
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 2px;
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--gw-text-secondary);
+    opacity: 0.7;
+  }
+
+  &__value {
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+    font-weight: 500;
   }
 
   &__fiat {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     font-size: 12px;
-    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
-    color: rgba(228, 195, 138, 0.85);
-    letter-spacing: 0.05em;
+    color: var(--gw-text-secondary);
+  }
+
+  &__fiat-value {
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+    font-weight: 400;
+    letter-spacing: 0.01em;
   }
 
   &__rule {
     display: inline-block;
-    width: 16px;
-    height: 1px;
-    background: rgba(228, 195, 138, 0.5);
+    width: 22px;
+    height: 2px;
+    background: var(--gw-primary);
+
+    &--left {
+      mask-image: linear-gradient(to right, transparent, black);
+      -webkit-mask-image: linear-gradient(to right, transparent, black);
+    }
+
+    &--right {
+      mask-image: linear-gradient(to left, transparent, black);
+      -webkit-mask-image: linear-gradient(to left, transparent, black);
+    }
   }
 }
 
 .gw-payments {
   flex: 1;
-  padding: 14px 2px 12px;
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 12px 4px 10px;
+  border-top: 1px solid var(--gw-border);
   overflow: hidden;
 
   &__label {
-    display: block;
-    font-size: 9px;
-    letter-spacing: 0.22em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.35);
+    color: var(--gw-text-muted);
     margin-bottom: 8px;
+  }
+
+  &__rule {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--gw-border), transparent);
   }
 }
 
 .gw-row {
   display: grid;
-  grid-template-columns: 28px 1fr auto;
+  grid-template-columns: 32px 1fr auto;
   align-items: center;
   gap: 10px;
-  padding: 7px 0;
+  padding: 11px 4px;
+  border-radius: 10px;
 
   &__icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 26px;
-    height: 26px;
-    border-radius: 7px;
-    font-size: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
 
     &--in {
-      background: rgba(42, 204, 128, 0.12);
-      color: #2acc80;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--gw-success);
     }
 
     &--out {
-      background: rgba(77, 181, 255, 0.12);
-      color: #4db5ff;
+      background: rgba(0, 212, 255, 0.15);
+      color: var(--gw-electric);
     }
   }
 
   &__meta {
     display: flex;
     flex-direction: column;
-    gap: 1px;
+    justify-content: center;
+    gap: 2px;
     min-width: 0;
+    line-height: 1.2;
   }
 
   &__title {
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.9);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gw-text-primary);
+    line-height: 1.2;
+    min-width: 0;
+  }
+
+  &__title-text {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
+  &__bolt {
+    color: var(--gw-text-muted);
+    flex-shrink: 0;
+  }
+
   &__time {
     font-size: 10px;
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--gw-text-muted);
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+    line-height: 1.2;
   }
 
   &__amt {
-    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
-    font-size: 12px;
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: baseline;
 
     &--in {
-      color: #2acc80;
+      color: var(--gw-success);
     }
 
     &--out {
-      color: #4db5ff;
+      color: var(--gw-electric);
     }
+  }
+
+  &__sign {
+    margin-right: 1px;
+  }
+
+  &__sat {
+    font-size: 0.8em;
+    opacity: 0.7;
+    margin-right: 1px;
   }
 }
 
 .gw-dock {
   display: grid;
-  grid-template-columns: 1fr 40px 1fr;
-  gap: 8px;
+  grid-template-columns: 1fr 44px 1fr;
+  gap: 10px;
   align-items: center;
-  padding: 12px 0 18px;
+  padding: 10px 0 18px;
+  // Pin the dock to the bottom of the frame; the payments list expands
+  // above it when the frame stretches to match the shared card height.
+  margin-top: auto;
 
   &__btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-    height: 38px;
-    border-radius: 10px;
+    gap: 7px;
+    height: 40px;
+    border-radius: 12px;
     border: 0;
     font-size: 13px;
-    font-weight: $font-weight-bold;
-    color: #0a0a0a;
+    font-weight: 600;
+    color: #000;
     cursor: default;
 
+    // Real app: filled gradient buttons with black text and a matching
+    // colored box-shadow glow (from .action-button-send/.action-button-receive).
     &--send {
-      background: linear-gradient(135deg, #6fc7ff 0%, #3d9be0 100%);
+      background: linear-gradient(135deg, var(--gw-electric) 0%, var(--gw-electric-deep) 100%);
+      box-shadow: 0 2px 8px var(--gw-glow-electric);
     }
 
     &--receive {
-      background: linear-gradient(135deg, #7fe3a3 0%, #3fb671 100%);
+      background: linear-gradient(135deg, var(--gw-success) 0%, var(--gw-success-deep) 100%);
+      box-shadow: 0 2px 8px var(--gw-glow-success);
     }
-  }
-
-  &__arrow {
-    font-size: 13px;
-    font-weight: $font-weight-bold;
   }
 
   &__scan {
     position: relative;
-    width: 28px;
-    height: 28px;
+    width: 40px;
+    height: 40px;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // Real app: transparent background, no border — just corners + icon.
+    background: transparent;
+    border: 0;
+    color: var(--gw-text-primary);
 
     &-corner {
       position: absolute;
-      width: 8px;
-      height: 8px;
-      border: 1.5px solid rgba(228, 195, 138, 0.9);
+      width: 7px;
+      height: 7px;
+      border: 1.5px solid var(--gw-text-secondary);
 
-      &:nth-child(1) { top: 0; left: 0; border-right: 0; border-bottom: 0; }
-      &:nth-child(2) { top: 0; right: 0; border-left: 0; border-bottom: 0; }
-      &:nth-child(3) { bottom: 0; left: 0; border-right: 0; border-top: 0; }
-      &:nth-child(4) { bottom: 0; right: 0; border-left: 0; border-top: 0; }
+      &:nth-child(1) { top: 5px; left: 5px; border-right: 0; border-bottom: 0; border-top-left-radius: 3px; }
+      &:nth-child(2) { top: 5px; right: 5px; border-left: 0; border-bottom: 0; border-top-right-radius: 3px; }
+      &:nth-child(3) { bottom: 5px; left: 5px; border-right: 0; border-top: 0; border-bottom-left-radius: 3px; }
+      &:nth-child(4) { bottom: 5px; right: 5px; border-left: 0; border-top: 0; border-bottom-right-radius: 3px; }
+    }
+
+    &-icon {
+      color: var(--gw-text-primary);
+      opacity: 0.9;
     }
   }
 }
@@ -488,6 +650,8 @@
   // Match the other panels' frame widths (400 mobile, 440 lg+) so all
   // three visuals have equal column weight.
   max-width: 400px;
+  // Height parity with .glow-frame so all three showcase cards line up.
+  min-height: 474px;
   padding: 28px 32px 24px;
   border-radius: 16px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
@@ -620,7 +784,7 @@
   padding: 0;
   font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
   font-size: 13px;
-  line-height: 1.4;
+  line-height: 1.2;
   color: rgba(255, 255, 255, 0.85);
   white-space: pre;
 
