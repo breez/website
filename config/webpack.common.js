@@ -75,7 +75,7 @@ module.exports = {
         },
         'request-api-key/index': {
           import: paths.src + '/views/pages/sdk/sdk.html',
-          data: { form_topic: 'sdk-liquid-api-key' },
+          data: { form_topic: 'sdk-api-key' },
         },
         'lsp/index': {
           import: paths.src + '/views/pages/lsp/lsp.html',

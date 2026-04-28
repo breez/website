@@ -765,11 +765,11 @@
                 <div class="contact-us-info-block">
                     <h2 class="h-2-home mb-4">
                         <%if (form_topic=="sdk-design-partner" ) { %>Become a Partner<% } %>
-                                <%if (form_topic=="sdk-liquid-api-key" ) { %>Get an API key<% } %>
+                                <%if (form_topic=="sdk-api-key" ) { %>Get an API key<% } %>
                     </h2>
                     <p class="home-text --text-2">
                         <%if (form_topic=="sdk-design-partner" ) { %>Join 75+ teams already building with the Breez SDK.<br class="sdk-contact-br"><span class="sdk-contact-next">Get</span> in touch to get started.<% } %>
-                        <%if (form_topic=="sdk-liquid-api-key" ) { %>Interested in becoming a partner for the Breez SDK?<br>Please fill this form to receive an API key.<% } %>
+                        <%if (form_topic=="sdk-api-key" ) { %>Interested in becoming a partner for the Breez SDK?<br>Please fill this form to receive an API key.<% } %>
                     </p>
                 </div>
 
@@ -853,8 +853,8 @@
                                                 <option value="support">Support</option>
                                                 <option <% if (form_topic=="sdk-design-partner" ) { %>selected <% } %>
                                                         value="sdk-design-partner">SDK Partner</option>
-                                                <option <% if (form_topic=="sdk-liquid-api-key" ) { %>selected <% } %>
-                                                        value="sdk-liquid-api-key">API Key for the Breez SDK</option>
+                                                <option <% if (form_topic=="sdk-api-key" ) { %>selected <% } %>
+                                                        value="sdk-api-key">API Key for the Breez SDK</option>
                                                 <option value="other">Other</option>
                                             </select>
                                             <div class="valid-feedback"></div>
@@ -864,7 +864,7 @@
                                         <div class="col-md-12">
                                             <textarea class="form-control" type="text" name="message" rows="4" cols="50"
                                                 placeholder="Message"
-                                                required><% if (form_topic == "sdk-liquid-api-key") { %>I would like to receive an API key for the Breez SDK.<% } %></textarea>
+                                                required><% if (form_topic == "sdk-api-key") { %>I would like to receive an API key for the Breez SDK.<% } %></textarea>
                                             <div class="valid-feedback"></div>
                                             <div class="invalid-feedback">Please enter a message </div>
                                         </div>

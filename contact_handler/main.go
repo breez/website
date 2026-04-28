@@ -75,7 +75,7 @@ func apiKeySender(w http.ResponseWriter, r *http.Request) {
 	}
 	log.Printf("Post from website! r.PostFrom = %v\n", r.PostForm)
 	c := getContact(r)
-	c.ContactType = "sdk-liquid-api-key/api"
+	c.ContactType = "sdk-api-key/api"
 	sendEmails(w, c, true)
 }
 
@@ -97,7 +97,7 @@ func contactMailer(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	c := getContact(r)
-	sendEmails(w, c, c.ContactType == "sdk-liquid-api-key")
+	sendEmails(w, c, c.ContactType == "sdk-api-key")
 }
 
 func sendAPIKey(c contact) error {
