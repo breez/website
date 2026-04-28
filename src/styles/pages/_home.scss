@@ -593,6 +593,32 @@
 
 // ── Vision section on homepage ──
 
+.playground-home-section {
+  padding-top: 40px;
+  margin-bottom: 100px;
+
+  .playground-home-info-block {
+    max-width: 560px;
+    margin-bottom: 60px;
+
+    .h-2-home {
+      @media (min-width: 768px) {
+        font-size: 44px;
+        line-height: 56px;
+      }
+    }
+
+    .home-text.--text-2 {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+
+  img {
+    max-height: 560px;
+  }
+}
+
 .vision-home-section {
   padding-top: 40px;
   margin-bottom: 100px;
