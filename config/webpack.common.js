@@ -104,6 +104,12 @@ module.exports = {
         'case-studies/yolat/index': {
           import: paths.src + '/views/pages/case-studies/case-study-yolat.html',
         },
+        'case-studies/primal/index': {
+          import: paths.src + '/views/pages/case-studies/case-study-primal.html',
+        },
+        'case-studies/exolix/index': {
+          import: paths.src + '/views/pages/case-studies/case-study-exolix.html',
+        },
         'playground/index': {
           import: paths.src + '/views/pages/playground/playground.html',
         },

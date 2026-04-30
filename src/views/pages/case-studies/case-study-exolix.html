@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Breez SDK | Case Study: Exolix</title>
+    <meta name="description" content="How Exolix integrated the Breez SDK in a day to deliver instant, non-custodial bitcoin swaps across their multichain aggregator.">
+    <meta property="og:image" content="../../../assets/images/exolix_case_study.jpg" />
+    <meta property="og:title" content="Breez SDK | Case Study: Exolix" />
+    <meta property="og:description"
+          content="How Exolix integrated the Breez SDK in a day to deliver instant, non-custodial bitcoin swaps across their multichain aggregator." />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Breez_Tech" />
+    <meta name="twitter:creator" content="@Breez_Tech" />
+    <meta name="twitter:title" content="Breez SDK | Case Study: Exolix" />
+    <meta name="twitter:description" content="How Exolix integrated the Breez SDK in a day to deliver instant, non-custodial bitcoin swaps across their multichain aggregator." />
+    <meta name="twitter:image" content="../../../assets/images/exolix_case_study.jpg" />
+    <meta property="og:url" content="https://breez.technology/case-studies/exolix/" />
+    <link rel="canonical" href="https://breez.technology/case-studies/exolix/" />
+    <link rel="icon" href="../../../assets/icons/favicon.svg">
+    <script defer="defer" src="../../../index.js"></script>
+</head>
+
+<body>
+
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark header-container header-background fixed-top"
+         aria-label="Breez header">
+        <div class="container-fluid">
+            <a href="/">
+                <img class="me-5" src="../../../assets/icons/logo-breez-header.svg" alt="header breez logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBreez"
+                    aria-controls="navbarBreez" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="burger burger-slip">
+                    <div class="burger-lines"></div>
+                </div>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarBreez">
+                <ul class="d-lg-flex text-uppercase">
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/" class="text-decoration-none">Home</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/sdk" class="text-decoration-none">SDK</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/case-studies" class="text-decoration-none">Case Studies</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/playground" class="text-decoration-none">Playground</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/vision" class="text-decoration-none">Vision</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="https://blog.breez.technology" target="_blank" class="text-decoration-none">Blog</a>
+                    </li>
+                    <li class="header-links form mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/#contact-us-form" role="button" class="text-decoration-none">
+                            Contact us
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="d-flex align-items-center ms-auto">
+                    <li class="social-media">
+                        <a href="https://x.com/breez_tech" target="_blank" class="">
+                            <img src="../../../assets/icons/x-icon.svg" alt="x icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://t.me/breezsdk" target="_blank" class="">
+                            <img src="../../../assets/icons/telegram-icon.svg" alt="telegram icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://newsletter.breez.technology" target="_blank" class="">
+                            <img src="../../../assets/icons/substack-icon.svg" alt="substack icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://github.com/breez" target="_blank" class="">
+                            <img src="../../../assets/icons/github-icon.svg" alt="github icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="mailto:contact@breez.technology" class="">
+                            <img src="../../../assets/icons/email-icon.svg" alt="email icon" class="icon">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="case-study-page container position-relative">
+    <div class="case-study-breadcrumb">
+        <a href="/case-studies">Case Studies</a>
+        <span class="breadcrumb-separator">|</span>
+        <span>Swaps &amp; Bridges</span>
+    </div>
+
+    <header class="case-study-header">
+        <h1 class="h-1">
+            Exolix: Instant Bitcoin Swaps Built in a Day
+        </h1>
+    </header>
+
+    <section class="case-study-hero" aria-label="Exolix case study">
+        <div class="case-study-hero-inner">
+            <img src="../../../assets/images/exolix_case_study.jpg" alt="Exolix case study" class="case-study-hero-img">
+        </div>
+    </section>
+
+    <section class="case-study-meta-strip" aria-label="Case study metadata">
+        <div class="case-study-meta-item">
+            <div class="case-study-meta-label">Use Case</div>
+            <div class="case-study-meta-value">Crypto Swaps</div>
+        </div>
+        <div class="case-study-meta-item">
+            <div class="case-study-meta-label">Region</div>
+            <div class="case-study-meta-value">Global</div>
+        </div>
+        <div class="case-study-meta-item">
+            <div class="case-study-meta-label">Products Used</div>
+            <div class="case-study-meta-value">Breez SDK - Spark</div>
+        </div>
+        <div class="case-study-meta-item">
+            <div class="case-study-meta-label">Key Metric</div>
+            <div class="case-study-meta-value">One day to production</div>
+        </div>
+    </section>
+
+    <section class="case-study-section">
+        <div class="case-study-section-label">Who's Exolix?</div>
+        <div class="case-study-partner-header">
+            <div class="case-study-partner-logo-box">
+                <img src="../../../assets/images/logotypes/exolix.webp" alt="Exolix">
+            </div>
+            <div class="case-study-partner-name">Exolix</div>
+        </div>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                <a href="https://exolix.com/" target="_blank" rel="noopener noreferrer">Exolix</a> is a leading multichain swap aggregator founded in 2018. Users arrive, pick a pair, send funds, and receive their chosen asset in a single transaction. No account is required, and users can choose from hundreds of assets across major networks.
+            </p>
+            <p class="body-text --text-1">
+                Bitcoin is central to the platform, but for the past eight years on-chain transfers have been the weak link when it comes to speed. On-chain confirmation is too slow for many users and uneconomical for smaller transactions. Until recently, existing alternatives would have forced the Exolix team to compromise either on UX or custody, which was unacceptable.
+            </p>
+        </div>
+    </section>
+
+    <div class="case-study-divider"></div>
+
+    <section class="case-study-section">
+        <div class="case-study-section-label">The Challenge</div>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                Exolix had already explored ways to speed up bitcoin. Like many innovators before them, they turned to Lightning and tried the traditional path of building from scratch and running their own node. Technically it worked. Operationally it did not.
+            </p>
+            <p class="body-text --text-1">
+                Running Lightning in-house meant the usual headaches of opening and closing channels and managing liquidity, which consumed engineering resources Exolix wanted to invest elsewhere.
+            </p>
+            <p class="body-text --text-1">
+                The experience was not just expensive to run, it wasn't good enough for users. Smaller transfers, the kind in demand among users, were uneconomical to process. The use cases Exolix most wanted to support, including small-scale retail payments and routine bitcoin transfers, exceeded the capabilities of the existing infrastructure.
+            </p>
+        </div>
+    </section>
+
+    <div class="case-study-divider"></div>
+
+    <section class="case-study-section">
+        <div class="case-study-section-label">The Solution</div>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                The Breez SDK solved the central challenge Exolix had been facing: how to give users instant, low-cost, non-custodial bitcoin swaps without taking on the operational complexity of Lightning itself. With the Breez SDK in place, bitcoin on Exolix now moves as fast as any other asset on the platform.
+            </p>
+            <p class="body-text --text-1">
+                Exolix integrated the Breez SDK as the engine powering bitcoin transactions across the aggregator on the server-side, sitting between the swap engine and the user, invisible to everyone except the engineering team that implemented it. The change is exactly what Exolix and their users were looking for. Every swap that touches bitcoin now clears in seconds, not blocks. Value just flows.
+            </p>
+        </div>
+
+        <p class="body-text --text-1 case-study-solution-label --top"><strong>For users:</strong></p>
+        <ul class="case-study-benefit-list">
+            <li class="body-text --text-1">
+                <strong>Speed:</strong> instant bitcoin swaps, 10-minute block confirmations. A trade that used to sit waiting for an on-chain confirmation now completes before the user has had time to check.
+            </li>
+            <li class="body-text --text-1">
+                <strong>Cost:</strong> small swaps that were uneconomical on-chain are now viable, with fees so low they barely register.
+            </li>
+            <li class="body-text --text-1">
+                <strong>Reach:</strong> any asset on the platform can be swapped in or out of bitcoin instantly, moving at the speed of users.
+            </li>
+        </ul>
+
+        <section class="case-study-quote" aria-label="Partner quote">
+            <p class="body-text --text-1 case-study-quote-text">
+                "Breez offers a product which is easy, fast, and very practical. It minimizes development cost and time, and frees up resources for what matters."
+            </p>
+        </section>
+
+        <p class="body-text --text-1 case-study-solution-label"><strong>For developers:</strong></p>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                Exolix describes the Breez SDK as "one of the simplest and most efficient integrations the team has ever run," with a single backend engineer taking it from setup to production in about a day. The documentation was clear, everything worked out of the box, and the whole integration shipped without fuss.
+            </p>
+            <p class="body-text --text-1">
+                The SDK absorbs the complexities of Lightning that had made Exolix's previous in-house attempts unworkable: no channels to manage, no liquidity to rebalance. Instead of babysitting infrastructure, the team can focus on building improvements users can actually feel.
+            </p>
+        </div>
+
+        <p class="body-text --text-1 case-study-solution-label --top"><strong>For growth:</strong></p>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                The Breez SDK unlocked a category of swaps Exolix could not previously support. Small, routine trades, where on-chain fees used to ruin the economics, now clear in seconds at a fraction of the cost. Every pair on the aggregator that touches bitcoin is now an instant one, closing the speed gap that used to sit between bitcoin and the rest of the market.
+            </p>
+            <p class="body-text --text-1">
+                It also improves the swaps Exolix was already running. Existing bitcoin pairs move faster and cost less, so the upgrade is cascading an improved UX across the entire product, not only on the new routes it has enabled.
+            </p>
+            <p class="body-text --text-1">
+                That expansion did not require a step-change in headcount or infrastructure. The Breez SDK carries the operational weight, so Exolix can focus on running the aggregator. This partnership exemplifies how Breez energizes partners by doing what we do best so that they can focus on what they do best.
+            </p>
+        </div>
+    </section>
+
+    <section class="case-study-cta-section position-relative">
+        <div class="case-study-cta-inner">
+            <h3 class="h-3 --big-heading fw-bold mb-2">Ready to Get Started?</h3>
+            <p class="body-text mb-3">
+                Join Exolix and 75+ apps adding instant, non-custodial bitcoin with the Breez SDK.
+            </p>
+            <a href="https://breez.technology/sdk" role="button" class="primary-btn text-decoration-none">
+                <div style="margin: auto;">Start Building</div>
+            </a>
+        </div>
+        <div class="gradient --case-study-cta-radial-gradient-bottom-left"></div>
+        <div class="gradient --case-study-cta-bright-blue-gradient"></div>
+    </section>
+
+    <div class="gradient --sdk-implementation-radial-gradient-top-left"></div>
+    <div class="gradient --sdk-implementation-radial-gradient-bottom-right"></div>
+</div>
+
+<footer class="footer position-relative">
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-between py-4">
+            <a href="/">
+                <img class="me-5" src="../../../assets/icons/logo-breez-footer.svg" alt="footer breez logo">
+            </a>
+            <span class="caption-2">&#169;2026 All rights reserved</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Breez SDK | Case Study: Primal</title>
+    <meta name="description" content="How Primal replaced its custodial wallet with a non-custodial Breez SDK integration, migrating 20K+ users in 30 days inside the most popular Nostr client.">
+    <meta property="og:image" content="../../../assets/images/primal_case_study.jpg" />
+    <meta property="og:title" content="Breez SDK | Case Study: Primal" />
+    <meta property="og:description"
+          content="How Primal replaced its custodial wallet with a non-custodial Breez SDK integration, migrating 20K+ users in 30 days inside the most popular Nostr client." />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Breez_Tech" />
+    <meta name="twitter:creator" content="@Breez_Tech" />
+    <meta name="twitter:title" content="Breez SDK | Case Study: Primal" />
+    <meta name="twitter:description"
+          content="How Primal replaced its custodial wallet with a non-custodial Breez SDK integration, migrating 20K+ users in 30 days inside the most popular Nostr client." />
+    <meta name="twitter:image" content="../../../assets/images/primal_case_study.jpg" />
+    <meta property="og:url" content="https://breez.technology/case-studies/primal/" />
+    <link rel="canonical" href="https://breez.technology/case-studies/primal/" />
+    <link rel="icon" href="../../../assets/icons/favicon.svg">
+    <script defer="defer" src="../../../index.js"></script>
+</head>
+
+<body>
+
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark header-container header-background fixed-top"
+         aria-label="Breez header">
+        <div class="container-fluid">
+            <a href="/">
+                <img class="me-5" src="../../../assets/icons/logo-breez-header.svg" alt="header breez logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBreez"
+                    aria-controls="navbarBreez" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="burger burger-slip">
+                    <div class="burger-lines"></div>
+                </div>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarBreez">
+                <ul class="d-lg-flex text-uppercase">
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/" class="text-decoration-none">Home</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/sdk" class="text-decoration-none">SDK</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/case-studies" class="text-decoration-none">Case Studies</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/playground" class="text-decoration-none">Playground</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/vision" class="text-decoration-none">Vision</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="https://blog.breez.technology" target="_blank" class="text-decoration-none">Blog</a>
+                    </li>
+                    <li class="header-links form mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/#contact-us-form" role="button" class="text-decoration-none">
+                            Contact us
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="d-flex align-items-center ms-auto">
+                    <li class="social-media">
+                        <a href="https://x.com/breez_tech" target="_blank" class="">
+                            <img src="../../../assets/icons/x-icon.svg" alt="x icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://t.me/breezsdk" target="_blank" class="">
+                            <img src="../../../assets/icons/telegram-icon.svg" alt="telegram icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://newsletter.breez.technology" target="_blank" class="">
+                            <img src="../../../assets/icons/substack-icon.svg" alt="substack icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://github.com/breez" target="_blank" class="">
+                            <img src="../../../assets/icons/github-icon.svg" alt="github icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="mailto:contact@breez.technology" class="">
+                            <img src="../../../assets/icons/email-icon.svg" alt="email icon" class="icon">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="case-study-page container position-relative">
+    <div class="case-study-breadcrumb">
+        <a href="/case-studies">Case Studies</a>
+        <span class="breadcrumb-separator">|</span>
+        <span>Social Media</span>
+    </div>
+
+    <header class="case-study-header">
+        <h1 class="h-1">
+            Primal: Value Transfer Inside the Social Feed
+        </h1>
+    </header>
+
+    <section class="case-study-hero" aria-label="Primal case study">
+        <div class="case-study-hero-inner">
+            <img src="../../../assets/images/primal_case_study.jpg" alt="Primal case study" class="case-study-hero-img">
+        </div>
+    </section>
+
+    <section class="case-study-meta-strip" aria-label="Case study metadata">
+        <div class="case-study-meta-item">
+            <div class="case-study-meta-label">Use Case</div>
+            <div class="case-study-meta-value">Social Media</div>
+        </div>
+        <div class="case-study-meta-item">
+            <div class="case-study-meta-label">Region</div>
+            <div class="case-study-meta-value">Global</div>
+        </div>
+        <div class="case-study-meta-item">
+            <div class="case-study-meta-label">Products Used</div>
+            <div class="case-study-meta-value">Breez SDK - Spark</div>
+        </div>
+        <div class="case-study-meta-item">
+            <div class="case-study-meta-label">Key Metric</div>
+            <div class="case-study-meta-value">20K+ users migrated in 30 days</div>
+        </div>
+    </section>
+
+    <section class="case-study-section">
+        <div class="case-study-section-label">Who's Primal?</div>
+        <div class="case-study-partner-header">
+            <div class="case-study-partner-logo-box">
+                <img src="../../../assets/images/logotypes/primal.webp" alt="Primal">
+            </div>
+            <div class="case-study-partner-name">Primal</div>
+        </div>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                Primal is a social media app with everything users expect: feed, posts, follows, replies. In many ways, it's like any other social network.
+            </p>
+            <p class="body-text --text-1">
+                The difference is what's underneath. Primal runs on <a href="https://nostr.com/" target="_blank" rel="noopener noreferrer">Nostr</a>, an open social protocol that puts users in control, not the algorithm. Since it's a protocol rather than a platform, users keep their identity, data, and money, interacting directly on whatever local client they prefer.
+            </p>
+            <p class="body-text --text-1">
+                Primal is Nostr's most popular client app. It's how most people experience the network and where most of its activity happens, and it's built to reflect Nostr's peer-to-peer design.
+            </p>
+            <p class="body-text --text-1">
+                One piece of the peer-to-peer promise was missing. Primal users have always been able to retain their identities and their data, but they had to relinquish the money they wanted to use for tipping, zapping, and paying.
+            </p>
+        </div>
+    </section>
+
+    <div class="case-study-divider"></div>
+
+    <section class="case-study-section">
+        <div class="case-study-section-label">The Challenge</div>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                Every social network would like to let value move between users inside the app, but none has managed to do it right. KYC, balance limits, and geographic restrictions leave users with a subpar experience every time. That's why users typically have to leave the app to access their money and perform transactions.
+            </p>
+            <p class="body-text --text-1">
+                Primal launched in 2023 with a custodial wallet. On Nostr, a decentralized network, that's a step backwards: a custodial wallet reintroduces the kind of intermediary that the network was designed to obviate. At the time, there was no non-custodial product that could deliver the instant bitcoin experience Primal needed for a mainstream audience, so they opted to compromise on custody to improve the UX. It was, however, just a stopgap solution and never meant to be permanent.
+            </p>
+            <p class="body-text --text-1">
+                The custodial wallet served the basic purpose, but it did so at the cost of reintroducing exactly the constraints Nostr and Primal sought to avoid: the KYC, the limits, and the regional restrictions.
+            </p>
+            <p class="body-text --text-1">
+                The fix was simple in principle but hard in practice. Primal needed to replace the custodial wallet with a non-custodial one, without losing the reliability and effortless experience that made the custodial wallet seem like the preferable option. No product on the market met those criteria. Custodial wallets fail on user sovereignty and regulatory friction, while traditional Lightning wallets require users to manage channels and juggle liquidity. A social media app that puts obstacles on the onboarding path is doomed before it launches.
+            </p>
+        </div>
+    </section>
+
+    <div class="case-study-divider"></div>
+
+    <section class="case-study-section">
+        <div class="case-study-section-label">The Solution</div>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                Primal now has what they could only dream of in 2023: an instant, non-custodial bitcoin wallet. The new experience includes all of the benefits with none of the compromises. Users can still zap a post, and the bitcoin lands in their friend's wallet. But thanks to the Breez SDK, the friction and the middleman are gone. What remains is simply instant, non-custodial bitcoin, Lightning-fast, with value flowing directly between users, who now enjoy the same freedom and autonomy for their money that Primal was already delivering for their identity and data.
+            </p>
+        </div>
+
+        <p class="body-text --text-1 case-study-solution-label --top"><strong>For users:</strong></p>
+        <ul class="case-study-benefit-list">
+            <li class="body-text --text-1">
+                <strong>Speed:</strong> instant bitcoin without transitional friction from custodial to non-custodial.
+            </li>
+            <li class="body-text --text-1">
+                <strong>Borderless:</strong> no KYC, no balance limits, and no geographic restrictions. Instant value transfer is available in every region Primal serves.
+            </li>
+            <li class="body-text --text-1">
+                <strong>Sovereignty:</strong> users hold their own keys and are finally in control of their funds.
+            </li>
+        </ul>
+
+        <section class="case-study-quote" aria-label="Partner quote">
+            <p class="body-text --text-1 case-study-quote-text">
+                "Building on the Breez SDK enabled us to deliver a wallet that is a strict improvement for our users: no KYC, no limits, and available globally."
+            </p>
+            <p class="caption-1 case-study-quote-attribution">
+                Miljan Braticevic, CEO &mdash; Primal
+            </p>
+        </section>
+
+        <p class="body-text --text-1 case-study-solution-label"><strong>For developers:</strong></p>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                Primal's devs enjoyed an effortless integration that let them migrate users seamlessly. There was no inconvenience for existing users, and the onboarding friction for new ones was virtually eliminated at a stroke. Primal users even get to preserve their Lightning addresses, their balances, and their transaction histories.
+            </p>
+        </div>
+
+        <p class="body-text --text-1 case-study-solution-label --top"><strong>For growth:</strong></p>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                Primal has opened the product to every region and every user, including the millions who were never willing or able to onboard into a custodial flow. Now they can zap with Primal's own wallet from anywhere, with no identity check at the door. Value moves directly between users, inside the feed.
+            </p>
+            <p class="body-text --text-1">
+                For twenty years, social media has stood between users and the value they send each other. Primal has now obliterated that barrier.
+            </p>
+        </div>
+    </section>
+
+    <section class="case-study-cta-section position-relative">
+        <div class="case-study-cta-inner">
+            <h3 class="h-3 --big-heading fw-bold mb-2">Ready to Get Started?</h3>
+            <p class="body-text mb-3">
+                Join Primal and 75+ apps adding instant, non-custodial bitcoin with the Breez SDK.
+            </p>
+            <a href="https://breez.technology/sdk" role="button" class="primary-btn text-decoration-none">
+                <div style="margin: auto;">Start Building</div>
+            </a>
+        </div>
+        <div class="gradient --case-study-cta-radial-gradient-bottom-left"></div>
+        <div class="gradient --case-study-cta-bright-blue-gradient"></div>
+    </section>
+
+    <div class="gradient --sdk-implementation-radial-gradient-top-left"></div>
+    <div class="gradient --sdk-implementation-radial-gradient-bottom-right"></div>
+</div>
+
+<footer class="footer position-relative">
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-between py-4">
+            <a href="/">
+                <img class="me-5" src="../../../assets/icons/logo-breez-footer.svg" alt="footer breez logo">
+            </a>
+            <span class="caption-2">&#169;2026 All rights reserved</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+
+</html>

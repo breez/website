@@ -428,7 +428,8 @@
 
   @media (min-width: $screen-lg-min) {
     overflow: visible;
-    padding: 0 140px;
+    padding: 0 208px;
+    position: relative;
   }
 }
 
@@ -442,8 +443,79 @@
 
   @media (min-width: $screen-lg-min) {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+  }
+
+  // ── Slick overrides (only on desktop where slick activates) ──
+  &.slick-initialized {
+    @media (min-width: $screen-lg-min) {
+      display: block;
+      gap: 0;
+    }
+  }
+
+  .slick-track {
+    display: flex;
+  }
+
+  .slick-slide {
+    height: auto;
+    padding: 4px 10px;
+    box-sizing: border-box;
+  }
+
+  .slick-list {
+    margin: 0 -10px;
+  }
+}
+
+// ── Slick arrow buttons (desktop) ──
+
+.case-studies-home-section {
+  .slick-prev,
+  .slick-next {
+    display: none;
+
+    @media (min-width: $screen-lg-min) {
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #fff;
+      cursor: pointer;
+      z-index: 3;
+      font-size: 0;
+      transition: background 0.25s ease, border-color 0.25s ease;
+
+      &::before {
+        font-family: 'slick';
+        font-size: 18px;
+        line-height: 1;
+        color: #fff;
+        opacity: 0.85;
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.32);
+      }
+    }
+  }
+
+  .slick-prev {
+    left: -68px;
+  }
+
+  .slick-next {
+    right: -68px;
   }
 }
 
