@@ -33,13 +33,13 @@
         }
         
         .manifesto-hero {
-            min-height: 40vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
             position: relative;
-            padding: 120px 0 20px;
+            padding: 120px 0 0;
         }
         
         @media (max-width: 768px) {
@@ -53,11 +53,12 @@
         }
         
         .manifesto-hero h1 {
-            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 1.5rem;
             color: #fff;
+            text-wrap: balance;
         }
         
         @media (max-width: 768px) {
@@ -294,17 +295,15 @@
     <!-- Reading Progress Indicator -->
     <div class="reading-progress"></div>
     
-    <div class="p-3">
+    <div class="pt-3 px-3">
         <!--manifesto page-->
-        <div class="main-container manifesto-page">
-            
+        <div class="manifesto-page container position-relative">
+
             <!-- Hero Section -->
-            <section class="manifesto-hero secondary-container position-relative">
-                <div class="container">
-                    <h1 data-aos="fade-up" data-aos-duration="1000">The Utility of Bitcoin</h1>
-                    <p class="subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Moving Value Like Information</p>
-                </div>
-                
+            <section class="manifesto-hero position-relative">
+                <h1 data-aos="fade-up" data-aos-duration="1000">Move Value Like Information</h1>
+                <p class="subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">The Utility of Bitcoin</p>
+
                 <!--    gradients-->
                 <div class="gradient --hero-radial-gradient-top-right"></div>
                 <div class="gradient --hero-radial-gradient-bottom-left"></div>

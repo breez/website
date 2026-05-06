@@ -106,7 +106,7 @@
 <div class="case-studies-page container position-relative">
     <section class="case-studies-hub position-relative">
         <div class="cs-hero-header row g-0 gx-lg-5">
-            <div class="col-12 col-lg-5 d-flex flex-column mb-4 mb-lg-0">
+            <div class="col-12 col-lg-5 ps-0 d-flex flex-column mb-4 mb-lg-0">
                 <h1 class="h-1 mb-2">Case Studies</h1>
                 <h2 class="h-2 mb-3" style="font-size: 1.75rem;">Why Teams Build with Breez</h2>
                 <p class="body-text --text-1 case-studies-hub-sub">
@@ -116,7 +116,7 @@
                     These are their stories: what they built, how they did it, and what it meant for their users.
                 </p>
                 <div class="d-flex cs-hero-btns">
-                    <a role="button" class="primary-btn --hero-sdk mb-3 me-sm-4 text-decoration-none js-scroll-to" data-scroll-to=".case-studies-showcase">
+                    <a role="button" class="primary-btn --hero-sdk mb-3 me-sm-4 text-decoration-none js-scroll-to" data-scroll-to=".case-studies-filters">
                         <div style="margin: auto;">Explore Stories</div>
                     </a>
                     <a role="button" class="primary-btn --transparent --hero-sdk-contribute text-decoration-none" href="/sdk">
@@ -132,8 +132,16 @@
             </div>
         </div>
 
+        <div class="case-studies-filters" role="tablist" aria-label="Filter case studies by category">
+            <button type="button" class="case-studies-filter-pill js-case-filter is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+            <button type="button" class="case-studies-filter-pill js-case-filter" data-filter="neobanks" role="tab" aria-selected="false">Neobanks</button>
+            <button type="button" class="case-studies-filter-pill js-case-filter" data-filter="swaps-bridges" role="tab" aria-selected="false">Swaps &amp; Bridges</button>
+            <button type="button" class="case-studies-filter-pill js-case-filter" data-filter="social-apps" role="tab" aria-selected="false">Social Apps</button>
+            <button type="button" class="case-studies-filter-pill js-case-filter" data-filter="remittances" role="tab" aria-selected="false">Remittances</button>
+        </div>
+
         <div class="case-studies-showcase">
-            <a href="/case-studies/exolix" class="cs-card text-decoration-none" data-aos="fade-up" data-aos-duration="600">
+            <a href="/case-studies/exolix" class="cs-card js-case-card text-decoration-none" data-category="swaps-bridges">
                 <div class="cs-card-glow"></div>
                 <div class="cs-card-inner">
                     <div class="cs-card-logo-col">
@@ -148,14 +156,14 @@
                 </div>
             </a>
 
-            <a href="/case-studies/primal" class="cs-card text-decoration-none" data-aos="fade-up" data-aos-duration="600" data-aos-delay="150">
+            <a href="/case-studies/primal" class="cs-card js-case-card text-decoration-none" data-category="social-apps">
                 <div class="cs-card-glow"></div>
                 <div class="cs-card-inner">
                     <div class="cs-card-logo-col">
                         <img src="../../../assets/images/logotypes/primal.webp" alt="Primal">
                     </div>
                     <div class="cs-card-body">
-                        <span class="cs-card-category">Social Media</span>
+                        <span class="cs-card-category">Social Apps</span>
                         <h2 class="cs-card-title">Primal: Value Transfer Inside the Social Feed</h2>
                         <p class="cs-card-excerpt">Non-custodial bitcoin built into the social feed.</p>
                         <span class="cs-card-btn primary-btn">Read case study</span>
@@ -163,7 +171,7 @@
                 </div>
             </a>
 
-            <a href="/case-studies/garden" class="cs-card text-decoration-none" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
+            <a href="/case-studies/garden" class="cs-card js-case-card text-decoration-none" data-category="swaps-bridges">
                 <div class="cs-card-glow"></div>
                 <div class="cs-card-inner">
                     <div class="cs-card-logo-col">
@@ -178,7 +186,7 @@
                 </div>
             </a>
 
-            <a href="/case-studies/yolat" class="cs-card text-decoration-none" data-aos="fade-up" data-aos-duration="600" data-aos-delay="450">
+            <a href="/case-studies/yolat" class="cs-card js-case-card text-decoration-none" data-category="remittances">
                 <div class="cs-card-glow"></div>
                 <div class="cs-card-inner">
                     <div class="cs-card-logo-col">
@@ -193,14 +201,14 @@
                 </div>
             </a>
 
-            <a href="/case-studies/deblock" class="cs-card text-decoration-none" data-aos="fade-up" data-aos-duration="600" data-aos-delay="600">
+            <a href="/case-studies/deblock" class="cs-card js-case-card text-decoration-none" data-category="neobanks">
                 <div class="cs-card-glow"></div>
                 <div class="cs-card-inner">
                     <div class="cs-card-logo-col">
                         <img src="../../../assets/images/logotypes/Deblock.webp" alt="Deblock">
                     </div>
                     <div class="cs-card-body">
-                        <span class="cs-card-category">Neobank</span>
+                        <span class="cs-card-category">Neobanks</span>
                         <h2 class="cs-card-title">Deblock: Instant Bitcoin at Scale</h2>
                         <p class="cs-card-excerpt">A European neobank brought instant bitcoin to hundreds of thousands of users.</p>
                         <span class="cs-card-btn primary-btn">Read case study</span>

@@ -1,5 +1,38 @@
 @import 'src/styles/abstracts/_variables.scss';
 
+@keyframes csCardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// ── View Transitions: smooth, Apple-style filter motion ──
+// When cards are filtered, the browser snapshots the layout, applies the change,
+// then crossfades + tweens position changes. No layout jumps, no abrupt removals.
+::view-transition-group(*) {
+  animation-duration: 0.55s;
+  animation-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: 0.45s;
+  animation-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none;
+  }
+}
+
 // Stick footer to bottom of viewport on mobile (case-studies hub)
 @media (max-width: 767px) {
   body.case-studies-hub-page {
@@ -54,12 +87,28 @@
   }
 }
 
-// Hub page: match SDK hero spacing exactly
+// Hub page: match playground page exactly (page ends at footer, no overflow,
+// no margin-bottom). The page-level backdrop gradients live inside the page
+// wrapper but their height is constrained so they don't extend past the
+// page bottom (where the footer sits).
 body.case-studies-hub-page .case-studies-page {
   padding-top: 100px;
-  padding-bottom: 40px;
+  padding-bottom: 0;
   margin-top: 0;
-  margin-bottom: 60px;
+  margin-bottom: 0;
+
+  // Constrain bottom-right gradient: it normally has `top: 319px; height: 100%`
+  // which extends 319px past the parent. Reducing height by 319px makes its
+  // bottom edge land exactly at the page bottom.
+  > .gradient.--sdk-hero-radial-gradient-bottom-right {
+    height: calc(100% - 319px);
+  }
+
+  // CTA gradient normally has `bottom: -150px` extending past its section.
+  // Anchor it at section bottom so the page ends cleanly at the footer.
+  .case-study-cta-section > .gradient.--case-study-cta-radial-gradient-bottom-left {
+    bottom: 0;
+  }
 
   &.container {
     --bs-gutter-x: 2rem;
@@ -67,8 +116,6 @@ body.case-studies-hub-page .case-studies-page {
 
   @media (min-width: $screen-md-min) {
     padding-top: 160px;
-    margin-bottom: 100px;
-    padding-bottom: 60px;
   }
 }
 
@@ -239,15 +286,15 @@ body.case-studies-hub-page .case-studies-page {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    margin-top: 60px;
+    margin-top: 32px;
 
     @media (min-width: $screen-md-min) {
       gap: 2rem;
-      margin-top: 100px;
+      margin-top: 48px;
     }
 
     @media (min-width: $screen-lg-min) {
-      margin-top: 60px;
+      margin-top: 56px;
     }
   }
 
@@ -261,6 +308,21 @@ body.case-studies-hub-page .case-studies-page {
     overflow: hidden;
     box-shadow: 0 0 30px rgba(80, 150, 255, 0.15), 0 0 60px rgba(80, 150, 255, 0.06);
     transition: border-color 0.35s ease, transform 0.3s ease, box-shadow 0.35s ease;
+    animation: csCardReveal 0.4s cubic-bezier(0.4, 0, 0.2, 1) backwards;
+
+    &:nth-child(1) { animation-delay: 0ms; }
+    &:nth-child(2) { animation-delay: 60ms; }
+    &:nth-child(3) { animation-delay: 120ms; }
+    &:nth-child(4) { animation-delay: 180ms; }
+    &:nth-child(5) { animation-delay: 240ms; }
+
+    &.is-filtered-out {
+      display: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
 
     &:hover {
       color: $white;
@@ -479,15 +541,19 @@ body.case-studies-hub-page .case-studies-page {
   .case-studies-filters {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding-bottom: 0.5rem;
-    margin-bottom: 32px;
+    gap: 0.6rem;
+    padding: 6px 0 0.5rem;
+    margin-bottom: 28px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     @media (min-width: $screen-md-min) {
-      margin-bottom: 40px;
+      margin-bottom: 36px;
     }
   }
 
@@ -495,32 +561,45 @@ body.case-studies-hub-page .case-studies-page {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.35rem 1rem;
-    min-height: 44px;
+    padding: 0.45rem 1.05rem;
     border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.14);
     background: transparent;
-    color: $cabaret-charm;
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: $font-weight-normal;
-    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: $font-weight-medium;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     white-space: nowrap;
     cursor: pointer;
-    transition: background-color 0.18s ease-out, color 0.18s ease-out, border-color 0.18s ease-out, box-shadow 0.18s ease-out, transform 0.1s ease-out;
+    transition: background 0.32s ease,
+                color 0.22s ease,
+                border-color 0.32s ease,
+                box-shadow 0.32s ease,
+                backdrop-filter 0.32s ease;
 
     &:hover {
-      border-color: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.28);
       color: $white;
+      background: rgba(255, 255, 255, 0.04);
     }
 
+    // Liquid glass active state: translucent body, top highlight, soft inner
+    // sheen — no outer glow.
     &.is-active {
-      background: rgba(255, 255, 255, 0.08);
       color: $white;
-      border-color: rgba(255, 255, 255, 0.4);
-      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04);
-      transform: translateY(-1px);
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.18) 0%,
+        rgba(255, 255, 255, 0.04) 100%
+      );
+      border-color: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(12px) saturate(160%);
+      -webkit-backdrop-filter: blur(12px) saturate(160%);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.28),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.04);
     }
   }
 

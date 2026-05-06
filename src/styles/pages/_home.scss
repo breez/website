@@ -428,7 +428,7 @@
 
   @media (min-width: $screen-lg-min) {
     overflow: visible;
-    padding: 0 208px;
+    padding: 0 160px;
     position: relative;
   }
 }
@@ -655,6 +655,79 @@
   @media (min-width: $screen-md-min) {
     font-size: 18px;
     line-height: 28px;
+  }
+}
+
+// ── Option C: Lockup top row + headline ──
+.case-study-home-card.--style-c {
+  // Wider mobile card to keep the lockup on a single line
+  width: 300px;
+  // Override Slick's inline display:inline-block on desktop so flex centering works
+  display: flex !important;
+  justify-content: center;
+
+  @media (min-width: $screen-md-min) {
+    width: 320px;
+  }
+
+  .case-study-home-meta {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+
+    .case-study-home-category {
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      color: $bubble-bobble-p2;
+      font-weight: $font-weight-bold;
+      margin-bottom: 0;
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 1px;
+        height: 14px;
+        background: rgba(255, 255, 255, 0.22);
+        margin-left: 8px;
+      }
+    }
+
+    .case-study-home-logo {
+      margin: 0 0 0 8px;
+      height: 22px;
+      flex-shrink: 0;
+
+      img {
+        height: 22px;
+        width: auto;
+        max-width: none;
+        opacity: 0.95;
+      }
+    }
+  }
+
+  // Exolix logo is wider than the others at the same height — cap its width
+  // so the lockup row fits without overflowing the card.
+  &[href="/case-studies/exolix"] .case-study-home-logo img {
+    height: auto;
+    width: 85px;
+  }
+
+  .case-study-home-title {
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 700;
+    margin-bottom: 0;
+    flex: none;
+    text-wrap: balance;
+
+    @media (min-width: $screen-md-min) {
+      font-size: 26px;
+      line-height: 32px;
+    }
   }
 }
 
