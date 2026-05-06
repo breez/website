@@ -689,19 +689,19 @@
         content: '';
         display: inline-block;
         width: 1px;
-        height: 14px;
-        background: rgba(255, 255, 255, 0.22);
-        margin-left: 8px;
+        height: 18px;
+        background: rgba(255, 255, 255, 0.32);
+        margin-left: 10px;
       }
     }
 
     .case-study-home-logo {
-      margin: 0 0 0 8px;
-      height: 22px;
+      margin: 0 0 0 10px;
+      height: 18px;
       flex-shrink: 0;
 
       img {
-        height: 22px;
+        height: 18px;
         width: auto;
         max-width: none;
         opacity: 0.95;
@@ -713,7 +713,7 @@
   // so the lockup row fits without overflowing the card.
   &[href="/case-studies/exolix"] .case-study-home-logo img {
     height: auto;
-    width: 85px;
+    width: 70px;
   }
 
   .case-study-home-title {
