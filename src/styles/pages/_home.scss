@@ -226,6 +226,59 @@
     margin: 148px 0 200px 0;
   }
 
+  .hero-headline {
+    // Mobile: weight up the title and lock to a deliberate 2-line composition
+    // ("Bitcoin in" / suffix), set by .hero-typewriter { display: block } below.
+    @media (max-width: $screen-xs-max) {
+      font-size: 42px;
+      line-height: 50px;
+    }
+  }
+
+  .hero-typewriter {
+    display: inline;
+    white-space: nowrap;
+
+    @media (max-width: $screen-xs-max) {
+      display: block;
+    }
+  }
+
+  .hero-typewriter-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 0.95em;
+    margin-left: 4px;
+    vertical-align: -0.08em;
+    background-color: $bubble-bobble-p2;
+    animation: hero-typewriter-blink 1.2s ease-in-out infinite;
+
+    @media (min-width: $screen-md-min) {
+      width: 3px;
+      margin-left: 6px;
+    }
+  }
+
+  // Hold the cursor solid while characters are appearing or erasing — only
+  // blink during pauses, the way real text editors do.
+  .hero-typewriter.is-active .hero-typewriter-cursor {
+    animation: none;
+    opacity: 1;
+  }
+
+  @keyframes hero-typewriter-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  // Honour vestibular preferences: no cycling, no blink.
+  @media (prefers-reduced-motion: reduce) {
+    .hero-typewriter-cursor {
+      animation: none;
+      opacity: 0;
+    }
+  }
+
   .hero-info-block {
     max-width: 720px;
     //margin: 30px 0;
