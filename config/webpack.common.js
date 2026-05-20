@@ -110,6 +110,9 @@ module.exports = {
         'case-studies/exolix/index': {
           import: paths.src + '/views/pages/case-studies/case-study-exolix.html',
         },
+        'case-studies/klever/index': {
+          import: paths.src + '/views/pages/case-studies/case-study-klever.html',
+        },
         'playground/index': {
           import: paths.src + '/views/pages/playground/playground.html',
         },
