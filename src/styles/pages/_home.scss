@@ -353,13 +353,15 @@
 .hero-marquee-track {
   display: flex;
   align-items: center;
-  gap: 64px;
   width: max-content;
   animation: hero-marquee 50s linear infinite;
   will-change: transform;
+  // Spacing lives on the logos (margin-right) instead of flex `gap` so the
+  // boundary between the original set and its duplicate matches the internal
+  // spacing exactly. With flex gap, -50% lands half-a-gap off and the snap
+  // visibly lurches once per loop (most noticeable mid-track).
 
   @media (max-width: $screen-xs-max) {
-    gap: 40px;
     animation-duration: 40s;
   }
 }
@@ -374,6 +376,7 @@
   height: 28px;
   width: auto;
   max-width: 130px;
+  margin-right: 64px;
   object-fit: contain;
   flex-shrink: 0;
   filter: brightness(0) invert(1);
@@ -387,6 +390,7 @@
   @media (max-width: $screen-xs-max) {
     height: 22px;
     max-width: 100px;
+    margin-right: 40px;
   }
 }
 

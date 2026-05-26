@@ -95,6 +95,9 @@ module.exports = {
         'case-studies/index': {
           import: paths.src + '/views/pages/case-studies/case-studies.html',
         },
+        'case-studies/cake/index': {
+          import: paths.src + '/views/pages/case-studies/case-study-cake.html',
+        },
         'case-studies/deblock/index': {
           import: paths.src + '/views/pages/case-studies/case-study-deblock.html',
         },

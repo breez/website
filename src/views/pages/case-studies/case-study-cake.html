@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Breez SDK | Case Study: Cake Wallet</title>
+    <meta name="description" content="How Cake Wallet brought instant, non-custodial bitcoin to 1.75 million users globally with the Breez SDK.">
+    <meta property="og:image" content="../../../assets/images/cake_casestudy_header.jpg" />
+    <meta property="og:title" content="Breez SDK | Case Study: Cake Wallet" />
+    <meta property="og:description"
+          content="How Cake Wallet brought instant, non-custodial bitcoin to 1.75 million users globally with the Breez SDK." />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Breez_Tech" />
+    <meta name="twitter:creator" content="@Breez_Tech" />
+    <meta name="twitter:title" content="Breez SDK | Case Study: Cake Wallet" />
+    <meta name="twitter:description"
+          content="How Cake Wallet brought instant, non-custodial bitcoin to 1.75 million users globally with the Breez SDK." />
+    <meta name="twitter:image" content="../../../assets/images/cake_casestudy_header.jpg" />
+    <meta property="og:url" content="https://breez.technology/case-studies/cake/" />
+    <link rel="canonical" href="https://breez.technology/case-studies/cake/" />
+    <link rel="icon" href="../../../assets/icons/favicon.svg">
+    <script defer="defer" src="../../../index.js"></script>
+</head>
+
+<body>
+
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark header-container header-background fixed-top"
+         aria-label="Breez header">
+        <div class="container-fluid">
+            <a href="/">
+                <img class="me-5" src="../../../assets/icons/logo-breez-header.svg" alt="header breez logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBreez"
+                    aria-controls="navbarBreez" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="burger burger-slip">
+                    <div class="burger-lines"></div>
+                </div>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarBreez">
+                <ul class="d-lg-flex text-uppercase">
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/" class="text-decoration-none">Home</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/sdk" class="text-decoration-none">SDK</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/case-studies" class="text-decoration-none">Case Studies</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/playground" class="text-decoration-none">Playground</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/vision" class="text-decoration-none">Vision</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="https://blog.breez.technology" target="_blank" class="text-decoration-none">Blog</a>
+                    </li>
+                    <li class="header-links form mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/#contact-us-form" role="button" class="text-decoration-none">
+                            Contact us
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="d-flex align-items-center ms-auto">
+                    <li class="social-media">
+                        <a href="https://x.com/breez_tech" target="_blank" class="">
+                            <img src="../../../assets/icons/x-icon.svg" alt="x icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://t.me/breezsdk" target="_blank" class="">
+                            <img src="../../../assets/icons/telegram-icon.svg" alt="telegram icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://newsletter.breez.technology" target="_blank" class="">
+                            <img src="../../../assets/icons/substack-icon.svg" alt="substack icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://github.com/breez" target="_blank" class="">
+                            <img src="../../../assets/icons/github-icon.svg" alt="github icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="mailto:contact@breez.technology" class="">
+                            <img src="../../../assets/icons/email-icon.svg" alt="email icon" class="icon">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="case-study-page container position-relative">
+    <div class="case-study-breadcrumb">
+        <a href="/case-studies">Case Studies</a>
+        <span class="breadcrumb-separator">|</span>
+        <span>Crypto Wallets</span>
+    </div>
+
+    <header class="case-study-header">
+        <h1 class="h-1">
+            Cake Wallet: Instant Bitcoin for 1.75M+ Users
+        </h1>
+    </header>
+
+    <section class="case-study-hero" aria-label="Cake Wallet case study">
+        <div class="case-study-hero-inner">
+            <img src="../../../assets/images/cake_casestudy_header.jpg" alt="Cake Wallet case study" class="case-study-hero-img">
+        </div>
+    </section>
+
+    <section class="case-study-meta-strip" aria-label="Case study metadata">
+        <div class="case-study-meta-item">
+            <div class="case-study-meta-label">Use Case</div>
+            <div class="case-study-meta-value">Crypto Wallet</div>
+        </div>
+        <div class="case-study-meta-item">
+            <div class="case-study-meta-label">Region</div>
+            <div class="case-study-meta-value">Global</div>
+        </div>
+        <div class="case-study-meta-item">
+            <div class="case-study-meta-label">Products Used</div>
+            <div class="case-study-meta-value">Breez SDK - Spark</div>
+        </div>
+        <div class="case-study-meta-item">
+            <div class="case-study-meta-label">Key Metric</div>
+            <div class="case-study-meta-value">1.75M+ users</div>
+        </div>
+    </section>
+
+    <section class="case-study-section">
+        <div class="case-study-section-label">Who's Cake?</div>
+        <div class="case-study-partner-header">
+            <div class="case-study-partner-logo-box">
+                <img src="../../../assets/images/logotypes/cakewallet.webp" alt="Cake Wallet">
+            </div>
+            <div class="case-study-partner-name">Cake Wallet</div>
+        </div>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                <a href="https://cakewallet.com" target="_blank" rel="noopener noreferrer">Cake Wallet</a> launched in 2018, built on open-source code and non-custodial design.
+            </p>
+            <p class="body-text --text-1">
+                Today, Cake has elevated those foundations into a leading, global, multi-currency wallet supporting bitcoin, Monero, Ethereum, Solana, and more, with over 1.75 million users around the world.
+            </p>
+            <p class="body-text --text-1">
+                The product was built around a single promise: making payments easy. The obstacle was bitcoin. It was too slow, and fees made small payments uneconomic. Bitcoin worked for saving, not for spending, and for a mass-market wallet built on the promise of payments, that was the big problem to solve.
+            </p>
+        </div>
+    </section>
+
+    <div class="case-study-divider"></div>
+
+    <section class="case-study-section">
+        <div class="case-study-section-label">The Challenge</div>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                The brief was simple. Bitcoin should move as freely as any other asset in the wallet: instantly, with negligible fees, and without giving up custody.
+            </p>
+            <p class="body-text --text-1">
+                No option Cake had tried met their criteria. Custodial solutions delivered the user experience by seizing custody. Running things natively pushed liquidity and channel management onto users, which the team would not accept.
+            </p>
+            <p class="body-text --text-1">
+                In late 2023, Cake came close. Building on a previous Breez SDK implementation, the team got a build into internal beta. It was a real step forward. But the UX was subpar: the complexities were being relocated, not eliminated. Cake decided not to ship.
+            </p>
+            <p class="body-text --text-1">
+                Rather than compromise on what users would experience, Cake waited.
+            </p>
+        </div>
+    </section>
+
+    <div class="case-study-divider"></div>
+
+    <section class="case-study-section">
+        <div class="case-study-section-label">The Solution</div>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                In late 2025, Breez released the Spark implementation of our industry-leading <a href="https://sdk-doc-spark.breez.technology/" target="_blank" rel="noopener noreferrer">SDK</a>, which finally delivered what Cake had been waiting for: instant, non-custodial bitcoin for its one million-plus users.
+            </p>
+            <p class="body-text --text-1">
+                One developer spun up a working build on mainnet over a weekend. From there, the team iterated, polished, and released to production. What had taken years to find turned out to be the simplest part of the app to build.
+            </p>
+        </div>
+
+        <p class="body-text --text-1 case-study-solution-label --top"><strong>For users:</strong></p>
+        <ul class="case-study-benefit-list">
+            <li class="body-text --text-1">
+                <strong>Instant bitcoin:</strong> Send and receive bitcoin instantly, with fees that barely register.
+            </li>
+            <li class="body-text --text-1">
+                <strong>Multi-chain swaps:</strong> Swap bitcoin into Monero, Zcash, or Ethereum in seconds, all inside Cake.
+            </li>
+            <li class="body-text --text-1">
+                <strong>Bitcoin as money:</strong> Pay, tip, and move value as casually as anything else in the wallet.
+            </li>
+        </ul>
+
+        <section class="case-study-quote" aria-label="Partner quote">
+            <p class="body-text --text-1 case-study-quote-text">
+                "The next stage of really making Bitcoin something in the hands of not just millions but hundreds of millions of people is to put it into regular apps. You don't need a whole team dedicated to implementing Lightning. You could do it with one day over the weekend. It's something anyone can do."
+            </p>
+            <p class="caption-1 case-study-quote-attribution">
+                Seth For Privacy, COO — Cake Wallet
+            </p>
+        </section>
+
+        <p class="body-text --text-1 case-study-solution-label"><strong>For developers:</strong></p>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                One developer can give you a working build in one weekend. The Breez SDK does the heavy lifting, so Cake's team was free to focus on UI and product. In Seth's words, the integration was "easier than the vast majority of cryptocurrencies" Cake has shipped, including Monero, Zcash, and Ethereum.
+            </p>
+        </div>
+
+        <p class="body-text --text-1 case-study-solution-label --top"><strong>For growth:</strong></p>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                The bigger story is what bitcoin now does inside Cake. Instant bitcoin was the most-requested missing feature in Cake before launch. Now it's part of an app that doubled in users over 2025. Bitcoin isn't just one of the assets in the wallet anymore; it's how value moves through it.
+            </p>
+            <p class="body-text --text-1">
+                For over one million users, bitcoin is now digital cash that moves at the speed the world needs.
+            </p>
+        </div>
+    </section>
+
+    <section class="case-study-cta-section position-relative">
+        <div class="case-study-cta-inner">
+            <h3 class="h-3 --big-heading fw-bold mb-2">Ready to Get Started?</h3>
+            <p class="body-text mb-3">
+                Join Cake Wallet and 75+ apps adding instant, non-custodial bitcoin with the Breez SDK.
+            </p>
+            <a href="https://breez.technology/sdk" role="button" class="primary-btn text-decoration-none">
+                <div style="margin: auto;">Start Building</div>
+            </a>
+        </div>
+        <div class="gradient --case-study-cta-radial-gradient-bottom-left"></div>
+        <div class="gradient --case-study-cta-bright-blue-gradient"></div>
+    </section>
+
+    <div class="gradient --sdk-implementation-radial-gradient-top-left"></div>
+    <div class="gradient --sdk-implementation-radial-gradient-bottom-right"></div>
+</div>
+
+<footer class="footer position-relative">
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-between py-4">
+            <a href="/">
+                <img class="me-5" src="../../../assets/icons/logo-breez-footer.svg" alt="footer breez logo">
+            </a>
+            <span class="caption-2">&#169;2026 All rights reserved</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+
+</html>
