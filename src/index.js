@@ -30,7 +30,6 @@ import './javascript/sdk-section-slider'
 
 // mobile page frame slider
 import './javascript/mobile-frame-slider'
-import './javascript/particles-bitcoin'
 
 // sdk page slider
 import './javascript/sdk-partners-slider'

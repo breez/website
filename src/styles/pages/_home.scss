@@ -31,17 +31,6 @@
 }
 
 
-/* Particles */
-#particles-js {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  z-index: -1;
-  margin-top: -100px;
-  left: 0;
-}
-
 //hero section arrow
 .arrow-down {
   display: flex;
@@ -130,114 +119,93 @@
 }
 
 .hero-section {
+  position: relative;
+  // No section background — body owns the brand gradient so the hero, the
+  // case studies, the SDK section, everything below sits on one continuous
+  // composition. Gutter alignment comes from .main-container on the section.
+
+  // Old decorative blur blobs would muddy the new gradient. Hide them.
+  > .hero-section-wrapper > .gradient {
+    display: none;
+  }
 
   .hero-section-wrapper {
-    height: 100%;
-    //padding: 0 0 200px 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // Bottom padding makes room for the absolutely-positioned marquee
+    // anchored at the bottom of the hero (desktop only).
+    padding: 100px 0 160px;
 
     @media (max-width: $screen-xs-max) {
-      //padding: 70px 0 200px 0; !!!!!!
-      padding: 48px 0 200px 0;
+      // Mobile: hero owns the first viewport. Info-block centres vertically
+      // in the space above the marquee; the marquee hugs the bottom edge.
+      // Auto margins on the info-block do the centring inside flex.
+      padding: 96px 0 24px;
+      min-height: 100vh;
+      min-height: 100svh;
+      justify-content: flex-start;
+    }
+
+    @media (min-width: $screen-md-min) {
+      // Tightened from 132/170 so the headline + subhead + AI buttons +
+      // absolute marquee all fit within 100svh on standard laptop viewports.
+      // 110px top still clears the fixed navbar; 130px bottom still gives
+      // the marquee its breathing room.
+      padding: 110px 0 130px;
+      // Fill the viewport so the marquee, anchored at the section bottom,
+      // always lands above the fold at 100% browser zoom. Cap at 920px so
+      // the hero doesn't balloon on very tall monitors.
+      min-height: min(100svh, 920px);
     }
   }
 
-  .image-container {
-    display: flex;
-    justify-content: center;
+  .hero-info-block {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1180px;
 
-    img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
+    &.--left {
+      // Asymmetric layout: anchor copy on the left, leave the right open for breathing room.
+      // No extra padding here — the parent .main-container already handles
+      // the page gutter, so the headline lines up with section headings below.
+      text-align: left;
+      padding-left: 0;
+      padding-right: 0;
+      max-width: 1080px;
     }
 
-    .hero-svg-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 600px;
-      padding-top: 56.25%; // Maintain 16:9 for 1920x1080 SVGs
-      display: block;
-      overflow: hidden;
-
-      @media (max-width: $screen-xs-max) {
-        max-width: 420px;
-        padding-top: 58%;
-        margin: 0 auto;
-        overflow: visible;
-      }
-
-      @media (min-width: $screen-md-min) {
-        max-width: 980px;
-        margin: 0 auto;
-        overflow: visible;
-      }
-
-      .hero-svg-object {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        pointer-events: none;
-
-        @media (max-width: $screen-xs-max) {
-          transform: scale(1.025);
-          transform-origin: center;
-        }
-
-        @media (min-width: $screen-md-min) {
-          transform: scale(1.25);
-          transform-origin: center;
-        }
-      }
+    @media (max-width: $screen-xs-max) {
+      // Auto top + bottom margins centre the info-block in the space above
+      // the marquee, while the marquee itself stays pinned to the bottom.
+      margin: auto 0;
     }
-  }
-  
-  @media (max-width: $screen-xs-max) {
-    height: 100vh;
-    max-height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
-    max-height: calc(var(--vh, 1vh) * 100);
-
-
-    .image-container {
-      // (screen - navbar - arrow height - title - browser-bar) / 2
-      //original //good for android 13version bug
-      //height: calc((100% - 70px - 40px - 4px - 216px) / 2);
-
-      // good for all devices except android 13version bug
-      //height: calc((var(--vh) * 100 - 50px - 40px - 216px) / 2);
-
-      //height: calc((100% - 78px - 40px - 216px) / 2);
-      //height: calc((100vh - 50px - 40px - 215px) / 2);
-      //height: calc((var(--vh, 1vh) * 100 - 50px - 40px - 215px ) / 2);
-
-    }
-
-
-    //height: calc(100vh - 78px - 40px - 4px);
-    //height: calc(100vh - 148px - 40px - 4px); 1
-    //height: calc(100vh - 165px - 40px - 4px); //2
-    //height: calc(100vh - 78px - 40px - 4px - env(safe-area-inset-bottom));
-  }
-
-  @media (min-width: $screen-md-min) {
-    margin: 148px 0 200px 0;
   }
 
   .hero-headline {
-    // Mobile: weight up the title and lock to a deliberate 2-line composition
-    // ("Bitcoin in" / suffix), set by .hero-typewriter { display: block } below.
-    @media (max-width: $screen-xs-max) {
-      font-size: 42px;
-      line-height: 50px;
+    color: $white;
+    font-weight: $font-weight-bold;
+    letter-spacing: -0.02em;
+    line-height: 1.02;
+    // Mobile floor stays at 28px; desktop grows to ~40px so the now-larger
+    // subhead has breathing room from the headline.
+    margin: 0 0 clamp(28px, 2.5vw, 40px);
+    text-wrap: balance;
+    // Fluid type. Floor sized so the longest mobile phrase ("Remittances")
+    // fits comfortably on a 360-390px viewport. Desktop max preserved.
+    font-size: clamp(54px, 15vw, 112px);
+
+    @media (min-width: $screen-xxl-min) {
+      font-size: 124px;
     }
   }
 
   .hero-typewriter {
     display: inline;
     white-space: nowrap;
+    color: $bubble-bobble-p2;
 
     @media (max-width: $screen-xs-max) {
       display: block;
@@ -246,21 +214,19 @@
 
   .hero-typewriter-cursor {
     display: inline-block;
-    width: 2px;
-    height: 0.95em;
-    margin-left: 4px;
+    width: 4px;
+    height: 0.88em;
+    margin-left: 6px;
     vertical-align: -0.08em;
     background-color: $bubble-bobble-p2;
     animation: hero-typewriter-blink 1.2s ease-in-out infinite;
 
     @media (min-width: $screen-md-min) {
-      width: 3px;
-      margin-left: 6px;
+      width: 6px;
+      margin-left: 10px;
     }
   }
 
-  // Hold the cursor solid while characters are appearing or erasing — only
-  // blink during pauses, the way real text editors do.
   .hero-typewriter.is-active .hero-typewriter-cursor {
     animation: none;
     opacity: 1;
@@ -268,10 +234,9 @@
 
   @keyframes hero-typewriter-blink {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+    50%      { opacity: 0; }
   }
 
-  // Honour vestibular preferences: no cycling, no blink.
   @media (prefers-reduced-motion: reduce) {
     .hero-typewriter-cursor {
       animation: none;
@@ -279,55 +244,155 @@
     }
   }
 
-  .hero-info-block {
-    max-width: 720px;
-    //margin: 30px 0;
+  .hero-subhead {
+    color: rgba(255, 255, 255, 0.78);
+    font-weight: $font-weight-light;
+    max-width: 780px;
+    margin: 0 0 32px;
+    // Bumped on desktop so the subhead carries enough weight to balance
+    // against the 100px+ headline. Mobile floor stays at 18px.
+    font-size: clamp(18px, 2vw, 28px);
+    line-height: 1.4;
+    text-wrap: pretty;
 
     @media (min-width: $screen-md-min) {
-    margin-bottom: 70px !important;
+      margin-bottom: 56px;
     }
+  }
 
-    // Mobile: Add padding between subheader and drone SVG
+  .hero-ai-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+
     @media (max-width: $screen-xs-max) {
-      margin-bottom: 15px !important;
+      gap: 10px;
     }
+  }
 
-    .hero-explore-label {
-      font-weight: $font-weight-normal;
-      font-size: 14px;
-      line-height: 24px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #9ca3af;
+  .hero-explore-label {
+    font-weight: $font-weight-normal;
+    font-size: 13px;
+    line-height: 24px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
 
-      @media (max-width: $screen-xs-max) {
-        font-size: 11px;
-        flex-shrink: 0;
-      }
+    @media (max-width: $screen-xs-max) {
+      font-size: 11px;
+      flex-shrink: 0;
+      width: 100%;
+      margin-bottom: -2px;
     }
+  }
 
-    .hero-ai-link {
-      display: inline-block;
-      opacity: 0.82;
-      transition: opacity 0.2s ease, transform 0.2s ease;
+  .hero-ai-link {
+    display: inline-block;
+    opacity: 0.82;
+    transition: opacity 0.2s ease, transform 0.2s ease;
 
-      &:hover {
-        opacity: 1;
-        transform: scale(1.04);
-      }
+    &:hover {
+      opacity: 1;
+      transform: scale(1.04);
     }
+  }
 
-    .hero-ai-btn {
+  .hero-ai-btn {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+
+    @media (max-width: $screen-xs-max) {
       height: 38px;
-      width: auto;
-      object-fit: contain;
-      display: block;
-
-      @media (max-width: $screen-xs-max) {
-        height: 26px;
-      }
     }
+  }
+}
 
+// Partner logo marquee. Anchored to the bottom of the hero on desktop so
+// the logos sit where the chevron used to live. On mobile it flows in the
+// document right after the AI buttons — anchoring to bottom there leaves
+// an awkward void.
+.hero-marquee {
+  position: absolute;
+  bottom: 24px;
+  left: calc(50% - 50vw);
+  width: 100vw;
+  padding: 8px 0;
+  overflow: hidden;
+  z-index: 2;
+  text-align: center;
+
+  @media (max-width: $screen-xs-max) {
+    // Mobile: in flow, hugging the bottom of the hero via the wrapper's
+    // flex space-between. No fixed margin — flex distributes the space.
+    position: relative;
+    bottom: auto;
+    left: 0;
+    margin-left: calc(50% - 50vw);
+  }
+}
+
+.hero-marquee-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.42);
+  margin: 0 0 18px;
+
+  @media (max-width: $screen-xs-max) {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    margin-bottom: 14px;
+    padding: 0 24px;
+  }
+}
+
+.hero-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  width: max-content;
+  animation: hero-marquee 50s linear infinite;
+  will-change: transform;
+
+  @media (max-width: $screen-xs-max) {
+    gap: 40px;
+    animation-duration: 40s;
+  }
+}
+
+@keyframes hero-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  // 24 logos (12 + duplicate), so -50% returns us to the start of the second copy.
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+.hero-marquee-logo {
+  height: 28px;
+  width: auto;
+  max-width: 130px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1);
+  opacity: 0.55;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  @media (max-width: $screen-xs-max) {
+    height: 22px;
+    max-width: 100px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-marquee-track {
+    animation: none;
   }
 }
 
@@ -356,7 +421,14 @@
 }
 
 .sdk-section {
+  // Generous breathing room above so the SDK section reads as a clean
+  // new chapter once the hero (with its bottom partner marquee) scrolls away.
+  padding-top: 80px;
   margin-bottom: 100px;
+
+  @media (min-width: $screen-md-min) {
+    padding-top: 140px;
+  }
 
   .sdk-info-block {
     max-width: 560px;
@@ -424,11 +496,16 @@
 
 }
 
-// ── Case studies on homepage ──
+// ── Case studies on homepage (autoscroll marquee) ──
 
 .case-studies-home-section {
   padding-top: 40px;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
+
+  @media (min-width: $screen-md-min) {
+    padding-top: 60px;
+    margin-bottom: 100px;
+  }
 }
 
 .case-studies-home-br {
@@ -440,13 +517,16 @@
 }
 
 .case-studies-home-header {
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 
   @media (min-width: $screen-md-min) {
     margin-bottom: 48px;
   }
 
   .h-2-home {
+    font-size: 28px;
+    line-height: 36px;
+
     @media (min-width: $screen-md-min) {
       font-size: 44px;
       line-height: 56px;
@@ -454,13 +534,19 @@
   }
 
   .home-text {
-    font-size: 18px;
-    line-height: 28px;
+    font-size: 16px;
+    line-height: 24px;
     color: rgba(255, 255, 255, 0.55);
+    max-width: 640px;
+
+    @media (min-width: $screen-md-min) {
+      font-size: 18px;
+      line-height: 28px;
+    }
   }
 }
 
-// ── Cards container ──
+// ── Cards container (3-card slick carousel on desktop, scroll-snap on mobile) ──
 
 .case-studies-home-carousel {
   // Mobile: horizontal scroll with snap
@@ -471,9 +557,7 @@
   scrollbar-width: none;
   padding: 16px 16px;
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  &::-webkit-scrollbar { display: none; }
 
   @media (min-width: $screen-sm-min) {
     padding: 16px 60px;
@@ -500,7 +584,7 @@
     gap: 20px;
   }
 
-  // ── Slick overrides (only on desktop where slick activates) ──
+  // Slick overrides (only on desktop where slick initialises)
   &.slick-initialized {
     @media (min-width: $screen-lg-min) {
       display: block;
@@ -508,9 +592,7 @@
     }
   }
 
-  .slick-track {
-    display: flex;
-  }
+  .slick-track { display: flex; }
 
   .slick-slide {
     height: auto;
@@ -518,13 +600,10 @@
     box-sizing: border-box;
   }
 
-  .slick-list {
-    margin: 0 -10px;
-  }
+  .slick-list { margin: 0 -10px; }
 }
 
-// ── Slick arrow buttons (desktop) ──
-
+// Slick arrow buttons (desktop)
 .case-studies-home-section {
   .slick-prev,
   .slick-next {
@@ -563,13 +642,8 @@
     }
   }
 
-  .slick-prev {
-    left: -68px;
-  }
-
-  .slick-next {
-    right: -68px;
-  }
+  .slick-prev { left: -68px; }
+  .slick-next { right: -68px; }
 }
 
 // ── Card ──
@@ -583,9 +657,9 @@
   border-radius: 20px;
   padding: 32px 24px 28px;
   color: #fff;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.04) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.03) 100%);
   backdrop-filter: blur(16px);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2), 0 0 30px rgba($bubble-bobble-p2, 0.05);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
   transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
 
   // Mobile scroll-snap
@@ -634,8 +708,8 @@
 
   &:hover {
     border-color: rgba($bubble-bobble-p2, 0.4);
-    box-shadow: 0 8px 40px rgba($bubble-bobble-p2, 0.15), 0 0 80px rgba($bubble-bobble-p2, 0.08);
-    transform: translateY(-4px);
+    box-shadow: 0 0 0 1px rgba($bubble-bobble-p2, 0.18), 0 6px 24px rgba($bubble-bobble-p2, 0.06);
+    transform: translateY(-3px);
     color: #fff;
 
     &::before {
@@ -838,3 +912,5 @@
     }
   }
 }
+
+

@@ -14,8 +14,10 @@ $(function () {
           slidesToScroll: 1,
           infinite: true,
           arrows: true,
-          autoplay: false,
-          speed: 500,
+          autoplay: true,
+          autoplaySpeed: 3800,
+          pauseOnHover: true,
+          speed: 650,
           cssEase: 'cubic-bezier(0.4, 0.0, 0.2, 1)',
         });
       }

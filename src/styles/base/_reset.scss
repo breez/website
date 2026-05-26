@@ -33,7 +33,22 @@ body {
   min-height: -webkit-fill-available;
   overflow-x: clip;
 
-  background: $body-background;
+  // One continuous brand atmosphere across the whole page. A single radial
+  // sized 180% wide / 130% tall of the body so the gradient extends to the
+  // far corner without ever repeating. The cobalt sits at the top-left and
+  // fades through navy and deep blue into near-black at the bottom-right.
+  background-color: $body-background;
+  background-image: radial-gradient(
+    180% 130% at 0% 0%,
+    #00489A 0%,
+    #032570 18%,
+    #051B60 32%,
+    #021545 55%,
+    #00091C 80%
+  );
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: 100% 100%;
   //body-text
   font-size: 22px;
   font-weight: $font-weight-light;

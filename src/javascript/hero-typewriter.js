@@ -1,4 +1,4 @@
-const PHRASES = [
+const PHRASES_DESKTOP = [
   'Every App',
   'Neobanks',
   'Crypto Wallets',
@@ -7,6 +7,30 @@ const PHRASES = [
   'Exchanges',
   'Social Apps',
 ];
+
+// "Crypto Wallets" and "Swaps & Bridges" don't fit comfortably under a
+// 60px headline on a 360-390px viewport. Drop a shortened set on mobile.
+const PHRASES_MOBILE = [
+  'Every App',
+  'Neobanks',
+  'Wallets',
+  'Remittances',
+  'Swaps',
+  'Bridges',
+  'Exchanges',
+  'Social Apps',
+];
+
+const MOBILE_BREAKPOINT = 768;
+const mobileMQ = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
+
+// Mutable so we can swap if the viewport crosses the breakpoint while the
+// page is open (devtools resize, rotating a tablet, etc).
+let PHRASES = mobileMQ.matches ? PHRASES_MOBILE : PHRASES_DESKTOP;
+
+mobileMQ.addEventListener('change', (e) => {
+  PHRASES = e.matches ? PHRASES_MOBILE : PHRASES_DESKTOP;
+});
 
 const TYPE_MIN = 75;
 const TYPE_MAX = 115;
