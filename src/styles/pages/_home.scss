@@ -359,7 +359,11 @@
   gap: var(--marquee-gap);
   width: max-content;
   animation: hero-marquee 50s linear infinite;
-  will-change: transform;
+  // Intentionally NO `will-change: transform` — on iOS Safari it promotes
+  // the entire ~3000px-wide track into a single GPU compositing layer,
+  // which at 3× DPR pushes past the texture-tile threshold and causes
+  // visible jumps mid-animation. Letting Safari decide on its own keeps
+  // the rasterization scoped to the viewport.
 
   @media (max-width: $screen-xs-max) {
     --marquee-gap: 40px;
