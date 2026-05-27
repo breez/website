@@ -351,32 +351,37 @@
 }
 
 .hero-marquee-track {
+  // Exposed as a custom property so the keyframe can use it to compensate
+  // for the half-gap offset (see @keyframes hero-marquee below).
+  --marquee-gap: 64px;
   display: flex;
   align-items: center;
+  gap: var(--marquee-gap);
   width: max-content;
   animation: hero-marquee 50s linear infinite;
   will-change: transform;
-  // Spacing lives on the logos (margin-right) instead of flex `gap` so the
-  // boundary between the original set and its duplicate matches the internal
-  // spacing exactly. With flex gap, -50% lands half-a-gap off and the snap
-  // visibly lurches once per loop (most noticeable mid-track).
 
   @media (max-width: $screen-xs-max) {
+    --marquee-gap: 40px;
     animation-duration: 40s;
   }
 }
 
 @keyframes hero-marquee {
   from { transform: translate3d(0, 0, 0); }
-  // 24 logos (12 + duplicate), so -50% returns us to the start of the second copy.
-  to   { transform: translate3d(-50%, 0, 0); }
+  // 24 logos (12 + duplicate) with flex `gap` produce 23 internal gaps, so
+  // the track width = 24*logo + 23*gap. A plain -50% lands half-a-gap short
+  // of the start of the duplicate set, producing a visible snap-back lurch
+  // (most noticeable on iOS Safari, where trailing margins aren't included
+  // in `max-content`). Subtracting half the gap puts the loop point exactly
+  // on item #13 so the snap is invisible.
+  to   { transform: translate3d(calc(-50% - var(--marquee-gap) / 2), 0, 0); }
 }
 
 .hero-marquee-logo {
   height: 28px;
   width: auto;
   max-width: 130px;
-  margin-right: 64px;
   object-fit: contain;
   flex-shrink: 0;
   filter: brightness(0) invert(1);
@@ -390,7 +395,6 @@
   @media (max-width: $screen-xs-max) {
     height: 22px;
     max-width: 100px;
-    margin-right: 40px;
   }
 }
 
