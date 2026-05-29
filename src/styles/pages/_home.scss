@@ -177,10 +177,12 @@
       max-width: 1080px;
     }
 
-    @media (max-width: $screen-xs-max) {
-      // Auto top + bottom margins centre the info-block in the space above
-      // the marquee, while the marquee itself stays pinned to the bottom.
-      margin: auto 0;
+    @media (max-width: $screen-sm-max) {
+      // margin-top:auto absorbs the hero's free space above the copy, pinning
+      // the marquee to the bottom of the frame; the illustration's own top/
+      // bottom margins set its breathing room. Collapses to top-aligned when
+      // content exceeds the viewport (small phones) — no clipping under the nav.
+      margin: auto 0 0;
     }
   }
 
@@ -308,6 +310,47 @@
       height: 38px;
     }
   }
+
+  // Decorative line illustration. Fills the open right side (copy is anchored
+  // left) without competing with the headline: sits behind the copy at low
+  // opacity, with its inboard edge feathered into the gradient.
+  .hero-illustration {
+    position: absolute;
+    z-index: 1; // behind .hero-info-block and .hero-marquee (both z-index 2)
+    height: auto;
+    pointer-events: none;
+    user-select: none;
+
+    @media (min-width: $screen-md-min) {
+      // Lower-right, bleeding off the viewport edge, clearing the marquee
+      // strip at the bottom. `calc(50% - 50vw)` resolves to the viewport's
+      // right edge regardless of the .main-container gutter.
+      right: calc(50% - 50vw);
+      bottom: 120px;
+      width: min(56vw, 820px);
+      // Kept low so the faint left figure recedes where long typewriter words
+      // ("Remittances") reach into its feathered edge — see the desktop hero.
+      opacity: 0.3;
+      -webkit-mask-image: linear-gradient(to left, #000 56%, transparent 100%);
+              mask-image: linear-gradient(to left, #000 56%, transparent 100%);
+    }
+
+    // Up to $screen-sm-max so this pairs gap-free with the $screen-md-min
+    // desktop rule above (575px..768px would otherwise match neither).
+    @media (max-width: $screen-sm-max) {
+      // Full-bleed and larger on mobile, sitting between the copy and the
+      // marquee — more room above it (28px, off the AI row) than below it
+      // (24px, snug to the marquee). The info-block's margin-top:auto pushes
+      // this whole group down so the marquee hugs the frame.
+      position: relative;
+      width: 100vw;
+      max-width: none;
+      margin: 28px calc(50% - 50vw) 24px;
+      // Full opacity on mobile: unlike desktop (where it sits behind the copy
+      // and must recede), here it's a standalone element in its own space.
+      opacity: 1;
+    }
+  }
 }
 
 // Partner logo marquee. Anchored to the bottom of the hero on desktop so
@@ -324,9 +367,9 @@
   z-index: 2;
   text-align: center;
 
-  @media (max-width: $screen-xs-max) {
-    // Mobile: in flow, hugging the bottom of the hero via the wrapper's
-    // flex space-between. No fixed margin — flex distributes the space.
+  @media (max-width: $screen-sm-max) {
+    // Mobile: in flow, hugging the bottom of the frame — pinned there by the
+    // info-block's margin-top:auto absorbing the slack above the copy.
     position: relative;
     bottom: auto;
     left: 0;
@@ -433,10 +476,11 @@
 }
 
 .sdk-section {
-  // Generous breathing room above so the SDK section reads as a clean
-  // new chapter once the hero (with its bottom partner marquee) scrolls away.
-  padding-top: 80px;
-  margin-bottom: 100px;
+  // Shared homepage section rhythm: each section's top padding owns the gap
+  // ABOVE it (96px mobile / 140px desktop) and bottom margins are zeroed, so
+  // inter-section gaps stay uniform and never compound.
+  padding-top: 96px;
+  margin-bottom: 0;
 
   @media (min-width: $screen-md-min) {
     padding-top: 140px;
@@ -481,8 +525,12 @@
 }
 
 .contact-us-section {
-  padding-top: 100px;
-  margin-bottom: 50px;
+  padding-top: 96px;
+  margin-bottom: 80px;
+
+  @media (min-width: $screen-md-min) {
+    padding-top: 140px;
+  }
 
   .contact-us-info-block {
     max-width: 560px;
@@ -511,20 +559,11 @@
 // ── Case studies on homepage (autoscroll marquee) ──
 
 .case-studies-home-section {
-  padding-top: 40px;
-  margin-bottom: 80px;
+  padding-top: 96px;
+  margin-bottom: 0;
 
   @media (min-width: $screen-md-min) {
-    padding-top: 60px;
-    margin-bottom: 100px;
-  }
-}
-
-.case-studies-home-br {
-  display: none;
-
-  @media (max-width: 767px) {
-    display: block;
+    padding-top: 140px;
   }
 }
 
@@ -536,25 +575,19 @@
   }
 
   .h-2-home {
-    font-size: 28px;
-    line-height: 36px;
-
-    @media (min-width: $screen-md-min) {
-      font-size: 44px;
-      line-height: 56px;
-    }
+    // Match the Breez SDK section header (44/56) at every width so all
+    // homepage section headers are consistent.
+    font-size: 44px;
+    line-height: 56px;
   }
 
   .home-text {
-    font-size: 16px;
-    line-height: 24px;
-    color: rgba(255, 255, 255, 0.55);
+    // Match the other section subheads (.home-text.--text-2): white, 18/28 —
+    // not the muted/smaller treatment this header used before.
+    font-size: 18px;
+    line-height: 28px;
+    color: $white;
     max-width: 640px;
-
-    @media (min-width: $screen-md-min) {
-      font-size: 18px;
-      line-height: 28px;
-    }
   }
 }
 
@@ -878,18 +911,21 @@
 // ── Vision section on homepage ──
 
 .playground-home-section {
-  padding-top: 40px;
-  margin-bottom: 100px;
+  padding-top: 96px;
+  margin-bottom: 0;
+
+  @media (min-width: $screen-md-min) {
+    padding-top: 140px;
+  }
 
   .playground-home-info-block {
     max-width: 560px;
     margin-bottom: 60px;
 
     .h-2-home {
-      @media (min-width: 768px) {
-        font-size: 44px;
-        line-height: 56px;
-      }
+      // Consistent with the Breez SDK section header (44/56) at every width.
+      font-size: 44px;
+      line-height: 56px;
     }
 
     .home-text.--text-2 {
@@ -904,18 +940,21 @@
 }
 
 .vision-home-section {
-  padding-top: 40px;
-  margin-bottom: 100px;
+  padding-top: 96px;
+  margin-bottom: 0;
+
+  @media (min-width: $screen-md-min) {
+    padding-top: 140px;
+  }
 
   .vision-home-info-block {
     max-width: 560px;
     margin-bottom: 60px;
 
     .h-2-home {
-      @media (min-width: 768px) {
-        font-size: 44px;
-        line-height: 56px;
-      }
+      // Consistent with the Breez SDK section header (44/56) at every width.
+      font-size: 44px;
+      line-height: 56px;
     }
 
     .home-text.--text-2 {

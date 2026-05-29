@@ -5,6 +5,7 @@ node_modules/
 *.log
 
 .idea
+.claude/
 
 # OS generated files
 .DS_Store
