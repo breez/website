@@ -501,6 +501,13 @@
   }
 }
 
+// Homepage Contact Us title matches the other homepage section titles
+// (Breez SDK). Scoped to .home-page so other pages are unaffected.
+.home-page .contact-us-section .h-2-home {
+  font-size: 44px;
+  line-height: 56px;
+}
+
 .min-margin {
   @media screen and (min-width: 375px) and (max-width: 390px) {
     margin-bottom: 5px;
@@ -520,14 +527,6 @@
   }
 }
 
-.case-studies-home-br {
-  display: none;
-
-  @media (max-width: 767px) {
-    display: block;
-  }
-}
-
 .case-studies-home-header {
   margin-bottom: 32px;
 
@@ -536,25 +535,13 @@
   }
 
   .h-2-home {
-    font-size: 28px;
-    line-height: 36px;
-
-    @media (min-width: $screen-md-min) {
-      font-size: 44px;
-      line-height: 56px;
-    }
+    font-size: 44px;
+    line-height: 56px;
   }
 
   .home-text {
-    font-size: 16px;
-    line-height: 24px;
-    color: rgba(255, 255, 255, 0.55);
-    max-width: 640px;
-
-    @media (min-width: $screen-md-min) {
-      font-size: 18px;
-      line-height: 28px;
-    }
+    font-size: 18px;
+    line-height: 28px;
   }
 }
 
@@ -886,10 +873,8 @@
     margin-bottom: 60px;
 
     .h-2-home {
-      @media (min-width: 768px) {
-        font-size: 44px;
-        line-height: 56px;
-      }
+      font-size: 44px;
+      line-height: 56px;
     }
 
     .home-text.--text-2 {
@@ -912,10 +897,8 @@
     margin-bottom: 60px;
 
     .h-2-home {
-      @media (min-width: 768px) {
-        font-size: 44px;
-        line-height: 56px;
-      }
+      font-size: 44px;
+      line-height: 56px;
     }
 
     .home-text.--text-2 {
