@@ -116,6 +116,9 @@ module.exports = {
         'case-studies/klever/index': {
           import: paths.src + '/views/pages/case-studies/case-study-klever.html',
         },
+        'case-studies/sorted/index': {
+          import: paths.src + '/views/pages/case-studies/case-study-sorted.html',
+        },
         'playground/index': {
           import: paths.src + '/views/pages/playground/playground.html',
         },

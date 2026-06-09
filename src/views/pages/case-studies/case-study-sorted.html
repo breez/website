@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Breez SDK | Case Study: Sorted</title>
+    <meta name="description" content="How Sorted brought instant, non-custodial bitcoin to feature phones using the Breez SDK, reaching 500K+ downloads across 160 countries.">
+    <meta property="og:image" content="../../../assets/images/sorted_casestudy_header.jpg" />
+    <meta property="og:title" content="Breez SDK | Case Study: Sorted" />
+    <meta property="og:description"
+          content="How Sorted brought instant, non-custodial bitcoin to feature phones using the Breez SDK, reaching 500K+ downloads across 160 countries." />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Breez_Tech" />
+    <meta name="twitter:creator" content="@Breez_Tech" />
+    <meta name="twitter:title" content="Breez SDK | Case Study: Sorted" />
+    <meta name="twitter:description"
+          content="How Sorted brought instant, non-custodial bitcoin to feature phones using the Breez SDK, reaching 500K+ downloads across 160 countries." />
+    <meta name="twitter:image" content="../../../assets/images/sorted_casestudy_header.jpg" />
+    <meta property="og:url" content="https://breez.technology/case-studies/sorted/" />
+    <link rel="canonical" href="https://breez.technology/case-studies/sorted/" />
+    <link rel="icon" href="../../../assets/icons/favicon.svg">
+    <script defer="defer" src="../../../index.js"></script>
+</head>
+
+<body>
+
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark header-container header-background fixed-top"
+         aria-label="Breez header">
+        <div class="container-fluid">
+            <a href="/">
+                <img class="me-5" src="../../../assets/icons/logo-breez-header.svg" alt="header breez logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBreez"
+                    aria-controls="navbarBreez" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="burger burger-slip">
+                    <div class="burger-lines"></div>
+                </div>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarBreez">
+                <ul class="d-lg-flex text-uppercase">
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/" class="text-decoration-none">Home</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/sdk" class="text-decoration-none">SDK</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/case-studies" class="text-decoration-none">Case Studies</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/playground" class="text-decoration-none">Playground</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/vision" class="text-decoration-none">Vision</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="https://blog.breez.technology" target="_blank" class="text-decoration-none">Blog</a>
+                    </li>
+                    <li class="header-links form mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/#contact-us-form" role="button" class="text-decoration-none">
+                            Contact us
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="d-flex align-items-center ms-auto">
+                    <li class="social-media">
+                        <a href="https://x.com/breez_tech" target="_blank" class="">
+                            <img src="../../../assets/icons/x-icon.svg" alt="x icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://t.me/breezsdk" target="_blank" class="">
+                            <img src="../../../assets/icons/telegram-icon.svg" alt="telegram icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://newsletter.breez.technology" target="_blank" class="">
+                            <img src="../../../assets/icons/substack-icon.svg" alt="substack icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://github.com/breez" target="_blank" class="">
+                            <img src="../../../assets/icons/github-icon.svg" alt="github icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="mailto:contact@breez.technology" class="">
+                            <img src="../../../assets/icons/email-icon.svg" alt="email icon" class="icon">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="case-study-page container position-relative">
+    <div class="case-study-breadcrumb">
+        <a href="/case-studies">Case Studies</a>
+        <span class="breadcrumb-separator">|</span>
+        <span>Crypto Wallets</span>
+    </div>
+
+    <header class="case-study-header">
+        <h1 class="h-1">
+            Sorted: Bitcoin for Feature Phones
+        </h1>
+    </header>
+
+    <section class="case-study-hero" aria-label="Sorted case study">
+        <div class="case-study-hero-inner">
+            <img src="../../../assets/images/sorted_casestudy_header.jpg" alt="Sorted case study" class="case-study-hero-img">
+        </div>
+    </section>
+
+    <section class="case-study-meta-strip" aria-label="Case study metadata">
+        <div class="case-study-meta-item">
+            <div class="case-study-meta-label">Use Case</div>
+            <div class="case-study-meta-value">Crypto Wallets</div>
+        </div>
+        <div class="case-study-meta-item">
+            <div class="case-study-meta-label">Region</div>
+            <div class="case-study-meta-value">Emerging Markets</div>
+        </div>
+        <div class="case-study-meta-item">
+            <div class="case-study-meta-label">Products Used</div>
+            <div class="case-study-meta-value">Breez SDK - Liquid</div>
+        </div>
+        <div class="case-study-meta-item">
+            <div class="case-study-meta-label">Key Metric</div>
+            <div class="case-study-meta-value">500K+ downloads</div>
+        </div>
+    </section>
+
+    <section class="case-study-section">
+        <div class="case-study-section-label">Who's Sorted?</div>
+        <div class="case-study-partner-header">
+            <div class="case-study-partner-logo-box">
+                <img src="../../../assets/images/logotypes/sortedwallet.svg" alt="Sorted">
+            </div>
+            <div class="case-study-partner-name">Sorted</div>
+        </div>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                <a href="https://www.sorted.io/" target="_blank" rel="noopener noreferrer">Sorted Wallet</a> is a non-custodial crypto app built for the phones almost everyone ignores: feature phones and low-spec Android devices. It's the lightest crypto wallet in the Google Play Store at around 10 MB, which is small enough to run on hardware most of the industry assumed went extinct two decades ago.
+            </p>
+            <p class="body-text --text-1">
+                The company was founded by CEO Stephen Browne after a simple experiment. Curious whether feature phones were still in use, he bought one in Hong Kong and found an app store with more than 1,200 apps, including top names like YouTube and Google, but not a single crypto app. That gap was the whole opportunity.
+            </p>
+            <p class="body-text --text-1">
+                Today, Sorted has more than 500,000 downloads across 160 countries and a <a href="https://medium.com/@sortedwallet/sorted-raises-4-4m-to-put-stablecoins-in-every-phone-bb67c1574dd4" target="_blank" rel="noopener noreferrer">$4.4 million seed round led by Tether and Gnosis</a>. The thesis is that bitcoin's reach should be measured in people, not just countries. There are roughly 300 to 500 million feature-phone users worldwide, more than half of Africa among them, including a large share of the 1.4 billion adults with no bank account at all. These are the people permissionless money was built to serve, and they're the ones legacy banking and finance had quietly written off.
+            </p>
+        </div>
+    </section>
+
+    <div class="case-study-divider"></div>
+
+    <section class="case-study-section">
+        <div class="case-study-section-label">The Challenge</div>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                Crypto apps aim for the devices of the early adopters: high-end phones. Nobody builds for the people who run their daily lives on feature phones because they're inexpensive, durable, and unappealing to thieves. Reaching those users meant solving a problem the industry had decided to skip.
+            </p>
+            <p class="body-text --text-1">
+                The technical challenge was real. Putting bitcoin on a phone normally means running a node, and running a client node locally is far too demanding for a feature phone. For Sorted's users, it was simply impossible. The obvious workaround, a custodial app, traded one problem for several: regulatory exposure, counterparty risk, and a direct contradiction of the mission. You do not empower people by taking possession of their money. On top of all of it, the app itself had to be tiny, because these devices have almost no memory or processing power to spare.
+            </p>
+            <p class="body-text --text-1">
+                And the cost of forsaking those users is steep. Remittances, the first thing they need, bleed 10% to 12% to fees and intermediaries before the money arrives. Cashing out means waiting in bank lines or walking to a shop. For people receiving a couple hundred dollars a month from family abroad, that friction is not an inconvenience, it's a meaningful share of their livelihoods. Doing nothing meant keeping these users outside the financial system that the modern world was supposed to open to them.
+            </p>
+        </div>
+    </section>
+
+    <div class="case-study-divider"></div>
+
+    <section class="case-study-section">
+        <div class="case-study-section-label">The Solution</div>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                Sorted integrated the Breez SDK inside their app to power their Lightning-fast bitcoin transactions, with no node to run and no custodial backend to operate. Instead, users get a non-custodial bitcoin balance that settles quickly, built on the Liquid implementation of the Breez SDK, with a computational and storage footprint light enough to run inside a 10 MB app on a feature phone. Users keep their own keys, and the SDK supports both bitcoin and USDT.
+            </p>
+        </div>
+
+        <p class="body-text --text-1 case-study-solution-label --top"><strong>For users:</strong></p>
+        <ul class="case-study-benefit-list">
+            <li class="body-text --text-1">
+                <strong>Speed:</strong> Payments settle quickly. Money arrives in seconds, on the phone already in the user's pocket, instead of at the end of a long bank queue.
+            </li>
+            <li class="body-text --text-1">
+                <strong>Economy:</strong> Transactions are significantly cheaper than the 10% to 12% that conventional remittances lose. Fees are small enough that the same balance pays for everyday needs in the app: mobile airtime, electricity, a telephone bill, with no offramp and no trip to a shop.
+            </li>
+            <li class="body-text --text-1">
+                <strong>Reach:</strong> The SDK runs on the simplest hardware there is, non-custodially, which is the entire point. It puts bitcoin in the hands of people no other wallet cared to reach.
+            </li>
+        </ul>
+
+        <section class="case-study-quote" aria-label="Partner quote">
+            <p class="body-text --text-1 case-study-quote-text">
+                "We've been able to deliver bitcoin and Lightning to really low-spec feature phones, something you cannot imagine happening with any other service. It's not hype. We're creating genuine use cases that help people in emerging markets get real financial access and become part of the global financial system."
+            </p>
+            <p class="caption-1 case-study-quote-attribution">
+                Shishir Gupta, Managing Director — Sorted Wallet
+            </p>
+        </section>
+
+        <p class="body-text --text-1 case-study-solution-label"><strong>For developers:</strong></p>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                Sorted's developers found the SDK "extremely easy" to integrate, and it did not take long to get bitcoin into the app. Where the device constraints created obstacles, the Breez team worked through them in real time, with both engineering teams trading messages late into the night until it shipped.
+            </p>
+            <p class="body-text --text-1">
+                The SDK absorbed the part that had kept bitcoin off these phones. It delivers non-custodial bitcoin without a local node, which Sorted never wanted to take on and their users could never have run themselves. They also avoided a custodial backend and the regulatory weight that comes with it. Sorted now delivers Lightning-fast bitcoin through the lightest crypto wallet on Google Play.
+            </p>
+        </div>
+
+        <p class="body-text --text-1 case-study-solution-label --top"><strong>For growth:</strong></p>
+        <div class="case-study-body">
+            <p class="body-text --text-1">
+                Sorted is proving that the number that matters is how many people can actually use it. When the wallet runs on the device already in someone's pocket, the addressable market expands beyond the banked and the well-equipped to include, in principle, everyone.
+            </p>
+        </div>
+    </section>
+
+    <section class="case-study-cta-section position-relative">
+        <div class="case-study-cta-inner">
+            <h3 class="h-3 --big-heading fw-bold mb-2">Ready to Get Started?</h3>
+            <p class="body-text mb-3">
+                Join Sorted and 75+ apps adding instant, non-custodial bitcoin with the Breez SDK.
+            </p>
+            <a href="https://breez.technology/sdk" role="button" class="primary-btn text-decoration-none">
+                <div style="margin: auto;">Start Building</div>
+            </a>
+        </div>
+        <div class="gradient --case-study-cta-radial-gradient-bottom-left"></div>
+        <div class="gradient --case-study-cta-bright-blue-gradient"></div>
+    </section>
+
+    <div class="gradient --sdk-implementation-radial-gradient-top-left"></div>
+    <div class="gradient --sdk-implementation-radial-gradient-bottom-right"></div>
+</div>
+
+<footer class="footer position-relative">
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-between py-4">
+            <a href="/">
+                <img class="me-5" src="../../../assets/icons/logo-breez-footer.svg" alt="footer breez logo">
+            </a>
+            <span class="caption-2">&#169;2026 All rights reserved</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+
+</html>
