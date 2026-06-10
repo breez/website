@@ -564,8 +564,12 @@
 
   @media (min-width: $screen-lg-min) {
     overflow: visible;
-    padding: 0 160px;
+    padding: 0 100px;
     position: relative;
+  }
+
+  @media (min-width: 1440px) {
+    padding: 0 160px;
   }
 }
 
@@ -853,6 +857,13 @@
     @media (min-width: $screen-md-min) {
       font-size: 26px;
       line-height: 32px;
+    }
+
+    // Desktop slides are fluid but the font is fixed, so titles reflow per
+    // viewport (1–3 lines). Lock the measure to the 1440px reference column
+    // so every title breaks into the same two balanced lines at any width.
+    @media (min-width: $screen-lg-min) {
+      max-width: 292px;
     }
   }
 }
