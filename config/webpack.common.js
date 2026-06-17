@@ -119,6 +119,9 @@ module.exports = {
         'case-studies/sorted/index': {
           import: paths.src + '/views/pages/case-studies/case-study-sorted.html',
         },
+        'case-studies/cluborange/index': {
+          import: paths.src + '/views/pages/case-studies/case-study-cluborange.html',
+        },
         'playground/index': {
           import: paths.src + '/views/pages/playground/playground.html',
         },
