@@ -11,6 +11,21 @@
   }
 }
 
+// Diagonal light sweep that crosses a card on hover.
+@keyframes csShine {
+  from {
+    left: -60%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  to {
+    left: 120%;
+    opacity: 0;
+  }
+}
+
 // ── View Transitions: smooth, Apple-style filter motion ──
 // When cards are filtered, the browser snapshots the layout, applies the change,
 // then crossfades + tweens position changes. No layout jumps, no abrupt removals.
@@ -70,6 +85,15 @@
     @media (min-width: $screen-xxl-min) {
       max-width: 1184px;
     }
+  }
+}
+
+// On very large screens, match the SDK / playground page width (they extend to
+// 1400px at xxxl). The hub is a card grid and gains from the extra room;
+// individual case-study article pages stay narrower for comfortable reading.
+.case-studies-page.container {
+  @media (min-width: $screen-xxxl-min) {
+    max-width: 1400px;
   }
 }
 
@@ -281,40 +305,51 @@ body.case-studies-hub-page .case-studies-page {
     }
   }
 
-  // ── Showcase cards ──
-  .case-studies-showcase {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+  // ── Showcase: uniform card grid ──
+  // Existing `.cs-card` / `.js-case-card` hooks stay; the layout is a uniform
+  // 3-per-row grid (→ 2-col on md, → 1-col on mobile). Each card keeps just the
+  // logo, category, title and excerpt — the whole card is the link.
+  .cs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
     margin-top: 32px;
 
     @media (min-width: $screen-md-min) {
-      gap: 2rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
       margin-top: 48px;
     }
 
     @media (min-width: $screen-lg-min) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.75rem;
       margin-top: 56px;
     }
   }
 
   .cs-card {
     position: relative;
-    display: block;
+    display: flex;
+    flex-direction: column;
     border-radius: 16px;
-    border: 1px solid rgba(80, 150, 255, 0.3);
+    border: 1px solid rgba(80, 150, 255, 0.22);
     background: rgba(255, 255, 255, 0.02);
     color: $white;
     overflow: hidden;
-    box-shadow: 0 0 30px rgba(80, 150, 255, 0.15), 0 0 60px rgba(80, 150, 255, 0.06);
-    transition: border-color 0.35s ease, transform 0.3s ease, box-shadow 0.35s ease;
-    animation: csCardReveal 0.4s cubic-bezier(0.4, 0, 0.2, 1) backwards;
+    isolation: isolate;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1),
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+    animation: csCardReveal 0.5s cubic-bezier(0.32, 0.72, 0, 1) backwards;
 
     &:nth-child(1) { animation-delay: 0ms; }
     &:nth-child(2) { animation-delay: 60ms; }
     &:nth-child(3) { animation-delay: 120ms; }
     &:nth-child(4) { animation-delay: 180ms; }
     &:nth-child(5) { animation-delay: 240ms; }
+    &:nth-child(6) { animation-delay: 300ms; }
 
     &.is-filtered-out {
       display: none;
@@ -326,196 +361,163 @@ body.case-studies-hub-page .case-studies-page {
 
     &:hover {
       color: $white;
-      border-color: rgba(0, 133, 251, 0.6);
-      transform: translateY(-3px);
-      box-shadow: 0 0 40px rgba(80, 150, 255, 0.25), 0 0 80px rgba(80, 150, 255, 0.12), 0 24px 64px rgba(0, 0, 0, 0.5);
+      transform: translateY(-4px);
+      border-color: rgba(0, 133, 251, 0.55);
+      box-shadow: 0 0 0 1px rgba(0, 133, 251, 0.2),
+                  0 24px 64px rgba(0, 0, 0, 0.5),
+                  0 0 50px rgba(0, 133, 251, 0.18);
 
-      .cs-card-glow {
-        opacity: 1;
-      }
-
-      .cs-card-metric {
-        background-position: 100% 50%;
-      }
-
-      .cs-card-btn {
-        opacity: 0.7;
-      }
+      .cs-spot { opacity: 1; }
+      .cs-card-cta img { transform: translateX(4px); }
     }
   }
 
-  .cs-card-glow {
+  // Cursor-following spotlight — `--mx`/`--my` are set by case-studies-card-fx.js.
+  .cs-spot {
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 50% 60% at 15% 50%, rgba(0, 133, 251, 0.12) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
+    z-index: 0;
     pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    background: radial-gradient(
+      420px circle at var(--mx, 50%) var(--my, 0%),
+      rgba(0, 133, 251, 0.16) 0%,
+      transparent 60%
+    );
+  }
+
+  // Diagonal shine sweep on hover.
+  .cs-shine {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -60%;
+      width: 45%;
+      height: 100%;
+      transform: skewX(-18deg);
+      background: linear-gradient(
+        105deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.10) 50%,
+        transparent 100%
+      );
+      opacity: 0;
+    }
+  }
+
+  .cs-card:hover .cs-shine::before {
+    animation: csShine 0.9s ease forwards;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cs-card:hover {
+      transform: none;
+    }
+
+    .cs-card:hover .cs-shine::before {
+      animation: none;
+    }
   }
 
   .cs-card-inner {
     position: relative;
     z-index: 1;
-    padding: 1.75rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.5rem;
 
     @media (min-width: $screen-md-min) {
-      display: flex;
-      align-items: center;
-      gap: 2.5rem;
-      padding: 2.5rem;
-    }
-
-    @media (min-width: $screen-lg-min) {
-      gap: 3.5rem;
-      padding: 3rem;
+      padding: 1.75rem;
     }
   }
 
-  .cs-card-logo-col {
+  .cs-card-logo {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    width: 100px;
-    height: 100px;
-    border-radius: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 13px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(0, 0, 0, 0.4);
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.4rem;
 
     img {
-      max-width: 64px;
-      max-height: 64px;
+      max-width: 34px;
+      max-height: 34px;
       object-fit: contain;
     }
-
-    @media (min-width: $screen-md-min) {
-      width: 130px;
-      height: 130px;
-      border-radius: 24px;
-      margin-bottom: 0;
-
-      img {
-        max-width: 80px;
-        max-height: 80px;
-      }
-    }
-
-    @media (min-width: $screen-lg-min) {
-      width: 160px;
-      height: 160px;
-
-      img {
-        max-width: 100px;
-        max-height: 100px;
-      }
-    }
-  }
-
-  .cs-card-body {
-    flex: 1;
-    min-width: 0;
   }
 
   .cs-card-category {
-    display: block;
     font-size: 11px;
     line-height: 16px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: $bubble-bobble-p2;
-    margin-bottom: 8px;
-  }
-
-  .cs-card-metric-wrap {
-    margin-bottom: 12px;
-
-    @media (min-width: $screen-md-min) {
-      margin-bottom: 16px;
-    }
-  }
-
-  .cs-card-metric {
-    display: block;
-    font-size: 48px;
-    line-height: 1;
-    font-weight: $font-weight-bold;
-    letter-spacing: -0.03em;
-    background: linear-gradient(135deg, $white 0%, $bubble-bobble-p2 50%, $white 100%);
-    background-size: 200% 200%;
-    background-position: 0% 50%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: background-position 0.6s ease;
-
-    @media (min-width: $screen-md-min) {
-      font-size: 64px;
-    }
-
-    @media (min-width: $screen-lg-min) {
-      font-size: 72px;
-    }
-  }
-
-  .cs-card-metric-label {
-    display: block;
-    font-size: 13px;
-    line-height: 18px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: $cabaret-charm;
-    margin-top: 4px;
-
-    @media (min-width: $screen-md-min) {
-      font-size: 14px;
-      margin-top: 6px;
-    }
+    font-weight: $font-weight-medium;
   }
 
   .cs-card-title {
-    font-size: 17px;
-    line-height: 24px;
+    font-size: 18px;
+    line-height: 25px;
     font-weight: $font-weight-bold;
     color: $white;
-    margin-bottom: 4px;
+    margin: 0;
+    text-wrap: balance;
 
-    @media (min-width: $screen-md-min) {
-      font-size: 20px;
-      line-height: 28px;
-    }
+    // Short titles (Sorted, Yolat) would otherwise sit on one line while the
+    // rest wrap to two — uneven on mobile and desktop alike. Cap the measure
+    // (every title's natural width is 307–389px) so all nine break into the
+    // same two balanced lines at every width.
+    max-width: 280px;
   }
 
   .cs-card-excerpt {
     font-size: 14px;
     line-height: 21px;
     color: $cabaret-charm;
-    margin-bottom: 16px;
-
-    @media (min-width: $screen-md-min) {
-      margin-bottom: 20px;
-    }
+    margin: 0;
+    // Hard-cap every excerpt at two lines. The full text stays in the DOM
+    // (so SEO/answer engines still read it) — only the visible teaser clamps.
+    // min-height reserves the two-line box so cards stay the same height.
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    min-height: 42px;
   }
 
-  .cs-card-btn.primary-btn {
-    width: auto;
+  // Lightweight "read" affordance, pinned to the card bottom so every card
+  // ends on the same line regardless of excerpt length.
+  .cs-card-cta {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    padding: 0 28px;
-    height: 40px;
+    gap: 0.4rem;
+    margin-top: auto;
+    padding-top: 0.85rem;
     font-size: 13px;
-    white-space: nowrap;
+    line-height: 18px;
+    font-weight: $font-weight-medium;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    cursor: pointer;
-    opacity: 1;
-    transition: opacity 0.2s ease;
+    color: $white;
 
-    @media (min-width: $screen-md-min) {
-      height: 44px;
-      padding: 0 36px;
-      font-size: 14px;
+    img {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.25s ease;
     }
   }
 

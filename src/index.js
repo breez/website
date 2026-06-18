@@ -40,6 +40,7 @@ import './javascript/spinner-loader'
 
 import { load } from 'recaptcha-v3'
 import './javascript/case-studies-filters'
+import './javascript/case-studies-card-fx'
 import './javascript/case-studies-home-carousel'
 import './javascript/globe-lightning'
 import './javascript/hero-typewriter'
