@@ -1,0 +1,31 @@
+# Breez Technology
+
+> Breez builds SDKs that let developers integrate instant, non-custodial bitcoin into any app or service, so value moves as easily as information. Trusted by 75+ teams.
+
+## Products
+
+- [Breez SDK](https://breez.technology/sdk/): The easiest way for developers to add instant, non-custodial bitcoin to any app or service, bringing value transfer to billions
+- [Glow Playground](https://breez.technology/playground/): Our playground for builders — open-source reference apps built with the Breez SDK
+
+## Case Studies
+
+- [Deblock](https://breez.technology/case-studies/deblock/): Instant, non-custodial bitcoin in a neobank serving 300,000 users across Europe
+- [Cake Wallet](https://breez.technology/case-studies/cake/): Instant, non-custodial bitcoin for 1.75 million users globally
+- [Primal](https://breez.technology/case-studies/primal/): The most popular Nostr client replaced its custodial wallet, migrating 20K+ users in 30 days
+- [Garden](https://breez.technology/case-studies/garden/): A 120x reduction in settlement time for cross-chain bitcoin bridging
+- [Exolix](https://breez.technology/case-studies/exolix/): Integrated the Breez SDK in a day for instant, non-custodial bitcoin swaps
+- [Klever](https://breez.technology/case-studies/klever/): Lightning-fast, non-custodial bitcoin for 100,000+ users across a multi-chain wallet
+- [Sorted](https://breez.technology/case-studies/sorted/): Instant, non-custodial bitcoin on feature phones — 500K+ downloads across 160 countries
+- [Club Orange](https://breez.technology/case-studies/cluborange/): The largest bitcoin-only social network moved its community to instant, non-custodial bitcoin
+- [Yolat](https://breez.technology/case-studies/yolat/): 10x transaction volume growth with lightning-fast cross-border remittances across Africa
+
+## Resources
+
+- [Documentation](https://sdk-doc-spark.breez.technology/): Breez SDK developer documentation
+- [GitHub](https://github.com/breez): Breez open-source repositories
+- [The Bitcoin Payments Report](https://breez.technology/report/): How bitcoin is evolving from digital gold to everyday currency, with data on 650M+ users and real-world case studies
+- [Vision](https://breez.technology/vision/): Value transfer moves value as easily as information — directly, instantly, without intermediaries. Breez is building it on bitcoin
+
+## Optional
+
+- [Blog](https://blog.breez.technology/): Breez announcements and ecosystem updates
