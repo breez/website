@@ -442,23 +442,157 @@
     padding-top: 140px;
   }
 
-  .sdk-info-block {
-    max-width: 560px;
-    margin-bottom: 60px;
+}
 
-    .h-2-home {
-      font-size: 44px;
-      line-height: 56px;
+// ── SDK statement: the claim is the design. A centered manifesto block —
+// section title, then the statement in kinetic type. Words light up as
+// the reader scrolls through the section and the three load-bearing
+// claims (instant / non-custodial / any app or service) underline as
+// they arrive. The follow-through sentence becomes three quiet cards.
+
+.sdk-section {
+  // Centered manifesto on desktop; left-aligned on mobile, where centred
+  // multi-line type reads ragged and weak.
+  text-align: left;
+
+  @media (min-width: $screen-md-min) {
+    text-align: center;
+  }
+}
+
+.sdk-statement {
+  position: relative;
+  z-index: 1;
+  font-weight: $font-weight-bold;
+  letter-spacing: -0.02em;
+  line-height: 1.14;
+  // Leads the section without shouting over the rest of the mobile page:
+  // ~32px on a phone, up to the 68px display size on desktop. The vision
+  // statement uses the identical scale.
+  font-size: clamp(32px, 8.2vw, 68px);
+  max-width: 1080px;
+  margin: 0 auto 48px;
+  color: $white;
+  text-wrap: balance;
+
+  @media (min-width: $screen-md-min) {
+    margin-bottom: 72px;
+  }
+
+  .sdk-word {
+    transition: color 0.45s ease;
+  }
+
+  // Final state (also the no-JS / reduced-motion state): everything lit,
+  // key words accented in brand blue. No underline — the colour is the
+  // highlight.
+  .sdk-key .sdk-word {
+    color: $bubble-bobble-p2;
+  }
+
+  // Scrub state, applied by JS: dim everything, reveal on scroll.
+  &.--scrub {
+    .sdk-word {
+      color: rgba(255, 255, 255, 0.17);
     }
 
-    .home-text.--text-2 {
-      font-size: 18px;
-      line-height: 28px;
+    .sdk-word.on {
+      color: $white;
+    }
+
+    .sdk-key.is-lit .sdk-word.on {
+      color: $bubble-bobble-p2;
+    }
+  }
+}
+
+// The three claims in the voice the site already speaks: the light 18/28
+// subhead type (same as under Case Studies), icon leading each phrase.
+// One quiet strip across the axis on desktop, a left-aligned stack on
+// smaller screens. No boxes, no bold — the statement above carries the
+// weight; these carry the facts.
+.sdk-claim-row {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 48px;
+
+  @media (min-width: $screen-md-min) {
+    // Centred block, rows still left-aligned within it
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 56px;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    // Single strip on the page axis. 1fr / auto / 1fr puts the MIDDLE
+    // claim exactly on the centre line — the same axis as the statement
+    // and the CTA below — instead of centring the strip as a lump and
+    // letting the unequal side claims drag the middle off-axis.
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    width: auto;
+    column-gap: 40px;
+
+    .sdk-claim:first-child {
+      justify-self: end;
+    }
+
+    .sdk-claim:last-child {
+      justify-self: start;
     }
   }
 
-  img {
-    max-height: 560px;
+  @media (min-width: $screen-xl-min) {
+    column-gap: 56px;
+  }
+}
+
+.sdk-claim {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sdk-claim-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $bubble-bobble-p2;
+  flex-shrink: 0;
+
+  svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.sdk-claim-text {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: $font-weight-light;
+  color: $white;
+
+  @media (min-width: $screen-lg-min) {
+    // Fluid so the full strip clears one row even at 992px
+    font-size: clamp(15px, 1.5vw, 18px);
+    white-space: nowrap;
+  }
+}
+
+// The CTA follows the section's alignment: left on mobile, centred under
+// the centred block on desktop. The button itself is the stock
+// .primary-btn — auto margins centre it without touching its size.
+.sdk-section .primary-btn {
+  @media (min-width: $screen-md-min) {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -656,14 +790,14 @@
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 20px;
-  padding: 32px 24px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  padding: 32px 24px 26px;
   color: #fff;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.03) 100%);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
-  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+  // Brighter than the SDK claim cards: this section sits on the darkest
+  // part of the page gradient and needs the extra lift.
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.04) 100%);
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
   // Mobile scroll-snap
   scroll-snap-align: center;
@@ -675,52 +809,29 @@
     width: 300px;
   }
 
-  // Top shimmer line
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba($bubble-bobble-p2, 0.5) 30%,
-      rgba($bubble-bobble-p2, 1) 50%,
-      rgba($bubble-bobble-p2, 0.5) 70%,
-      transparent 100%
-    );
-    opacity: 0.7;
-    transition: opacity 0.4s ease;
-  }
-
-  // Inner glow at top
+  // Hover-revealed CTA. Space is always reserved so nothing shifts.
   &::after {
-    content: '';
-    position: absolute;
-    top: -1px;
-    left: 10%;
-    right: 10%;
-    height: 120px;
-    background: radial-gradient(ellipse at top, rgba($bubble-bobble-p2, 0.2) 0%, transparent 70%);
-    opacity: 0.9;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
+    content: 'Read case study \2192';
+    display: block;
+    margin-top: 16px;
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: $font-weight-medium;
+    color: $bubble-bobble-p2;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   &:hover {
     border-color: rgba($bubble-bobble-p2, 0.4);
-    box-shadow: 0 0 0 1px rgba($bubble-bobble-p2, 0.18), 0 6px 24px rgba($bubble-bobble-p2, 0.06);
-    transform: translateY(-3px);
+    background: linear-gradient(180deg, rgba($bubble-bobble-p2, 0.12) 0%, rgba($bubble-bobble-p2, 0.06) 100%);
+    transform: translateY(-4px);
     color: #fff;
-
-    &::before {
-      opacity: 1;
-    }
 
     &::after {
       opacity: 1;
+      transform: translateY(0);
     }
   }
 
@@ -729,7 +840,7 @@
   @media (min-width: $screen-lg-min) {
     width: auto;
     min-height: 240px;
-    padding: 36px 28px 32px;
+    padding: 36px 28px 28px;
   }
 }
 
@@ -880,8 +991,12 @@
   margin-bottom: 100px;
 
   .playground-home-info-block {
-    max-width: 560px;
-    margin-bottom: 60px;
+    max-width: 640px;
+    margin-bottom: 40px;
+
+    @media (min-width: $screen-md-min) {
+      margin-bottom: 48px;
+    }
 
     .h-2-home {
       font-size: 44px;
@@ -893,34 +1008,292 @@
       line-height: 28px;
     }
   }
+}
 
-  img {
-    max-height: 560px;
+// ── Glow deck: copy on the left, the three real playground mockups
+// (gp-/gw-/glow-frame components, reused verbatim) fanned as a deck on
+// the right. Each card links to its app on /playground.
+
+// Stage column
+.playground-home-stage-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.playground-home-stage {
+  // Natural design size of each playground mockup
+  --card-w: 400px;
+  --card-h: 474px;
+  // One deck at every breakpoint — only the scale and the fan spread
+  // change. Mobile: 232px-wide cards, ±42px spread ≈ 316px total, fits
+  // a 320px viewport.
+  --card-scale: 0.58;
+  // As wide a spread as the viewport allows (capped at 58px), so the two
+  // back cards actually read as cards on a phone — and never overflow on
+  // narrow devices: card is 232px, container gutters 32px.
+  --fan-x: min(58px, calc((100vw - 272px) / 2));
+  --fan-rot: 6deg;
+  position: relative;
+  width: 100%;
+  height: calc(var(--card-h) * var(--card-scale) + 72px);
+
+  @media (min-width: $screen-sm-min) {
+    --card-scale: 0.68;
+    --fan-x: 70px;
+  }
+
+  @media (min-width: $screen-md-min) {
+    --card-scale: 0.76;
+    --fan-x: 104px;
+    --fan-rot: 7deg;
+    height: calc(var(--card-h) * var(--card-scale) + 90px);
+  }
+
+  @media (min-width: $screen-lg-min) {
+    --card-scale: 0.6;
+    --fan-x: 132px;
+  }
+
+  @media (min-width: $screen-xl-min) {
+    --card-scale: 0.64;
+  }
+
+  @media (min-width: $screen-xxl-min) {
+    --card-scale: 0.7;
   }
 }
+
+.playground-home-card {
+  display: block;
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  transition: transform 0.3s ease-out, filter 0.3s ease-out;
+
+  &.--app {
+    transform: translateX(-50%);
+    z-index: 3;
+  }
+
+  &.--pay {
+    transform: translateX(calc(-50% - var(--fan-x))) rotate(calc(-1 * var(--fan-rot))) scale(0.94);
+    z-index: 2;
+    // Lighter dim on touch screens, where there's no hover to recover it
+    filter: brightness(0.85) saturate(0.95);
+
+    @media (min-width: $screen-lg-min) {
+      filter: brightness(0.72) saturate(0.9);
+    }
+  }
+
+  &.--cloud {
+    transform: translateX(calc(-50% + var(--fan-x))) rotate(var(--fan-rot)) scale(0.94);
+    z-index: 1;
+    filter: brightness(0.85) saturate(0.95);
+
+    @media (min-width: $screen-lg-min) {
+      filter: brightness(0.72) saturate(0.9);
+    }
+  }
+
+  // Hover: brighten and grow a touch in place. No lift, no stacking
+  // change — anything that moves the card away from the pointer or pops
+  // it through the deck reads as jank.
+  &:hover {
+    filter: brightness(1) saturate(1);
+  }
+
+  &.--app:hover {
+    transform: translateX(-50%) scale(1.015);
+  }
+
+  &.--pay:hover {
+    transform: translateX(calc(-50% - var(--fan-x))) rotate(calc(-1 * var(--fan-rot))) scale(0.96);
+  }
+
+  &.--cloud:hover {
+    transform: translateX(calc(-50% + var(--fan-x))) rotate(var(--fan-rot)) scale(0.96);
+  }
+}
+
+.playground-home-card-float {
+  display: block;
+  animation: playground-card-float 7s ease-in-out infinite alternate;
+
+  .playground-home-card.--pay & {
+    animation-duration: 7.8s;
+    animation-delay: -2.6s;
+  }
+
+  .playground-home-card.--cloud & {
+    animation-duration: 6.6s;
+    animation-delay: -4.4s;
+  }
+}
+
+@keyframes playground-card-float {
+  from { transform: translateY(-5px); }
+  to   { transform: translateY(7px); }
+}
+
+.playground-home-card-viewport {
+  display: block;
+  width: calc(var(--card-w) * var(--card-scale));
+  height: calc(var(--card-h) * var(--card-scale));
+  filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.45));
+}
+
+.playground-home-card-inner {
+  display: block;
+  width: var(--card-w);
+  height: var(--card-h);
+  transform: scale(var(--card-scale));
+  transform-origin: top left;
+
+  > * {
+    height: 100%;
+  }
+
+  // The checkout card is near-transparent on the playground page where it
+  // sits alone; floating over the homepage gradient it needs its own body.
+  .gp-card {
+    background: linear-gradient(180deg, rgba(16, 21, 32, 0.95) 0%, rgba(10, 14, 22, 0.97) 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .playground-home-card-float {
+    animation: none;
+  }
+
+  .playground-home-card {
+    transition: none;
+  }
+}
+
+// ── Vision: the big moment. Two statements in exactly the same voice as
+// the SDK statement — same size, same weight, same blue accents — then
+// straight to the CTA, with the new world coming up over the horizon.
 
 .vision-home-section {
   padding-top: 40px;
-  margin-bottom: 100px;
+  // Mobile: the globe's fade-out already provides the visual breathing
+  // room, so keep the structural gap to the contact section tight.
+  margin-bottom: 24px;
+  text-align: left;
 
-  .vision-home-info-block {
-    max-width: 560px;
-    margin-bottom: 60px;
-
-    .h-2-home {
-      font-size: 44px;
-      line-height: 56px;
-    }
-
-    .home-text.--text-2 {
-      font-size: 18px;
-      line-height: 28px;
-    }
+  @media (min-width: $screen-md-min) {
+    padding-top: 64px;
+    margin-bottom: 100px;
+    text-align: center;
   }
 
-  img {
-    max-height: 560px;
+  .primary-btn {
+    @media (min-width: $screen-md-min) {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 }
 
+.vision-statement {
+  // The same display voice as the SDK statement — this is the epic line
+  // of the page, it must not fall below that scale.
+  font-weight: $font-weight-bold;
+  letter-spacing: -0.02em;
+  line-height: 1.14;
+  font-size: clamp(32px, 8.2vw, 68px);
+  color: $white;
+  margin: 0 0 20px;
+  text-wrap: balance;
 
+  @media (min-width: $screen-md-min) {
+    margin: 0 auto 24px;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    // Two deliberate lines ("…information." / "Bitcoin unlocks value.").
+    // The longer line measures 16.9em, so the size tracks the container
+    // up to the full 68px display size — as big as the space allows.
+    font-size: min(calc((100vw - 300px) / 16.9), 68px);
+    margin-bottom: 32px;
+  }
+}
+
+.vision-accent {
+  color: $bubble-bobble-p2;
+}
+
+// Supporting copy in the body --text-2 voice (22/32 light): big enough
+// to hold its own under the display statement, small enough to sit on a
+// single line on desktop.
+.vision-subline {
+  font-weight: $font-weight-light;
+  font-size: 18px;
+  line-height: 28px;
+  color: $white;
+  margin: 0 0 32px;
+
+  @media (min-width: $screen-md-min) {
+    font-size: 22px;
+    line-height: 32px;
+    margin: 0 auto 40px;
+  }
+}
+
+// Custom AOS animation: rise out of a blur. AOS supplies the trigger
+// (aos-animate), duration, and stagger from the data attributes.
+[data-aos='vision-rise'] {
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(10px);
+  transition-property: opacity, transform, filter;
+
+  &.aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-aos='vision-rise'] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
+
+// ── Vision globe: a new world rising. The case-studies globe engine
+// (globe-lightning.js, #globe-canvas) staged differently — anchored at
+// the bottom of the section so only the upper hemisphere breaks the
+// horizon, value arcing between cities everywhere, all the time.
+
+.vision-globe-horizon {
+  position: relative;
+  width: 100%;
+  height: clamp(220px, 34vw, 440px);
+  margin-top: 48px;
+  overflow: hidden;
+  // Soften the crop line so the globe dissolves into the page rather
+  // than ending at a hard edge.
+  mask-image: linear-gradient(180deg, black 72%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, black 72%, transparent 100%);
+
+  @media (min-width: $screen-md-min) {
+    margin-top: 72px;
+  }
+}
+
+// The canvas sizes itself to its parent and centres the globe in it, so
+// a parent twice the visible height puts the globe's equator exactly on
+// the section's bottom edge.
+.vision-globe-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+}
