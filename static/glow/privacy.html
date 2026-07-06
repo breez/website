@@ -58,13 +58,14 @@
 <nav class="toc" aria-label="Sections">
 <p>On this page</p>
 <ol>
-<li><a href="#your-wallet">Your wallet keys</a></li>
-<li><a href="#network">Network communication</a></li>
-<li><a href="#transfers">International data transfers</a></li>
+<li><a href="#your-wallet">What never reaches us</a></li>
 <li><a href="#permissions">App permissions</a></li>
-<li><a href="#third-parties">Other websites and third-party services</a></li>
-<li><a href="#children">Children</a></li>
+<li><a href="#network">What our servers process</a></li>
+<li><a href="#stored">What we store</a></li>
 <li><a href="#retention">Data retention and deletion</a></li>
+<li><a href="#transfers">International data transfers</a></li>
+<li><a href="#third-parties">Buying bitcoin and third-party services</a></li>
+<li><a href="#children">Children</a></li>
 <li><a href="#rights">Your privacy rights</a></li>
 <li><a href="#changes">Changes to this policy</a></li>
 <li><a href="#contact">Contact us</a></li>
@@ -81,19 +82,24 @@
 <li>Your wallet keys are created on your device; Breez cannot access them or your funds.</li>
 <li>To process payments, servers run by Breez and by independent infrastructure providers receive your IP address and payment data. What is kept, and for how long, is listed under Data retention and deletion.</li>
 </ul>
-<p>The sections below list each data flow: what it contains, how long anything is kept, what stays on your device, and the rights you have.</p>
+<p>The sections below are ordered the way your data flows: what never reaches us, what our servers process without keeping, and the short list of what we store.</p>
 
-<h2 id="your-wallet">Your wallet keys</h2>
+<h2 id="your-wallet">What never reaches us</h2>
 <ul>
 <li>Your recovery phrase (seed) is generated on your device and stored in your device's secure storage: the iOS Keychain, or on Android in app storage encrypted with a key held in the Android Keystore. It is protected by your device's hardware-backed encryption and your screen lock: access requires Face ID, Touch ID, or fingerprint where available and enrolled, or otherwise your device passcode or PIN. The seed is never transmitted to Breez.</li>
 <li>If you create your wallet with a passkey, your wallet keys are derived from that passkey, so the passkey itself is wallet key material. Passkeys are stored and synced by your platform account (for example iCloud Keychain or Google Password Manager) under that provider's terms: an encrypted copy leaves your device, is held on Apple's or Google's servers, and becomes available on your other devices, including through the platform's account recovery process. Apple and Google state they cannot read synced passkeys, but the safety of a passkey wallet depends on the security of your platform account: its password, your device passcodes, and your recovery settings. Your biometric data itself never leaves your device and is never sent to Breez.</li>
-<li>Contacts (the Lightning addresses you save), payment labels, and app settings are created on your device. So that your wallet can be restored and used on more than one device, contacts and payment metadata are synced through Breez's sync service in encrypted form: they are encrypted on your device before upload, and Breez cannot read their contents.</li>
 <li>Device backups and migration: Glow does not exclude its app data from your operating system's backup and device-to-device transfer features. If you back up your device (iCloud Backup on iOS, Google backup on Android), your Glow data can be included in that backup on Apple's or Google's servers under their terms, and moving to a new device on the same operating system can transfer your wallet along with your settings. You can limit this in your device's backup settings.</li>
 <li>Diagnostic logs stay on your device. They record technical events such as connection attempts, payment identifiers, amounts, and error details; they never contain your recovery phrase or keys. Nothing is sent unless you explicitly choose "Share Logs", which opens your device's share sheet so you decide where the file goes (for example, to our support email). Logs you send us are used only to diagnose your issue and are deleted once it is resolved, or earlier on request.</li>
 <li>Because your keys never reach us, we cannot recover them for you if they are lost; keep your recovery phrase or passkey safe.</li>
 </ul>
 
-<h2 id="network">Network communication</h2>
+<h2 id="permissions">App permissions</h2>
+<ul>
+<li><strong>Camera</strong>: used only to scan QR codes, and only while you are scanning. Glow analyzes frames on your device and does not save or upload them; only the decoded content of the code (for example a payment request) is used, and it leaves your device only as part of making the payment you requested.</li>
+<li><strong>Face ID / biometric unlock</strong>: used only to gate access to the app and its stored keys. The check is performed entirely by your device's operating system, which tells Glow only whether it succeeded; Glow and Breez never see biometric data, and it never leaves your device. Where your device allows it, your passcode or PIN can be used instead.</li>
+</ul>
+
+<h2 id="network">What our servers process</h2>
 <p>To work as a wallet, Glow communicates with a small number of services:</p>
 <ul>
 <!-- Legal to confirm before merge: the independent-controller characterization of Lightspark and Flashnet, links to their privacy policies, and Flashnet's legal entity name and country. -->
@@ -103,31 +109,34 @@
 <li>Breez's exchange rate service, which supplies the rate used to display amounts in your local currency.</li>
 </ul>
 <p>When Glow communicates with these servers, the following data leaves your device: your IP address, payment requests and invoices, payment amounts, and the public keys that identify your wallet on the Lightning and Spark networks. Breez uses this data solely to execute and settle your payments and to keep the service reliable and secure: we do not use it for advertising or profiling, we do not link it to your real-world identity, and we do not sell it. Lightspark and Flashnet receive the parts of this data their infrastructure needs to process your transactions and handle them under their own privacy policies.</p>
-<p>Your Lightning address: if you claim a personal Lightning address in Glow, a server operated by Breez stores your chosen username, tied to the public key of your wallet, together with records of incoming payment requests (such as invoices and payment hashes), and responds to payers on your behalf, including while you are offline. Because your address is a global identifier, this registration is retained so that your address keeps working and can be restored when you recover your wallet on another device or compatible app. A username you choose can identify you if you pick an identifying name. To have a registration removed, contact us at <a href="mailto:contact@breez.technology">contact@breez.technology</a>.</p>
-<p>Every server listed above, including the ones Breez operates, sees your IP address when the app contacts it: that is how internet connections work. Each server also sees the data its job requires: a block explorer sees the addresses the app asks about, and a Lightning address or LNURL server sees the payment request. For the servers Breez operates, we use this data only to provide the service. Servers operated by others handle this data under their own privacy policies, which we do not control. Bitcoin and Lightning transactions are public by design on their respective networks. Beyond the limited records described under Data retention and deletion, we keep no history of your payments, so there is nothing further we could produce about you for anyone who asks; where a valid legal demand reaches data that still exists, we may be required to provide it, and independent services can receive legal demands directly, without our involvement. This also applies to the web server that serves this page: it records standard access logs when you read it, retained under the same schedule.</p>
+<p>Every server listed above, including the ones Breez operates, sees your IP address when the app contacts it: that is how internet connections work. Each server also sees the data its job requires: a block explorer sees the addresses the app asks about, and a Lightning address or LNURL server sees the payment request. For the servers Breez operates, we use this data only to provide the service. Servers operated by others handle this data under their own privacy policies, which we do not control. Bitcoin and Lightning transactions are public by design on their respective networks. Beyond the limited records described under What we store, we keep no history of your payments, so there is nothing further we could produce about you for anyone who asks; where a valid legal demand reaches data that still exists, we may be required to provide it, and independent services can receive legal demands directly, without our involvement.</p>
 
-<h2 id="transfers">International data transfers</h2>
-<!-- Legal to confirm before merge: whether any Breez-controlled transfers to processors outside Israel remain (for example hosting or the exchange rate service) and the safeguard relied on for them. -->
-<p>Breez is established in Israel, and the infrastructure providers named in this policy operate in the United States and other countries, so data handled through your use of Glow can be processed outside your country. Where the GDPR or UK GDPR applies, transfers to Breez in Israel are covered by the European Commission's and the United Kingdom's adequacy decisions for Israel. Data that Glow sends directly to independent providers, in the United States or elsewhere, is handled under their own privacy policies. You can request details of these safeguards at <a href="mailto:contact@breez.technology">contact@breez.technology</a>.</p>
-
-<h2 id="permissions">App permissions</h2>
+<h2 id="stored">What we store</h2>
+<p>Breez stores a short list of things, each tied to a feature you use:</p>
 <ul>
-<li><strong>Camera</strong>: used only to scan QR codes, and only while you are scanning. Glow analyzes frames on your device and does not save or upload them; only the decoded content of the code (for example a payment request) is used, and it leaves your device only as part of making the payment you requested.</li>
-<li><strong>Face ID / biometric unlock</strong>: used only to gate access to the app and its stored keys. The check is performed entirely by your device's operating system, which tells Glow only whether it succeeded; Glow and Breez never see biometric data, and it never leaves your device. Where your device allows it, your passcode or PIN can be used instead.</li>
+<li>Your Lightning address: if you claim a personal Lightning address in Glow, a server operated by Breez stores your chosen username, tied to the public key of your wallet, together with records of incoming payment requests (such as invoices and payment hashes), and responds to payers on your behalf, including while you are offline. Because your address is a global identifier, this registration is retained so that your address keeps working and can be restored when you recover your wallet on another device or compatible app. A username you choose can identify you if you pick an identifying name. To have a registration removed, contact us at <a href="mailto:contact@breez.technology">contact@breez.technology</a>.</li>
+<li>Encrypted sync data: contacts (the Lightning addresses you save), payment labels, and app settings are created on your device and synced through Breez's sync service so that your wallet can be restored and used on more than one device. They are encrypted on your device before upload; Breez stores only the encrypted copies and cannot read their contents.</li>
+<li>Messages and logs you choose to send us: diagnostic logs you share and emails to <a href="mailto:contact@breez.technology">contact@breez.technology</a>, used only to handle your request.</li>
+<li>Short-lived technical logs on the servers we operate, which can include your IP address and the request data described above, used only to operate, secure, and debug the service. This includes the web server that serves this page, which records standard access logs when you read it.</li>
 </ul>
-
-<h2 id="third-parties">Other websites and third-party services</h2>
-<p>If you choose to buy bitcoin in our app, you are handed off to a third-party provider (such as MoonPay or Cash App). The handoff happens only when you start a purchase, and the only data Glow passes to the provider is the receiving bitcoin address of your wallet and, for Cash App, the purchase amount you entered; no device or session identifiers are passed. The purchase then takes place on the provider's platform under its own privacy policy and terms. The provider may be legally required to verify your identity and will collect the personal data needed to do so (for example your name, identity documents, and payment details). Glow never sees that information.</p>
-<p>Our app may also contain links to external websites and services we do not operate. Those services are run by independent companies under their own terms and privacy policies, which this policy does not cover; we encourage you to review them before use. This does not affect our responsibility for Glow itself and for the servers Breez operates.</p>
-
-<h2 id="children">Children</h2>
-<p>Glow is intended for users aged 18 and over and is not directed at children. We do not knowingly collect personal data from children under 13, or under the higher age (up to 16) at which your country requires parental consent for online services. If you believe a child has provided us with personal data, contact us at <a href="mailto:contact@breez.technology">contact@breez.technology</a> and we will delete it.</p>
+<p>How long each of these is kept is listed under Data retention and deletion below.</p>
 
 <h2 id="retention">Data retention and deletion</h2>
 <p>Glow has no user accounts. Data on your device (keys, contacts, labels, settings, logs) stays under your control: delete the app or reset the wallet and it is gone; we never hold a readable copy.</p>
 <!-- Operations to confirm before merge: every bracketed retention period below against actual server configuration. Do not publish numbers that cannot be evidenced. -->
 <p>Servers operated by Breez keep short-lived technical logs, which can include your IP address and the request data described above; we use them only to operate, secure, and debug the service, and they are deleted automatically after [30] days. Payment records needed to execute and settle transactions are retained for [12] months and then deleted or irreversibly anonymized. Your Lightning address registration and encrypted sync data are retained so that your wallet and address can be restored on another device; they are deleted when you ask us to remove them. Diagnostic logs you send us and emails to <a href="mailto:contact@breez.technology">contact@breez.technology</a> are kept only as long as needed to handle your request and are deleted within [12] months of the matter closing, unless we must keep them to comply with a legal obligation.</p>
 <p>To request deletion of anything above, or to withdraw consent to an optional data flow (such as logs you shared), email <a href="mailto:contact@breez.technology">contact@breez.technology</a>; we act on requests within one month. You can revoke camera and biometric access at any time in your device settings. Confirmed bitcoin and Lightning transactions are public on their networks and cannot be deleted by us or anyone else.</p>
+
+<h2 id="transfers">International data transfers</h2>
+<!-- Legal to confirm before merge: whether any Breez-controlled transfers to processors outside Israel remain (for example hosting or the exchange rate service) and the safeguard relied on for them. -->
+<p>Breez is established in Israel, and the infrastructure providers named in this policy operate in the United States and other countries, so data handled through your use of Glow can be processed outside your country. Where the GDPR or UK GDPR applies, transfers to Breez in Israel are covered by the European Commission's and the United Kingdom's adequacy decisions for Israel. Data that Glow sends directly to independent providers, in the United States or elsewhere, is handled under their own privacy policies. You can request details of these safeguards at <a href="mailto:contact@breez.technology">contact@breez.technology</a>.</p>
+
+<h2 id="third-parties">Buying bitcoin and third-party services</h2>
+<p>If you choose to buy bitcoin in our app, you are handed off to a third-party provider (such as MoonPay or Cash App). The handoff happens only when you start a purchase, and the only data Glow passes to the provider is the receiving bitcoin address of your wallet and, for Cash App, the purchase amount you entered; no device or session identifiers are passed. The purchase then takes place on the provider's platform under its own privacy policy and terms. The provider may be legally required to verify your identity and will collect the personal data needed to do so (for example your name, identity documents, and payment details). Glow never sees that information.</p>
+<p>Our app may also contain links to external websites and services we do not operate. Those services are run by independent companies under their own terms and privacy policies, which this policy does not cover; we encourage you to review them before use. This does not affect our responsibility for Glow itself and for the servers Breez operates.</p>
+
+<h2 id="children">Children</h2>
+<p>Glow is intended for users aged 18 and over and is not directed at children. We do not knowingly collect personal data from children under 13, or under the higher age (up to 16) at which your country requires parental consent for online services. If you believe a child has provided us with personal data, contact us at <a href="mailto:contact@breez.technology">contact@breez.technology</a> and we will delete it.</p>
 
 <h2 id="rights">Your privacy rights</h2>
 <p>Depending on where you live, you have rights over personal data we process, including the rights to access, correct, and delete your data, to restrict or object to its processing, to receive it in a portable format, and to withdraw consent where processing is based on consent. Glow is designed so that we usually cannot identify you from the data we handle; to act on a request we may need you to point us to the specific data, for example your Lightning address username or the email you wrote from, and some rights may not apply where identification is impossible (Article 11 GDPR). To exercise any right, email <a href="mailto:contact@breez.technology">contact@breez.technology</a>; we respond within one month.</p>
