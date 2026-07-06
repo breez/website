@@ -433,13 +433,13 @@
 }
 
 .sdk-section {
-  // Generous breathing room above so the SDK section reads as a clean
-  // new chapter once the hero (with its bottom partner marquee) scrolls away.
+  // Enough breathing room to read as a new chapter after the hero's
+  // partner marquee, without a dead zone before the statement.
   padding-top: 80px;
   margin-bottom: 100px;
 
   @media (min-width: $screen-md-min) {
-    padding-top: 140px;
+    padding-top: 104px;
   }
 
 }
@@ -466,17 +466,18 @@
   font-weight: $font-weight-bold;
   letter-spacing: -0.02em;
   line-height: 1.14;
-  // Leads the section without shouting over the rest of the mobile page:
-  // ~32px on a phone, up to the 68px display size on desktop. The vision
-  // statement uses the identical scale.
-  font-size: clamp(32px, 8.2vw, 68px);
-  max-width: 1080px;
-  margin: 0 auto 48px;
+  // One display moment per page: the hero. Interior statements sit a
+  // full step down — above the 44px section headings, well below the
+  // hero — so the page reads as hierarchy, not three competing shouts.
+  // The vision statement uses the identical scale.
+  font-size: clamp(30px, 8vw, 52px);
+  max-width: 900px;
+  margin: 0 auto 40px;
   color: $white;
   text-wrap: balance;
 
   @media (min-width: $screen-md-min) {
-    margin-bottom: 72px;
+    margin-bottom: 48px;
   }
 
   .sdk-word {
@@ -517,15 +518,17 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 48px;
+  // Tight stack on mobile — consecutive lines, like body copy in the
+  // other sections, not spaced-out bullets.
+  gap: 6px;
+  margin-bottom: 40px;
 
   @media (min-width: $screen-md-min) {
     // Centred block, rows still left-aligned within it
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 56px;
+    margin-bottom: 48px;
   }
 
   @media (min-width: $screen-lg-min) {
@@ -583,6 +586,225 @@
     // Fluid so the full strip clears one row even at 992px
     font-size: clamp(15px, 1.5vw, 18px);
     white-space: nowrap;
+  }
+}
+
+// ── Agent onboarding card: a browser-framed prompt developers copy into
+// their AI agent to be walked through a Breez SDK integration. The
+// section's graphic — real, usable substance rather than an illustration.
+
+.sdk-agent {
+  position: relative;
+  z-index: 1;
+  max-width: 736px;
+  // Sits below the CTA, like every other section's graphic
+  margin: 40px 0 0;
+  text-align: left;
+
+  @media (min-width: $screen-md-min) {
+    margin: 48px auto 0;
+  }
+}
+
+// The frame is a claude.ai window in dark mode: charcoal surface, serif
+// greeting, and a live composer where the invitation types itself out.
+.sdk-agent-frame {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  background: #262624;
+  overflow: hidden;
+  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.8);
+}
+
+.sdk-agent-chrome {
+  display: flex;
+  align-items: center;
+  padding: 13px 18px;
+  background: #1E1E1C;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sdk-agent-dots {
+  display: flex;
+  gap: 7px;
+  flex-shrink: 0;
+
+  i {
+    display: block;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+
+    &:nth-child(1) { background: #FF5F57; }
+    &:nth-child(2) { background: #FEBC2E; }
+    &:nth-child(3) { background: #28C840; }
+  }
+}
+
+.sdk-agent-window {
+  padding: 26px 18px 16px;
+
+  @media (min-width: $screen-md-min) {
+    padding: 34px 28px 20px;
+  }
+}
+
+.sdk-agent-greeting {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: #D97757;
+
+  @media (min-width: $screen-md-min) {
+    margin-bottom: 26px;
+  }
+
+  span {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 17px;
+    color: #ECEAE2;
+
+    @media (min-width: $screen-md-min) {
+      font-size: 20px;
+    }
+  }
+}
+
+// Single-row composer: the typed invitation on the left, the action on
+// the right, exactly where Claude's send button lives.
+.sdk-agent-composer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  background: #30302E;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 12px 12px 12px 18px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+
+  @media (min-width: $screen-md-min) {
+    padding: 13px 13px 13px 22px;
+  }
+}
+
+// Claude's attach button, resting
+.sdk-agent-plus {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+
+  @media (min-width: $screen-md-min) {
+    display: inline-flex;
+  }
+}
+
+.sdk-agent-input {
+  flex: 1;
+  // Full row on mobile so the controls wrap beneath as their own row
+  min-width: 100%;
+  font-size: 14px;
+  line-height: 22px;
+  min-height: 22px;
+  color: #ECEAE2;
+
+  @media (min-width: $screen-md-min) {
+    // One line, always — the typed ask must never break mid-sentence
+    min-width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+// Claude's model picker, reading Bitcoin 2.1
+.sdk-agent-modelpick {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
+  flex-shrink: 0;
+  // On mobile this shares the second row with the button
+  margin-right: auto;
+
+  // On mid-size desktops the single-row composer can't fit the full
+  // typed line AND the picker — the ornament yields, the sentence wins.
+  @media (min-width: $screen-md-min) and (max-width: 1199.98px) {
+    display: none;
+  }
+
+  @media (min-width: $screen-xl-min) {
+    margin-right: 4px;
+  }
+}
+
+.sdk-agent-caret {
+  display: inline-block;
+  width: 2px;
+  height: 16px;
+  margin-left: 3px;
+  vertical-align: -2px;
+  background: #D97757;
+  animation: sdk-agent-caret-blink 1.1s steps(1) infinite;
+}
+
+@keyframes sdk-agent-caret-blink {
+  50% { opacity: 0; }
+}
+
+// The action lives inside the Claude UI, where the send button would be.
+.sdk-agent-copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border: 0;
+  border-radius: 9px;
+  background: #D97757;
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: $font-weight-medium;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    background: #C4633F;
+  }
+
+  &.is-copied {
+    background: #3E8E5A;
+  }
+}
+
+// Fine print under the composer, where Claude keeps its own disclaimer —
+// this is the context for what the button does.
+.sdk-agent-caption {
+  margin: 12px 0 0;
+  text-align: center;
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sdk-agent-caret {
+    animation: none;
+    opacity: 0;
   }
 }
 
@@ -1198,12 +1420,12 @@
 }
 
 .vision-statement {
-  // The same display voice as the SDK statement — this is the epic line
-  // of the page, it must not fall below that scale.
+  // Identical scale to the SDK statement — the two interior statements
+  // speak with one voice, a step below the hero.
   font-weight: $font-weight-bold;
   letter-spacing: -0.02em;
   line-height: 1.14;
-  font-size: clamp(32px, 8.2vw, 68px);
+  font-size: clamp(30px, 8vw, 52px);
   color: $white;
   margin: 0 0 20px;
   text-wrap: balance;
@@ -1215,9 +1437,9 @@
   @media (min-width: $screen-lg-min) {
     // Two deliberate lines ("…information." / "Bitcoin unlocks value.").
     // The longer line measures 16.9em, so the size tracks the container
-    // up to the full 68px display size — as big as the space allows.
-    font-size: min(calc((100vw - 300px) / 16.9), 68px);
-    margin-bottom: 32px;
+    // on narrow desktops and caps at the interior display size.
+    font-size: min(calc((100vw - 300px) / 16.9), 52px);
+    margin-bottom: 28px;
   }
 }
 
@@ -1225,9 +1447,8 @@
   color: $bubble-bobble-p2;
 }
 
-// Supporting copy in the body --text-2 voice (22/32 light): big enough
-// to hold its own under the display statement, small enough to sit on a
-// single line on desktop.
+// Supporting copy in the standard section-subheading voice (18/28
+// light), same as under Case Studies — one sub voice across the page.
 .vision-subline {
   font-weight: $font-weight-light;
   font-size: 18px;
@@ -1236,8 +1457,6 @@
   margin: 0 0 32px;
 
   @media (min-width: $screen-md-min) {
-    font-size: 22px;
-    line-height: 32px;
     margin: 0 auto 40px;
   }
 }

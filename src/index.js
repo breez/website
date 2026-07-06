@@ -45,6 +45,7 @@ import './javascript/case-studies-home-carousel'
 import './javascript/globe-lightning'
 import './javascript/hero-typewriter'
 import './javascript/sdk-statement-scrub'
+import './javascript/sdk-agent-prompt'
 
 
 // /////// decrease time loader
