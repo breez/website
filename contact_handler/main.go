@@ -3,11 +3,14 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"errors"
 	"html/template"
 	"io"
 	"log"
 	"net/http"
 	"os"
+	"regexp"
+	"strings"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awserr"
@@ -33,15 +36,33 @@ func addresses(a string) (addr []*string) {
 	return
 }
 
-func getContact(r *http.Request) contact {
+var emailRegex = regexp.MustCompile(`^[^@\s]+@[^@\s]+$`)
+
+func getContact(r *http.Request) (contact, error) {
+	email := strings.TrimSpace(r.FormValue("email"))
+
+	if !emailRegex.MatchString(email) {
+		return contact{}, errors.New("invalid email format")
+	}
+
+	parts := strings.SplitN(email, "@", 2)
+	domain := parts[1]
+	if isDisposable(domain) {
+		return contact{}, errors.New("disposable email domain not allowed")
+	}
+
+	if !hasMXRecords(domain) {
+		return contact{}, errors.New("domain cannot receive email")
+	}
+
 	c := contact{
 		FullName:    r.FormValue("fullname"),
 		Company:     r.FormValue("company"),
-		Email:       r.FormValue("email"),
+		Email:       email,
 		ContactType: r.FormValue("contact_type"),
 		Message:     r.FormValue("message"),
 	}
-	return c
+	return c, nil
 }
 
 func sendEmails(w http.ResponseWriter, c contact, isAPIKey bool) {
@@ -74,7 +95,12 @@ func apiKeySender(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	log.Printf("Post from website! r.PostFrom = %v\n", r.PostForm)
-	c := getContact(r)
+	c, err := getContact(r)
+	if err != nil {
+		log.Printf("Invalid contact: %v", err)
+		http.Error(w, "", http.StatusBadRequest)
+		return
+	}
 	c.ContactType = "sdk-api-key/api"
 	sendEmails(w, c, true)
 }
@@ -96,7 +122,12 @@ func contactMailer(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "", http.StatusBadRequest)
 		return
 	}
-	c := getContact(r)
+	c, err := getContact(r)
+	if err != nil {
+		log.Printf("Invalid contact: %v", err)
+		http.Error(w, "", http.StatusBadRequest)
+		return
+	}
 	sendEmails(w, c, c.ContactType == "sdk-api-key")
 }
 
