@@ -14,6 +14,8 @@ import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
 AOS.init({
   once: true,
+  duration: 700,
+  easing: 'ease-out-cubic',
 });
 
 import './javascript/contact-us-form'
@@ -46,6 +48,7 @@ import './javascript/globe-lightning'
 import './javascript/hero-typewriter'
 import './javascript/sdk-statement-scrub'
 import './javascript/sdk-agent-prompt'
+import './javascript/glow-card-live'
 
 
 // /////// decrease time loader

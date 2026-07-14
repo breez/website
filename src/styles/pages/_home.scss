@@ -480,6 +480,22 @@
     margin-bottom: 48px;
   }
 
+  @media (min-width: $screen-lg-min) {
+    // Three deliberate lines (.sdk-line spans go block here — safer than
+    // hidden <br>s, whose adjacent whitespace Chrome collapses on mobile):
+    //   Add instant, non-custodial bitcoin
+    //   and stablecoins to your app or service
+    //   with the Breez SDK.
+    // The longest line measures ~19.5em, so the size tracks the container
+    // up to the 52px interior display size and the lines never re-wrap.
+    max-width: none;
+    font-size: min(calc((100vw - 300px) / 19.5), 52px);
+
+    .sdk-line {
+      display: block;
+    }
+  }
+
   .sdk-word {
     transition: color 0.45s ease;
   }
@@ -857,11 +873,12 @@
   }
 }
 
-// Homepage Contact Us title matches the other homepage section titles
-// (Breez SDK). Scoped to .home-page so other pages are unaffected.
+// Homepage Contact Us title matches the other homepage section titles.
+// Scoped to .home-page so other pages are unaffected.
 .home-page .contact-us-section .h-2-home {
   font-size: 44px;
   line-height: 56px;
+  letter-spacing: -0.02em;
 }
 
 .min-margin {
@@ -890,9 +907,18 @@
     margin-bottom: 48px;
   }
 
+  // The active headings run longer than the old two-word labels — on a
+  // phone they need a step down to avoid three-line towers. Tracking
+  // matches the display statements (-0.02em), not h-2-home's 32px base.
   .h-2-home {
-    font-size: 44px;
-    line-height: 56px;
+    font-size: 34px;
+    line-height: 44px;
+    letter-spacing: -0.02em;
+
+    @media (min-width: $screen-md-min) {
+      font-size: 44px;
+      line-height: 56px;
+    }
   }
 
   .home-text {
@@ -1221,8 +1247,23 @@
     }
 
     .h-2-home {
-      font-size: 44px;
-      line-height: 56px;
+      font-size: 34px;
+      line-height: 44px;
+      letter-spacing: -0.02em;
+
+      @media (min-width: $screen-md-min) {
+        font-size: 44px;
+        line-height: 56px;
+      }
+
+      // In the split layout the heading lives in a 5/12 column that is
+      // narrower than "Experience the Future" at 44px. One line, always:
+      // the size tracks the column width up to the standard 44px.
+      @media (min-width: $screen-lg-min) {
+        white-space: nowrap;
+        font-size: min(calc(3.8vw - 12.8px), 44px);
+        line-height: 1.28;
+      }
     }
 
     .home-text.--text-2 {
@@ -1244,114 +1285,46 @@
 }
 
 .playground-home-stage {
-  // Natural design size of each playground mockup
+  // Natural design size of the Glow App mockup
   --card-w: 400px;
   --card-h: 474px;
-  // One deck at every breakpoint — only the scale and the fan spread
-  // change. Mobile: 232px-wide cards, ±42px spread ≈ 316px total, fits
-  // a 320px viewport.
-  --card-scale: 0.58;
-  // As wide a spread as the viewport allows (capped at 58px), so the two
-  // back cards actually read as cards on a phone — and never overflow on
-  // narrow devices: card is 232px, container gutters 32px.
-  --fan-x: min(58px, calc((100vw - 272px) / 2));
-  --fan-rot: 6deg;
-  position: relative;
-  width: 100%;
-  height: calc(var(--card-h) * var(--card-scale) + 72px);
-
-  @media (min-width: $screen-sm-min) {
-    --card-scale: 0.68;
-    --fan-x: 70px;
-  }
+  // One reference app, front and centre — the section's single focus.
+  --card-scale: 0.72;
+  display: flex;
+  justify-content: center;
+  padding: 8px 0 16px;
 
   @media (min-width: $screen-md-min) {
-    --card-scale: 0.76;
-    --fan-x: 104px;
-    --fan-rot: 7deg;
-    height: calc(var(--card-h) * var(--card-scale) + 90px);
+    --card-scale: 0.8;
   }
 
   @media (min-width: $screen-lg-min) {
-    --card-scale: 0.6;
-    --fan-x: 132px;
+    padding: 0;
   }
 
   @media (min-width: $screen-xl-min) {
-    --card-scale: 0.64;
+    --card-scale: 0.88;
   }
 
   @media (min-width: $screen-xxl-min) {
-    --card-scale: 0.7;
+    --card-scale: 0.95;
   }
 }
 
 .playground-home-card {
   display: block;
-  position: absolute;
-  top: 32px;
-  left: 50%;
-  transition: transform 0.3s ease-out, filter 0.3s ease-out;
+  transition: transform 0.3s ease-out;
 
-  &.--app {
-    transform: translateX(-50%);
-    z-index: 3;
-  }
-
-  &.--pay {
-    transform: translateX(calc(-50% - var(--fan-x))) rotate(calc(-1 * var(--fan-rot))) scale(0.94);
-    z-index: 2;
-    // Lighter dim on touch screens, where there's no hover to recover it
-    filter: brightness(0.85) saturate(0.95);
-
-    @media (min-width: $screen-lg-min) {
-      filter: brightness(0.72) saturate(0.9);
-    }
-  }
-
-  &.--cloud {
-    transform: translateX(calc(-50% + var(--fan-x))) rotate(var(--fan-rot)) scale(0.94);
-    z-index: 1;
-    filter: brightness(0.85) saturate(0.95);
-
-    @media (min-width: $screen-lg-min) {
-      filter: brightness(0.72) saturate(0.9);
-    }
-  }
-
-  // Hover: brighten and grow a touch in place. No lift, no stacking
-  // change — anything that moves the card away from the pointer or pops
-  // it through the deck reads as jank.
+  // Hover: grow a touch in place — nothing that moves the card away
+  // from the pointer.
   &:hover {
-    filter: brightness(1) saturate(1);
-  }
-
-  &.--app:hover {
-    transform: translateX(-50%) scale(1.015);
-  }
-
-  &.--pay:hover {
-    transform: translateX(calc(-50% - var(--fan-x))) rotate(calc(-1 * var(--fan-rot))) scale(0.96);
-  }
-
-  &.--cloud:hover {
-    transform: translateX(calc(-50% + var(--fan-x))) rotate(var(--fan-rot)) scale(0.96);
+    transform: scale(1.015);
   }
 }
 
 .playground-home-card-float {
   display: block;
   animation: playground-card-float 7s ease-in-out infinite alternate;
-
-  .playground-home-card.--pay & {
-    animation-duration: 7.8s;
-    animation-delay: -2.6s;
-  }
-
-  .playground-home-card.--cloud & {
-    animation-duration: 6.6s;
-    animation-delay: -4.4s;
-  }
 }
 
 @keyframes playground-card-float {
@@ -1384,6 +1357,45 @@
   }
 }
 
+// ── Motion tuning ──
+// AOS's stock fade-up travels 100px, which reads as lurching. Homepage
+// elements travel 40px; elements INSIDE the wallet card travel 18px so
+// the cascade feels like UI settling, not blocks falling.
+// html:not(.no-js) mirrors aos.css's own selector so these win on
+// specificity — without it the library's 100px rule takes precedence.
+html:not(.no-js) .home-page [data-aos='fade-up'] {
+  transform: translate3d(0, 40px, 0);
+
+  &.aos-animate {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+html:not(.no-js) .home-page .playground-home-card [data-aos='fade-up'] {
+  transform: translate3d(0, 18px, 0);
+
+  &.aos-animate {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+// The balance halo breathes — the card reads as live, not a screenshot.
+.playground-home-card .gw-balance__glow {
+  animation: gw-glow-breathe 5s ease-in-out infinite alternate;
+}
+
+@keyframes gw-glow-breathe {
+  from {
+    opacity: 0.75;
+    transform: scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .playground-home-card-float {
     animation: none;
@@ -1391,6 +1403,10 @@
 
   .playground-home-card {
     transition: none;
+  }
+
+  .playground-home-card .gw-balance__glow {
+    animation: none;
   }
 }
 

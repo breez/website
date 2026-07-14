@@ -25,10 +25,10 @@ function initTypewriter() {
         index += 1;
         target.textContent = text.slice(0, index);
         if (index < text.length) {
-          setTimeout(step, 34 + Math.random() * 42);
+          setTimeout(step, 18 + Math.random() * 22);
         }
       };
-      setTimeout(step, 450);
+      setTimeout(step, 250);
     });
   }, { threshold: 0.4 });
 

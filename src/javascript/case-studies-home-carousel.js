@@ -29,9 +29,9 @@ $(function () {
         slidesToScroll: 1,
         infinite: true,
         arrows: true,
-        autoplay: true,
-        autoplaySpeed: 3800,
-        pauseOnHover: true,
+        // No autoplay: the lead case study should stay in view until the
+        // visitor chooses to move on.
+        autoplay: false,
         speed: 650,
         cssEase: 'cubic-bezier(0.4, 0.0, 0.2, 1)',
       });
