@@ -15,7 +15,8 @@
   font-weight: $font-weight-bold;
   font-size: 32px;
   line-height: 39px;
-  letter-spacing: 0.02em;
+  // Tight tracking on all bold display titles, site-wide.
+  letter-spacing: -0.02em;
   color: $white;
 
   @media (min-width: $screen-md-min) {
@@ -29,7 +30,7 @@
   font-weight: $font-weight-bold;
   font-size: 32px;
   line-height: 51px;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.02em;
   color: $white;
 
   &.--small {
@@ -107,7 +108,7 @@
   font-weight: $font-weight-bold;
   font-size: 42px;
   line-height: 51px;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.02em;
   color: $white;
 
   @media (min-width: $screen-md-min) {

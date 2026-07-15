@@ -3,15 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Breez SDK | Add Bitcoin to Any App or Service</title>
-    <meta name="description" content="The Breez SDK is the easiest way for developers to add instant, non-custodial bitcoin to any app or service, bringing value transfer to billions.">
+    <meta name="description" content="The Breez SDK is the easiest way for developers to add instant, non-custodial bitcoin and stablecoins to any app or service, bringing value transfer to billions.">
     <meta property="og:image" content="../../../assets/images/open-graph-sdk-update.png" />
     <meta property="og:title" content="Breez SDK | Add Bitcoin to Any App or Service" />
     <meta property="og:description"
-        content="Breez SDK is the easiest way for developers to add instant, non-custodial bitcoin to any app or service. Trusted by 75+ teams.">
+        content="Breez SDK is the easiest way for developers to add instant, non-custodial bitcoin and stablecoins to any app or service. Trusted by 75+ teams.">
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -19,11 +18,14 @@
     <meta name="twitter:creator" content="@Breez_Tech" />
     <meta name="twitter:title" content="Breez SDK | Add Bitcoin to Any App or Service" />
     <meta name="twitter:description"
-        content="Breez SDK is the easiest way for developers to add instant, non-custodial bitcoin to any app or service. Trusted by 75+ teams." />
+        content="Breez SDK is the easiest way for developers to add instant, non-custodial bitcoin and stablecoins to any app or service. Trusted by 75+ teams." />
     <meta name="twitter:image" content="../../../assets/images/open-graph-sdk-update.png" />
     <meta property="og:url" content="https://breez.technology/sdk/" />
     <link rel="canonical" href="https://breez.technology/sdk/" />
     <link rel="icon" href="../../../assets/icons/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -32,7 +34,7 @@
       "alternateName": "Breez",
       "url": "https://breez.technology",
       "logo": "https://breez.technology/assets/icons/logo-breez-header.svg",
-      "description": "Breez builds SDKs that enable developers to add instant, non-custodial bitcoin to any app or service, bringing value transfer to billions of users globally.",
+      "description": "Breez builds SDKs that enable developers to add instant, non-custodial bitcoin and stablecoins to any app or service, bringing value transfer to billions of users globally.",
       "sameAs": [
         "https://x.com/Breez_Tech",
         "https://github.com/breez",
@@ -49,7 +51,7 @@
       "name": "Breez SDK",
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "iOS, Android, Web, React Native, Flutter, Kotlin Multiplatform",
-      "description": "The Breez SDK is the easiest way for developers to add instant, non-custodial bitcoin into any app or service, bringing value transfer to billions.",
+      "description": "The Breez SDK is the easiest way for developers to add instant, non-custodial bitcoin and stablecoins into any app or service, bringing value transfer to billions.",
       "url": "https://breez.technology/sdk",
       "author": {
         "@type": "Organization",
@@ -169,22 +171,11 @@
 
     <div class="sdk-page container">
         <section class="sdk-hero-section row g-0 gx-lg-5 position-relative">
-            <div class="col-12 col-lg-6 ps-0 mb-5 mb-lg-0 d-flex flex-column">
+            <div class="col-12 col-lg-7 ps-0 mb-5 mb-lg-0 d-flex flex-column">
                 <div class="sdk-hero-info-block">
-                    <h1 class="h-1 mb-2">Breez SDK</h1>
-                    <h2 class="h-2 mb-3" style="font-size: 1.75rem;">Make Value Move Like Information</h2>
-                    <article>
-                        <p class="body-text --text-1">
-                            The Breez SDK is the best-in-class solution for developers adding instant, non-custodial bitcoin to their apps and services,
-                            removing third-party dependencies and enabling value to move as easily as information.
-                        </p>
-                        <br>
-                        <p class="body-text --text-1">
-                            With just a few lines of code, onboard billions of users to Bitcoin: an open, decentralized,
-                            and neutral monetary network. From social platforms adding tipping, to content apps embedding payments,
-                            to crypto wallets offering instant bitcoin and stablecoins. Wherever value needs to move, the Breez SDK gets it there.
-                        </p>
-                    </article>
+                    <h1 class="sdk-hero-statement">Move Value<br>Like Information</h1>
+                    <p class="sdk-hero-sub">Breez SDK is the simplest way to add instant, non&#8209;custodial bitcoin and stablecoins to any app or service.</p>
+                    <p class="sdk-hero-sub sdk-hero-sub--support">Onboard users anywhere, integrate in minutes, and bring value transfer to billions.</p>
                 </div>
                 <div class="d-flex sdk-btns">
                     <a role="button" class="primary-btn mb-3 me-sm-4 --hero-sdk text-decoration-none js-scroll-to"
@@ -200,9 +191,30 @@
                 </div>
             </div>
 
-            <div class="col-12 col-lg-6 pe-0 d-flex align-items-center justify-content-center">
-                <img src="../../../assets/images/sdk-illustration.webp"
-                    alt="notebook connecting to phone with puzzle wire" class="img-fluid sdk-hero-illustration">
+            <div class="col-12 col-lg-5 pe-0 d-flex align-items-center justify-content-center">
+                <div class="sdk-code-window" aria-hidden="true">
+                    <div class="sdk-code-chrome">
+                        <span class="sdk-code-dots"><i></i><i></i><i></i></span>
+                        <span class="sdk-code-file">receive.ts</span>
+                    </div>
+                    <pre class="sdk-code-body"><span class="tok-key">import</span> init, { connect, defaultConfig }
+  <span class="tok-key">from</span> <span class="tok-str">'@breeztech/breez-sdk-spark'</span>
+
+<span class="tok-key">await</span> <span class="tok-fn">init</span>()
+
+<span class="tok-key">const</span> config = <span class="tok-fn">defaultConfig</span>(<span class="tok-str">'mainnet'</span>)
+config.apiKey = BREEZ_API_KEY
+
+<span class="tok-key">const</span> sdk = <span class="tok-key">await</span> <span class="tok-fn">connect</span>({ config, seed, storageDir })
+
+<span class="tok-com">// Receive bitcoin in a few lines</span>
+<span class="tok-key">const</span> invoice = <span class="tok-key">await</span> sdk.<span class="tok-fn">receivePayment</span>({
+  paymentMethod: {
+    type: <span class="tok-str">'bolt11Invoice'</span>,
+    amountSats: <span class="tok-num">21_000</span>
+  }
+})<span class="sdk-code-cursor" aria-hidden="true"></span></pre>
+                </div>
             </div>
             <!--    gradients-->
             <div class="gradient --sdk-hero-radial-gradient-top-left">
@@ -293,7 +305,7 @@
                             </svg>
                         </div>
                         <h3 class="sdk-value-heading fw-bold mb-2">Best-in-Class DX</h3>
-                        <p class="body-text --text-3">A fully end-to-end solution for developers. Go from integration to production in hours.</p>
+                        <p class="body-text --text-3">A fully end-to-end solution for developers. Go from integration to production in minutes.</p>
                     </div>
                 </div>
                 <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="120">

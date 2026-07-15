@@ -43,24 +43,152 @@
       }
     }
 
-    .sdk-hero-illustration {
+    .sdk-hero-info-block {
+      // Wide enough for the big statement's longest line ("Like
+      // Information") to stay on one line; the sub caps itself narrower.
+      max-width: 660px;
+      margin-bottom: 28px;
+
       @media (min-width: $screen-lg-min) {
-        max-width: 75%;
+        margin-bottom: 40px;
       }
     }
 
-    .sdk-hero-info-block {
-      max-width: 530px;
-      margin-bottom: 40px;
+    // ── Hero type: same system as the homepage (Inter, tight display
+    // tracking, one statement + light sub), a step down in scale for the
+    // sub-page. ──
+    .sdk-hero-statement {
+      font-weight: $font-weight-bold;
+      letter-spacing: -0.02em;
+      line-height: 1.02;
+      // Much bigger — with no claims below, the statement anchors the
+      // left column and balances the code window's visual weight.
+      font-size: clamp(46px, 6.2vw, 78px);
+      color: $white;
+      margin: 0 0 32px;
+      text-wrap: balance;
+    }
+
+    // The index.html --text-2 body voice (22 / 32 / light) — bigger than
+    // the section subs so the left column holds its weight against the
+    // code window.
+    .sdk-hero-sub {
+      font-weight: $font-weight-light;
+      // 18/28 on mobile (matches the index subs); 20/30 on desktop — a
+      // step down from before now that two sub lines carry the block.
+      font-size: 18px;
+      line-height: 28px;
+      color: $white;
+      max-width: 500px;
+      // Clear paragraph break — well above the line gap so the two read
+      // as separate paragraphs, not one block.
+      margin: 0 0 24px;
 
       @media (min-width: $screen-lg-min) {
-        margin-bottom: 60px;
+        font-size: 20px;
+        line-height: 30px;
+      }
+
+      // Second line: the benefits, in a quieter supporting tone.
+      &.sdk-hero-sub--support {
+        color: $white;
+        margin-bottom: 0;
       }
     }
   }
 
+  // ── Hero code window: mirrors the homepage's dark browser-chrome frames
+  // (Claude window, Glow terminal). Real Spark SDK call, syntax-tinted in
+  // the site's blue + gold accent world. ──
+  .sdk-code-window {
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    background: #16181D;
+    overflow: hidden;
+    box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.8);
+  }
+
+  .sdk-code-chrome {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .sdk-code-dots {
+    display: flex;
+    gap: 7px;
+    flex-shrink: 0;
+
+    i {
+      display: block;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+
+      &:nth-child(1) { background: #FF5F57; }
+      &:nth-child(2) { background: #FEBC2E; }
+      &:nth-child(3) { background: #28C840; }
+    }
+  }
+
+  .sdk-code-file {
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.01em;
+  }
+
+  .sdk-code-body {
+    margin: 0;
+    padding: 20px 22px;
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+    font-size: 12.5px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.82);
+    white-space: pre;
+    overflow-x: auto;
+
+    .tok-key { color: #4DB5FF; }
+    .tok-fn  { color: #8FD0FF; }
+    .tok-str { color: #E8C9A8; }
+    .tok-num { color: #7CD9A8; }
+    .tok-com { color: rgba(255, 255, 255, 0.38); }
+  }
+
+  // Blinking cursor at the end of the snippet — the editor is "live".
+  .sdk-code-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 15px;
+    margin-left: 3px;
+    vertical-align: -2px;
+    background: rgba(255, 255, 255, 0.85);
+    animation: sdk-code-blink 1.1s steps(1) infinite;
+  }
+
+  @keyframes sdk-code-blink {
+    50% { opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sdk-code-cursor {
+      animation: none;
+    }
+  }
+
   .sdk-value-section {
+    // Clear separation from the hero — the cards were crowding it.
+    padding-top: 40px;
     margin-bottom: 120px;
+
+    @media (min-width: $screen-md-min) {
+      padding-top: 80px;
+    }
 
     .sdk-value-grid {
       display: grid;

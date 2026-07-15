@@ -497,6 +497,9 @@
   }
 
   .sdk-word {
+    // Keep each word atomic so hyphenated words ("non-custodial") wrap
+    // as a whole unit instead of splitting at the hyphen on mobile.
+    white-space: nowrap;
     transition: color 0.45s ease;
   }
 
