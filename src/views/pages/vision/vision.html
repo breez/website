@@ -52,37 +52,10 @@
             }
         }
         
-        .manifesto-hero h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            color: #fff;
-            text-wrap: balance;
-        }
-        
-        @media (max-width: 768px) {
-            .manifesto-hero h1 {
-                text-align: center;
-                margin-bottom: 1.5rem;
-            }
-        }
-        
-        .manifesto-hero .subtitle {
-            font-size: clamp(1.5rem, 3.5vw, 2rem);
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 800px;
-            margin: 0 auto 0.6rem auto;
-            font-weight: 300;
-            letter-spacing: 0.02em;
-        }
-        
-        @media (max-width: 768px) {
-            .manifesto-hero .subtitle {
-                margin: 0 0 1rem 0;
-            }
-        }
-        
+        /* Hero title + subheader use the shared .page-hero-title /
+           .page-hero-subtitle classes (see _typography.scss) to match the
+           SDK, Case Studies and Playground pages. */
+
         .manifesto-content {
             max-width: 800px;
             margin: 0 auto;
@@ -159,18 +132,6 @@
         
         /* Mobile adjustments */
         @media (max-width: 768px) {
-            .manifesto-hero h1 {
-                font-size: 35px;
-                line-height: 1.15;
-                margin-bottom: 0.75rem;
-            }
-
-            .manifesto-hero .subtitle {
-                font-size: 25px;
-                line-height: 1.4;
-                margin-bottom: 1.5rem;
-            }
-            
             .manifesto-content {
                 padding: 20px 20px 40px;
             }
@@ -299,17 +260,22 @@
 
             <!-- Hero Section -->
             <section class="manifesto-hero position-relative">
-                <h1 data-aos="fade-up" data-aos-duration="1000">Move Value Like Information</h1>
-                <p class="subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">The Utility of Bitcoin</p>
+                <h1 class="page-hero-title" data-aos="fade-up" data-aos-duration="1000">Move Value Like Information</h1>
+                <p class="page-hero-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">The Utility of Bitcoin</p>
 
                 <!--    gradients-->
                 <div class="gradient --hero-radial-gradient-top-right"></div>
                 <div class="gradient --hero-radial-gradient-bottom-left"></div>
             </section>
             
-            <!-- Hero Image -->
-            <div class="d-flex justify-content-center mt-2 mb-3" data-aos="fade-up" data-aos-duration="1000">
-                <object data="../../../assets/images/animate_cat.svg" type="image/svg+xml" class="img-fluid hero-image" style="max-width: 800px;" aria-label="exchange with friends with phone"></object>
+            <!-- Hero Image: wireframe globe rising over the horizon, value
+                 arcing between cities everywhere — the same half-globe motif
+                 as the homepage vision teaser. -->
+            <div class="vision-globe-horizon" role="img" data-aos="fade-up" data-aos-duration="1000"
+                aria-label="A wireframe globe rising over the horizon with value transfers arcing between cities worldwide">
+                <div class="vision-globe-box">
+                    <canvas id="globe-canvas"></canvas>
+                </div>
             </div>
             
             <!-- Main Content -->

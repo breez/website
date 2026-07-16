@@ -58,6 +58,27 @@
     @media (min-width: $screen-lg-min) {
       margin-bottom: 60px;
     }
+
+    // "Experience the Future of Bitcoin UX" is longer than the other pages'
+    // subheaders, so at the shared 38px it wraps in the two-column measure.
+    // Hold it on one line — a touch smaller, and never break from md up.
+    // (On phones it can't fit one line at a readable size, so it wraps.)
+    .page-hero-subtitle {
+      font-size: 30px;
+      line-height: 1.25;
+
+      @media (min-width: $screen-md-min) {
+        white-space: nowrap;
+      }
+    }
+
+    // Hero body matches the homepage's below-the-fold sub voice
+    // (.home-text --text-2: 18/28, light).
+    .body-text.--text-1 {
+      font-weight: $font-weight-light;
+      font-size: 18px;
+      line-height: 28px;
+    }
   }
 }
 

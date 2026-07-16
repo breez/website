@@ -928,6 +928,19 @@
     font-size: 18px;
     line-height: 28px;
   }
+
+  // Balanced two-line break — the industry list splits after "platforms,"
+  // and "and social apps use the Breez SDK…" carries the second line. The
+  // first half (~715px) only clears the section's measure from ~1040px up;
+  // below that, leave the break off so the copy wraps naturally rather than
+  // orphaning a word onto a third line.
+  .cs-sub-break {
+    display: none;
+
+    @media (min-width: 1040px) {
+      display: inline;
+    }
+  }
 }
 
 // ── Cards container (3-card slick carousel on desktop, scroll-snap on mobile) ──
@@ -1241,6 +1254,15 @@
   padding-top: 40px;
   margin-bottom: 100px;
 
+  // "Explore" is the only short single-word label, so the shared button's
+  // space-between flings its arrow to the far edge (~41px gap vs ~15px on
+  // the longer labels). Keep the 184px box, but centre the label + arrow
+  // together with a tight gap so they read as a unit instead.
+  .primary-btn {
+    justify-content: center;
+    gap: 12px;
+  }
+
   .playground-home-info-block {
     max-width: 640px;
     margin-bottom: 40px;
@@ -1285,6 +1307,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  // Desktop: push the mockup to the right of its column so it isn't
+  // stranded centre-left with empty space on the right.
+  @media (min-width: $screen-lg-min) {
+    justify-content: flex-end;
+  }
 }
 
 .playground-home-stage {
@@ -1303,6 +1331,8 @@
 
   @media (min-width: $screen-lg-min) {
     padding: 0;
+    // Right-aligned by the column now; a small gap keeps it off the edge.
+    margin-right: 8px;
   }
 
   @media (min-width: $screen-xl-min) {

@@ -171,11 +171,12 @@
 
     <div class="sdk-page container">
         <section class="sdk-hero-section row g-0 gx-lg-5 position-relative">
-            <div class="col-12 col-lg-7 ps-0 mb-5 mb-lg-0 d-flex flex-column">
+            <div class="col-12 col-lg-6 ps-0 mb-5 mb-lg-0 d-flex flex-column">
                 <div class="sdk-hero-info-block">
-                    <h1 class="sdk-hero-statement">Move Value<br>Like Information</h1>
-                    <p class="sdk-hero-sub">Breez SDK is the simplest way to add instant, non&#8209;custodial bitcoin and stablecoins to any app or service.</p>
-                    <p class="sdk-hero-sub sdk-hero-sub--support">Onboard users anywhere, integrate in minutes, and bring value transfer to billions.</p>
+                    <h1 class="page-hero-title">Breez SDK</h1>
+                    <p class="page-hero-subtitle">Move Value Like Information</p>
+                    <p class="sdk-hero-sub">The Breez SDK is the simplest way to add instant, non&#8209;custodial bitcoin and stablecoins to any app or service, removing third-party dependencies and enabling value to move as easily as information.</p>
+                    <p class="sdk-hero-sub sdk-hero-sub--support">Integrate in minutes with just a few lines of code, onboard users anywhere without the licensing burden, and bring value transfer to billions around the world.</p>
                 </div>
                 <div class="d-flex sdk-btns">
                     <a role="button" class="primary-btn mb-3 me-sm-4 --hero-sdk text-decoration-none js-scroll-to"
@@ -191,29 +192,86 @@
                 </div>
             </div>
 
-            <div class="col-12 col-lg-5 pe-0 d-flex align-items-center justify-content-center">
-                <div class="sdk-code-window" aria-hidden="true">
-                    <div class="sdk-code-chrome">
-                        <span class="sdk-code-dots"><i></i><i></i><i></i></span>
-                        <span class="sdk-code-file">receive.ts</span>
+            <div class="col-12 col-lg-6 pe-0 d-flex align-items-center justify-content-center">
+                <!-- Agent onboarding: a Claude window whose composer copies a
+                     prompt that turns any AI agent into a Breez SDK guide. -->
+                <div class="sdk-agent">
+                    <div class="sdk-agent-frame">
+                        <div class="sdk-agent-chrome" aria-hidden="true">
+                            <span class="sdk-agent-dots"><i></i><i></i><i></i></span>
+                        </div>
+                        <div class="sdk-agent-window">
+                            <div class="sdk-agent-greeting" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/>
+                                </svg>
+                                <span>Good Day, Builder</span>
+                            </div>
+                            <div class="sdk-agent-composer">
+                                <span class="sdk-agent-plus" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+                                </span>
+                                <span class="sdk-agent-input" aria-hidden="true"><span data-agent-type>Produce a Breez SDK integration plan for my product.</span><i class="sdk-agent-caret"></i></span>
+                                <span class="sdk-agent-modelpick" aria-hidden="true">
+                                    Bitcoin 2.1
+                                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                                </span>
+                                <button type="button" class="sdk-agent-copy" data-copy-prompt aria-label="Copy the Breez SDK onboarding prompt for your AI agent">
+                                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                                    <span>Copy prompt</span>
+                                </button>
+                            </div>
+                            <p class="sdk-agent-caption">Copy the prompt into your AI agent to plan and build your Breez SDK integration.</p>
+                        </div>
                     </div>
-                    <pre class="sdk-code-body"><span class="tok-key">import</span> init, { connect, defaultConfig }
-  <span class="tok-key">from</span> <span class="tok-str">'@breeztech/breez-sdk-spark'</span>
+                    <pre class="sdk-agent-prompt" data-agent-prompt hidden>
+You are an expert onboarding assistant for the Breez SDK - Spark.
 
-<span class="tok-key">await</span> <span class="tok-fn">init</span>()
+Docs: https://sdk-doc-spark.breez.technology/
 
-<span class="tok-key">const</span> config = <span class="tok-fn">defaultConfig</span>(<span class="tok-str">'mainnet'</span>)
-config.apiKey = BREEZ_API_KEY
+Goal: learn about my project to produce a personalized integration
+plan, and scaffold a working project if I ask for one.
 
-<span class="tok-key">const</span> sdk = <span class="tok-key">await</span> <span class="tok-fn">connect</span>({ config, seed, storageDir })
+Rules:
+- Ask ONE short question at a time and adapt to my answers.
+- Skip anything that is no longer relevant. Never assume.
+- If I am unsure, suggest common options and move on.
 
-<span class="tok-com">// Receive bitcoin in a few lines</span>
-<span class="tok-key">const</span> invoice = <span class="tok-key">await</span> sdk.<span class="tok-fn">receivePayment</span>({
-  paymentMethod: {
-    type: <span class="tok-str">'bolt11Invoice'</span>,
-    amountSats: <span class="tok-num">21_000</span>
-  }
-})<span class="sdk-code-cursor" aria-hidden="true"></span></pre>
+Track this state internally, filling it in as you learn:
+{
+  "project":     { "type": "existing | new", "description": "", "name": "" },
+  "platforms":   [],
+  "language":    "",
+  "framework":   "",
+  "features":    [],
+  "repository":  { "path": "", "provider": "", "canInspect": false },
+  "environment": {},
+  "network":     "testnet | mainnet",
+  "deployment":  "mvp | production",
+  "missing":     []
+}
+
+Flow:
+1. Ask what product I am building: wallet, merchant app, point of sale,
+   exchange, gaming app, AI agent, or something else?
+2. Existing app or new project?
+   Existing: repo location, whether you can inspect it, platforms,
+   languages, build tooling.
+   New: target platforms, language, framework, package manager,
+   project name, and whether to scaffold it.
+3. Which features I need: receiving and sending payments, stablecoins,
+   LNURL, on-chain, fiat on-ramps, webhooks, notifications, or other.
+4. My environment: only the tools relevant to my platform.
+5. Goals:
+
+When the state is complete, show me the summary and confirm it.
+Then produce: an implementation plan with integration order, required
+SDK components and installation steps, configuration, project structure
+for new projects, the docs pages to read, and anything still missing.
+
+If I ask you to scaffold, build incrementally and explain each step.
+Keep every reply short.
+Guide me, don't overwhelm me.</pre>
                 </div>
             </div>
             <!--    gradients-->

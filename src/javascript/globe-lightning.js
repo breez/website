@@ -95,6 +95,13 @@
   function resize() {
     dpr = window.devicePixelRatio || 1;
     var rect = canvas.parentElement.getBoundingClientRect();
+    // The parent can briefly measure 0 wide before the page finishes laying
+    // out (seen on the Vision hero) — retry next frame until it has size,
+    // rather than baking in a zero-width canvas that never draws.
+    if (!rect.width || !rect.height) {
+      requestAnimationFrame(resize);
+      return;
+    }
     width = rect.width;
     height = rect.height;
     canvas.width = width * dpr;

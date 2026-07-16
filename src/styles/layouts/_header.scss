@@ -24,6 +24,22 @@
     }
   }
 
+  // ── Mobile menu, open ── the nav background is translucent and fades to
+  // transparent, so the expanded menu items bleed into the page content
+  // behind them (hard to read). Give the open menu a solid backdrop.
+  @media (max-width: $screen-md-max) {
+    .navbar-collapse.show,
+    .navbar-collapse.collapsing {
+      background: $body-background;
+      padding-bottom: 1rem;
+    }
+
+    // Where :has is supported, make the whole nav a seamless solid panel.
+    &:has(.navbar-collapse.show) .header-background {
+      background: $body-background;
+    }
+  }
+
   .header-links {
     a {
       color: $white;

@@ -107,8 +107,8 @@
     <section class="case-studies-hub position-relative">
         <div class="cs-hero-header row g-0 gx-lg-5">
             <div class="col-12 col-lg-5 ps-0 d-flex flex-column mb-4 mb-lg-0">
-                <h1 class="h-1 mb-2">Case Studies</h1>
-                <h2 class="h-2 mb-3" style="font-size: 1.75rem;">Why Teams Build with Breez</h2>
+                <h1 class="page-hero-title">Case Studies</h1>
+                <h2 class="page-hero-subtitle">Why Teams Build with Breez</h2>
                 <p class="body-text --text-1 case-studies-hub-sub">
                     From crypto wallets to neobanks to mainstream apps, teams across the world use the Breez SDK to bring instant, non-custodial bitcoin to millions of users.
                 </p>
@@ -126,8 +126,11 @@
                 </div>
             </div>
             <div class="col-12 col-lg-7 d-flex align-items-center">
-                <div class="cs-globe-wrap">
-                    <canvas id="globe-canvas"></canvas>
+                <!-- Value network: glowing nodes drift and connect, gold
+                     value-pulses travelling the links (cs-value-network.js). -->
+                <div class="cs-showcase" role="img" data-aos="fade-up" data-aos-duration="900"
+                    aria-label="A living network of teams moving value on the Breez SDK">
+                    <canvas id="cs-network-canvas"></canvas>
                 </div>
             </div>
         </div>
