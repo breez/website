@@ -4,6 +4,8 @@
   .header-background {
     background: $header-background;
     backdrop-filter: blur(5px);
+    // So the mobile-menu backdrop fades in/out rather than snapping.
+    transition: background-color 0.32s ease;
 
     //@media (min-width: $screen-lg-min) {
     //  background: $header-background;
@@ -24,21 +26,20 @@
     }
   }
 
-  // ── Mobile menu, open ── the nav background is translucent and fades to
-  // transparent, so the expanded menu items bleed into the page content
-  // behind them (hard to read). Give the open menu a solid backdrop.
-  @media (max-width: $screen-md-max) {
-    .navbar-collapse.show,
-    .navbar-collapse.collapsing {
-      background: $body-background;
-      padding-bottom: 1rem;
-    }
-
-    // Where :has is supported, make the whole nav a seamless solid panel.
-    &:has(.navbar-collapse.show) .header-background {
-      background: $body-background;
+  // Mobile menu open: the default nav background fades to transparent, so the
+  // expanded links bleed into the page. Turn the whole bar into one solid,
+  // full-width frosted panel (driven by the .menu-open flag on the header) —
+  // not a translucent gradient, and not a blocky inset box on the collapse.
+  &.menu-open {
+    @media (max-width: $screen-md-max) {
+      .header-background {
+        // background-color (not the `background` shorthand) so it fades via
+        // the transition above; the base gradient image stays underneath.
+        background-color: rgba(0, 9, 28, 0.94);
+      }
     }
   }
+
 
   .header-links {
     a {

@@ -47,7 +47,7 @@
                 text-align: center;
                 justify-content: center;
                 align-items: center;
-                padding: 80px 20px 40px 20px;
+                padding: 80px 20px 4px 20px;
                 min-height: auto;
             }
         }
@@ -55,6 +55,20 @@
         /* Hero title + subheader use the shared .page-hero-title /
            .page-hero-subtitle classes (see _typography.scss) to match the
            SDK, Case Studies and Playground pages. */
+
+        /* Globe: tighter to the subheader above, more room to the copy below.
+           Scoped to this page so the homepage teaser is unaffected. */
+        .manifesto-page .vision-globe-horizon {
+            margin-top: 16px;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .manifesto-page .vision-globe-horizon {
+                margin-top: 8px;
+                margin-bottom: 2.25rem;
+            }
+        }
 
         .manifesto-content {
             max-width: 800px;

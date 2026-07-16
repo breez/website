@@ -18,16 +18,30 @@
   var COLS = 5, ROWS = 4;
   var MAX_DIST = 180;
   var lastSpawn = 0;
+  var lastW = 0, lastH = 0;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function rand(a, b) { return a + Math.random() * (b - a); }
+
+  // Deterministic pseudo-random, keyed to a node index + salt, so every build
+  // produces the identical mesh. Without this the mesh re-randomises each time
+  // the canvas is measured (mobile does so several times while the page
+  // settles), which reads as the graphic "cycling" through different shapes.
+  function srange(i, salt, a, b) {
+    var x = Math.sin((i + 1) * 12.9898 + salt * 78.233) * 43758.5453;
+    return a + (x - Math.floor(x)) * (b - a);
+  }
 
   function resize() {
     dpr = window.devicePixelRatio || 1;
     var rect = canvas.parentElement.getBoundingClientRect();
     if (!rect.width || !rect.height) { requestAnimationFrame(resize); return; }
-    W = rect.width;
-    H = rect.height;
+    var w = Math.round(rect.width), h = Math.round(rect.height);
+    // Nothing meaningful changed — don't rebuild. Mobile fires resize
+    // repeatedly on load and as the address bar shows/hides on scroll.
+    if (w === lastW && h === lastH && nodes.length) return;
+    lastW = w; lastH = h;
+    W = w; H = h;
     canvas.width = W * dpr;
     canvas.height = H * dpr;
     canvas.style.width = W + 'px';
@@ -49,14 +63,15 @@
     nodes = [];
     for (var r = 0; r < ROWS; r++) {
       for (var c = 0; c < COLS; c++) {
-        var hx = insetX + c * cw + rand(-cw * 0.3, cw * 0.3);
-        var hy = insetY + r * ch + rand(-ch * 0.3, ch * 0.3);
+        var n = r * COLS + c;
+        var hx = insetX + c * cw + srange(n, 1, -cw * 0.3, cw * 0.3);
+        var hy = insetY + r * ch + srange(n, 2, -ch * 0.3, ch * 0.3);
         nodes.push({
           hx: hx, hy: hy, x: hx, y: hy,
-          ax: amp * rand(0.7, 1.3), ay: amp * rand(0.7, 1.3),
-          fx: rand(0.00025, 0.0007), fy: rand(0.00025, 0.0007),
-          px: rand(0, Math.PI * 2), py: rand(0, Math.PI * 2),
-          r: rand(1.7, 3.1), ph: rand(0, Math.PI * 2)
+          ax: amp * srange(n, 3, 0.7, 1.3), ay: amp * srange(n, 4, 0.7, 1.3),
+          fx: srange(n, 5, 0.00025, 0.0007), fy: srange(n, 6, 0.00025, 0.0007),
+          px: srange(n, 7, 0, Math.PI * 2), py: srange(n, 8, 0, Math.PI * 2),
+          r: srange(n, 9, 1.7, 3.1), ph: srange(n, 10, 0, Math.PI * 2)
         });
       }
     }
