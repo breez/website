@@ -211,18 +211,43 @@
                                 <span class="sdk-agent-plus" aria-hidden="true">
                                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
                                 </span>
-                                <span class="sdk-agent-input" aria-hidden="true"><span data-agent-type>Produce a Breez SDK integration plan for my product.</span><i class="sdk-agent-caret"></i></span>
-                                <span class="sdk-agent-modelpick" aria-hidden="true">
-                                    Bitcoin 2.1
-                                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                                <span class="sdk-agent-input" aria-hidden="true"><span data-agent-type>Produce my Breez SDK integration plan.</span><i class="sdk-agent-caret"></i></span>
+                                <span class="sdk-agent-providers" role="group" aria-label="Open this prompt with an AI assistant">
+                                    <span class="sdk-agent-openwith">Open with</span>
+                                    <a class="sdk-agent-provider" data-provider="claude" href="https://claude.ai/new" target="_blank" rel="noopener noreferrer" aria-label="Open in Claude" title="Open in Claude">
+                                        <img src="../../../assets/images/claude_button.png" alt="">
+                                    </a>
+                                    <a class="sdk-agent-provider" data-provider="chatgpt" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" aria-label="Open in ChatGPT" title="Open in ChatGPT">
+                                        <img src="../../../assets/images/chatgpt_button.png" alt="">
+                                    </a>
+                                    <a class="sdk-agent-provider" data-provider="gemini" href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Open in Gemini" title="Open in Gemini">
+                                        <img src="../../../assets/images/gemini_button.png" alt="">
+                                    </a>
+                                    <a class="sdk-agent-provider" data-provider="grok" href="https://x.com/i/grok" target="_blank" rel="noopener noreferrer" aria-label="Open in Grok" title="Open in Grok">
+                                        <img src="../../../assets/images/grok_button.png" alt="">
+                                    </a>
                                 </span>
-                                <button type="button" class="sdk-agent-copy" data-copy-prompt aria-label="Copy the Breez SDK onboarding prompt for your AI agent">
-                                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
-                                    <span>Copy prompt</span>
-                                </button>
                             </div>
-                            <p class="sdk-agent-caption">Copy the prompt into your AI agent to plan and build your Breez SDK integration.</p>
                         </div>
+                    </div>
+                    <!-- Mobile only: the fake Claude window is replaced by a
+                         simple "start building" CTA with the same links. -->
+                    <div class="sdk-agent-mobile">
+                        <span class="sdk-agent-mobile-label">Start building with AI</span>
+                        <span class="sdk-agent-providers sdk-agent-mobile-providers" role="group" aria-label="Open this prompt with an AI assistant">
+                            <a class="sdk-agent-provider" data-provider="claude" href="https://claude.ai/new" target="_blank" rel="noopener noreferrer" aria-label="Open in Claude" title="Open in Claude">
+                                <img src="../../../assets/images/claude_button.png" alt="">
+                            </a>
+                            <a class="sdk-agent-provider" data-provider="chatgpt" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" aria-label="Open in ChatGPT" title="Open in ChatGPT">
+                                <img src="../../../assets/images/chatgpt_button.png" alt="">
+                            </a>
+                            <a class="sdk-agent-provider" data-provider="gemini" href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Open in Gemini" title="Open in Gemini">
+                                <img src="../../../assets/images/gemini_button.png" alt="">
+                            </a>
+                            <a class="sdk-agent-provider" data-provider="grok" href="https://x.com/i/grok" target="_blank" rel="noopener noreferrer" aria-label="Open in Grok" title="Open in Grok">
+                                <img src="../../../assets/images/grok_button.png" alt="">
+                            </a>
+                        </span>
                     </div>
                     <pre class="sdk-agent-prompt" data-agent-prompt hidden>
 You are an expert onboarding assistant for the Breez SDK - Spark.

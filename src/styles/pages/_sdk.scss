@@ -28,11 +28,11 @@
   }
 
   .sdk-hero-section {
-    // Mobile: more breathing room below the fixed nav before the title, and
-    // a larger gap after the card so the first value card doesn't peek up
-    // into the hero.
+    // Mobile: breathing room below the fixed nav before the title. The gap
+    // below is kept tighter than desktop — the mobile hero ends in the compact
+    // "start building" CTA, not the tall card, so it needs less room after.
     margin-top: 120px;
-    margin-bottom: 150px;
+    margin-bottom: 80px;
 
     @media (min-width: $screen-md-min) {
       margin-top: 160px;
@@ -107,18 +107,12 @@
       overflow: visible;
     }
 
-    // With the ask on its own row, the picker can always ride the controls
-    // row alongside the button — no need to hide it at mid widths.
-    .sdk-agent-modelpick {
-      @media (min-width: $screen-md-min) and (max-width: 1199.98px) {
-        display: inline-flex;
-      }
-    }
-
-    // Anchor the copy button to the bottom-right of the composer — where
-    // Claude's send button lives — instead of letting it float mid-row.
-    .sdk-agent-copy {
-      margin-left: auto;
+    // Larger card, larger controls: bump the "+" and the assistant chips to
+    // suit this page's bigger type (the homepage keeps the smaller base size).
+    .sdk-agent-plus,
+    .sdk-agent-provider {
+      width: 34px;
+      height: 34px;
     }
 
     // Desktop: a taller, roomier card — bigger greeting title, more space
@@ -154,36 +148,45 @@
         gap: 22px 14px;
         padding: 18px 16px 22px 22px;
       }
-
-      .sdk-agent-caption {
-        margin-top: 18px;
-      }
     }
 
-    // ── Mobile refinements for the Claude card: a bigger greeting and a
-    // larger prompt that wraps to two lines, plus more room around the copy
-    // button inside the composer. ──
+    // Desktop shows the fake Claude window; mobile hides it (below).
+    .sdk-agent-mobile {
+      display: none;
+    }
+
+    // ── Mobile: replace the fake Claude window with a plain CTA — a
+    // "Start building with AI" label above the four assistant launchers
+    // (same links). ──
     @media (max-width: $screen-sm-max) {
-      .sdk-agent-greeting {
-        svg {
-          width: 20px;
-          height: 20px;
-        }
-
-        span {
-          font-size: 22px;
-        }
+      .sdk-agent-frame {
+        display: none;
       }
 
-      .sdk-agent-input {
-        font-size: 16px;
-        line-height: 24px;
+      .sdk-agent-mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
       }
 
-      // More space beneath the button and between it and the box's right
-      // edge (extra bottom + right padding on the composer).
-      .sdk-agent-composer {
-        padding: 14px 16px 18px 18px;
+      .sdk-agent-mobile-label {
+        font-weight: $font-weight-medium;
+        font-size: 13px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.6);
+        text-align: left;
+      }
+
+      .sdk-agent-mobile-providers {
+        margin: 0;
+        gap: 16px;
+
+        .sdk-agent-provider {
+          width: 48px;
+          height: 48px;
+        }
       }
     }
   }
@@ -191,10 +194,13 @@
   .sdk-value-section {
     // Clear separation from the hero — the cards were crowding it.
     padding-top: 40px;
-    margin-bottom: 120px;
+    // Mobile keeps the section rhythm tight and even (~80px, matching the
+    // hero and capabilities gaps); desktop opens up.
+    margin-bottom: 80px;
 
     @media (min-width: $screen-md-min) {
       padding-top: 80px;
+      margin-bottom: 120px;
     }
 
     .sdk-value-grid {

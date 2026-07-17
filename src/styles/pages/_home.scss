@@ -664,7 +664,10 @@
   padding: 26px 18px 16px;
 
   @media (min-width: $screen-md-min) {
-    padding: 34px 28px 20px;
+    // Top matches the greeting's 26px margin-bottom, so the title sits with
+    // equal space above and below (was 34px top — a touch too much headroom,
+    // especially with the compact one-line composer).
+    padding: 26px 28px 20px;
   }
 }
 
@@ -709,13 +712,14 @@
   }
 }
 
-// Claude's attach button, resting
+// Claude's attach button, resting. Sized for the homepage's compact type;
+// the SDK page bumps it (and the chips) up to match its larger card.
 .sdk-agent-plus {
   display: none;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 8px;
   color: rgba(255, 255, 255, 0.5);
@@ -728,41 +732,68 @@
 
 .sdk-agent-input {
   flex: 1;
-  // Full row on mobile so the controls wrap beneath as their own row
+  // Mobile: full width, so the "Open with" controls wrap onto their own row
+  // beneath the prompt.
   min-width: 100%;
   font-size: 14px;
   line-height: 22px;
   min-height: 22px;
   color: #ECEAE2;
 
+  // Desktop (wide homepage card): one line — the prompt shares the row with
+  // the controls, as a real composer would. The narrow SDK-page card keeps
+  // its own two-row override.
   @media (min-width: $screen-md-min) {
-    // One line, always — the typed ask must never break mid-sentence
     min-width: 180px;
     white-space: nowrap;
     overflow: hidden;
   }
 }
 
-// Claude's model picker, reading Bitcoin 2.1
-.sdk-agent-modelpick {
+// "Open with" + the four line-art chips from the hero. Each chip is a
+// one-click launcher into that assistant — no intermediate selection. Sits
+// at the right of the controls row, where Claude's send button lives.
+.sdk-agent-providers {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.sdk-agent-openwith {
+  margin-right: 2px;
   font-size: 12.5px;
   color: rgba(255, 255, 255, 0.5);
   white-space: nowrap;
-  flex-shrink: 0;
-  // On mobile this shares the second row with the button
-  margin-right: auto;
+}
 
-  // On mid-size desktops the single-row composer can't fit the full
-  // typed line AND the picker — the ornament yields, the sentence wins.
-  @media (min-width: $screen-md-min) and (max-width: 1199.98px) {
-    display: none;
+.sdk-agent-provider {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  // No padding: the icon fills the box so it matches the "+" button's height.
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  // Full opacity: on the dark charcoal window the blue reads dimmer than the
+  // same icons on the light-blue hero, so they run at full strength here.
+  opacity: 1;
+  transition: transform 0.2s ease;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
-  @media (min-width: $screen-xl-min) {
-    margin-right: 4px;
+  &:hover {
+    transform: scale(1.06);
   }
 }
 
@@ -778,46 +809,6 @@
 
 @keyframes sdk-agent-caret-blink {
   50% { opacity: 0; }
-}
-
-// The action lives inside the Claude UI, where the send button would be.
-.sdk-agent-copy {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 9px 16px;
-  border: 0;
-  border-radius: 9px;
-  background: #D97757;
-  color: #FFFFFF;
-  font-size: 13px;
-  font-weight: $font-weight-medium;
-  letter-spacing: 0.02em;
-  cursor: pointer;
-  transition: background-color 0.25s ease;
-
-  svg {
-    flex-shrink: 0;
-  }
-
-  &:hover {
-    background: #C4633F;
-  }
-
-  &.is-copied {
-    background: #3E8E5A;
-  }
-}
-
-// Fine print under the composer, where Claude keeps its own disclaimer —
-// this is the context for what the button does.
-.sdk-agent-caption {
-  margin: 12px 0 0;
-  text-align: center;
-  font-size: 12px;
-  line-height: 18px;
-  color: rgba(255, 255, 255, 0.4);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -934,11 +925,12 @@
   // first half (~715px) only clears the section's measure from ~1040px up;
   // below that, leave the break off so the copy wraps naturally rather than
   // orphaning a word onto a third line.
-  .cs-sub-break {
-    display: none;
-
+  // Mobile: inline, so the two clauses flow with a normal space between them
+  // (and wrap naturally). Desktop (≥1040px): a block, which drops the second
+  // clause onto its own line — a clean break with no whitespace to trim.
+  .cs-sub-line {
     @media (min-width: 1040px) {
-      display: inline;
+      display: block;
     }
   }
 }
@@ -1253,15 +1245,6 @@
 .playground-home-section {
   padding-top: 40px;
   margin-bottom: 100px;
-
-  // "Explore" is the only short single-word label, so the shared button's
-  // space-between flings its arrow to the far edge (~41px gap vs ~15px on
-  // the longer labels). Keep the 184px box, but centre the label + arrow
-  // together with a tight gap so they read as a unit instead.
-  .primary-btn {
-    justify-content: center;
-    gap: 12px;
-  }
 
   .playground-home-info-block {
     max-width: 640px;

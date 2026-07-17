@@ -2,7 +2,14 @@
 .primary-btn {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  // Rule: centre the label + arrow together with a tight gap so they read as a
+  // single unit. (Was space-between, which flung the arrow to the far edge and
+  // made the gap vary wildly with label length.) nowrap keeps two-word labels
+  // on one line — the fixed 12px gap would otherwise tip them over the button's
+  // inner width and wrap the text.
+  justify-content: center;
+  gap: 12px;
+  white-space: nowrap;
   align-items: center;
   padding: 12px 24px;
 
