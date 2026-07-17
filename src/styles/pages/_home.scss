@@ -664,10 +664,9 @@
   padding: 26px 18px 16px;
 
   @media (min-width: $screen-md-min) {
-    // Top matches the greeting's 26px margin-bottom, so the title sits with
-    // equal space above and below (was 34px top — a touch too much headroom,
-    // especially with the compact one-line composer).
-    padding: 26px 28px 20px;
+    // Roomier on desktop so the wide card doesn't read as underscaled. Top
+    // matches the greeting's margin-bottom for even spacing around the title.
+    padding: 32px 36px 28px;
   }
 }
 
@@ -680,7 +679,14 @@
   color: #D97757;
 
   @media (min-width: $screen-md-min) {
-    margin-bottom: 26px;
+    gap: 12px;
+    margin-bottom: 32px;
+
+    // Scale the asterisk with the bigger title (its 18px is set inline).
+    svg {
+      width: 24px;
+      height: 24px;
+    }
   }
 
   span {
@@ -689,7 +695,7 @@
     color: #ECEAE2;
 
     @media (min-width: $screen-md-min) {
-      font-size: 20px;
+      font-size: 27px;
     }
   }
 }
@@ -708,7 +714,7 @@
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
 
   @media (min-width: $screen-md-min) {
-    padding: 13px 13px 13px 22px;
+    padding: 15px 15px 15px 24px;
   }
 }
 
@@ -727,6 +733,8 @@
 
   @media (min-width: $screen-md-min) {
     display: inline-flex;
+    width: 32px;
+    height: 32px;
   }
 }
 
@@ -747,6 +755,8 @@
     min-width: 180px;
     white-space: nowrap;
     overflow: hidden;
+    font-size: 16px;
+    line-height: 24px;
   }
 }
 
@@ -780,6 +790,12 @@
   border-radius: 8px;
   background: transparent;
   cursor: pointer;
+
+  // Desktop homepage: bigger, to match the scaled-up card (SDK page keeps 34px).
+  @media (min-width: $screen-md-min) {
+    width: 32px;
+    height: 32px;
+  }
   // Full opacity: on the dark charcoal window the blue reads dimmer than the
   // same icons on the light-blue hero, so they run at full strength here.
   opacity: 1;
@@ -794,6 +810,25 @@
 
   &:hover {
     transform: scale(1.06);
+  }
+}
+
+// Inside the Claude window, style the launchers like Claude's send button:
+// a coral (#D97757) filled square with white line-art inside. (The mobile
+// "start building" CTA sits on the blue page and keeps the original blue icons.)
+.sdk-agent-composer .sdk-agent-provider {
+  background: #D97757;
+  padding: 6px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+
+  img {
+    // Colorise the (frameless) glyph PNG to white.
+    filter: brightness(0) invert(1);
+    opacity: 1;
+  }
+
+  &:hover {
+    background: #C4633F;
   }
 }
 
