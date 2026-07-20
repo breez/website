@@ -198,6 +198,14 @@
     opacity: 0.5;
     filter: blur(150px);
     z-index: -1;
+
+    // Mobile: the -300px offsets push the glow off-canvas; the body's
+    // overflow clip slices the blur into a hard-edged light band at the
+    // screen edge that rides in and out while scrolling. No room for the
+    // ambience on small screens — hide it.
+    @media (max-width: $screen-md-max) {
+      display: none;
+    }
   }
 
   &.--sdk-implementation-radial-gradient-bottom-right {
@@ -211,6 +219,11 @@
     opacity: 0.5;
     filter: blur(150px);
     z-index: -1;
+
+    // Same clipped-blur band as above, on the right edge.
+    @media (max-width: $screen-md-max) {
+      display: none;
+    }
   }
 
   // case study CTA section (bottom of page)

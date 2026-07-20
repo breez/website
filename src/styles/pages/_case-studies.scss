@@ -281,7 +281,8 @@ body.case-studies-hub-page .case-studies-page {
   .cs-showcase {
     position: relative;
     width: 100%;
-    height: 380px;
+    // Compact on mobile — the network is a supporting graphic there, not the hero.
+    height: 260px;
     // Hard guarantee the network never paints outside its box.
     overflow: hidden;
 
