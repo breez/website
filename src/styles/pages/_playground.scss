@@ -81,12 +81,18 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 16px;
+
+    // Hold each control at its natural size: when the row runs out of
+    // space it must wrap, never squash the Build button.
+    > * {
+      flex-shrink: 0;
+    }
   }
 }
 
-// Store badges — fixed height so App Store / Google Play read as one row.
-// On phones the visible badge + Build must share a line (Misty pattern),
-// so both step down a size.
+// Store badges — 48px tall, matching the Build button beside them. On a
+// phone the OS checker hides the other store's badge, so the visible
+// badge (164px) + gap + Build (140px) = 320px still fits one line.
 .glow-store-btn {
   display: inline-flex;
   transition: transform 150ms cubic-bezier(0.16, 1, 0.3, 1), opacity 150ms ease;
@@ -95,10 +101,6 @@
     height: 48px;
     width: auto;
     display: block;
-
-    @media (max-width: 576px) {
-      height: 40px;
-    }
   }
 
   &:hover {
@@ -113,28 +115,7 @@
   }
 }
 
-// Repository — outline button sized to sit beside the badges
-// Sized to its label, not the 177px min-width that .primary-btn.--transparent
-// forces — it sits beside a store badge and must not outweigh it. The
-// doubled class beats .primary-btn.--transparent's specificity (0,2,0).
-.primary-btn.--transparent.glow-repo-btn {
-  width: auto;
-  min-width: 0;
-  height: 48px;
-  padding: 0 18px;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  white-space: nowrap;
-
-  @media (max-width: 576px) {
-    height: 40px;
-    padding: 0 14px;
-  }
-}
-
-// Hero visual: the Glow mark itself — pops in, then breathes with a
-// slow drift and a pulsing gold glow.
+// Hero visual: the Glow mark itself — pops in once, then holds.
 .glow-hero__icon {
   display: flex;
   align-items: center;
