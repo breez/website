@@ -50,6 +50,7 @@ import './javascript/hero-typewriter'
 import './javascript/sdk-statement-scrub'
 import './javascript/sdk-agent-prompt'
 import './javascript/glow-card-live'
+import './javascript/glow-page'
 
 
 // /////// decrease time loader

@@ -1,6 +1,11 @@
 @import 'src/styles/abstracts/_variables.scss';
 
-// No forced min-height on body — let the page end at the footer naturally.
+// ================================================================
+// Glow product page (served at /playground)
+// Apple-esque product treatment: the app UI is the hero, feature
+// "moments" pair big type with phone-framed demo videos, and a
+// tight dev band closes the loop to /sdk.
+// ================================================================
 
 .playground-page {
   &.container {
@@ -34,35 +39,24 @@
   padding-bottom: 0;
 }
 
-// Hero section — mimics sdk.html structure
-.playground-hero-section {
+// ----------------------------------------------------------------
+// Hero
+// ----------------------------------------------------------------
+// Hero — mirrors the other pages' hero rhythm exactly (see _sdk.scss):
+// same top/bottom margins, copy block top-aligned in its column.
+.glow-hero {
   margin-top: 100px;
-  margin-bottom: 100px;
+  margin-bottom: 120px;
 
   @media (min-width: $screen-md-min) {
     margin-top: 160px;
-    margin-bottom: 120px;
+    margin-bottom: 160px;
   }
 
-  // Mirror .sdk-btns from _sdk.scss — stack on small screens, row otherwise
-  .sdk-btns {
-    @media (max-width: 576px) {
-      flex-direction: column;
-    }
-  }
-
-  .playground-hero-info-block {
+  &__info {
     max-width: 530px;
     margin-bottom: 40px;
 
-    @media (min-width: $screen-lg-min) {
-      margin-bottom: 60px;
-    }
-
-    // "Experience the Future of Bitcoin UX" is longer than the other pages'
-    // subheaders, so at the shared 38px it wraps in the two-column measure.
-    // Hold it on one line — a touch smaller, and never break from md up.
-    // (On phones it can't fit one line at a readable size, so it wraps.)
     .page-hero-subtitle {
       font-size: 30px;
       line-height: 1.25;
@@ -73,156 +67,555 @@
     }
 
     // Hero body matches the homepage's below-the-fold sub voice
-    // (.home-text --text-2: 18/28, light).
     .body-text.--text-1 {
       font-weight: $font-weight-light;
       font-size: 18px;
       line-height: 28px;
     }
   }
-}
 
-// Typography scoped to playground (for panel section headlines)
-.playground-h2 {
-  font-size: clamp(26px, 3.2vw, 36px);
-  line-height: 1.18;
-  font-weight: $font-weight-bold;
-  letter-spacing: -0.005em;
-  margin: 0 0 16px;
-  color: $white;
-}
-
-.playground-h3 {
-  font-size: clamp(24px, 2.6vw, 32px);
-  line-height: 1.2;
-  font-weight: $font-weight-bold;
-  margin: 0 0 12px;
-  color: $white;
-}
-
-.playground-section__eyebrow {
-  display: inline-block;
-  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
-  font-size: 12px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: $bubble-bobble-p2;
-  margin-bottom: 16px;
-}
-
-// ----------------------------------------------------------------
-// Hero image — smaller, matches sdk-hero-illustration sizing
-// ----------------------------------------------------------------
-.playground-hero-image {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-  display: block;
-
-  @media (min-width: $screen-lg-min) {
-    max-width: 75%;
+  // One row on all sizes, like the Misty page — on a phone the OS
+  // checker hides the other store's badge, so badge + Build fit a line.
+  &__btns {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
   }
 }
 
-// ----------------------------------------------------------------
-// Reference-app sections — stacked on all breakpoints (no tabs)
-// ----------------------------------------------------------------
-.playground-tabs {
-  position: relative;
-  margin-bottom: 80px;
+// Store badges — fixed height so App Store / Google Play read as one row.
+// On phones the visible badge + Build must share a line (Misty pattern),
+// so both step down a size.
+.glow-store-btn {
+  display: inline-flex;
+  transition: transform 150ms cubic-bezier(0.16, 1, 0.3, 1), opacity 150ms ease;
 
-  @media (min-width: $screen-md-min) {
-    margin-bottom: 120px;
-  }
+  img {
+    height: 48px;
+    width: auto;
+    display: block;
 
-  &__panels {
-    position: relative;
-  }
-}
-
-.playground-panel {
-  display: block;
-  position: relative;
-
-  & + .playground-panel {
-    margin-top: 96px;
-
-    @media (min-width: $screen-md-min) {
-      margin-top: 140px;
+    @media (max-width: 576px) {
+      height: 40px;
     }
   }
 
-  &__copy {
-    max-width: 530px;
+  &:hover {
+    transform: translateY(-2px);
+    opacity: 0.92;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $bubble-bobble-p2;
+    outline-offset: 4px;
+    border-radius: 8px;
+  }
+}
+
+// Repository — outline button sized to sit beside the badges
+// Sized to its label, not the 177px min-width that .primary-btn.--transparent
+// forces — it sits beside a store badge and must not outweigh it. The
+// doubled class beats .primary-btn.--transparent's specificity (0,2,0).
+.primary-btn.--transparent.glow-repo-btn {
+  width: auto;
+  min-width: 0;
+  height: 48px;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+
+  @media (max-width: 576px) {
+    height: 40px;
+    padding: 0 14px;
+  }
+}
+
+// Hero visual: the Glow mark itself — pops in, then breathes with a
+// slow drift and a pulsing gold glow.
+.glow-hero__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  // Stacked layout: the mark sits under the buttons and needs its own
+  // breathing room. Beside the copy at lg+ it doesn't.
+  @media (max-width: 991.98px) {
+    margin-top: 48px;
+  }
+
+  img {
+    width: min(64%, 260px);
+    height: auto;
 
     @media (min-width: $screen-lg-min) {
-      // Don't constrain the col below its col-lg-6 width at lg+ — otherwise
-      // the visual col shifts left and breaks alignment with the hero image.
-      max-width: none;
+      width: min(76%, 380px);
+    }
+
+    // Pop in once, then still. The mark's own gradient does the glowing;
+    // no filter treatment.
+    animation: glow-icon-pop 700ms cubic-bezier(0.34, 1.3, 0.64, 1) both;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
     }
   }
+}
 
-  &__visual {
+@keyframes glow-icon-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// ----------------------------------------------------------------
+// Phone shell — shared bezel for the hero mockup and video moments
+// ----------------------------------------------------------------
+.glow-phone {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+
+  @media (min-width: $screen-lg-min) {
+    max-width: 320px;
+  }
+
+  // Ambient gold halo behind the device
+  &__halo {
+    position: absolute;
+    inset: -8% -18%;
+    pointer-events: none;
+    background: radial-gradient(ellipse 60% 55% at center, rgba(212, 165, 116, 0.16) 0%, transparent 70%);
+    filter: blur(24px);
+    z-index: 0;
+  }
+
+  &__screen {
+    position: relative;
+    z-index: 1;
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: #0b0b13;
+    box-shadow:
+      0 0 0 6px rgba(20, 22, 30, 0.9),
+      0 0 0 7px rgba(255, 255, 255, 0.06),
+      0 40px 90px -30px rgba(0, 0, 0, 0.9);
+    overflow: hidden;
+    aspect-ratio: 9 / 19;
     display: flex;
-    justify-content: center;
-
-    // Frames cap at 400px to match the hero image cap exactly, so stacked
-    // layouts align visually. On lg+ they can grow to 440px since they sit
-    // beside the copy column with their own breathing room. Centering is
-    // preserved at all breakpoints so the frame centers in its col-lg-6,
-    // aligning with the hero image above.
-    .glow-frame {
-      width: 100%;
-      max-width: 400px;
-
-      @media (min-width: $screen-lg-min) {
-        max-width: 440px;
-      }
-    }
+    flex-direction: column;
   }
 
-  // Terminal frame matches the others exactly (same max width)
-  &__visual .glow-frame--terminal {
+  // Video variant: the demo shorts are square (1080×1080), so they get
+  // a square rounded tile — video fills edge to edge, no letterboxing.
+  // The phone bezel is reserved for the hero mockup.
+  &--video {
     max-width: 400px;
 
     @media (min-width: $screen-lg-min) {
       max-width: 440px;
     }
+
+    .glow-phone__screen {
+      background: #000;
+      aspect-ratio: 1 / 1;
+      border-radius: 28px;
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.06),
+        0 40px 90px -30px rgba(0, 0, 0, 0.9);
+    }
+  }
+}
+
+// The Glow UI card (below the statement), reused verbatim from the
+// homepage via the .playground-home-card-float/viewport/inner classes
+// in _home.scss. This wrapper supplies the sizing vars those classes
+// expect, with the homepage's own scale ladder.
+.glow-ui-card {
+  --card-w: 400px;
+  --card-h: 474px;
+  --card-scale: 0.72;
+
+  @media (min-width: $screen-md-min) {
+    --card-scale: 0.8;
   }
 
-  // All three frames share identical width on desktop. No per-app overrides.
+  @media (min-width: $screen-xl-min) {
+    --card-scale: 0.88;
+  }
 
-  // Match the hero's button rhythm exactly: same .sdk-btns container,
-  // same .--hero-sdk / .--hero-sdk-contribute modifier classes on the
-  // buttons themselves. Spacing between buttons comes entirely from
-  // the utility classes on the primary button (`mb-3 me-sm-4`), just
-  // like the hero — no `gap` on the container. Only additions here
-  // are the top margin (space from copy block to CTA row) and the
-  // small-screen stacking rule (_sdk.scss scopes that rule to
-  // .sdk-hero-section, which doesn't reach the panels).
-  &__btns {
-    margin-top: 40px;
+  @media (min-width: $screen-xxl-min) {
+    --card-scale: 0.95;
+  }
+}
 
-    @media (max-width: 576px) {
-      flex-direction: column;
+// ----------------------------------------------------------------
+// Video facade — poster until the iframe is injected on scroll
+// ----------------------------------------------------------------
+.glow-video {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: #000;
+  cursor: pointer;
+
+  &__poster {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: $white;
+    backdrop-filter: blur(6px);
+    transition: transform 150ms cubic-bezier(0.16, 1, 0.3, 1), background 150ms ease;
+
+    // Optical centering — nudge the triangle right
+    svg {
+      margin-left: 3px;
     }
+  }
 
-    @media (min-width: $screen-lg-min) {
-      margin-top: 60px;
+  &:hover .glow-video__play {
+    transform: translate(-50%, -50%) scale(1.08);
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $bubble-bobble-p2;
+    outline-offset: -2px;
+  }
+
+  // The iframe slots in under the poster; the poster stays on top
+  // (is-loading) until the player has rendered, then fades (is-playing).
+  iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    z-index: 0;
+  }
+
+  &__poster,
+  &__play {
+    z-index: 1;
+  }
+
+  &.is-loading {
+    cursor: default;
+
+    .glow-video__play {
+      display: none;
+    }
+  }
+
+  &.is-playing {
+    .glow-video__poster {
+      opacity: 0;
+      transition: opacity 400ms ease;
+      pointer-events: none;
     }
   }
 }
 
 // ----------------------------------------------------------------
-// Glow frame — unified wrapper for all 3 apps. Same width, same chrome,
-// same aspect ratio. Internal content (image or terminal) varies.
+// Showcase — section header + alternating feature moments
+// ----------------------------------------------------------------
+.glow-showcase {
+  position: relative;
+  margin-bottom: 120px;
+
+  @media (min-width: $screen-md-min) {
+    margin-bottom: 160px;
+  }
+
+}
+
+// ----------------------------------------------------------------
+// Statement intro — the page's big moment, played once as it enters
+// the viewport: words rise out of a blur one after another (delays
+// set per word by glow-page.js), then the key words ignite blue with
+// a single glow pulse. No JS / reduced motion: static, fully lit.
+// ----------------------------------------------------------------
+// The statement is the chapter opener: left on mobile, centred on
+// desktop with the Glow UI card and the Explore CTA composed under it,
+// so the big line is anchored rather than adrift.
+.glow-statement-intro {
+  text-align: left;
+  margin: 20px 0 150px;
+
+  @media (min-width: $screen-md-min) {
+    text-align: center;
+    margin: 40px 0 210px;
+  }
+
+  // Size comes from the shared .home-text.--text-2 rule below (18/28),
+  // matching every other section's sub. Only spacing is set here.
+  &__sub {
+    margin: 20px 0 0;
+  }
+
+  &__cta {
+    margin-top: 40px;
+
+    @media (min-width: $screen-md-min) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__card {
+    display: flex;
+    justify-content: center;
+    margin: 64px 0 0;
+
+    @media (min-width: $screen-md-min) {
+      margin: 80px 0 0;
+    }
+  }
+
+  // Display scale: a full step above the interior 52px statements,
+  // fluid so the two lines never re-wrap ("Bitcoin UX Should Feel
+  // Like" measures ~13em).
+  .sdk-statement {
+    margin: 0;
+    max-width: none;
+    font-size: clamp(36px, 9.5vw, 72px);
+
+    @media (min-width: $screen-lg-min) {
+      font-size: min(calc((100vw - 300px) / 13), 72px);
+    }
+
+    .sdk-line {
+      display: block;
+    }
+  }
+
+  // Armed by JS before the reveal: words held below, blurred out. Key
+  // words are ALREADY blue here, so they arrive blue as they animate
+  // in — the colour is part of the reveal, not a later flip.
+  &.is-armed {
+    .sdk-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(26px);
+      filter: blur(10px);
+    }
+
+    .sdk-key .sdk-word {
+      color: $bubble-bobble-p2;
+    }
+
+    // Follow-on elements (sub, CTA, card) held for their sequenced turn.
+    .glow-statement-intro__reveal {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+  }
+
+  // The reveal: each word rises on its own delay (--w-delay from JS);
+  // key words fire a soft glow pulse as they land.
+  &.is-live {
+    .sdk-word {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+      transition:
+        opacity 600ms cubic-bezier(0.16, 1, 0.3, 1) var(--w-delay, 0ms),
+        transform 700ms cubic-bezier(0.16, 1, 0.3, 1) var(--w-delay, 0ms),
+        filter 500ms ease var(--w-delay, 0ms);
+    }
+
+    .sdk-key .sdk-word {
+      animation: glow-key-ignite 800ms ease-out var(--w-delay, 0ms) both;
+    }
+
+    // Sub / CTA / card ease up in sequence after the words (--step-delay).
+    .glow-statement-intro__reveal {
+      opacity: 1;
+      transform: translateY(0);
+      transition:
+        opacity 600ms cubic-bezier(0.16, 1, 0.3, 1) var(--step-delay, 0ms),
+        transform 600ms cubic-bezier(0.16, 1, 0.3, 1) var(--step-delay, 0ms);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &.is-armed .sdk-word,
+    &.is-armed .glow-statement-intro__reveal {
+      opacity: 1;
+      transform: none;
+      filter: none;
+    }
+  }
+}
+
+@keyframes glow-key-ignite {
+  0% { text-shadow: 0 0 0 rgba(0, 133, 251, 0); }
+  40% { text-shadow: 0 0 26px rgba(0, 133, 251, 0.6); }
+  100% { text-shadow: 0 0 0 rgba(0, 133, 251, 0); }
+}
+
+// ── Motion tuning — same restraint as the homepage: AOS's stock 100px
+// travel and 0.6 zoom read as lurching; copy slides 40px, tiles settle
+// from 0.94. html:not(.no-js) mirrors aos.css's selector to win on
+// specificity.
+html:not(.no-js) .playground-page {
+  [data-aos='fade-right'] {
+    transform: translate3d(-40px, 0, 0);
+
+    &.aos-animate {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  [data-aos='fade-up'] {
+    transform: translate3d(0, 40px, 0);
+
+    &.aos-animate {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  [data-aos='zoom-in'] {
+    transform: scale(0.94);
+
+    &.aos-animate {
+      transform: scale(1);
+    }
+  }
+}
+
+// Type matches the homepage below-the-fold recipe exactly
+// (.case-studies-home-header / .playground-home-info-block in _home.scss):
+// headings step 34/44 → 44/56, subs hold 18/28.
+.glow-moment__info,
+.glow-underhood__header,
+.glow-statement-intro {
+  .h-2-home {
+    font-size: 34px;
+    line-height: 44px;
+    letter-spacing: -0.02em;
+
+    @media (min-width: $screen-md-min) {
+      font-size: 44px;
+      line-height: 56px;
+    }
+  }
+
+  .home-text.--text-2 {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+.glow-moment {
+  display: block;
+  position: relative;
+
+  & + .glow-moment {
+    margin-top: 100px;
+
+    @media (min-width: $screen-md-min) {
+      margin-top: 150px;
+    }
+  }
+
+  // Mirrors the homepage playground section: info block (title + sub),
+  // then a standard primary button below it.
+  &__info {
+    max-width: 640px;
+    margin-bottom: 40px;
+
+    @media (min-width: $screen-md-min) {
+      margin-bottom: 48px;
+    }
+  }
+
+  .primary-btn {
+    align-self: flex-start;
+  }
+
+  &__visual {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+// ----------------------------------------------------------------
+// Look under the hood — tight dev band
+// ----------------------------------------------------------------
+// Structured like the homepage sdk-section: centered statement (md+),
+// icon claim strip (global .sdk-claim-* classes), centered CTA.
+.glow-underhood {
+  position: relative;
+  margin-bottom: 40px;
+  text-align: left;
+
+  @media (min-width: $screen-md-min) {
+    margin-bottom: 60px;
+  }
+
+  @media (min-width: $screen-md-min) {
+    text-align: center;
+  }
+
+  &__header {
+    max-width: 640px;
+    margin-bottom: 32px;
+
+    @media (min-width: $screen-md-min) {
+      max-width: none;
+      margin-bottom: 48px;
+    }
+  }
+
+  // Same centring rule the homepage applies to its sdk-section CTA
+  .primary-btn {
+    @media (min-width: $screen-md-min) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+// ----------------------------------------------------------------
+// Glow frame — card wrapper for the gw mockup. NOTE: the homepage
+// Glow card (.playground-home-card in index.html) uses
+// .glow-frame.glow-frame--web + .glow-frame__media--web verbatim —
+// keep these styles intact even though this page's hero wraps the
+// mockup in .glow-phone instead.
 // ----------------------------------------------------------------
 .glow-frame {
   margin: 0;
   width: 100%;
-  // All three showcase cards (Glow App, Glow Pay, Glow Cloud) share the same
-  // height so tab-switching doesn't cause layout jumps and the three panels
-  // feel visually balanced. 474px is Glow Pay's natural height.
   min-height: 474px;
   background: linear-gradient(180deg, rgba(20, 24, 32, 0.95) 0%, rgba(10, 13, 18, 0.95) 100%);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -234,74 +627,11 @@
   display: flex;
   flex-direction: column;
 
-  // Bare frames (no chrome) — used for web and pay. App content sits
-  // on the page bg, no card wrapper.
-  &--bare {
-    background: transparent;
-    border: 0;
-    box-shadow: none;
-    border-radius: 0;
-    overflow: visible;
-
-    .glow-frame__media {
-      background: transparent;
-      aspect-ratio: auto;
-    }
-  }
-
-  &__chrome {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 14px 18px;
-    background: rgba(255, 255, 255, 0.025);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    flex-shrink: 0;
-  }
-
-  &__dots {
-    display: flex;
-    gap: 7px;
-    flex-shrink: 0;
-
-    .dot {
-      display: inline-block;
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-
-      &--red { background: #FF5F57; }
-      &--yellow { background: #FEBC2E; }
-      &--green { background: #28C840; }
-    }
-  }
-
-  &__url {
-    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.55);
-    letter-spacing: 0.01em;
-  }
-
   // Media slot — sizes to its content
   &__media {
     position: relative;
     background: #000;
     overflow: hidden;
-
-    &--terminal {
-      background: linear-gradient(180deg, #0f141a 0%, #0a0d11 100%);
-      padding: 14px 22px;
-      aspect-ratio: auto; // let the terminal size to its content
-      overflow: visible;
-      // Fill the frame and center the full command block (first line through
-      // blinking cursor) vertically so the terminal reads balanced rather
-      // than top-anchored with empty scrollback below.
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
 
     &--web {
       background: #000;
@@ -311,30 +641,13 @@
       // Stretch to fill the frame so the web card matches the shared height.
       flex: 1;
     }
-
-    &--pay {
-      background: transparent;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 16px;
-    }
-  }
-
-  &--terminal {
-    justify-content: flex-start !important; // chrome sticks to top, content below
-
-    .glow-frame__chrome {
-      background: rgba(0, 0, 0, 0.3);
-    }
   }
 }
 
 // ----------------------------------------------------------------
-// Glow Web — faithful recreation of the breez/glow-web wallet UI.
+// Glow app mockup — faithful recreation of the breez/glow-web UI.
 // Token names (spark-*) and hex values lifted from the repo's
-// tailwind.config.js so the card reads as the real product, not
-// an interpretation.
+// tailwind.config.js so the card reads as the real product.
 // ----------------------------------------------------------------
 .glow-frame--web {
   // Scope the real app's fonts to this card only. Plus Jakarta Sans
@@ -661,184 +974,3 @@
     }
   }
 }
-
-// ----------------------------------------------------------------
-// Glow Pay — accurate checkout mockup (Boxed, purple accent, QR)
-// ----------------------------------------------------------------
-.gp-card {
-  position: relative;
-  width: 100%;
-  // Match the other panels' frame widths (400 mobile, 440 lg+) so all
-  // three visuals have equal column weight.
-  max-width: 400px;
-  // Height parity with .glow-frame so all three showcase cards line up.
-  min-height: 474px;
-  padding: 28px 32px 24px;
-  border-radius: 16px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-
-  // Use Geist (same font as glow-pay.co and getboxed.shop) scoped to this
-  // card so it reads as a screenshot of a real checkout, not part of the
-  // surrounding Breez page.
-  font-family: 'Geist', 'Inter', sans-serif;
-
-  @media (min-width: $screen-lg-min) {
-    max-width: 440px;
-  }
-}
-
-.gp-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 2px;
-
-  &__mark {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 34px;
-    height: 34px;
-    border-radius: 9px;
-    background: linear-gradient(135deg, #d6b8ff 0%, #8f5cff 100%);
-    color: $white;
-    font-weight: $font-weight-bold;
-    font-size: 19px;
-  }
-
-  &__name {
-    font-size: 19px;
-    font-weight: $font-weight-bold;
-    color: $white;
-  }
-}
-
-.gp-amount {
-  font-size: 30px;
-  font-weight: $font-weight-bold;
-  color: #b891ff;
-  letter-spacing: -0.01em;
-  line-height: 1;
-}
-
-.gp-memo {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.55);
-  text-align: center;
-  max-width: 260px;
-  line-height: 1.3;
-}
-
-.gp-qr {
-  position: relative;
-  margin-top: 2px;
-  width: 168px;
-  height: 168px;
-  padding: 10px;
-  border-radius: 12px;
-  background: #fff;
-
-  &__halo {
-    position: absolute;
-    inset: -14px;
-    background: radial-gradient(circle at center, rgba(228, 195, 138, 0.35) 0%, rgba(228, 195, 138, 0.05) 60%, transparent 80%);
-    filter: blur(10px);
-    z-index: -1;
-  }
-
-  &__svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-}
-
-.gp-timer {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.gp-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  height: 38px;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.02);
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 13px;
-  font-weight: $font-weight-medium;
-}
-
-.gp-poweredby {
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.35);
-  padding-top: 4px;
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
-  width: 100%;
-  text-align: center;
-
-  &__link {
-    color: #b891ff;
-    text-decoration: none;
-
-    &:hover {
-      color: #cfb3ff;
-    }
-  }
-}
-
-// Terminal content
-.glow-terminal {
-  margin: 0;
-  padding: 0;
-  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
-  font-size: 13px;
-  line-height: 1.2;
-  color: rgba(255, 255, 255, 0.85);
-  white-space: pre;
-
-  .term-line {
-    display: block;
-
-    &--out {
-      color: rgba(255, 255, 255, 0.55);
-    }
-
-    &--cont {
-      color: rgba(255, 255, 255, 0.85);
-    }
-  }
-
-  .term-prompt {
-    color: $bubble-bobble-p2;
-    font-weight: $font-weight-bold;
-    margin-right: 8px;
-  }
-
-  .term-cursor {
-    display: inline-block;
-    width: 8px;
-    height: 15px;
-    background: rgba(255, 255, 255, 0.85);
-    vertical-align: middle;
-    margin-left: 3px;
-    animation: term-blink 1s steps(1) infinite;
-  }
-}
-
-@keyframes term-blink {
-  50% { opacity: 0; }
-}
-

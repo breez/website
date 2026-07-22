@@ -6,34 +6,32 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Breez | Glow Playground for the Breez SDK</title>
-    <meta name="description" content="Our playground for builders. Open-source reference apps built with the Breez SDK.">
+    <title>Breez | Glow: A Bitcoin App for Everyone</title>
+    <meta name="description" content="Glow is a bitcoin app for everyone. Everyday payments in bitcoin or USD, built in the open on the Breez SDK. Download it, fork it, make it your own.">
     <meta property="og:image" content="../../../assets/images/open-graph-playground.jpg" />
-    <meta property="og:title" content="Breez | Glow Playground for the Breez SDK" />
+    <meta property="og:title" content="Breez | Glow: A Bitcoin App for Everyone" />
     <meta property="og:description"
-          content="Our playground for builders. Open-source reference apps built with the Breez SDK." />
+          content="Glow is a bitcoin app for everyone. Everyday payments in bitcoin or USD, built in the open on the Breez SDK. Download it, fork it, make it your own." />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@Breez_Tech" />
     <meta name="twitter:creator" content="@Breez_Tech" />
-    <meta name="twitter:title" content="Breez | Glow Playground for the Breez SDK" />
+    <meta name="twitter:title" content="Breez | Glow: A Bitcoin App for Everyone" />
     <meta name="twitter:description"
-          content="Our playground for builders. Open-source reference apps built with the Breez SDK." />
+          content="Glow is a bitcoin app for everyone. Everyday payments in bitcoin or USD, built in the open on the Breez SDK." />
     <meta name="twitter:image" content="../../../assets/images/open-graph-playground.jpg" />
     <meta property="og:url" content="https://breez.technology/playground/" />
     <link rel="canonical" href="https://breez.technology/playground/" />
     <link rel="icon" href="../../../assets/icons/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script defer="defer" src="../../../index.js"></script>
 
     <style>
-        @media (max-width: 991.98px) {
-            .sdk-contact-br { display: none; }
-            .sdk-contact-next::before { content: " "; }
-        }
+        .sdk-contact-br { display: none; }
+        .sdk-contact-next::before { content: " "; }
     </style>
 </head>
 
@@ -66,7 +64,7 @@
                         <a href="/case-studies" class="text-decoration-none">Case Studies</a>
                     </li>
                     <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
-                        <a href="/playground" class="text-decoration-none">Playground</a>
+                        <a href="/playground" class="text-decoration-none">Glow</a>
                     </li>
                     <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
                         <a href="/vision" class="text-decoration-none">Vision</a>
@@ -115,29 +113,33 @@
 
 <div class="playground-page container position-relative">
 
-    <section class="playground-hero-section row g-0 gx-lg-5 position-relative">
+    <!-- ============================================================ -->
+    <!-- Hero: the Glow UI is the hero                                -->
+    <!-- ============================================================ -->
+    <section class="glow-hero row g-0 gx-lg-5 position-relative">
         <div class="col-12 col-lg-6 ps-0 mb-5 mb-lg-0 d-flex flex-column">
-            <div class="playground-hero-info-block">
-                <h1 class="page-hero-title">Glow Playground</h1>
-                <h2 class="page-hero-subtitle">Experience the Future of Bitcoin UX</h2>
+            <div class="glow-hero__info">
+                <h1 class="page-hero-title">Glow</h1>
+                <h2 class="page-hero-subtitle">Experience What’s Possible</h2>
                 <article>
                     <p class="body-text --text-1">
-                        Glow is our playground for builders, a set of open-source reference apps built with the Breez SDK. We've built the starting points for developers to explore the future of bitcoin UX.
-                    </p>
-                    <br>
-                    <p class="body-text --text-1">
-                        Try them out, learn from them, and build what's next.
+                        Glow is a reference app powered by the Breez SDK, built to showcase the best of bitcoin UX. Users experience that UX firsthand. Developers get a production-ready app they can explore, fork, and ship.
                     </p>
                 </article>
             </div>
-            <div class="d-flex sdk-btns">
-                <a role="button" class="primary-btn mb-3 me-sm-4 --hero-sdk text-decoration-none js-scroll-to"
-                    data-scroll-to="#playground-tabs">
-                    <div class="" style="margin: auto;">Explore Apps</div>
+            <div class="glow-hero__btns">
+                <!-- TODO: replace href with the real App Store URL when public -->
+                <a href="https://glow-app.co" target="_blank" rel="noopener"
+                   class="glow-store-btn download-btn--ios" aria-label="Download Glow on the App Store">
+                    <img src="../../../assets/icons/app-store-btn.svg" alt="Download on the App Store">
                 </a>
-                <a role="button"
-                    class="primary-btn --transparent --hero-sdk-contribute text-decoration-none"
-                    href="/sdk">
+                <!-- TODO: replace href with the real Google Play URL when public -->
+                <a href="https://glow-app.co" target="_blank" rel="noopener"
+                   class="glow-store-btn download-btn--android" aria-label="Get Glow on Google Play">
+                    <img src="../../../assets/icons/google-play-btn.svg" alt="Get it on Google Play">
+                </a>
+                <a href="https://github.com/breez/glow-web" target="_blank" rel="noopener" role="button"
+                   class="primary-btn --transparent glow-repo-btn text-decoration-none">
                     <div class="">Build</div>
                     <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
                 </a>
@@ -145,9 +147,9 @@
         </div>
 
         <div class="col-12 col-lg-6 pe-0 d-flex align-items-center justify-content-center">
-            <img src="../../../assets/images/img_playground_hero.webp"
-                 alt="Glow reference apps: three bitcoin surfaces built on the Breez SDK"
-                 class="img-fluid playground-hero-image">
+            <div class="glow-hero__icon" aria-hidden="true">
+                <img src="../../../assets/images/glow-logo.svg" alt="">
+            </div>
         </div>
 
         <!-- gradients -->
@@ -155,226 +157,303 @@
         <div class="gradient --sdk-hero-radial-gradient-bottom-right"></div>
     </section>
 
-    <section id="playground-tabs" class="playground-tabs" aria-label="Reference apps">
+    <!-- ============================================================ -->
+    <!-- Feature playground: scroll showcase with real app videos     -->
+    <!-- ============================================================ -->
+    <section id="glow-showcase" class="glow-showcase" aria-label="Glow features">
 
-        <div class="playground-tabs__panels">
-                <article class="playground-panel" id="glow-app" data-aos="fade-up" data-aos-duration="1200">
-                    <div class="row align-items-center g-4 g-lg-5">
-                        <div class="col-12 col-lg-6 ps-lg-0 playground-panel__copy">
-                            <h2 class="h-2-home mb-4">Glow App</h2>
-                            <p class="body-text --text-1">
-                                The best of bitcoin UX in one app, available on web and mobile, with features including Contacts API, Passkey Login, and Stable Balance.
-                            </p>
-                            <div class="d-flex sdk-btns playground-panel__btns">
-                                <a role="button" class="primary-btn mb-3 me-sm-4 --hero-sdk text-decoration-none"
-                                    href="https://glow-app.co" target="_blank" rel="noopener">
-                                    <div class="" style="margin: auto;">Get Started</div>
-                                </a>
-                                <a role="button"
-                                    class="primary-btn --transparent --hero-sdk-contribute text-decoration-none"
-                                    href="https://github.com/breez/glow-web" target="_blank" rel="noopener">
-                                    <div class="">Build</div>
-                                    <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-6 pe-lg-0 playground-panel__visual">
-                            <figure class="glow-frame glow-frame--web">
+        <div class="glow-statement-intro" data-glow-statement>
+            <p class="sdk-statement glow-statement">
+                <span class="visually-hidden">What Bitcoin UX Should Feel Like</span>
+                <span aria-hidden="true"><span class="sdk-line"><span class="sdk-word">What</span> <span class="sdk-key"><span class="sdk-word">Bitcoin</span> <span class="sdk-word">UX</span></span></span> <span class="sdk-line"><span class="sdk-word">Should</span> <span class="sdk-word">Feel</span> <span class="sdk-word">Like</span></span></span>
+            </p>
+
+            <p class="home-text --text-2 glow-statement-intro__sub glow-statement-intro__reveal" data-glow-step="1">
+                Every feature a bitcoin app needs. Powered by the Breez SDK.
+            </p>
+
+            <a role="button" class="primary-btn text-decoration-none js-scroll-to glow-statement-intro__cta glow-statement-intro__reveal"
+               data-scroll-to="#glow-features" data-glow-step="2">
+                <div style="margin: auto;">Explore</div>
+            </a>
+
+            <div class="glow-statement-intro__card glow-statement-intro__reveal" data-glow-step="3">
+            <!-- The homepage Glow card, same classes, scaled the same way -->
+            <div class="glow-ui-card">
+                <div class="playground-home-card-float">
+                    <div class="playground-home-card-viewport">
+                        <div class="playground-home-card-inner">
+                            <div class="glow-frame glow-frame--web">
                                 <div class="glow-frame__media glow-frame__media--web">
-                                    <div class="gw-balance">
-                                        <span class="gw-balance__glow" aria-hidden="true"></span>
-                                        <span class="gw-balance__label">
-                                            Balance
-                                            <span class="gw-balance__dot" aria-hidden="true">·</span>
-                                            <span class="gw-balance__pill">sats</span>
-                                        </span>
-                                        <span class="gw-balance__amount">
-                                            <span class="gw-balance__symbol" aria-hidden="true">₿</span><span class="gw-balance__value">91&thinsp;375</span>
-                                        </span>
-                                        <span class="gw-balance__fiat">
-                                            <span class="gw-balance__rule gw-balance__rule--left" aria-hidden="true"></span>
-                                            <span class="gw-balance__fiat-value">$70.65</span>
-                                            <span class="gw-balance__rule gw-balance__rule--right" aria-hidden="true"></span>
-                                        </span>
-                                    </div>
-                                    <div class="gw-payments">
-                                        <div class="gw-payments__label">
-                                            <span>Payments</span>
-                                            <span class="gw-payments__rule" aria-hidden="true"></span>
-                                        </div>
-                                        <div class="gw-row">
-                                            <span class="gw-row__icon gw-row__icon--in" aria-hidden="true">
-                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 13l-5 5m0 0l-5-5m5 5V6"/></svg>
-                                            </span>
-                                            <span class="gw-row__meta">
-                                                <span class="gw-row__title">
-                                                    <span class="gw-row__title-text">Drinks 🍻</span>
-                                                    <svg class="gw-row__bolt" aria-hidden="true" viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M13 3L4 14h7l-2 7 9-11h-7l2-7z"/></svg>
-                                                </span>
-                                                <span class="gw-row__time">32m ago</span>
-                                            </span>
-                                            <span class="gw-row__amt gw-row__amt--in">
-                                                <span class="gw-row__sign">+</span><span class="gw-row__sat" aria-hidden="true">₿</span>21,000
-                                            </span>
-                                        </div>
-                                        <div class="gw-row">
-                                            <span class="gw-row__icon gw-row__icon--out" aria-hidden="true">
-                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11l5-5m0 0l5 5m-5-5v12"/></svg>
-                                            </span>
-                                            <span class="gw-row__meta">
-                                                <span class="gw-row__title">
-                                                    <span class="gw-row__title-text">Pay to Roy</span>
-                                                    <svg class="gw-row__bolt" aria-hidden="true" viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M13 3L4 14h7l-2 7 9-11h-7l2-7z"/></svg>
-                                                </span>
-                                                <span class="gw-row__time">3h ago</span>
-                                            </span>
-                                            <span class="gw-row__amt gw-row__amt--out">
-                                                <span class="gw-row__sign">−</span><span class="gw-row__sat" aria-hidden="true">₿</span>5,400
-                                            </span>
-                                        </div>
-                                        <div class="gw-row">
-                                            <span class="gw-row__icon gw-row__icon--in" aria-hidden="true">
-                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 13l-5 5m0 0l-5-5m5 5V6"/></svg>
-                                            </span>
-                                            <span class="gw-row__meta">
-                                                <span class="gw-row__title">
-                                                    <span class="gw-row__title-text">Onward 🫡</span>
-                                                    <svg class="gw-row__bolt" aria-hidden="true" viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M13 3L4 14h7l-2 7 9-11h-7l2-7z"/></svg>
-                                                </span>
-                                                <span class="gw-row__time">1d ago</span>
-                                            </span>
-                                            <span class="gw-row__amt gw-row__amt--in">
-                                                <span class="gw-row__sign">+</span><span class="gw-row__sat" aria-hidden="true">₿</span>12,500
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="gw-dock">
-                                        <span class="gw-dock__btn gw-dock__btn--send" aria-hidden="true">
-                                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11l5-5m0 0l5 5m-5-5v12"/></svg>
-                                            <span>Send</span>
-                                        </span>
-                                        <span class="gw-dock__scan" aria-hidden="true" aria-label="Scan QR">
-                                            <span class="gw-dock__scan-corner"></span>
-                                            <span class="gw-dock__scan-corner"></span>
-                                            <span class="gw-dock__scan-corner"></span>
-                                            <span class="gw-dock__scan-corner"></span>
-                                            <svg class="gw-dock__scan-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M3 11h8V3H3v8zm2-6h4v4H5V5zM3 21h8v-8H3v8zm2-6h4v4H5v-4zM13 3v8h8V3h-8zm6 6h-4V5h4v4zM19 13h2v2h-2zM13 13h2v2h-2zM15 15h2v2h-2zM13 17h2v2h-2zM15 19h2v2h-2zM17 17h2v2h-2zM17 13h2v2h-2zM19 15h2v2h-2zM19 19h2v2h-2z"/></svg>
-                                        </span>
-                                        <span class="gw-dock__btn gw-dock__btn--receive" aria-hidden="true">
-                                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="5 12 12 19 19 12"/></svg>
-                                            <span>Receive</span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </figure>
+                    <div class="gw-balance">
+                        <span class="gw-balance__glow" aria-hidden="true"></span>
+                        <span class="gw-balance__label">
+                            Balance
+                            <span class="gw-balance__dot" aria-hidden="true">·</span>
+                            <span class="gw-balance__pill">sats</span>
+                        </span>
+                        <span class="gw-balance__amount">
+                            <span class="gw-balance__symbol" aria-hidden="true">₿</span><span class="gw-balance__value">91&thinsp;375</span>
+                        </span>
+                        <span class="gw-balance__fiat">
+                            <span class="gw-balance__rule gw-balance__rule--left" aria-hidden="true"></span>
+                            <span class="gw-balance__fiat-value">$70.65</span>
+                            <span class="gw-balance__rule gw-balance__rule--right" aria-hidden="true"></span>
+                        </span>
+                    </div>
+                    <div class="gw-payments">
+                        <div class="gw-payments__label">
+                            <span>Payments</span>
+                            <span class="gw-payments__rule" aria-hidden="true"></span>
+                        </div>
+                        <div class="gw-row">
+                            <span class="gw-row__icon gw-row__icon--in" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 13l-5 5m0 0l-5-5m5 5V6"/></svg>
+                            </span>
+                            <span class="gw-row__meta">
+                                <span class="gw-row__title">
+                                    <span class="gw-row__title-text">Drinks 🍻</span>
+                                    <svg class="gw-row__bolt" aria-hidden="true" viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M13 3L4 14h7l-2 7 9-11h-7l2-7z"/></svg>
+                                </span>
+                                <span class="gw-row__time">32m ago</span>
+                            </span>
+                            <span class="gw-row__amt gw-row__amt--in">
+                                <span class="gw-row__sign">+</span><span class="gw-row__sat" aria-hidden="true">₿</span>21,000
+                            </span>
+                        </div>
+                        <div class="gw-row">
+                            <span class="gw-row__icon gw-row__icon--out" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11l5-5m0 0l5 5m-5-5v12"/></svg>
+                            </span>
+                            <span class="gw-row__meta">
+                                <span class="gw-row__title">
+                                    <span class="gw-row__title-text">Pay to Roy</span>
+                                    <svg class="gw-row__bolt" aria-hidden="true" viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M13 3L4 14h7l-2 7 9-11h-7l2-7z"/></svg>
+                                </span>
+                                <span class="gw-row__time">3h ago</span>
+                            </span>
+                            <span class="gw-row__amt gw-row__amt--out">
+                                <span class="gw-row__sign">−</span><span class="gw-row__sat" aria-hidden="true">₿</span>5,400
+                            </span>
+                        </div>
+                        <div class="gw-row">
+                            <span class="gw-row__icon gw-row__icon--in" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 13l-5 5m0 0l-5-5m5 5V6"/></svg>
+                            </span>
+                            <span class="gw-row__meta">
+                                <span class="gw-row__title">
+                                    <span class="gw-row__title-text">Onward 🫡</span>
+                                    <svg class="gw-row__bolt" aria-hidden="true" viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M13 3L4 14h7l-2 7 9-11h-7l2-7z"/></svg>
+                                </span>
+                                <span class="gw-row__time">1d ago</span>
+                            </span>
+                            <span class="gw-row__amt gw-row__amt--in">
+                                <span class="gw-row__sign">+</span><span class="gw-row__sat" aria-hidden="true">₿</span>12,500
+                            </span>
                         </div>
                     </div>
-                    <div class="gradient --sdk-hero-radial-gradient-top-left"></div>
-                </article>
-
-                <article class="playground-panel" id="glow-pay" data-aos="fade-up" data-aos-duration="1200">
-                    <div class="row align-items-center g-4 g-lg-5">
-                        <div class="col-12 col-lg-6 ps-lg-0 playground-panel__copy">
-                            <h2 class="h-2-home mb-4">Glow Pay</h2>
-                            <p class="body-text --text-1">
-                                The easiest way to accept bitcoin payments, in your e-commerce site or in-person, with features including a REST API, WooCommerce plugin, and mobile POS mode.
-                            </p>
-                            <div class="d-flex sdk-btns playground-panel__btns">
-                                <a role="button" class="primary-btn mb-3 me-sm-4 --hero-sdk text-decoration-none"
-                                    href="https://glow-pay.co" target="_blank" rel="noopener">
-                                    <div class="" style="margin: auto;">Get Started</div>
-                                </a>
-                                <a role="button"
-                                    class="primary-btn --transparent --hero-sdk-contribute text-decoration-none"
-                                    href="https://github.com/breez/glow-pay" target="_blank" rel="noopener">
-                                    <div class="">Build</div>
-                                    <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
-                                </a>
+                    <div class="gw-dock">
+                        <span class="gw-dock__btn gw-dock__btn--send" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11l5-5m0 0l5 5m-5-5v12"/></svg>
+                            <span>Send</span>
+                        </span>
+                        <span class="gw-dock__scan" aria-hidden="true" aria-label="Scan QR">
+                            <span class="gw-dock__scan-corner"></span>
+                            <span class="gw-dock__scan-corner"></span>
+                            <span class="gw-dock__scan-corner"></span>
+                            <span class="gw-dock__scan-corner"></span>
+                            <svg class="gw-dock__scan-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M3 11h8V3H3v8zm2-6h4v4H5V5zM3 21h8v-8H3v8zm2-6h4v4H5v-4zM13 3v8h8V3h-8zm6 6h-4V5h4v4zM19 13h2v2h-2zM13 13h2v2h-2zM15 15h2v2h-2zM13 17h2v2h-2zM15 19h2v2h-2zM17 17h2v2h-2zM17 13h2v2h-2zM19 15h2v2h-2zM19 19h2v2h-2z"/></svg>
+                        </span>
+                        <span class="gw-dock__btn gw-dock__btn--receive" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="5 12 12 19 19 12"/></svg>
+                            <span>Receive</span>
+                        </span>
+                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-12 col-lg-6 pe-lg-0 playground-panel__visual">
-                                    <div class="gp-card">
-                                        <div class="gp-brand">
-                                            <span class="gp-brand__mark" aria-hidden="true">
-                                                <svg viewBox="0 0 24 24" width="26" height="26" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M5 10h11v5.5A3.5 3.5 0 0 1 12.5 19h-4A3.5 3.5 0 0 1 5 15.5V10z"/>
-                                                    <path d="M16 11.5h1.75a2.5 2.5 0 0 1 0 5H16"/>
-                                                    <path d="M8.5 3c.5 1.2-.5 2 0 3.2"/>
-                                                    <path d="M12 3c.5 1.2-.5 2 0 3.2"/>
-                                                </svg>
-                                            </span>
-                                            <span class="gp-brand__name">Foundry Coffee</span>
-                                        </div>
-                                        <div class="gp-amount">4,200 Sats</div>
-                                        <div class="gp-memo">1 x Espresso</div>
-                                        <div class="gp-qr" aria-hidden="true">
-                                            <div class="gp-qr__halo"></div>
-                                            <img class="gp-qr__svg" src="../../../assets/images/glow-pay-qr.svg" alt="">
-                                        </div>
-                                        <div class="gp-timer">
-                                            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
-                                            Expires in 9:53
-                                        </div>
-                                        <div class="gp-btn">
-                                            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
-                                            Copy Payment Code
-                                        </div>
-                                        <div class="gp-poweredby">
-                                            Powered by <a href="#" class="gp-poweredby__link">glow-pay</a>
-                                        </div>
-                                    </div>
-                        </div>
                     </div>
-                    <div class="gradient --sdk-hero-radial-gradient-bottom-right"></div>
-                </article>
-
-                <article class="playground-panel" id="glow-cloud" data-aos="fade-up" data-aos-duration="1200">
-                    <div class="row align-items-center g-4 g-lg-5">
-                        <div class="col-12 col-lg-6 ps-lg-0 playground-panel__copy">
-                            <h2 class="h-2-home mb-4">Glow Cloud</h2>
-                            <p class="body-text --text-1">
-                                Your own Lightning API for apps and AI agents, deployed in minutes and free to run, with features including a CLI, scoped API keys, and spending budgets.
-                            </p>
-                            <div class="d-flex sdk-btns playground-panel__btns">
-                                <a role="button"
-                                    class="primary-btn --transparent --hero-sdk-contribute text-decoration-none"
-                                    href="https://github.com/kingonly/glow-cloud" target="_blank" rel="noopener">
-                                    <div class="">Build</div>
-                                    <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-6 pe-lg-0 playground-panel__visual">
-                            <figure class="glow-frame glow-frame--terminal">
-                                <div class="glow-frame__chrome">
-                                    <div class="glow-frame__dots">
-                                        <span class="dot dot--red"></span>
-                                        <span class="dot dot--yellow"></span>
-                                        <span class="dot dot--green"></span>
-                                    </div>
-                                    <div class="glow-frame__url">glow-cloud / CLI</div>
-                                </div>
-                                <div class="glow-frame__media glow-frame__media--terminal">
-                                    <pre class="glow-terminal"><span class="term-line"><span class="term-prompt">$</span> glow balance</span>
-<span class="term-line term-line--out">  1,847,200 sats ≈ $692.70</span>
-<span class="term-line"> </span>
-<span class="term-line"><span class="term-prompt">$</span> glow send user@domain.com --amount 500</span>
-<span class="term-line term-line--out">  ✓ sent in 1.3s</span>
-<span class="term-line"> </span>
-<span class="term-line"><span class="term-prompt">$</span> glow keys create myapp --budget 10000</span>
-<span class="term-line term-line--out">  key: gck_live_3f9a...c82b</span>
-<span class="term-line"> </span>
-<span class="term-line"><span class="term-prompt">$</span> glow invoice create --amount 2500</span>
-<span class="term-line term-line--out">  lnbc25u1p...m3q9x</span>
-<span class="term-line"><span class="term-cursor"></span></span></pre>
-                                </div>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="gradient --sdk-hero-radial-gradient-top-left"></div>
-                </article>
-
+                </div>
+            </div>
+            </div>
         </div>
+
+        <article id="glow-features" class="glow-moment">
+            <div class="row align-items-center g-4 g-lg-5">
+                <div class="col-12 col-lg-5 ps-lg-0 mb-5 mb-lg-0 d-flex flex-column justify-content-center"
+                     data-aos="fade-right" data-aos-duration="700">
+                    <div class="glow-moment__info">
+                        <h3 class="h-2-home mb-4">Passkey Login</h3>
+                        <p class="home-text --text-2">Seedless onboarding and restore, with face or fingerprint, synced through iCloud or Google.</p>
+                    </div>
+                    <a role="button" class="primary-btn text-decoration-none"
+                       href="https://sdk-doc-spark.breez.technology/guide/passkey.html" target="_blank" rel="noopener">
+                        <div>Learn More</div>
+                        <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
+                    </a>
+                </div>
+                <div class="col-12 col-lg-7 pe-lg-0 glow-moment__visual" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="120">
+                    <div class="glow-phone glow-phone--video">
+                        <span class="glow-phone__halo" aria-hidden="true"></span>
+                        <div class="glow-phone__screen">
+                            <button type="button" class="glow-video" data-video-id="OIU9kJrYKqk"
+                                    aria-label="Play Passkey Login demo video">
+                                <img class="glow-video__poster" src="https://i.ytimg.com/vi/OIU9kJrYKqk/oar2.jpg"
+                                     alt="" loading="lazy" width="720" height="720">
+                                <span class="glow-video__play" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article class="glow-moment">
+            <div class="row align-items-center g-4 g-lg-5">
+                <div class="col-12 col-lg-5 ps-lg-0 mb-5 mb-lg-0 d-flex flex-column justify-content-center"
+                     data-aos="fade-right" data-aos-duration="700">
+                    <div class="glow-moment__info">
+                        <h3 class="h-2-home mb-4">Stable Balance</h3>
+                        <p class="home-text --text-2">Skip the volatility. Send and receive in BTC, and hold a balance in USD that earns sats while you hold it.</p>
+                    </div>
+                    <a role="button" class="primary-btn text-decoration-none"
+                       href="https://sdk-doc-spark.breez.technology/guide/stable_balance.html" target="_blank" rel="noopener">
+                        <div>Learn More</div>
+                        <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
+                    </a>
+                </div>
+                <div class="col-12 col-lg-7 pe-lg-0 glow-moment__visual" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="120">
+                    <div class="glow-phone glow-phone--video">
+                        <span class="glow-phone__halo" aria-hidden="true"></span>
+                        <div class="glow-phone__screen">
+                            <button type="button" class="glow-video" data-video-id="UBWK5usXyUk"
+                                    aria-label="Play Stable Balance demo video">
+                                <img class="glow-video__poster" src="https://i.ytimg.com/vi/UBWK5usXyUk/oar2.jpg"
+                                     alt="" loading="lazy" width="720" height="720">
+                                <span class="glow-video__play" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article class="glow-moment">
+            <div class="row align-items-center g-4 g-lg-5">
+                <div class="col-12 col-lg-5 ps-lg-0 mb-5 mb-lg-0 d-flex flex-column justify-content-center"
+                     data-aos="fade-right" data-aos-duration="700">
+                    <div class="glow-moment__info">
+                        <h3 class="h-2-home mb-4">Send USDT/USDC</h3>
+                        <p class="home-text --text-2">Send stablecoins straight from a bitcoin balance, to 30+ networks.</p>
+                    </div>
+                    <a role="button" class="primary-btn text-decoration-none"
+                       href="https://sdk-doc-spark.breez.technology/guide/cross_chain.html" target="_blank" rel="noopener">
+                        <div>Learn More</div>
+                        <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
+                    </a>
+                </div>
+                <div class="col-12 col-lg-7 pe-lg-0 glow-moment__visual" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="120">
+                    <div class="glow-phone glow-phone--video">
+                        <span class="glow-phone__halo" aria-hidden="true"></span>
+                        <div class="glow-phone__screen">
+                            <button type="button" class="glow-video" data-video-id="aLRNt4WG4mw"
+                                    aria-label="Play Send USDT and USDC demo video">
+                                <img class="glow-video__poster" src="https://i.ytimg.com/vi/aLRNt4WG4mw/oar2.jpg"
+                                     alt="" loading="lazy" width="720" height="720">
+                                <span class="glow-video__play" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article class="glow-moment">
+            <div class="row align-items-center g-4 g-lg-5">
+                <div class="col-12 col-lg-5 ps-lg-0 mb-5 mb-lg-0 d-flex flex-column justify-content-center"
+                     data-aos="fade-right" data-aos-duration="700">
+                    <div class="glow-moment__info">
+                        <h3 class="h-2-home mb-4">Contacts</h3>
+                        <p class="home-text --text-2">Save your friends' Lightning addresses, synced across devices.</p>
+                    </div>
+                    <a role="button" class="primary-btn text-decoration-none"
+                       href="https://sdk-doc-spark.breez.technology/guide/contacts.html" target="_blank" rel="noopener">
+                        <div>Learn More</div>
+                        <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
+                    </a>
+                </div>
+                <div class="col-12 col-lg-7 pe-lg-0 glow-moment__visual" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="120">
+                    <div class="glow-phone glow-phone--video">
+                        <span class="glow-phone__halo" aria-hidden="true"></span>
+                        <div class="glow-phone__screen">
+                            <button type="button" class="glow-video" data-video-id="qSFEt_QGjs4"
+                                    aria-label="Play Contacts demo video">
+                                <img class="glow-video__poster" src="https://i.ytimg.com/vi/qSFEt_QGjs4/oar2.jpg"
+                                     alt="" loading="lazy" width="720" height="720">
+                                <span class="glow-video__play" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <div class="gradient --sdk-hero-radial-gradient-top-left"></div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- Look under the hood: dev claims + CTA, homepage SDK style    -->
+    <!-- ============================================================ -->
+    <section class="glow-underhood position-relative" data-aos="fade-up" data-aos-duration="800">
+        <div class="glow-underhood__header">
+            <h2 class="h-2-home mb-3">Look Under the Hood</h2>
+            <p class="home-text --text-2">Everything Glow does, your app can do. Explore the code and see how it’s built with the Breez SDK.</p>
+        </div>
+
+        <div class="sdk-claim-row">
+            <div class="sdk-claim">
+                <span class="sdk-claim-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.5 6.5L3 12l5.5 5.5M15.5 6.5L21 12l-5.5 5.5"/>
+                    </svg>
+                </span>
+                <span class="sdk-claim-text">Free and open-source</span>
+            </div>
+            <div class="sdk-claim">
+                <span class="sdk-claim-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="6" cy="5.5" r="2.2"/>
+                        <circle cx="18" cy="5.5" r="2.2"/>
+                        <circle cx="12" cy="18.5" r="2.2"/>
+                        <path d="M6 7.7v1.5c0 1.9 1.4 3.1 3.4 3.1h5.2c2 0 3.4-1.2 3.4-3.1V7.7M12 12.3v4"/>
+                    </svg>
+                </span>
+                <span class="sdk-claim-text">White-label as your own</span>
+            </div>
+            <div class="sdk-claim">
+                <span class="sdk-claim-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3l7 3v5.5c0 4.2-2.8 7.5-7 9.5-4.2-2-7-5.3-7-9.5V6l7-3z"/>
+                        <path d="M9.2 12l2 2 3.6-3.8"/>
+                    </svg>
+                </span>
+                <span class="sdk-claim-text">Non-custodial by design</span>
+            </div>
+        </div>
+
+        <a href="https://breez.technology/sdk" role="button" class="primary-btn text-decoration-none">
+            <div style="margin: auto;">Start Building</div>
+        </a>
+
+        <div class="gradient --sdk-hero-radial-gradient-bottom-right"></div>
     </section>
 
     <!--contact-us-section-->
