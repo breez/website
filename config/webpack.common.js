@@ -125,6 +125,9 @@ module.exports = {
         'playground/index': {
           import: paths.src + '/views/pages/playground/playground.html',
         },
+        'glow/index': {
+          import: paths.src + '/views/pages/glow/glow.html',
+        },
       },
       loaderOptions: {
         sources: [

@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Breez | Glow: A Bitcoin App for Everyone</title>
+    <meta name="description" content="Glow is a bitcoin app for everyone. Everyday payments in bitcoin or USD, built in the open on the Breez SDK. Download it, fork it, make it your own.">
+    <meta property="og:image" content="../../../assets/images/open-graph-playground.jpg" />
+    <meta property="og:title" content="Breez | Glow: A Bitcoin App for Everyone" />
+    <meta property="og:description"
+          content="Glow is a bitcoin app for everyone. Everyday payments in bitcoin or USD, built in the open on the Breez SDK. Download it, fork it, make it your own." />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Breez_Tech" />
+    <meta name="twitter:creator" content="@Breez_Tech" />
+    <meta name="twitter:title" content="Breez | Glow: A Bitcoin App for Everyone" />
+    <meta name="twitter:description"
+          content="Glow is a bitcoin app for everyone. Everyday payments in bitcoin or USD, built in the open on the Breez SDK." />
+    <meta name="twitter:image" content="../../../assets/images/open-graph-playground.jpg" />
+    <meta property="og:url" content="https://breez.technology/glow/" />
+    <link rel="canonical" href="https://breez.technology/glow/" />
+    <link rel="icon" href="../../../assets/icons/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script defer="defer" src="../../../index.js"></script>
+
+    <style>
+        .sdk-contact-br { display: none; }
+        .sdk-contact-next::before { content: " "; }
+    </style>
+</head>
+
+<body class="glow-page-body">
+
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark header-container header-background fixed-top"
+         aria-label="Breez header">
+        <div class="container-fluid">
+            <a href="/">
+                <img class="me-5" src="../../../assets/icons/logo-breez-header.svg" alt="header breez logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBreez"
+                    aria-controls="navbarBreez" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="burger burger-slip">
+                    <div class="burger-lines"></div>
+                </div>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarBreez">
+                <ul class="d-lg-flex text-uppercase">
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/" class="text-decoration-none">Home</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/sdk" class="text-decoration-none">SDK</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/case-studies" class="text-decoration-none">Case Studies</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/glow" class="text-decoration-none">Glow</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/vision" class="text-decoration-none">Vision</a>
+                    </li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="https://blog.breez.technology" target="_blank" class="text-decoration-none">Blog</a>
+                    </li>
+                    <li class="header-links form mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0">
+                        <a href="/#contact-us-form" role="button" class="text-decoration-none">
+                            Contact us
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="d-flex align-items-center ms-auto">
+                    <li class="social-media">
+                        <a href="https://x.com/breez_tech" target="_blank" class="">
+                            <img src="../../../assets/icons/x-icon.svg" alt="x icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://t.me/breezsdk" target="_blank" class="">
+                            <img src="../../../assets/icons/telegram-icon.svg" alt="telegram icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://newsletter.breez.technology" target="_blank" class="">
+                            <img src="../../../assets/icons/substack-icon.svg" alt="substack icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://github.com/breez" target="_blank" class="">
+                            <img src="../../../assets/icons/github-icon.svg" alt="github icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="mailto:contact@breez.technology" class="">
+                            <img src="../../../assets/icons/email-icon.svg" alt="email icon" class="icon">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="glow-page container position-relative">
+
+    <!-- ============================================================ -->
+    <!-- Hero: the Glow UI is the hero                                -->
+    <!-- ============================================================ -->
+    <section class="glow-hero row g-0 gx-lg-5 position-relative">
+        <div class="col-12 col-lg-6 ps-0 mb-5 mb-lg-0 d-flex flex-column">
+            <div class="glow-hero__info">
+                <h1 class="page-hero-title">Glow</h1>
+                <p class="page-hero-subtitle">Experience What’s Possible</p>
+                <article>
+                    <p class="body-text --text-1">
+                        Glow is a reference app powered by the Breez SDK, built to showcase the best of bitcoin UX. Users experience that UX firsthand. Developers get a production-ready app they can explore, fork, and ship.
+                    </p>
+                </article>
+            </div>
+            <div class="glow-hero__btns">
+                <a href="https://testflight.apple.com/join/A9kB7BXJ" target="_blank" rel="noopener"
+                   class="glow-store-btn download-btn--ios" aria-label="Download Glow on the App Store">
+                    <img src="../../../assets/icons/app-store-btn.svg" alt="Download on the App Store">
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=technology.breez.glow" target="_blank" rel="noopener"
+                   class="glow-store-btn download-btn--android" aria-label="Get Glow on Google Play">
+                    <img src="../../../assets/icons/google-play-btn.svg" alt="Get it on Google Play">
+                </a>
+                <a role="button"
+                    class="primary-btn --transparent --hero-sdk-contribute text-decoration-none"
+                    href="https://breez.technology/sdk">
+                    <div class="">Build</div>
+                    <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
+                </a>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-6 pe-0 d-flex align-items-center justify-content-center">
+            <div class="glow-hero__icon" aria-hidden="true">
+                <img src="../../../assets/images/glow-logo.svg" alt="">
+            </div>
+        </div>
+
+        <!-- gradients -->
+        <div class="gradient --sdk-hero-radial-gradient-top-left"></div>
+        <div class="gradient --sdk-hero-radial-gradient-bottom-right"></div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- Feature playground: scroll showcase with real app videos     -->
+    <!-- ============================================================ -->
+    <section id="glow-showcase" class="glow-showcase" aria-label="Glow features">
+
+        <div class="glow-statement-intro" data-glow-statement>
+            <p class="sdk-statement glow-statement">
+                <span class="visually-hidden">What Bitcoin UX Should Feel Like</span>
+                <span aria-hidden="true"><span class="sdk-line"><span class="sdk-word">What</span> <span class="sdk-key"><span class="sdk-word">Bitcoin</span> <span class="sdk-word">UX</span></span></span> <span class="sdk-line"><span class="sdk-word">Should</span> <span class="sdk-word">Feel</span> <span class="sdk-word">Like</span></span></span>
+            </p>
+
+            <p class="home-text --text-2 glow-statement-intro__sub glow-statement-intro__reveal" data-glow-step="1">
+                Every feature a bitcoin app needs. Powered by the Breez SDK.
+            </p>
+
+            <a role="button" class="primary-btn text-decoration-none js-scroll-to glow-statement-intro__cta glow-statement-intro__reveal"
+               data-scroll-to="#glow-features" data-glow-step="2">
+                <div style="margin: auto;">Explore</div>
+            </a>
+
+            <div class="glow-statement-intro__card glow-statement-intro__reveal" data-glow-step="3">
+            <!-- The homepage Glow card, same classes, scaled the same way -->
+            <div class="glow-ui-card">
+                <div class="playground-home-card-float">
+                    <div class="playground-home-card-viewport">
+                        <div class="playground-home-card-inner">
+                            <div class="glow-frame glow-frame--web">
+                                <div class="glow-frame__media glow-frame__media--web">
+                    <div class="gw-balance">
+                        <span class="gw-balance__glow" aria-hidden="true"></span>
+                        <span class="gw-balance__label">
+                            Balance
+                            <span class="gw-balance__dot" aria-hidden="true">·</span>
+                            <span class="gw-balance__pill">sats</span>
+                        </span>
+                        <span class="gw-balance__amount">
+                            <span class="gw-balance__symbol" aria-hidden="true">₿</span><span class="gw-balance__value">91&thinsp;375</span>
+                        </span>
+                        <span class="gw-balance__fiat">
+                            <span class="gw-balance__rule gw-balance__rule--left" aria-hidden="true"></span>
+                            <span class="gw-balance__fiat-value">$70.65</span>
+                            <span class="gw-balance__rule gw-balance__rule--right" aria-hidden="true"></span>
+                        </span>
+                    </div>
+                    <div class="gw-payments">
+                        <div class="gw-payments__label">
+                            <span>Payments</span>
+                            <span class="gw-payments__rule" aria-hidden="true"></span>
+                        </div>
+                        <div class="gw-row">
+                            <span class="gw-row__icon gw-row__icon--in" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 13l-5 5m0 0l-5-5m5 5V6"/></svg>
+                            </span>
+                            <span class="gw-row__meta">
+                                <span class="gw-row__title">
+                                    <span class="gw-row__title-text">Drinks 🍻</span>
+                                    <svg class="gw-row__bolt" aria-hidden="true" viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M13 3L4 14h7l-2 7 9-11h-7l2-7z"/></svg>
+                                </span>
+                                <span class="gw-row__time">32m ago</span>
+                            </span>
+                            <span class="gw-row__amt gw-row__amt--in">
+                                <span class="gw-row__sign">+</span><span class="gw-row__sat" aria-hidden="true">₿</span>21,000
+                            </span>
+                        </div>
+                        <div class="gw-row">
+                            <span class="gw-row__icon gw-row__icon--out" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11l5-5m0 0l5 5m-5-5v12"/></svg>
+                            </span>
+                            <span class="gw-row__meta">
+                                <span class="gw-row__title">
+                                    <span class="gw-row__title-text">Pay to Roy</span>
+                                    <svg class="gw-row__bolt" aria-hidden="true" viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M13 3L4 14h7l-2 7 9-11h-7l2-7z"/></svg>
+                                </span>
+                                <span class="gw-row__time">3h ago</span>
+                            </span>
+                            <span class="gw-row__amt gw-row__amt--out">
+                                <span class="gw-row__sign">−</span><span class="gw-row__sat" aria-hidden="true">₿</span>5,400
+                            </span>
+                        </div>
+                        <div class="gw-row">
+                            <span class="gw-row__icon gw-row__icon--in" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 13l-5 5m0 0l-5-5m5 5V6"/></svg>
+                            </span>
+                            <span class="gw-row__meta">
+                                <span class="gw-row__title">
+                                    <span class="gw-row__title-text">Onward 🫡</span>
+                                    <svg class="gw-row__bolt" aria-hidden="true" viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M13 3L4 14h7l-2 7 9-11h-7l2-7z"/></svg>
+                                </span>
+                                <span class="gw-row__time">1d ago</span>
+                            </span>
+                            <span class="gw-row__amt gw-row__amt--in">
+                                <span class="gw-row__sign">+</span><span class="gw-row__sat" aria-hidden="true">₿</span>12,500
+                            </span>
+                        </div>
+                    </div>
+                    <div class="gw-dock">
+                        <span class="gw-dock__btn gw-dock__btn--send" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11l5-5m0 0l5 5m-5-5v12"/></svg>
+                            <span>Send</span>
+                        </span>
+                        <span class="gw-dock__scan" aria-hidden="true" aria-label="Scan QR">
+                            <span class="gw-dock__scan-corner"></span>
+                            <span class="gw-dock__scan-corner"></span>
+                            <span class="gw-dock__scan-corner"></span>
+                            <span class="gw-dock__scan-corner"></span>
+                            <svg class="gw-dock__scan-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M3 11h8V3H3v8zm2-6h4v4H5V5zM3 21h8v-8H3v8zm2-6h4v4H5v-4zM13 3v8h8V3h-8zm6 6h-4V5h4v4zM19 13h2v2h-2zM13 13h2v2h-2zM15 15h2v2h-2zM13 17h2v2h-2zM15 19h2v2h-2zM17 17h2v2h-2zM17 13h2v2h-2zM19 15h2v2h-2zM19 19h2v2h-2z"/></svg>
+                        </span>
+                        <span class="gw-dock__btn gw-dock__btn--receive" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="5 12 12 19 19 12"/></svg>
+                            <span>Receive</span>
+                        </span>
+                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <article id="glow-features" class="glow-moment">
+            <div class="row align-items-center g-4 g-lg-5">
+                <div class="col-12 col-lg-5 ps-lg-0 mb-5 mb-lg-0 d-flex flex-column justify-content-center"
+                     data-aos="fade-right" data-aos-duration="700">
+                    <div class="glow-moment__info">
+                        <h3 class="h-2-home mb-4">Passkey Login</h3>
+                        <p class="home-text --text-2">Seedless onboarding and restore, with face or fingerprint, synced through iCloud or Google.</p>
+                    </div>
+                    <a role="button" class="primary-btn text-decoration-none"
+                       href="https://sdk-doc-spark.breez.technology/guide/passkey.html" target="_blank" rel="noopener">
+                        <div>Learn More</div>
+                        <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
+                    </a>
+                </div>
+                <div class="col-12 col-lg-7 pe-lg-0 glow-moment__visual" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="120">
+                    <div class="glow-phone glow-phone--video">
+                        <span class="glow-phone__halo" aria-hidden="true"></span>
+                        <div class="glow-phone__screen">
+                            <button type="button" class="glow-video" data-video-id="OIU9kJrYKqk"
+                                    aria-label="Play Passkey Login demo video">
+                                <img class="glow-video__poster" src="https://i.ytimg.com/vi/OIU9kJrYKqk/oar2.jpg"
+                                     alt="" loading="lazy" width="720" height="720">
+                                <span class="glow-video__play" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="glow-moment">
+            <div class="row align-items-center g-4 g-lg-5">
+                <div class="col-12 col-lg-5 ps-lg-0 mb-5 mb-lg-0 d-flex flex-column justify-content-center"
+                     data-aos="fade-right" data-aos-duration="700">
+                    <div class="glow-moment__info">
+                        <h3 class="h-2-home mb-4">Lightning Address</h3>
+                        <p class="home-text --text-2">Get a customizable @breez.tips address to share and instantly receive bitcoin.</p>
+                    </div>
+                    <a role="button" class="primary-btn text-decoration-none"
+                       href="https://sdk-doc-spark.breez.technology/guide/receive_lnurl_pay.html" target="_blank" rel="noopener">
+                        <div>Learn More</div>
+                        <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
+                    </a>
+                </div>
+                <div class="col-12 col-lg-7 pe-lg-0 glow-moment__visual" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="120">
+                    <div class="glow-phone glow-phone--video">
+                        <span class="glow-phone__halo" aria-hidden="true"></span>
+                        <div class="glow-phone__screen">
+                            <button type="button" class="glow-video" data-video-id="JCOAg7KhmWs"
+                                    aria-label="Play Lightning Address demo video">
+                                <img class="glow-video__poster" src="https://i.ytimg.com/vi/JCOAg7KhmWs/oar2.jpg"
+                                     alt="" loading="lazy" width="720" height="720">
+                                <span class="glow-video__play" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="glow-moment">
+            <div class="row align-items-center g-4 g-lg-5">
+                <div class="col-12 col-lg-5 ps-lg-0 mb-5 mb-lg-0 d-flex flex-column justify-content-center"
+                     data-aos="fade-right" data-aos-duration="700">
+                    <div class="glow-moment__info">
+                        <h3 class="h-2-home mb-4">Contacts</h3>
+                        <p class="home-text --text-2">Save your friends' Lightning addresses, synced across devices.</p>
+                    </div>
+                    <a role="button" class="primary-btn text-decoration-none"
+                       href="https://sdk-doc-spark.breez.technology/guide/contacts.html" target="_blank" rel="noopener">
+                        <div>Learn More</div>
+                        <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
+                    </a>
+                </div>
+                <div class="col-12 col-lg-7 pe-lg-0 glow-moment__visual" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="120">
+                    <div class="glow-phone glow-phone--video">
+                        <span class="glow-phone__halo" aria-hidden="true"></span>
+                        <div class="glow-phone__screen">
+                            <button type="button" class="glow-video" data-video-id="qSFEt_QGjs4"
+                                    aria-label="Play Contacts demo video">
+                                <img class="glow-video__poster" src="https://i.ytimg.com/vi/qSFEt_QGjs4/oar2.jpg"
+                                     alt="" loading="lazy" width="720" height="720">
+                                <span class="glow-video__play" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="glow-moment">
+            <div class="row align-items-center g-4 g-lg-5">
+                <div class="col-12 col-lg-5 ps-lg-0 mb-5 mb-lg-0 d-flex flex-column justify-content-center"
+                     data-aos="fade-right" data-aos-duration="700">
+                    <div class="glow-moment__info">
+                        <h3 class="h-2-home mb-4">Stable Balance</h3>
+                        <p class="home-text --text-2">Skip the volatility. Send and receive in BTC, and hold a balance in USD that earns sats while you hold it.</p>
+                    </div>
+                    <a role="button" class="primary-btn text-decoration-none"
+                       href="https://sdk-doc-spark.breez.technology/guide/stable_balance.html" target="_blank" rel="noopener">
+                        <div>Learn More</div>
+                        <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
+                    </a>
+                </div>
+                <div class="col-12 col-lg-7 pe-lg-0 glow-moment__visual" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="120">
+                    <div class="glow-phone glow-phone--video">
+                        <span class="glow-phone__halo" aria-hidden="true"></span>
+                        <div class="glow-phone__screen">
+                            <button type="button" class="glow-video" data-video-id="UBWK5usXyUk"
+                                    aria-label="Play Stable Balance demo video">
+                                <img class="glow-video__poster" src="https://i.ytimg.com/vi/UBWK5usXyUk/oar2.jpg"
+                                     alt="" loading="lazy" width="720" height="720">
+                                <span class="glow-video__play" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="glow-moment">
+            <div class="row align-items-center g-4 g-lg-5">
+                <div class="col-12 col-lg-5 ps-lg-0 mb-5 mb-lg-0 d-flex flex-column justify-content-center"
+                     data-aos="fade-right" data-aos-duration="700">
+                    <div class="glow-moment__info">
+                        <h3 class="h-2-home mb-4">Send USDT/USDC</h3>
+                        <p class="home-text --text-2">Send stablecoins straight from a bitcoin balance, to 30+ networks.</p>
+                    </div>
+                    <a role="button" class="primary-btn text-decoration-none"
+                       href="https://sdk-doc-spark.breez.technology/guide/cross_chain.html" target="_blank" rel="noopener">
+                        <div>Learn More</div>
+                        <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
+                    </a>
+                </div>
+                <div class="col-12 col-lg-7 pe-lg-0 glow-moment__visual" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="120">
+                    <div class="glow-phone glow-phone--video">
+                        <span class="glow-phone__halo" aria-hidden="true"></span>
+                        <div class="glow-phone__screen">
+                            <button type="button" class="glow-video" data-video-id="aLRNt4WG4mw"
+                                    aria-label="Play Send USDT and USDC demo video">
+                                <img class="glow-video__poster" src="https://i.ytimg.com/vi/aLRNt4WG4mw/oar2.jpg"
+                                     alt="" loading="lazy" width="720" height="720">
+                                <span class="glow-video__play" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <div class="gradient --sdk-hero-radial-gradient-top-left"></div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- White-label: an AI prompt that walks devs through rebranding  -->
+    <!-- Glow. Two-column like the feature moments (copy left, card    -->
+    <!-- right). Reuses .sdk-agent; sdk-agent-prompt.js (global) wires  -->
+    <!-- the launchers to the hidden prompt.                            -->
+    <!-- ============================================================ -->
+    <section class="glow-whitelabel position-relative">
+        <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-12 col-lg-5 ps-lg-0 mb-5 mb-lg-0 d-flex flex-column justify-content-center"
+                 data-aos="fade-right" data-aos-duration="700">
+                <div class="glow-moment__info">
+                    <h3 class="h-2-home mb-4">Make Glow Your Own</h3>
+                    <p class="home-text --text-2">Fork it, rebrand it, ship it. Use our AI guide to walk you through white-labeling Glow.</p>
+                </div>
+            </div>
+            <div class="col-12 col-lg-7 pe-lg-0 glow-whitelabel__visual"
+                 data-aos="zoom-in" data-aos-duration="700" data-aos-delay="120">
+                <div class="sdk-agent">
+                    <div class="sdk-agent-frame">
+                        <div class="sdk-agent-chrome" aria-hidden="true">
+                            <span class="sdk-agent-dots"><i></i><i></i><i></i></span>
+                        </div>
+                        <div class="sdk-agent-window">
+                            <div class="sdk-agent-greeting" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/>
+                                </svg>
+                                <span>Good Day, Builder</span>
+                            </div>
+                            <div class="sdk-agent-composer">
+                                <span class="sdk-agent-plus" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+                                </span>
+                                <span class="sdk-agent-input" aria-hidden="true"><span data-agent-type>Help me white-label Glow for my own app.</span><i class="sdk-agent-caret"></i></span>
+                                <span class="sdk-agent-providers" role="group" aria-label="Open this prompt with an AI assistant">
+                                    <span class="sdk-agent-openwith">Open with</span>
+                                    <a class="sdk-agent-provider" data-provider="claude" href="https://claude.ai/new" target="_blank" rel="noopener noreferrer" aria-label="Open in Claude" title="Open in Claude">
+                                        <img src="../../../assets/images/claude_glyph.png" alt="">
+                                    </a>
+                                    <a class="sdk-agent-provider" data-provider="chatgpt" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" aria-label="Open in ChatGPT" title="Open in ChatGPT">
+                                        <img src="../../../assets/images/chatgpt_glyph.png" alt="">
+                                    </a>
+                                    <a class="sdk-agent-provider" data-provider="gemini" href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Open in Gemini" title="Open in Gemini">
+                                        <img src="../../../assets/images/gemini_glyph.png" alt="">
+                                    </a>
+                                    <a class="sdk-agent-provider" data-provider="grok" href="https://x.com/i/grok" target="_blank" rel="noopener noreferrer" aria-label="Open in Grok" title="Open in Grok">
+                                        <img src="../../../assets/images/grok_glyph.png" alt="">
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+            <pre class="sdk-agent-prompt" data-agent-prompt hidden>
+You are an expert assistant for white-labeling Glow — the open-source
+Bitcoin app built on the Breez SDK — into a developer's own branded app.
+
+Repos: https://github.com/breez/glow-app (native)
+       https://github.com/breez/glow-web (web / PWA)
+Docs:  https://sdk-doc-spark.breez.technology/
+
+Goal: help me fork Glow, rebrand it as my own product, and ship it. Produce
+a step-by-step white-label plan, and make the changes with me if I ask.
+
+Rules:
+- Ask ONE short question at a time and adapt to my answers.
+- Inspect the repo before advising; cite the real files I need to edit.
+- Skip anything already done. Never assume. If I am unsure, recommend a
+  sensible default and move on.
+- Keep me non-custodial and compliant: never have me touch users' keys or
+  funds, and flag anything that needs my own Breez SDK API key.
+
+Track this state internally, filling it in as you learn:
+{
+  "target":      { "platform": "native | web | both" },
+  "brand":       { "appName": "", "tagline": "", "primaryColor": "",
+                   "logo": "have | need", "appIcon": "have | need" },
+  "identity":    { "iosBundleId": "", "androidPackage": "", "displayName": "" },
+  "config":      { "breezApiKey": "have | need" },
+  "features":    { "keep": [], "remove": [] },
+  "store":       { "accounts": "have | need", "listing": [] },
+  "missing":     []
+}
+
+Flow:
+1. Ask what my app is called and what it's for, so every later step uses
+   the real name.
+2. Ask whether I'm shipping the native app, the web/PWA, or both — then
+   work in the matching repo.
+3. Nail branding: primary color, logo, and app icon — tell me exactly
+   which files/assets in the repo to swap, with sizes.
+4. Set app identity: iOS bundle id, Android package name, display name,
+   and where each is defined in the project.
+5. Wire up config: my Breez SDK API key — show me where it goes and how
+   to get a key if I don't have one.
+6. Trim features: confirm which of Glow's features I keep or hide.
+7. Build and run locally on each target I chose.
+8. Prep to ship: store listings for native, hosting for web.
+
+When the state is complete, show me the summary and confirm it, then give
+me a checklist I can follow to ship.
+
+If I ask you to make changes, work incrementally and explain each step.
+Keep every reply short. Guide me, don't overwhelm me.</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="gradient --sdk-hero-radial-gradient-top-left"></div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- Look under the hood: dev claims + CTA, homepage SDK style    -->
+    <!-- ============================================================ -->
+    <section class="glow-underhood position-relative" data-aos="fade-up" data-aos-duration="800">
+        <div class="glow-underhood__header">
+            <h2 class="h-2-home mb-3">Look Under the Hood</h2>
+            <p class="home-text --text-2">Everything Glow does, your app can do. Explore the code and see how it’s built with the Breez SDK.</p>
+        </div>
+
+        <div class="sdk-claim-row">
+            <div class="sdk-claim">
+                <span class="sdk-claim-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.5 6.5L3 12l5.5 5.5M15.5 6.5L21 12l-5.5 5.5"/>
+                    </svg>
+                </span>
+                <span class="sdk-claim-text">Free and open-source</span>
+            </div>
+            <div class="sdk-claim">
+                <span class="sdk-claim-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="6" cy="5.5" r="2.2"/>
+                        <circle cx="18" cy="5.5" r="2.2"/>
+                        <circle cx="12" cy="18.5" r="2.2"/>
+                        <path d="M6 7.7v1.5c0 1.9 1.4 3.1 3.4 3.1h5.2c2 0 3.4-1.2 3.4-3.1V7.7M12 12.3v4"/>
+                    </svg>
+                </span>
+                <span class="sdk-claim-text">White-label as your own</span>
+            </div>
+            <div class="sdk-claim">
+                <span class="sdk-claim-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3l7 3v5.5c0 4.2-2.8 7.5-7 9.5-4.2-2-7-5.3-7-9.5V6l7-3z"/>
+                        <path d="M9.2 12l2 2 3.6-3.8"/>
+                    </svg>
+                </span>
+                <span class="sdk-claim-text">Non-custodial by design</span>
+            </div>
+        </div>
+
+        <a href="https://breez.technology/sdk" role="button" class="primary-btn text-decoration-none">
+            <div style="margin: auto;">Start Building</div>
+        </a>
+
+        <div class="gradient --sdk-hero-radial-gradient-bottom-right"></div>
+    </section>
+
+    <!--contact-us-section-->
+    <section id="contact-us-form" data-aos="fade-up" data-aos-duration="3000"
+        class="contact-us-section row position-relative">
+
+        <div class="col-12 col-lg-7 mb-5 mb-lg-0">
+            <div class="contact-us-info-block">
+                <h2 class="h-2-home mb-4">Become a Partner</h2>
+                <p class="home-text --text-2">
+                    Join the world's best teams already building with the Breez SDK.<br class="sdk-contact-br"><span class="sdk-contact-next">Get</span> in touch to get started.
+                </p>
+            </div>
+
+            <div>
+                <p class="caption-1 mb-3">Follow us</p>
+
+                <ul class="d-flex align-items-center ms-auto">
+                    <li class="social-media">
+                        <a href="https://x.com/breez_tech" target="_blank" rel="noopener noreferrer" class="">
+                            <img src="../../../assets/icons/x-icon.svg" alt="x icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://t.me/breezsdk" target="_blank" rel="noopener noreferrer" class="">
+                            <img src="../../../assets/icons/telegram-icon.svg" alt="telegram icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://newsletter.breez.technology" target="_blank" rel="noopener noreferrer" class="">
+                            <img src="../../../assets/icons/substack-icon.svg" alt="substack icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="https://github.com/breez" target="_blank" rel="noopener noreferrer" class="">
+                            <img src="../../../assets/icons/github-icon.svg" alt="github icon" class="icon">
+                        </a>
+                    </li>
+                    <li class="social-media">
+                        <a href="mailto:contact@breez.technology" class="">
+                            <img src="../../../assets/icons/email-icon.svg" alt="email icon" class="icon">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-5 d-flex align-items-center justify-content-center">
+            <div class="form-body">
+                <div class="row">
+                    <div class="form-holder">
+                        <div class="form-content">
+                            <div class="form-items">
+                                <form class="needs-validation" novalidate action="/contact" method="post">
+                                    <input type="hidden" name="recaptcha_response" id="recaptcha_response" />
+                                    <div class="col-md-12">
+                                        <input class="form-control" type="text" name="fullname"
+                                            placeholder="Your name" required>
+                                        <div class="valid-feedback"></div>
+                                        <div class="invalid-feedback">Please enter a name</div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <input class="form-control" type="text" name="company"
+                                            placeholder="Your company" required>
+                                        <div class="valid-feedback"></div>
+                                        <div class="invalid-feedback">Please enter a company</div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <input class="form-control js-email-input"
+                                            pattern="[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{1,63}$"
+                                            type="email" name="email" placeholder="Your email" required>
+                                        <div class="valid-feedback"></div>
+                                        <div class="invalid-feedback">
+                                            <div class="js-required-input-error d-none">Please enter an email address</div>
+                                            <div class="js-not-valid-email-error d-none">Please enter a valid email</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <select class="form-select mt-3" name="contact_type" required>
+                                            <option selected disabled value="" class="d-none">Topic</option>
+                                            <option value="support">Support</option>
+                                            <option value="sdk-design-partner">SDK Partner</option>
+                                            <option value="sdk-api-key">API Key for the Breez SDK</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                        <div class="valid-feedback"></div>
+                                        <div class="invalid-feedback">Please choose a topic</div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <textarea class="form-control" type="text" name="message" rows="4" cols="50"
+                                            placeholder="Message" required></textarea>
+                                        <div class="valid-feedback"></div>
+                                        <div class="invalid-feedback">Please enter a message</div>
+                                    </div>
+
+                                    <div class="form-button mt-3">
+                                        <button id="submit" type="submit" name="send"
+                                            class="contact-form-btn text-decoration-none border-0">
+                                            <span class="">send message</span>
+                                            <img src="../../../assets/icons/lightning-icon.svg" alt="lightning icon">
+                                        </button>
+                                    </div>
+
+                                    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+                                        <div id="success-submit"
+                                            class="toast align-items-center text-white bg-success border-0"
+                                            role="alert" aria-live="assertive" aria-atomic="true">
+                                            <div class="d-flex">
+                                                <div class="toast-body">The message has been sent</div>
+                                                <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                                                    data-bs-dismiss="toast" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                        <div id="error-submit"
+                                            class="toast align-items-center text-white bg-warning border-0"
+                                            role="alert" aria-live="assertive" aria-atomic="true">
+                                            <div class="d-flex">
+                                                <div class="toast-body">
+                                                    Failed to send message. Please disable any ad blockers or try a different browser.
+                                                    If the issue persists, contact us at contact@breez.technology.
+                                                </div>
+                                                <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                                                    data-bs-dismiss="toast" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer class="footer position-relative">
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-between py-4">
+            <a href="/">
+                <img class="me-5" src="../../../assets/icons/logo-breez-footer.svg" alt="footer breez logo">
+            </a>
+            <span class="caption-2">&#169;2026 All rights reserved</span>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+
+</html>
