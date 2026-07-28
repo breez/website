@@ -597,6 +597,13 @@ html:not(.no-js) .glow-page {
     margin-bottom: 150px;
   }
 
+  // No button after the copy here (unlike the feature moments), so drop
+  // the info's bottom margin — otherwise it becomes dead space above the
+  // card when the columns stack on mobile.
+  .glow-moment__info {
+    margin-bottom: 0;
+  }
+
   // The card sits in the right column but is capped narrower than the
   // full column so it doesn't read as an overlong window.
   &__visual {
