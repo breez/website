@@ -1583,3 +1583,356 @@ html:not(.no-js) .home-page .playground-home-card [data-aos='fade-up'] {
   width: 100%;
   height: 200%;
 }
+
+// ── Technology partners: the infrastructure Breez builds on, distinct
+// from the hero marquee (which is customers building on Breez). Bare
+// marks on the page rather than in cards — the logos are the content,
+// and a container around each one only competes with them.
+.technology-partners-section {
+  // Mobile needs the deeper top gap: the vision globe fades out right
+  // above this, and the eyebrow crowded it at 56px. The bottom is nearly
+  // closed up instead, because the contact section below already brings
+  // its own 100px of top padding.
+  padding-top: 88px;
+  margin-bottom: 0;
+  text-align: center;
+
+  @media (min-width: $screen-md-min) {
+    padding-top: 64px;
+    margin-bottom: 60px;
+  }
+}
+
+// Styled as a quiet eyebrow rather than a display heading, matching the
+// hero marquee's label. A full-size h2 overpowered a row of logos, and
+// centring one competed with the centred Vision statement above; at this
+// weight the label reads as a caption to the logos instead. Kept as an
+// h2 so the section still has a real heading in the document outline.
+.partners-eyebrow {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.42);
+  margin: 0 0 40px;
+
+  @media (max-width: $screen-xs-max) {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    margin-bottom: 36px;
+  }
+
+  @media (min-width: $screen-md-min) {
+    margin-bottom: 56px;
+  }
+}
+
+// Mobile shows one mark at a time in a single slot (see the cross-fade
+// block below); desktop lays all five out in a row.
+.partner-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+  row-gap: 30px;
+
+  @media (min-width: $screen-md-min) {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    column-gap: 24px;
+    row-gap: 40px;
+  }
+}
+
+.partner-logo {
+  // Resting brightness. Boltz is a far heavier weight than the others,
+  // so at equal opacity it puts more ink on screen and reads brighter —
+  // it rests a step lower to compensate.
+  --logo-rest: 0.62;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 34px;
+
+  @media (min-width: $screen-md-min) {
+    min-height: 40px;
+  }
+
+  @media (min-width: $screen-xl-min) {
+    min-height: 48px;
+  }
+
+  @media (min-width: $screen-xxl-min) {
+    min-height: 54px;
+  }
+
+  img {
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    // Normalise every mark to pure white regardless of its authored
+    // fill, the same way the hero marquee does.
+    filter: brightness(0) invert(1);
+    opacity: var(--logo-rest);
+    transform: scale(1);
+    transition: opacity 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+  }
+
+  &.--boltz {
+    --logo-rest: 0.5;
+  }
+
+  // Optical sizing, not uniform sizing: these lockups carry very
+  // different amounts of whitespace, so matching raw heights would make
+  // Flashnet's wordmark read half the size of Boltz's. Each tier is set
+  // so the widest mark still clears its column at that width.
+
+  &.--lightspark img {
+    height: 31px;
+    @media (min-width: $screen-md-min) {
+      height: 19px;
+    }
+    @media (min-width: $screen-lg-min) {
+      height: 22px;
+    }
+    @media (min-width: $screen-xl-min) {
+      height: 27px;
+    }
+    @media (min-width: $screen-xxl-min) {
+      height: 32px;
+    }
+  }
+
+  &.--turnkey img {
+    height: 32px;
+    @media (min-width: $screen-md-min) {
+      height: 20px;
+    }
+    @media (min-width: $screen-lg-min) {
+      height: 24px;
+    }
+    @media (min-width: $screen-xl-min) {
+      height: 29px;
+    }
+    @media (min-width: $screen-xxl-min) {
+      height: 34px;
+    }
+  }
+
+  // Its full-height arrow carries far more visual mass than the other
+  // wordmarks, so height is set to match its type, not its bounding box.
+  &.--flashnet img {
+    height: 44px;
+    @media (min-width: $screen-md-min) {
+      height: 27px;
+    }
+    @media (min-width: $screen-lg-min) {
+      height: 32px;
+    }
+    @media (min-width: $screen-xl-min) {
+      height: 40px;
+    }
+    @media (min-width: $screen-xxl-min) {
+      height: 46px;
+    }
+  }
+
+  &.--boltz img {
+    height: 28px;
+    @media (min-width: $screen-md-min) {
+      height: 18px;
+    }
+    @media (min-width: $screen-lg-min) {
+      height: 21px;
+    }
+    @media (min-width: $screen-xl-min) {
+      height: 26px;
+    }
+    @media (min-width: $screen-xxl-min) {
+      height: 30px;
+    }
+  }
+
+  &.--blockstream img {
+    height: 33px;
+    @media (min-width: $screen-md-min) {
+      height: 20px;
+    }
+    @media (min-width: $screen-lg-min) {
+      height: 23px;
+    }
+    @media (min-width: $screen-xl-min) {
+      height: 29px;
+    }
+    @media (min-width: $screen-xxl-min) {
+      height: 34px;
+    }
+  }
+}
+
+// One light travels along the row as the section arrives, then settles.
+// It runs once on reveal rather than on a loop: an ambient loop starts
+// at page load, so by the time you scroll here it is mid-cycle and its
+// pulse lands just after the AOS fade — reading as a double brighten.
+// Waiting out the fade (600ms + 100ms delay) keeps it to one movement.
+// Pointer devices only. `hover: hover` keeps touchscreens out, where a
+// hover state sticks after a tap; the width query keeps it off small
+// layouts. Grows in place rather than lifting, so the mark never moves
+// out from under the cursor.
+@media (hover: hover) and (min-width: $screen-md-min) {
+  .partner-logo:hover img {
+    opacity: 1;
+    transform: scale(1.09);
+    filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.55))
+      drop-shadow(0 0 20px rgba($bubble-bobble-p2, 0.9));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partner-logo img {
+    transition: none;
+  }
+
+  .partner-logo:hover img {
+    transform: none;
+  }
+}
+
+// ── Mobile: a film reel. The five marks ride one track — the middle one
+// sharp and full size, its neighbours scaled back, blurred and dimmed,
+// with the next pair waiting just outside the frame. The reel advances
+// one place at a time, so each mark comes into focus in turn. Scoped
+// below the 5-across breakpoint; the desktop row never sees any of it.
+@media (max-width: $screen-sm-max) {
+  .partner-grid {
+    row-gap: 0;
+    // Reserve the tallest mark's height so the section does not jog, and
+    // clip the track so marks travel in and out of frame.
+    min-height: 64px;
+    overflow: hidden;
+    // Full-bleed: the track needs the whole screen, not the section's
+    // gutter. Inside the gutter the neighbours have to sit so close that
+    // they collide with the centred mark.
+    //
+    // Centred with margin rather than a transform on purpose — this
+    // element is the AOS fade-up target, and AOS sets `transform` on it,
+    // so a transform here is overwritten the moment it animates in.
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+  }
+
+  // Every mark shares one cell; the animation places them along the track.
+  .partner-grid > .partner-logo {
+    grid-area: 1 / 1;
+  }
+
+  .partner-logo {
+    --logo-rest: 0.92;
+
+    &.--boltz {
+      --logo-rest: 0.8;
+    }
+  }
+
+  // Hidden until the reel starts, so they cannot pile up in the cell.
+  .partner-logo img {
+    opacity: 0;
+  }
+
+  // Starts only once AOS marks the grid in view. The negative delays put
+  // each mark at a different point on the track from the first frame, so
+  // the reel is already correctly arranged — Lightspark centred, with a
+  // neighbour either side — rather than assembling itself on screen.
+  .partner-grid.aos-animate .partner-logo img {
+    animation: partner-reel 20s linear infinite both;
+  }
+
+  .partner-grid.aos-animate {
+    .partner-logo:nth-child(1) img {
+      animation-delay: -8s;
+    }
+    .partner-logo:nth-child(2) img {
+      animation-delay: -4s;
+    }
+    .partner-logo:nth-child(3) img {
+      animation-delay: 0s;
+    }
+    .partner-logo:nth-child(4) img {
+      animation-delay: -16s;
+    }
+    .partner-logo:nth-child(5) img {
+      animation-delay: -12s;
+    }
+  }
+}
+
+// One trip along the track: off-frame right, right, centre, left, then
+// off-frame left. Five marks staggered a fifth of the cycle apart means
+// every position is always filled. Each step dwells before easing to the
+// next, so the reel advances in beats instead of drifting.
+//
+// `brightness(0) invert(1)` has to be repeated in every frame — it is
+// what makes the marks white, and a filter list replaces rather than
+// adds to the one on the element.
+@keyframes partner-reel {
+  0%,
+  8% {
+    transform: translateX(210px) scale(0.45);
+    filter: brightness(0) invert(1) blur(6px);
+    opacity: 0;
+    animation-timing-function: ease-in-out;
+  }
+  20%,
+  28% {
+    transform: translateX(140px) scale(0.55);
+    filter: brightness(0) invert(1) blur(3.5px);
+    opacity: 0.3;
+    animation-timing-function: ease-in-out;
+  }
+  40%,
+  48% {
+    transform: translateX(0) scale(1);
+    filter: brightness(0) invert(1) blur(0);
+    opacity: var(--logo-rest);
+    animation-timing-function: ease-in-out;
+  }
+  60%,
+  68% {
+    transform: translateX(-140px) scale(0.55);
+    filter: brightness(0) invert(1) blur(3.5px);
+    opacity: 0.3;
+    animation-timing-function: ease-in-out;
+  }
+  80%,
+  100% {
+    transform: translateX(-210px) scale(0.45);
+    filter: brightness(0) invert(1) blur(6px);
+    opacity: 0;
+  }
+}
+
+// A moving reel hides four marks behind time, so anyone who has asked
+// for less motion gets the plain stack with all five visible at once.
+@media (prefers-reduced-motion: reduce) and (max-width: $screen-sm-max) {
+  .partner-grid {
+    row-gap: 30px;
+    min-height: 0;
+    overflow: visible;
+    width: auto;
+    margin-left: 0;
+  }
+
+  .partner-grid > .partner-logo {
+    grid-area: auto;
+  }
+
+  .partner-grid .partner-logo img,
+  .partner-grid.aos-animate .partner-logo img {
+    animation: none;
+    opacity: var(--logo-rest);
+    transform: none;
+    filter: brightness(0) invert(1);
+  }
+}
