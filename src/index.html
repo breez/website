@@ -759,10 +759,13 @@ Guide me, don't overwhelm me.</pre>
 
 
         <!--technology-partners-section-->
-        <section id="technology-partners" class="technology-partners-section main-container position-relative"
-            data-aos="fade-up" data-aos-duration="600">
+        <!-- The reveal lives on the children, not the section. With it on both,
+             the logos inherited the section's 40px rise on top of their own and
+             travelled twice as far as the eyebrow, while their opacity became the
+             product of two fades, so they hung back then rushed in. -->
+        <section id="technology-partners" class="technology-partners-section main-container position-relative">
 
-            <h2 class="partners-eyebrow">Built with the best in bitcoin and stablecoins</h2>
+            <h2 class="partners-eyebrow" data-aos="fade-up" data-aos-duration="600">Built with the best in bitcoin and stablecoins</h2>
 
             <div class="partner-grid" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
                 <div class="partner-logo --lightspark">
