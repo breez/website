@@ -1714,7 +1714,7 @@ html:not(.no-js) .home-page .playground-home-card [data-aos='fade-up'] {
   // so the widest mark still clears its column at that width.
 
   &.--lightspark img {
-    height: 31px;
+    height: 30px;
     @media (min-width: $screen-md-min) {
       height: 19px;
     }
@@ -1782,8 +1782,14 @@ html:not(.no-js) .home-page .playground-home-card [data-aos='fade-up'] {
   // Its ring sits the full height of the box while its type stays small,
   // so matching box heights left the word reading about a third short of
   // Lightspark and Turnkey. Sized to its cap height instead.
+  //
+  // The base height is the exception. This is the widest lockup by some
+  // way, and below md it rides the reel, which seats its neighbours at a
+  // fixed 140px: a centred mark wider than ~188px runs into them. Cap
+  // height matters less there anyway, where the marks arrive one at a
+  // time rather than side by side.
   &.--blockstream img {
-    height: 41px;
+    height: 32px;
     @media (min-width: $screen-md-min) {
       height: 25px;
     }
@@ -1873,12 +1879,11 @@ html:not(.no-js) .home-page .playground-home-card [data-aos='fade-up'] {
   .partner-grid {
     row-gap: 0;
     // Reserve the tallest mark's height so the section does not jog, and
-    // clip the track so marks travel in and out of frame.
+    // clip the slide so a mark cannot bleed past the gutter.
     min-height: 64px;
     overflow: hidden;
-    // Full-bleed: the track needs the whole screen, not the section's
-    // gutter. Inside the gutter the neighbours have to sit so close that
-    // they collide with the centred mark.
+    // Full-bleed so a mark is never squeezed by the section gutter on a
+    // narrow screen.
     //
     // Centred with margin rather than a transform on purpose — this
     // element is the AOS fade-up target, and AOS sets `transform` on it,
@@ -1905,85 +1910,83 @@ html:not(.no-js) .home-page .playground-home-card [data-aos='fade-up'] {
     opacity: 0;
   }
 
-  // Starts only once AOS marks the grid in view. The negative delays put
-  // each mark at a different point on the track from the first frame, so
-  // the reel is already correctly arranged — Lightspark centred, with a
-  // neighbour either side — rather than assembling itself on screen.
-  // Seven marks, one 4s beat each, so the cycle runs 28s. The delays are
-  // set so each mark reaches the centre in DOM order, 4s apart: a mark
-  // with delay -d sits at phase d, and the centre sits at 8s.
+  // Starts only once AOS marks the grid in view. Seven marks, one 4s beat
+  // each, so the cycle runs 28s. A mark with delay -d starts at phase d,
+  // and the visible window opens at phase 0, so -4(n-1) counted backwards
+  // around the cycle brings them up in DOM order, 4s apart.
   .partner-grid.aos-animate .partner-logo img {
     animation: partner-reel 28s linear infinite both;
   }
 
   .partner-grid.aos-animate {
     .partner-logo:nth-child(1) img {
-      animation-delay: -8s;
-    }
-    .partner-logo:nth-child(2) img {
-      animation-delay: -4s;
-    }
-    .partner-logo:nth-child(3) img {
       animation-delay: 0s;
     }
-    .partner-logo:nth-child(4) img {
+    .partner-logo:nth-child(2) img {
       animation-delay: -24s;
     }
-    .partner-logo:nth-child(5) img {
+    .partner-logo:nth-child(3) img {
       animation-delay: -20s;
     }
-    .partner-logo:nth-child(6) img {
+    .partner-logo:nth-child(4) img {
       animation-delay: -16s;
     }
-    .partner-logo:nth-child(7) img {
+    .partner-logo:nth-child(5) img {
       animation-delay: -12s;
+    }
+    .partner-logo:nth-child(6) img {
+      animation-delay: -8s;
+    }
+    .partner-logo:nth-child(7) img {
+      animation-delay: -4s;
     }
   }
 }
 
-// One trip along the track: off-frame right, right, centre, left, then
-// off-frame left, where the mark waits out the rest of the cycle before
-// jumping back to the right — invisible at both ends, so the jump never
-// shows. Steps sit a seventh of the cycle apart (14.286%), so seven marks
-// staggered by one beat keep every position filled. Each step dwells
-// before easing to the next, so the reel advances in beats not drifts.
+// One mark at a time, sliding through the centre: in from the right,
+// a hold, then out to the left, with the next mark cross-fading in over
+// the same beat so the slot is never empty.
+//
+// Showing neighbours either side was tried first and abandoned. The marks
+// run from 100px to 177px wide, so with fixed seats either side of centre
+// the leftover gap and the distance to the screen edge both changed every
+// beat: Blockstream landed 22px from one neighbour and 39px from the
+// other, with one clipped by the bezel while the other sat 11px clear. No
+// seat offset fixes that — it is the varying widths, and the only way out
+// is to stop putting two marks on screen at once.
+//
+// Travel is 60px, which keeps even the widest mark clear of both edges on
+// a 375px screen, so nothing is ever clipped.
 //
 // `brightness(0) invert(1)` has to be repeated in every frame — it is
 // what makes the marks white, and a filter list replaces rather than
 // adds to the one on the element.
 @keyframes partner-reel {
-  0%,
-  5.7% {
-    transform: translateX(210px) scale(0.45);
-    filter: brightness(0) invert(1) blur(6px);
+  0% {
+    transform: translateX(90px) scale(0.97);
+    filter: brightness(0) invert(1) blur(5px);
     opacity: 0;
     animation-timing-function: ease-in-out;
   }
-  14.286%,
-  20% {
-    transform: translateX(140px) scale(0.55);
-    filter: brightness(0) invert(1) blur(3.5px);
-    opacity: 0.3;
-    animation-timing-function: ease-in-out;
+  5% {
+    transform: translateX(0) scale(1);
+    filter: brightness(0) invert(1) blur(0);
+    opacity: var(--logo-rest);
   }
-  28.571%,
-  34.3% {
+  12.286% {
     transform: translateX(0) scale(1);
     filter: brightness(0) invert(1) blur(0);
     opacity: var(--logo-rest);
     animation-timing-function: ease-in-out;
   }
-  42.857%,
-  48.6% {
-    transform: translateX(-140px) scale(0.55);
-    filter: brightness(0) invert(1) blur(3.5px);
-    opacity: 0.3;
-    animation-timing-function: ease-in-out;
+  17.286% {
+    transform: translateX(-90px) scale(0.97);
+    filter: brightness(0) invert(1) blur(5px);
+    opacity: 0;
   }
-  57.143%,
   100% {
-    transform: translateX(-210px) scale(0.45);
-    filter: brightness(0) invert(1) blur(6px);
+    transform: translateX(90px) scale(0.97);
+    filter: brightness(0) invert(1) blur(5px);
     opacity: 0;
   }
 }
