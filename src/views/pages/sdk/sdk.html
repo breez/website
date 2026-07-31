@@ -947,17 +947,28 @@ Guide me, don't overwhelm me.</pre>
                                         </div>
 
                                         <div class="col-md-12">
+                                            <% if (form_topic == "sdk-api-key") { %>
+                                            <!-- /request-api-key arrives with the topic settled, so it is
+                                                 shown locked rather than as a choice. The value rides in the
+                                                 hidden input: disabled controls are not serialized, so the
+                                                 select alone would submit no contact_type at all. -->
+                                            <input type="hidden" name="contact_type" value="sdk-api-key">
+                                            <select class="form-select mt-3" disabled
+                                                    aria-label="Topic, fixed to API Key for the Breez SDK">
+                                                <option selected>API Key for the Breez SDK</option>
+                                            </select>
+                                            <% } else { %>
                                             <select class="form-select mt-3" name="contact_type" required>
                                                 <option disabled value="" class="d-none">Topic</option>
                                                 <option value="support">Support</option>
                                                 <option <% if (form_topic=="sdk-design-partner" ) { %>selected <% } %>
                                                         value="sdk-design-partner">SDK Partner</option>
-                                                <option <% if (form_topic=="sdk-api-key" ) { %>selected <% } %>
-                                                        value="sdk-api-key">API Key for the Breez SDK</option>
+                                                <option value="sdk-api-key">API Key for the Breez SDK</option>
                                                 <option value="other">Other</option>
                                             </select>
                                             <div class="valid-feedback"></div>
                                             <div class="invalid-feedback">Please choose a topic</div>
+                                            <% } %>
                                         </div>
 
                                         <div class="col-md-12">

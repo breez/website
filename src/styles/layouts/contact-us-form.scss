@@ -76,6 +76,19 @@
   background-color: $elite-blue !important;
 }
 
+// Locked topic (/request-api-key). Drop the chevron so the field reads as
+// settled rather than as a dropdown that refuses to open, and keep Bootstrap
+// from dimming it into looking broken.
+.form-content select:disabled {
+  // Bootstrap swaps in a light --bs-secondary-bg here, which blows out against
+  // the dark form, so the field's own background has to be restored.
+  background-color: $input-form;
+  background-image: none;
+  opacity: 1;
+  color: rgba($white, 0.75);
+  cursor: default;
+}
+
 .btn-primary {
   background-color: #6C757D;
   outline: none;
