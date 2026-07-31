@@ -1779,25 +1779,28 @@ html:not(.no-js) .home-page .playground-home-card [data-aos='fade-up'] {
     }
   }
 
+  // Its ring sits the full height of the box while its type stays small,
+  // so matching box heights left the word reading about a third short of
+  // Lightspark and Turnkey. Sized to its cap height instead.
   &.--blockstream img {
-    height: 33px;
+    height: 41px;
     @media (min-width: $screen-md-min) {
-      height: 20px;
+      height: 25px;
     }
     @media (min-width: $screen-lg-min) {
-      height: 23px;
+      height: 28px;
     }
     @media (min-width: $screen-xl-min) {
-      height: 29px;
+      height: 36px;
     }
     @media (min-width: $screen-xxl-min) {
-      height: 34px;
+      height: 42px;
     }
   }
 
-  // Both are icon-plus-wordmark lockups like Lightspark and Blockstream,
-  // but their marks are solid shapes rather than line work, so they rest a
-  // touch shorter to carry the same weight.
+  // The supplied artwork carried about 35px of transparent padding on
+  // every side, which shrank the mark inside its box; the file is cropped
+  // to its ink, so these heights land its cap on Lightspark's.
   &.--moonpay img {
     height: 30px;
     @media (min-width: $screen-md-min) {
@@ -1814,19 +1817,21 @@ html:not(.no-js) .home-page .playground-home-card [data-aos='fade-up'] {
     }
   }
 
+  // Same full-height-icon problem as Blockstream: the rounded square fills
+  // the box and the type rides small inside it.
   &.--cashapp img {
-    height: 28px;
+    height: 35px;
     @media (min-width: $screen-md-min) {
-      height: 18px;
+      height: 22px;
     }
     @media (min-width: $screen-lg-min) {
-      height: 21px;
+      height: 26px;
     }
     @media (min-width: $screen-xl-min) {
-      height: 25px;
+      height: 31px;
     }
     @media (min-width: $screen-xxl-min) {
-      height: 29px;
+      height: 36px;
     }
   }
 }
