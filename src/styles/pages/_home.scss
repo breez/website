@@ -1628,8 +1628,17 @@ html:not(.no-js) .home-page .playground-home-card [data-aos='fade-up'] {
   }
 }
 
-// Mobile shows one mark at a time in a single slot (see the cross-fade
-// block below); desktop lays all five out in a row.
+// Mobile shows one mark at a time in a single slot (see the reel block
+// below), so it stays a grid — the reel stacks every mark in one cell via
+// grid-area.
+//
+// Desktop runs four to a row, with the remainder centred beneath. Seven
+// marks will not fit one row inside this section's gutter: .main-container
+// takes 280px at lg and up, which leaves 712px at lg against a row that
+// wants 813px. Forcing one row would mean cutting the lg marks about 12%,
+// to smaller than they are at md, inverting the size ladder. Centred flex
+// wrap keeps the short row balanced instead of ranged left, and takes more
+// partners without another layout decision.
 .partner-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -1638,9 +1647,15 @@ html:not(.no-js) .home-page .playground-home-card [data-aos='fade-up'] {
   row-gap: 30px;
 
   @media (min-width: $screen-md-min) {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    column-gap: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 20px;
     row-gap: 40px;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    column-gap: 24px;
   }
 }
 
@@ -1657,7 +1672,16 @@ html:not(.no-js) .home-page .playground-home-card [data-aos='fade-up'] {
   min-height: 34px;
 
   @media (min-width: $screen-md-min) {
+    // Four to a row. The basis subtracts the three gaps a row of four
+    // carries (3 × 20px ÷ 4), so the cells divide the width exactly; the
+    // mark itself still centres at its own natural width inside the cell.
+    width: auto;
+    flex: 0 0 calc(25% - 15px);
     min-height: 40px;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    flex-basis: calc(25% - 18px); // 3 × 24px ÷ 4
   }
 
   @media (min-width: $screen-xl-min) {
@@ -1770,6 +1794,41 @@ html:not(.no-js) .home-page .playground-home-card [data-aos='fade-up'] {
       height: 34px;
     }
   }
+
+  // Both are icon-plus-wordmark lockups like Lightspark and Blockstream,
+  // but their marks are solid shapes rather than line work, so they rest a
+  // touch shorter to carry the same weight.
+  &.--moonpay img {
+    height: 30px;
+    @media (min-width: $screen-md-min) {
+      height: 19px;
+    }
+    @media (min-width: $screen-lg-min) {
+      height: 22px;
+    }
+    @media (min-width: $screen-xl-min) {
+      height: 27px;
+    }
+    @media (min-width: $screen-xxl-min) {
+      height: 31px;
+    }
+  }
+
+  &.--cashapp img {
+    height: 28px;
+    @media (min-width: $screen-md-min) {
+      height: 18px;
+    }
+    @media (min-width: $screen-lg-min) {
+      height: 21px;
+    }
+    @media (min-width: $screen-xl-min) {
+      height: 25px;
+    }
+    @media (min-width: $screen-xxl-min) {
+      height: 29px;
+    }
+  }
 }
 
 // One light travels along the row as the section arrives, then settles.
@@ -1800,11 +1859,11 @@ html:not(.no-js) .home-page .playground-home-card [data-aos='fade-up'] {
   }
 }
 
-// ── Mobile: a film reel. The five marks ride one track — the middle one
+// ── Mobile: a film reel. The seven marks ride one track — the middle one
 // sharp and full size, its neighbours scaled back, blurred and dimmed,
-// with the next pair waiting just outside the frame. The reel advances
-// one place at a time, so each mark comes into focus in turn. Scoped
-// below the 5-across breakpoint; the desktop row never sees any of it.
+// with the rest waiting out of frame. The reel advances one place at a
+// time, so each mark comes into focus in turn. Scoped below the desktop
+// breakpoint; the desktop row never sees any of it.
 @media (max-width: $screen-sm-max) {
   .partner-grid {
     row-gap: 0;
@@ -1845,8 +1904,11 @@ html:not(.no-js) .home-page .playground-home-card [data-aos='fade-up'] {
   // each mark at a different point on the track from the first frame, so
   // the reel is already correctly arranged — Lightspark centred, with a
   // neighbour either side — rather than assembling itself on screen.
+  // Seven marks, one 4s beat each, so the cycle runs 28s. The delays are
+  // set so each mark reaches the centre in DOM order, 4s apart: a mark
+  // with delay -d sits at phase d, and the centre sits at 8s.
   .partner-grid.aos-animate .partner-logo img {
-    animation: partner-reel 20s linear infinite both;
+    animation: partner-reel 28s linear infinite both;
   }
 
   .partner-grid.aos-animate {
@@ -1860,52 +1922,60 @@ html:not(.no-js) .home-page .playground-home-card [data-aos='fade-up'] {
       animation-delay: 0s;
     }
     .partner-logo:nth-child(4) img {
-      animation-delay: -16s;
+      animation-delay: -24s;
     }
     .partner-logo:nth-child(5) img {
+      animation-delay: -20s;
+    }
+    .partner-logo:nth-child(6) img {
+      animation-delay: -16s;
+    }
+    .partner-logo:nth-child(7) img {
       animation-delay: -12s;
     }
   }
 }
 
 // One trip along the track: off-frame right, right, centre, left, then
-// off-frame left. Five marks staggered a fifth of the cycle apart means
-// every position is always filled. Each step dwells before easing to the
-// next, so the reel advances in beats instead of drifting.
+// off-frame left, where the mark waits out the rest of the cycle before
+// jumping back to the right — invisible at both ends, so the jump never
+// shows. Steps sit a seventh of the cycle apart (14.286%), so seven marks
+// staggered by one beat keep every position filled. Each step dwells
+// before easing to the next, so the reel advances in beats not drifts.
 //
 // `brightness(0) invert(1)` has to be repeated in every frame — it is
 // what makes the marks white, and a filter list replaces rather than
 // adds to the one on the element.
 @keyframes partner-reel {
   0%,
-  8% {
+  5.7% {
     transform: translateX(210px) scale(0.45);
     filter: brightness(0) invert(1) blur(6px);
     opacity: 0;
     animation-timing-function: ease-in-out;
   }
-  20%,
-  28% {
+  14.286%,
+  20% {
     transform: translateX(140px) scale(0.55);
     filter: brightness(0) invert(1) blur(3.5px);
     opacity: 0.3;
     animation-timing-function: ease-in-out;
   }
-  40%,
-  48% {
+  28.571%,
+  34.3% {
     transform: translateX(0) scale(1);
     filter: brightness(0) invert(1) blur(0);
     opacity: var(--logo-rest);
     animation-timing-function: ease-in-out;
   }
-  60%,
-  68% {
+  42.857%,
+  48.6% {
     transform: translateX(-140px) scale(0.55);
     filter: brightness(0) invert(1) blur(3.5px);
     opacity: 0.3;
     animation-timing-function: ease-in-out;
   }
-  80%,
+  57.143%,
   100% {
     transform: translateX(-210px) scale(0.45);
     filter: brightness(0) invert(1) blur(6px);
@@ -1913,8 +1983,8 @@ html:not(.no-js) .home-page .playground-home-card [data-aos='fade-up'] {
   }
 }
 
-// A moving reel hides four marks behind time, so anyone who has asked
-// for less motion gets the plain stack with all five visible at once.
+// A moving reel hides most marks behind time, so anyone who has asked
+// for less motion gets the plain stack with all seven visible at once.
 @media (prefers-reduced-motion: reduce) and (max-width: $screen-sm-max) {
   .partner-grid {
     row-gap: 30px;
