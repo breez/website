@@ -1911,34 +1911,35 @@ html:not(.no-js) .home-page .playground-home-card [data-aos='fade-up'] {
   }
 
   // Starts only once AOS marks the grid in view. Seven marks, one 4s beat
-  // each, so the cycle runs 28s. A mark with delay -d starts at phase d,
-  // and the visible window opens at phase 0, so -4(n-1) counted backwards
-  // around the cycle brings them up in DOM order, 4s apart.
+  // each, so the cycle runs 28s. Centre sits at phase 28.571%, so the
+  // first mark is offset there and each later one trails by a beat —
+  // which puts marks 2 and 7 either side of it from the very first frame,
+  // rather than leaving centre flanked by empty space.
   .partner-grid.aos-animate .partner-logo img {
     animation: partner-reel 28s linear infinite both;
   }
 
   .partner-grid.aos-animate {
     .partner-logo:nth-child(1) img {
-      animation-delay: 0s;
-    }
-    .partner-logo:nth-child(2) img {
-      animation-delay: -24s;
-    }
-    .partner-logo:nth-child(3) img {
-      animation-delay: -20s;
-    }
-    .partner-logo:nth-child(4) img {
-      animation-delay: -16s;
-    }
-    .partner-logo:nth-child(5) img {
-      animation-delay: -12s;
-    }
-    .partner-logo:nth-child(6) img {
       animation-delay: -8s;
     }
-    .partner-logo:nth-child(7) img {
+    .partner-logo:nth-child(2) img {
       animation-delay: -4s;
+    }
+    .partner-logo:nth-child(3) img {
+      animation-delay: 0s;
+    }
+    .partner-logo:nth-child(4) img {
+      animation-delay: -24s;
+    }
+    .partner-logo:nth-child(5) img {
+      animation-delay: -20s;
+    }
+    .partner-logo:nth-child(6) img {
+      animation-delay: -16s;
+    }
+    .partner-logo:nth-child(7) img {
+      animation-delay: -12s;
     }
   }
 }
@@ -1962,31 +1963,43 @@ html:not(.no-js) .home-page .playground-home-card [data-aos='fade-up'] {
 // what makes the marks white, and a filter list replaces rather than
 // adds to the one on the element.
 @keyframes partner-reel {
-  0% {
-    transform: translateX(90px) scale(0.97);
-    filter: brightness(0) invert(1) blur(5px);
+  // Off frame, right. Waiting to come in.
+  0%,
+  5.7% {
+    transform: translateX(210px) scale(0.45);
+    filter: brightness(0) invert(1) blur(6px);
     opacity: 0;
     animation-timing-function: ease-in-out;
   }
-  5% {
-    transform: translateX(0) scale(1);
-    filter: brightness(0) invert(1) blur(0);
-    opacity: var(--logo-rest);
+  // Right of centre: blurred and dimmed, but visible.
+  14.286%,
+  20% {
+    transform: translateX(142px) scale(0.55);
+    filter: brightness(0) invert(1) blur(3.5px);
+    opacity: 0.3;
+    animation-timing-function: ease-in-out;
   }
-  12.286% {
+  // Centre: sharp, full size.
+  28.571%,
+  34.29% {
     transform: translateX(0) scale(1);
     filter: brightness(0) invert(1) blur(0);
     opacity: var(--logo-rest);
     animation-timing-function: ease-in-out;
   }
-  17.286% {
-    transform: translateX(-90px) scale(0.97);
-    filter: brightness(0) invert(1) blur(5px);
-    opacity: 0;
+  // Left of centre: blurred and dimmed again.
+  42.857%,
+  48.57% {
+    transform: translateX(-142px) scale(0.55);
+    filter: brightness(0) invert(1) blur(3.5px);
+    opacity: 0.3;
+    animation-timing-function: ease-in-out;
   }
+  // Off frame, left, then held out of sight for the rest of the cycle.
+  57.143%,
   100% {
-    transform: translateX(90px) scale(0.97);
-    filter: brightness(0) invert(1) blur(5px);
+    transform: translateX(-210px) scale(0.45);
+    filter: brightness(0) invert(1) blur(6px);
     opacity: 0;
   }
 }
