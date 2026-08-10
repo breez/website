@@ -1,14 +1,16 @@
 # Breez Technology
 
-> Breez builds SDKs that let developers integrate instant, non-custodial bitcoin into any app or service, so value moves as easily as information. Trusted by 75+ teams.
+> Breez builds SDKs that let developers integrate instant, non-custodial bitcoin and stablecoins into any app or service, so value moves as easily as information.
 
 ## Products
 
-- [Breez SDK](https://breez.technology/sdk/): The easiest way for developers to add instant, non-custodial bitcoin to any app or service, bringing value transfer to billions
-- [Glow Playground](https://breez.technology/playground/): Our playground for builders — open-source reference apps built with the Breez SDK
+- [Breez SDK](https://breez.technology/sdk/): The easiest way for developers to add instant, non-custodial bitcoin and stablecoins to any app or service, bringing value transfer to billions
+- [Glow](https://breez.technology/glow/): A bitcoin app for everyone — everyday payments in bitcoin or USD, built in the open on the Breez SDK. Download it, fork it, make it your own.
+- [SDK Playground](https://breez.technology/playground/): Open-source reference apps built with the Breez SDK — starting points for developers to explore the future of bitcoin UX
 
 ## Case Studies
 
+- [Case Studies](https://breez.technology/case-studies/): How developers integrate instant, non-custodial bitcoin and stablecoins using the Breez SDK, with real-world case studies from apps and services worldwide
 - [Deblock](https://breez.technology/case-studies/deblock/): Instant, non-custodial bitcoin in a neobank serving 300,000 users across Europe
 - [Cake Wallet](https://breez.technology/case-studies/cake/): Instant, non-custodial bitcoin for 1.75 million users globally
 - [Primal](https://breez.technology/case-studies/primal/): The most popular Nostr client replaced its custodial wallet, migrating 20K+ users in 30 days
@@ -21,10 +23,12 @@
 
 ## Resources
 
-- [Documentation](https://sdk-doc-spark.breez.technology/): Breez SDK developer documentation
+- [Breez SDK - Spark Documentation](https://sdk-doc-spark.breez.technology/): Developer documentation for Breez SDK - Spark, the flagship implementation, built on Spark, a native Bitcoin Layer 2
+- [Breez SDK - Liquid Documentation](https://sdk-doc-liquid.breez.technology/): Developer documentation for Breez SDK - Liquid, the implementation built on the Liquid Network
 - [GitHub](https://github.com/breez): Breez open-source repositories
 - [The Bitcoin Payments Report](https://breez.technology/report/): How bitcoin is evolving from digital gold to everyday currency, with data on 650M+ users and real-world case studies
-- [Vision](https://breez.technology/vision/): Value transfer moves value as easily as information — directly, instantly, without intermediaries. Breez is building it on bitcoin
+- [Vision](https://breez.technology/vision/): Value transfer moves value as easily as information — directly, instantly, without intermediaries. Breez is building it on bitcoin.
+- [llms-full.txt](https://breez.technology/llms-full.txt): Expanded reference — full positioning, SDK feature list, Glow features, and case study details in one file
 
 ## Optional
 

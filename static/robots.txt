@@ -2,6 +2,7 @@
 User-agent: *
 Allow: /
 
+# AI training crawlers
 User-agent: GPTBot
 Allow: /
 
@@ -15,6 +16,22 @@ User-agent: Google-Extended
 Allow: /
 
 User-agent: Applebot-Extended
+Allow: /
+
+# AI retrieval-time fetchers (answer engines fetching on behalf of users)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Perplexity-User
 Allow: /
 
 Sitemap: https://breez.technology/sitemap.xml

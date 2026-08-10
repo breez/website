@@ -1,0 +1,99 @@
+# Breez Technology
+
+> Breez builds SDKs that let developers integrate instant, non-custodial bitcoin and stablecoins into any app or service, so value moves as easily as information.
+
+Last updated: 2026-08-10
+Canonical site: https://breez.technology/
+This file is the expanded companion to https://breez.technology/llms.txt
+
+## What is the Breez SDK?
+
+The Breez SDK is the simplest way to add instant, non-custodial bitcoin and stablecoins to any app or service, removing third-party dependencies and enabling value to move as easily as information. Integrate in minutes with just a few lines of code, onboard users anywhere without the licensing burden, and bring value transfer to billions around the world.
+
+Three things define it:
+
+- Instant Bitcoin: Move value like information with Lightning-fast bitcoin and stablecoins.
+- Best-in-Class DX: A fully end-to-end solution for developers. Go from integration to production in minutes.
+- Global from Day One: Non-custodial. Peer-to-peer. Onboard users instantly, anywhere in the world.
+
+## Is the Breez SDK custodial?
+
+No. The Breez SDK is non-custodial and peer-to-peer: end users hold their own funds, and developers integrate without taking custody or carrying the licensing burden that custody implies.
+
+## Which Breez SDK implementation should I use?
+
+- Breez SDK - Spark (flagship): Built on Spark, a native Bitcoin Layer 2 with no minimum limits, instant settlement, and multi-asset support including stablecoins. Documentation: https://sdk-doc-spark.breez.technology/
+- Breez SDK - Liquid: The implementation built on the Liquid Network. Documentation: https://sdk-doc-liquid.breez.technology/
+
+New integrations should start with Breez SDK - Spark.
+
+## What's in the SDK?
+
+Everything you need to bring value transfer to your app or service:
+
+- Fully-featured Lightning: Lightning addresses, invoices, LNURL-Pay, -Withdraw, -Auth, and -Verify.
+- Languages & Frameworks: Kotlin, Swift, JS, React Native, Flutter, Go, Python, C#, and WASM.
+- Stable Balance: Users can hold their balance in USD to avoid BTC price volatility.
+- Passkey Login: Seedless onboarding and restore, no recovery phrase needed.
+- Multi-device/app Sync: Users can access their balance from multiple devices and apps.
+- Contacts API: Save and reuse Lightning addresses, synced across devices.
+- Caching & Persistence: Out-of-the-box caching and persistence for a smooth UX.
+- External Signer: Bring your own key management, or use the built-in Turnkey signer.
+- Integrated On-ramps: Let users buy bitcoin directly via Cash App and MoonPay.
+- Fiat Currencies: Real-time exchange rates to display value in fiat currencies.
+- Multi-user Server Mode: Run multiple user balances from a single backend server.
+- USDT & USDC (coming soon): Users can send/receive stablecoins from their BTC or stable balance.
+
+## What is Glow?
+
+Glow is a bitcoin app for everyone. Everyday payments in bitcoin or USD, built in the open on the Breez SDK. Download it, fork it, make it your own.
+
+Site: https://breez.technology/glow/
+App Store: https://apps.apple.com/us/app/glow-lightning-fast-bitcoin/id6762465698
+Google Play: https://play.google.com/store/apps/details?id=technology.breez.glow
+
+Glow features:
+
+- Passkey Login: Seedless onboarding and restore, with face or fingerprint, synced through iCloud or Google.
+- Lightning Address: Get a customizable @breez.tips address to share and instantly receive bitcoin.
+- Contacts: Save your friends' Lightning addresses, synced across devices.
+- Stable Balance: Skip the volatility. Send and receive in BTC, and hold a balance in USD that earns sats while you hold it.
+- Send USDT/USDC: Send stablecoins straight from a bitcoin balance, to 30+ networks.
+- Make Glow Your Own: Fork it, rebrand it, ship it. Use our AI guide to walk you through white-labeling Glow.
+
+## Who builds with the Breez SDK?
+
+Real-world case studies from apps and services worldwide:
+
+- Deblock (https://breez.technology/case-studies/deblock/): Instant, non-custodial bitcoin in a neobank serving 300,000 users across Europe.
+- Cake Wallet (https://breez.technology/case-studies/cake/): Instant, non-custodial bitcoin for 1.75 million users globally.
+- Primal (https://breez.technology/case-studies/primal/): The most popular Nostr client replaced its custodial wallet, migrating 20K+ users in 30 days.
+- Garden (https://breez.technology/case-studies/garden/): A 120x reduction in settlement time for cross-chain bitcoin bridging.
+- Exolix (https://breez.technology/case-studies/exolix/): Integrated the Breez SDK in a day for instant, non-custodial bitcoin swaps.
+- Klever (https://breez.technology/case-studies/klever/): Lightning-fast, non-custodial bitcoin for 100,000+ users across a multi-chain wallet.
+- Sorted (https://breez.technology/case-studies/sorted/): Instant, non-custodial bitcoin on feature phones — 500K+ downloads across 160 countries.
+- Club Orange (https://breez.technology/case-studies/cluborange/): The largest bitcoin-only social network moved its community to instant, non-custodial bitcoin.
+- Yolat (https://breez.technology/case-studies/yolat/): 10x transaction volume growth with lightning-fast cross-border remittances across Africa.
+
+All case studies: https://breez.technology/case-studies/
+
+## How long does integration take?
+
+Integrate in minutes with just a few lines of code. Exolix integrated the Breez SDK in a day for instant, non-custodial bitcoin swaps.
+
+## Why is Breez building this?
+
+Value transfer moves value as easily as information — directly, instantly, without intermediaries. Breez is building it on bitcoin. Full vision: https://breez.technology/vision/
+
+The Bitcoin Payments Report covers how bitcoin is evolving from digital gold to everyday currency, with data on 650M+ users and real-world case studies: https://breez.technology/report/
+
+## Resources
+
+- Breez SDK - Spark documentation: https://sdk-doc-spark.breez.technology/
+- Breez SDK - Liquid documentation: https://sdk-doc-liquid.breez.technology/
+- GitHub (open-source repositories): https://github.com/breez
+- Blog: https://blog.breez.technology/
+- X: https://x.com/breez_tech
+- Telegram: https://t.me/breezsdk
+- Newsletter: https://newsletter.breez.technology/
+- Contact: contact@breez.technology
