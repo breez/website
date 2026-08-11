@@ -1,0 +1,140 @@
+@use 'sass:math';
+@import 'src/styles/abstracts/_variables.scss';
+
+// ── Misty Breez wind-down notice ──
+// Not a product page any more: it exists to get stranded Misty users their
+// funds out. A single centred column, left-aligned, with one body size and
+// one body colour throughout. Only the two headings and the legal fine
+// print sit outside that.
+//
+// Type comes from the site's shared sub-page ramp (.page-hero-title /
+// .h-2-home.--small / .body-text.--text-1, the same family the SDK, Case
+// Studies and Playground pages use: 64 / 32 / 16). Only spacing is set
+// here, so the page follows the ramp if it ever moves.
+//
+// ── Vertical rhythm ──
+// Every value below is a multiple of the 24px body line-height, so nothing
+// is picked by eye:
+//   $rhythm      24px  between paragraphs, and around list items at 1/3
+//   $rhythm * 2  48px  around each horizontal rule, equal on both sides
+//   $rhythm / 1.5 16px between a heading and the copy it introduces (see math.div below)
+// A rule with unequal space above and below always reads as broken, so the
+// section rule and the disclaimer rule use the same figure on both sides.
+$rhythm: 24px;
+$rule-space: $rhythm * 2;
+
+.misty-page {
+
+  .misty-notice-section {
+    // Matches .mobile-hero-section, so this page starts where the others do.
+    margin: 100px 0;
+
+    @media (min-width: $screen-md-min) {
+      margin: 160px 0 120px 0;
+    }
+  }
+
+  .misty-notice-block {
+    // ~66 characters at the 16px body size.
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  .misty-title {
+    margin-bottom: $rhythm;
+    text-wrap: balance;
+  }
+
+  .misty-heading {
+    margin: 0 0 math.div($rhythm, 1.5);
+    text-wrap: balance;
+  }
+
+  .misty-body {
+    // Equal to the line-height: the gap between paragraphs must not be
+    // tighter than the gap between lines inside one.
+    margin: 0 0 $rhythm;
+    text-wrap: pretty;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: $bubble-bobble-p2;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .misty-step {
+    margin-top: $rule-space;
+    padding-top: $rule-space;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .misty-store-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: math.div($rhythm, 1.5);
+    margin: $rhythm 0;
+  }
+
+  .misty-store-btn {
+    display: block;
+
+    img {
+      display: block;
+      height: 48px;
+      width: auto;
+    }
+  }
+
+  // list-style is set explicitly: the site's reset strips it.
+  .misty-services {
+    margin: 0;
+    padding-left: $rhythm;
+    list-style: disc outside;
+
+    li {
+      margin-bottom: math.div($rhythm, 3);
+
+      &::marker {
+        color: $white;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    a {
+      color: $bubble-bobble-p2;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // Legal fine print, as on the page this replaces.
+  .misty-disclaimer {
+    margin: $rule-space 0 0;
+    padding-top: $rule-space;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 15px;
+    line-height: $rhythm;
+    color: $cabaret-charm;
+    text-wrap: pretty;
+  }
+
+  a:focus-visible {
+    outline: 2px solid $bubble-bobble-p2;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}

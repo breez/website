@@ -83,10 +83,14 @@ import './javascript/glow-page'
 
 
 
-load('6LcXRpgUAAAAAME7hVWwxUI0BvOuz6QEocYmUpIa').then((recaptcha) => {
-    recaptcha.execute('contact').then((token) => {
-        var recaptchaResponse = document.getElementById('recaptcha_response');
-        recaptchaResponse.value = token;
-        console.log(token) // Will print the token
+// Not every page carries the contact form (the Misty wind-down notice does
+// not), so skip reCAPTCHA entirely rather than throwing on a missing field.
+if (document.getElementById('recaptcha_response')) {
+    load('6LcXRpgUAAAAAME7hVWwxUI0BvOuz6QEocYmUpIa').then((recaptcha) => {
+        recaptcha.execute('contact').then((token) => {
+            var recaptchaResponse = document.getElementById('recaptcha_response');
+            recaptchaResponse.value = token;
+            console.log(token) // Will print the token
+        })
     })
-})
+}
