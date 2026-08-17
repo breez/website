@@ -1,4 +1,11 @@
 .sdk-partners-collapsed-section {
+  // Match the site's desktop left axis: header rows use g-0 gx-lg-5 + ps-0,
+  // which pulls content 24px left of the container edge.
+  @media (min-width: $screen-lg-min) {
+    margin-left: -24px;
+    margin-right: -24px;
+  }
+
   .sdk-partners-list {
     gap: 20px;
     justify-content: flex-start;

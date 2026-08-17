@@ -62,32 +62,6 @@
     </script>
     <script defer="defer" src="../../../index.js"></script>
 
-    <style>
-        .sdk-implementation-block {
-            border: 1px solid transparent;
-            transition: box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-        .sdk-implementation-block--spark {
-            border-color: rgba(80, 150, 255, 0.3);
-            box-shadow: 0 0 30px rgba(80, 150, 255, 0.15), 0 0 60px rgba(80, 150, 255, 0.06);
-        }
-        .sdk-implementation-block--glow {
-            border-color: rgba(80, 150, 255, 0.3);
-            box-shadow: 0 0 30px rgba(80, 150, 255, 0.15), 0 0 60px rgba(80, 150, 255, 0.06);
-        }
-        .sdk-implementation-block--dim {
-            border-color: transparent;
-            box-shadow: none;
-        }
-        .sdk-implementation-block .h-3.--big-heading {
-            font-size: 29px;
-            line-height: 1.35;
-        }
-        @media (max-width: 991.98px) {
-            .sdk-contact-br { display: none; }
-            .sdk-contact-next::before { content: " "; }
-        }
-    </style>
 </head>
 
 <body>
@@ -621,50 +595,74 @@ Guide me, don't overwhelm me.</pre>
         </section>
 
 
-        <!-- Start Building -->
+        <!-- Build with Breez — flagship. The vision-statement format with a
+             live terminal as the scene: kinetic type makes the claim, the
+             terminal proves it by typing the real integration and getting
+             paid. All copy carried over; roles recast. -->
         <section id="sdk-implementation-section"
-            class="sdk-implementation-section position-relative">
+            class="sdk-implementation-section sdk-flagship position-relative">
             <!--    gradients — outside AOS to prevent flash -->
             <div class="gradient --sdk-implementation-radial-gradient-top-left">
             </div>
             <div class="gradient --sdk-implementation-radial-gradient-bottom-right">
             </div>
-            <div class="row g-0 gy-5 gx-lg-5" data-aos="fade-up" data-aos-duration="800">
-                <div class="col-12 ps-0">
-                    <h2 class="h-2-home mb-2" style="font-size: clamp(32px, 4vw, 36px);">Build with Breez</h2>
-                    <p class="home-text --text-2 mb-5">
-                        The simplest developer experience, the best user experience.
-                    </p>
+
+            <h2 class="sdk-flagship-statement" data-aos="vision-rise" data-aos-duration="700">
+                The simplest <span class="vision-accent">developer experience</span>.<br>
+                The best <span class="vision-accent">user experience</span>.
+            </h2>
+
+            <!-- The three advantages, in the homepage's claim-chip pattern -->
+            <div class="sdk-claim-row sdk-flagship-claims" data-aos="vision-rise" data-aos-duration="700" data-aos-delay="110">
+                <div class="sdk-claim">
+                    <span class="sdk-claim-icon" aria-hidden="true">
+                        <svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 4L8 18H16L14 28L24 14H16L18 4Z"/>
+                        </svg>
+                    </span>
+                    <span class="sdk-claim-text">Instant payments</span>
+                </div>
+                <div class="sdk-claim">
+                    <span class="sdk-claim-icon" aria-hidden="true">
+                        <svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 16h24"/>
+                            <path d="M8 12l-4 4 4 4"/>
+                            <path d="M24 12l4 4-4 4"/>
+                        </svg>
+                    </span>
+                    <span class="sdk-claim-text">No minimum limits</span>
+                </div>
+                <div class="sdk-claim">
+                    <span class="sdk-claim-icon" aria-hidden="true">
+                        <svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="16" r="7"/>
+                            <circle cx="20" cy="16" r="7"/>
+                        </svg>
+                    </span>
+                    <span class="sdk-claim-text">Multi-asset support</span>
                 </div>
             </div>
-            <div class="row g-0 justify-content-center" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
-                <!-- Spark Implementation -->
-                <div class="col-12 col-lg-7">
-                    <div class="sdk-implementation-block sdk-implementation-block--spark d-flex flex-column align-items-center position-relative">
-                        <div class="w-100 text-center">
-                            <img src="../../../assets/icons/spark_icon.svg" alt="spark icon" class="mb-4 pb-3">
-                            <h3 class="h-3 --big-heading fw-bold mb-4">Breez SDK - Spark</h3>
-                        </div>
-                        <p class="body-text --text-3 mb-4 pb-3 text-center" style="max-width: 460px;">
-                            Built on Spark, a native Bitcoin Layer 2 with no minimum limits, instant settlement, and multi-asset support including stablecoins.
-                        </p>
-                        <div class="d-flex flex-column w-100 gap-3">
-                            <a role="button" class="primary-btn w-100 text-decoration-none"
-                                href="https://sdk-doc-spark.breez.technology/" target="_blank">
-                                <div style="margin: auto;">Start Building</div>
-                            </a>
-                            <a role="button" class="primary-btn --transparent w-100 text-decoration-none"
-                                href="https://sdk-doc-liquid.breez.technology/" target="_blank">
-                                <div style="margin: auto;">Breez SDK - Liquid</div>
-                            </a>
-                        </div>
-                    </div>
+
+            <div class="sdk-flagship-cta" data-aos="vision-rise" data-aos-duration="700" data-aos-delay="220">
+                <a role="button" class="primary-btn text-decoration-none"
+                    href="https://sdk-doc-spark.breez.technology/" target="_blank" rel="noopener noreferrer">
+                    <div style="margin: auto;">Start Building</div>
+                </a>
+            </div>
+
+            <!-- The scene: a terminal that runs the real quickstart. The
+                 transcript below is the source of truth — the script reads,
+                 clears, and retypes it; without JS (or with reduced motion)
+                 it simply stands as rendered. -->
+            <div class="sdk-term js-sdk-term" data-aos="vision-rise" data-aos-duration="900" data-aos-delay="330">
+                <div class="sdk-term-chrome">
+                    <span class="sdk-term-dots" aria-hidden="true"><i class="--red"></i><i class="--yellow"></i><i class="--green"></i></span>
+                    <h3 class="sdk-term-title">Breez SDK - Spark</h3>
+                    <svg class="sdk-term-spark" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+                        <path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/>
+                    </svg>
                 </div>
-            </div>
-            <!--    gradients-->
-            <div class="gradient --sdk-implementation-radial-gradient-top-left">
-            </div>
-            <div class="gradient --sdk-implementation-radial-gradient-bottom-right">
+                <pre class="sdk-term-body js-sdk-term-body"><span class="sdk-term-line --cmd" data-prompt="$">npm install @breeztech/breez-sdk-spark</span><span class="sdk-term-line --cmd" data-prompt="&gt;">await sdk.receivePayment({ paymentMethod: { type: 'bolt11Invoice', amountSats: 21000 } })</span><span class="sdk-term-line --ok">{ paymentRequest: 'lnbc210u1p…' }</span><span class="sdk-term-line --paid">✓ paymentSucceeded · +21,000 sats · settled instantly</span></pre>
             </div>
         </section>
 
@@ -867,7 +865,7 @@ Guide me, don't overwhelm me.</pre>
                                 <%if (form_topic=="sdk-api-key" ) { %>Get an API key<% } %>
                     </h2>
                     <p class="home-text --text-2">
-                        <%if (form_topic=="sdk-design-partner" ) { %>Join the world's best teams already building with the Breez SDK.<br class="sdk-contact-br"><span class="sdk-contact-next">Get</span> in touch to get started.<% } %>
+                        <%if (form_topic=="sdk-design-partner" ) { %>Join the world's best teams already building with the Breez SDK. Get in touch to get started.<% } %>
                         <%if (form_topic=="sdk-api-key" ) { %>Interested in becoming a partner for the Breez SDK?<br>Please fill this form to receive an API key.<% } %>
                     </p>
                 </div>
@@ -1043,42 +1041,82 @@ Guide me, don't overwhelm me.</pre>
     </footer>
 
     <script>
+        // Flagship terminal: retypes its own prerendered transcript when
+        // scrolled into view. The markup is the source of truth — reduced
+        // motion (or no JS) leaves the finished transcript as rendered.
         document.addEventListener('DOMContentLoaded', function () {
-            var spark = document.querySelector('.sdk-implementation-block--spark');
-            var liquid = document.querySelector('.sdk-implementation-block:not(.sdk-implementation-block--spark)');
-            var liquidFocused = false;
+            var term = document.querySelector('.js-sdk-term');
+            var body = document.querySelector('.js-sdk-term-body');
+            if (!term || !body) return;
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-            function setLiquidFocus(focus) {
-                if (focus) {
-                    spark.classList.add('sdk-implementation-block--dim');
-                    liquid.classList.add('sdk-implementation-block--glow');
+            var source = [].map.call(body.querySelectorAll('.sdk-term-line'), function (el) {
+                return {
+                    cls: el.className,
+                    prompt: el.getAttribute('data-prompt'),
+                    text: el.textContent
+                };
+            });
+            if (!source.length) return;
+
+            var caret = document.createElement('i');
+            caret.className = 'sdk-term-caret';
+
+            function typeText(el, text, done) {
+                var node = document.createTextNode('');
+                el.insertBefore(node, caret);
+                var i = 0;
+                (function tick() {
+                    if (i >= text.length) { setTimeout(done, 140); return; }
+                    node.data += text.charAt(i++);
+                    setTimeout(tick, 8 + Math.random() * 14);
+                })();
+            }
+
+            function play(i) {
+                if (i >= source.length) { finish(); return; }
+                var item = source[i];
+                var el = document.createElement('span');
+                el.className = item.cls;
+                if (item.prompt) el.setAttribute('data-prompt', item.prompt);
+                body.appendChild(el);
+
+                if (item.cls.indexOf('--cmd') !== -1) {
+                    el.appendChild(caret);
+                    typeText(el, item.text, function () { play(i + 1); });
                 } else {
-                    spark.classList.remove('sdk-implementation-block--dim');
-                    liquid.classList.remove('sdk-implementation-block--glow');
+                    var wait = item.cls.indexOf('--paid') !== -1 ? 700
+                        : item.cls.indexOf('--gap') !== -1 ? 50 : 150;
+                    setTimeout(function () {
+                        el.textContent = item.text;
+                        if (item.cls.indexOf('--paid') !== -1) term.classList.add('is-paid');
+                        play(i + 1);
+                    }, wait);
                 }
             }
 
-            liquid.addEventListener('mouseenter', function () {
-                setLiquidFocus(true);
-            });
-            liquid.addEventListener('mouseleave', function () {
-                setLiquidFocus(false);
-            });
+            function finish() {
+                var idle = document.createElement('span');
+                idle.className = 'sdk-term-line --cmd';
+                idle.setAttribute('data-prompt', '$');
+                idle.appendChild(caret);
+                body.appendChild(idle);
+            }
 
-            liquid.addEventListener('click', function (e) {
-                if (window.matchMedia('(hover: none)').matches && !e.target.closest('a')) {
-                    e.preventDefault();
-                    liquidFocused = !liquidFocused;
-                    setLiquidFocus(liquidFocused);
-                }
-            });
-            spark.addEventListener('click', function (e) {
-                if (window.matchMedia('(hover: none)').matches && liquidFocused && !e.target.closest('a')) {
-                    e.preventDefault();
-                    liquidFocused = false;
-                    setLiquidFocus(false);
-                }
-            });
+            var played = false;
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting || played) return;
+                    played = true;
+                    observer.disconnect();
+                    // Freeze the transcript's height so clearing it doesn't
+                    // shift the layout, then retype from a blank screen.
+                    body.style.minHeight = body.offsetHeight + 'px';
+                    body.innerHTML = '';
+                    setTimeout(function () { play(0); }, 200);
+                });
+            }, { threshold: 0.35 });
+            observer.observe(term);
         });
     </script>
     <!-- Code tab JS removed — code block moved out of capabilities section -->

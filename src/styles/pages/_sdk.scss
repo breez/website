@@ -356,33 +356,201 @@
   .sdk-implementation-section {
     margin-bottom: 140px;
 
-    .sdk-implementation-block {
-      padding: 32px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 8px;
-    }
+    // ── Flagship: the vision-statement format with a terminal as the scene.
+    // Statement voice mirrors .vision-statement exactly (same size, weight,
+    // accents) so the two big moments across the site speak as one.
+    &.sdk-flagship {
+      text-align: left;
 
-    .sdk-implementation-block--other {
-      padding: 16px 24px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 8px;
-      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-
-      &:hover {
-        background: rgba(255, 255, 255, 0.06);
-        border-color: rgba($bubble-bobble-p2, 0.2);
-        box-shadow: 0 0 30px rgba($bubble-bobble-p2, 0.06);
+      @media (min-width: $screen-md-min) {
+        text-align: center;
       }
     }
 
-    .sdk-other-link {
-      font-size: 14px;
-      font-weight: 500;
-      color: $bubble-bobble-p2;
-      transition: opacity 0.2s ease;
-      white-space: nowrap;
+    // Statement flows straight into the claim chips — its bottom margin
+    // provides the breathing room the subline used to.
+    .sdk-flagship-statement {
+      font-weight: $font-weight-bold;
+      letter-spacing: -0.02em;
+      line-height: 1.14;
+      font-size: clamp(30px, 8vw, 52px);
+      color: $white;
+      margin: 0 0 32px;
+      text-wrap: balance;
+
+      @media (min-width: $screen-md-min) {
+        margin: 0 auto 40px;
+      }
+
+      @media (min-width: $screen-lg-min) {
+        // Same measure-tracking trick as .vision-statement: the longer line
+        // ("The simplest developer experience.") is ~16.9em, so the size
+        // follows the container on narrow desktops and caps at 52px.
+        font-size: min(calc((100vw - 300px) / 16.9), 52px);
+      }
+
     }
+
+    .sdk-flagship-cta {
+      margin-bottom: 48px;
+
+      @media (min-width: $screen-md-min) {
+        margin-bottom: 56px;
+
+        .primary-btn {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    }
+
+    // ── The terminal. Same frame language as the Glow terminal (dark
+    // gradient, hairline border, traffic dots, mono type) — tokens copied,
+    // not classes shared, so the pages stay uncoupled.
+    .sdk-term {
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: left;
+      position: relative;
+      background: linear-gradient(180deg, rgba(20, 24, 32, 0.95) 0%, rgba(10, 13, 18, 0.95) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow:
+        0 30px 80px -30px rgba(0, 0, 0, 0.85),
+        0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+    }
+
+    .sdk-term-chrome {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      background: rgba(255, 255, 255, 0.025);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .sdk-term-dots {
+      display: flex;
+      gap: 7px;
+      flex-shrink: 0;
+
+      i {
+        display: inline-block;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+
+        &.--red { background: #FF5F57; }
+        &.--yellow { background: #FEBC2E; }
+        &.--green { background: #28C840; }
+      }
+    }
+
+    .sdk-term-title {
+      font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+      font-size: 12px;
+      font-weight: $font-weight-normal;
+      color: rgba(255, 255, 255, 0.55);
+      letter-spacing: 0.01em;
+      margin: 0;
+    }
+
+    .sdk-term-spark {
+      margin-left: auto;
+      color: rgba(255, 255, 255, 0.35);
+      flex-shrink: 0;
+    }
+
+    .sdk-term-body {
+      margin: 0;
+      padding: 22px 24px 26px;
+      font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.85);
+      white-space: pre-wrap;
+      word-break: break-word;
+
+      @media (max-width: 767.98px) {
+        font-size: 12px;
+        padding: 18px 16px 22px;
+      }
+    }
+
+    .sdk-term-line {
+      display: block;
+
+      &[data-prompt]::before {
+        content: attr(data-prompt) ' ';
+        color: $bubble-bobble-p2;
+        font-weight: $font-weight-bold;
+      }
+
+      &.--ok,
+      &.--dim {
+        color: rgba(255, 255, 255, 0.55);
+      }
+
+      &.--paid {
+        color: #4db5ff;
+        font-weight: $font-weight-bold;
+      }
+    }
+
+    .sdk-term-caret {
+      display: inline-block;
+      width: 8px;
+      height: 15px;
+      background: rgba(255, 255, 255, 0.85);
+      vertical-align: middle;
+      margin-left: 3px;
+      animation: sdk-term-blink 1s steps(1) infinite;
+    }
+
+    // Payoff: when the payment lands, the line glows, the chrome asterisk
+    // pops, and a soft blue wash rises from the bottom of the frame.
+    .sdk-term.is-paid {
+      .sdk-term-spark {
+        color: $bubble-bobble-p2;
+        animation: sdk-term-spark-pop 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      .sdk-term-line.--paid {
+        animation: sdk-term-paid-glow 1.6s ease-out;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: radial-gradient(60% 80% at 50% 100%, rgba($bubble-bobble-p2, 0.16) 0%, transparent 70%);
+        opacity: 0;
+        animation: sdk-term-flash 1.6s ease-out;
+      }
+    }
+  }
+
+  @keyframes sdk-term-blink {
+    50% { opacity: 0; }
+  }
+
+  @keyframes sdk-term-paid-glow {
+    0% { text-shadow: 0 0 18px rgba(77, 181, 255, 0.9); }
+    100% { text-shadow: 0 0 0 rgba(77, 181, 255, 0); }
+  }
+
+  @keyframes sdk-term-flash {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  @keyframes sdk-term-spark-pop {
+    0% { transform: scale(1) rotate(0deg); }
+    40% { transform: scale(1.4) rotate(45deg); }
+    100% { transform: scale(1) rotate(45deg); }
   }
 
   .sdk-capabilities-section {
