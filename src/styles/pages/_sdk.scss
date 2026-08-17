@@ -487,15 +487,11 @@
         font-weight: $font-weight-bold;
       }
 
-      &.--ok,
-      &.--dim {
-        color: rgba(255, 255, 255, 0.55);
-      }
-
-      &.--paid {
-        color: #4db5ff;
-        font-weight: $font-weight-bold;
-      }
+      // Subtle JS syntax highlighting, blue family only
+      .tk-kw { color: #4db5ff; }
+      .tk-fn { color: #cfe8ff; }
+      .tk-str { color: #7cc4ff; }
+      .tk-num { color: #9fd4ff; }
     }
 
     .sdk-term-caret {
@@ -508,16 +504,12 @@
       animation: sdk-term-blink 1s steps(1) infinite;
     }
 
-    // Payoff: when the payment lands, the line glows, the chrome asterisk
-    // pops, and a soft blue wash rises from the bottom of the frame.
+    // Payoff: when the snippet finishes typing, the chrome asterisk pops
+    // and a soft blue wash rises from the bottom of the frame.
     .sdk-term.is-paid {
       .sdk-term-spark {
         color: $bubble-bobble-p2;
         animation: sdk-term-spark-pop 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
-      }
-
-      .sdk-term-line.--paid {
-        animation: sdk-term-paid-glow 1.6s ease-out;
       }
 
       &::after {
@@ -534,11 +526,6 @@
 
   @keyframes sdk-term-blink {
     50% { opacity: 0; }
-  }
-
-  @keyframes sdk-term-paid-glow {
-    0% { text-shadow: 0 0 18px rgba(77, 181, 255, 0.9); }
-    100% { text-shadow: 0 0 0 rgba(77, 181, 255, 0); }
   }
 
   @keyframes sdk-term-flash {

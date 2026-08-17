@@ -662,7 +662,7 @@ Guide me, don't overwhelm me.</pre>
                         <path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/>
                     </svg>
                 </div>
-                <pre class="sdk-term-body js-sdk-term-body"><span class="sdk-term-line --cmd" data-prompt="$">npm install @breeztech/breez-sdk-spark</span><span class="sdk-term-line --cmd" data-prompt="&gt;">await sdk.receivePayment({ paymentMethod: { type: 'bolt11Invoice', amountSats: 21000 } })</span><span class="sdk-term-line --ok">{ paymentRequest: 'lnbc210u1p…' }</span><span class="sdk-term-line --paid">✓ paymentSucceeded · +21,000 sats · settled instantly</span></pre>
+                <pre class="sdk-term-body js-sdk-term-body"><span class="sdk-term-line --cmd" data-prompt="$">npm install @breeztech/breez-sdk-spark</span><span class="sdk-term-line --gap"> </span><span class="sdk-term-line --code"><span class="tk-kw">await</span> sdk.<span class="tk-fn">receivePayment</span>({</span><span class="sdk-term-line --code">  paymentMethod: {</span><span class="sdk-term-line --code">    type: <span class="tk-str">'bolt11Invoice'</span>,</span><span class="sdk-term-line --code">    description: <span class="tk-str">'Here are your sats!'</span>,</span><span class="sdk-term-line --code">    amountSats: <span class="tk-num">21000</span></span><span class="sdk-term-line --code">  }</span><span class="sdk-term-line --code">})</span></pre>
             </div>
         </section>
 
@@ -1050,11 +1050,17 @@ Guide me, don't overwhelm me.</pre>
             if (!term || !body) return;
             if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+            // Each line is a list of tokens (plain text or a highlight span)
+            // so typing rebuilds the exact prerendered markup, colours and all.
             var source = [].map.call(body.querySelectorAll('.sdk-term-line'), function (el) {
                 return {
                     cls: el.className,
                     prompt: el.getAttribute('data-prompt'),
-                    text: el.textContent
+                    tokens: [].map.call(el.childNodes, function (n) {
+                        return n.nodeType === 3
+                            ? { cls: null, text: n.data }
+                            : { cls: n.className, text: n.textContent };
+                    })
                 };
             });
             if (!source.length) return;
@@ -1062,14 +1068,26 @@ Guide me, don't overwhelm me.</pre>
             var caret = document.createElement('i');
             caret.className = 'sdk-term-caret';
 
-            function typeText(el, text, done) {
-                var node = document.createTextNode('');
-                el.insertBefore(node, caret);
-                var i = 0;
-                (function tick() {
-                    if (i >= text.length) { setTimeout(done, 140); return; }
-                    node.data += text.charAt(i++);
-                    setTimeout(tick, 8 + Math.random() * 14);
+            function typeTokens(el, tokens, done) {
+                var ti = 0;
+                (function nextToken() {
+                    if (ti >= tokens.length) { setTimeout(done, 120); return; }
+                    var tok = tokens[ti++];
+                    var node = document.createTextNode('');
+                    if (tok.cls) {
+                        var span = document.createElement('span');
+                        span.className = tok.cls;
+                        span.appendChild(node);
+                        el.insertBefore(span, caret);
+                    } else {
+                        el.insertBefore(node, caret);
+                    }
+                    var i = 0;
+                    (function tick() {
+                        if (i >= tok.text.length) { nextToken(); return; }
+                        node.data += tok.text.charAt(i++);
+                        setTimeout(tick, 8 + Math.random() * 14);
+                    })();
                 })();
             }
 
@@ -1081,17 +1099,12 @@ Guide me, don't overwhelm me.</pre>
                 if (item.prompt) el.setAttribute('data-prompt', item.prompt);
                 body.appendChild(el);
 
-                if (item.cls.indexOf('--cmd') !== -1) {
-                    el.appendChild(caret);
-                    typeText(el, item.text, function () { play(i + 1); });
+                if (item.cls.indexOf('--gap') !== -1) {
+                    el.textContent = item.tokens.length ? item.tokens[0].text : ' ';
+                    setTimeout(function () { play(i + 1); }, 50);
                 } else {
-                    var wait = item.cls.indexOf('--paid') !== -1 ? 700
-                        : item.cls.indexOf('--gap') !== -1 ? 50 : 150;
-                    setTimeout(function () {
-                        el.textContent = item.text;
-                        if (item.cls.indexOf('--paid') !== -1) term.classList.add('is-paid');
-                        play(i + 1);
-                    }, wait);
+                    el.appendChild(caret);
+                    typeTokens(el, item.tokens, function () { play(i + 1); });
                 }
             }
 
@@ -1101,6 +1114,7 @@ Guide me, don't overwhelm me.</pre>
                 idle.setAttribute('data-prompt', '$');
                 idle.appendChild(caret);
                 body.appendChild(idle);
+                term.classList.add('is-paid');
             }
 
             var played = false;
