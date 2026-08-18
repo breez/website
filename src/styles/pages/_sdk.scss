@@ -384,9 +384,9 @@
 
       @media (min-width: $screen-lg-min) {
         // Same measure-tracking trick as .vision-statement: the longer line
-        // ("The simplest developer experience.") is ~16.9em, so the size
+        // ("Add instant bitcoin and stablecoins") is ~17.4em, so the size
         // follows the container on narrow desktops and caps at 52px.
-        font-size: min(calc((100vw - 300px) / 16.9), 52px);
+        font-size: min(calc((100vw - 300px) / 17.4), 52px);
       }
 
     }
