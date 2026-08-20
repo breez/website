@@ -376,6 +376,10 @@
       font-size: clamp(30px, 8vw, 52px);
       color: $white;
       margin: 0 0 32px;
+      // No hard <br> in the markup: balance already finds the intended
+      // two-line split on desktop, and a forced break made it balance each
+      // half separately, giving 4 ragged lines with an orphaned "minutes."
+      // on phones and tablets.
       text-wrap: balance;
 
       @media (min-width: $screen-md-min) {
