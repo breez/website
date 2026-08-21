@@ -1,4 +1,4 @@
-# Breez Technology
+# Breez
 
 > Breez builds SDKs that let developers integrate instant, non-custodial bitcoin and stablecoins into any app or service, so value moves as easily as information.
 
@@ -44,6 +44,12 @@ Everything you need to bring value transfer to your app or service:
 - Multi-user Server Mode: Run multiple user balances from a single backend server.
 - USDT & USDC (coming soon): Users can send/receive stablecoins from their BTC or stable balance.
 
+## How much does the Breez SDK cost?
+
+The Breez SDK is free for developers. There is no licence fee. An API key is
+required to use the SDK and is free to request at
+https://breez.technology/request-api-key/#contact-us-form-sdk
+
 ## What is Glow?
 
 Glow is a bitcoin app for everyone. Everyday payments in bitcoin or USD, built in the open on the Breez SDK. Download it, fork it, make it your own.
@@ -63,7 +69,8 @@ Glow features:
 
 ## Who builds with the Breez SDK?
 
-Real-world case studies from apps and services worldwide:
+100+ teams are building with the Breez SDK, adding instant, non-custodial
+bitcoin and stablecoins to their apps and services. Real-world case studies:
 
 - Deblock (https://breez.technology/case-studies/deblock/): Instant, non-custodial bitcoin in a neobank serving 300,000 users across Europe.
 - Cake Wallet (https://breez.technology/case-studies/cake/): Instant, non-custodial bitcoin for 1.75 million users globally.
@@ -74,6 +81,7 @@ Real-world case studies from apps and services worldwide:
 - Sorted (https://breez.technology/case-studies/sorted/): Instant, non-custodial bitcoin on feature phones — 500K+ downloads across 160 countries.
 - Club Orange (https://breez.technology/case-studies/cluborange/): The largest bitcoin-only social network moved its community to instant, non-custodial bitcoin.
 - Yolat (https://breez.technology/case-studies/yolat/): 10x transaction volume growth with lightning-fast cross-border remittances across Africa.
+- Radar (https://breez.technology/case-studies/radar/): Instant, non-custodial bitcoin inside a Signal-compatible encrypted messenger.
 
 All case studies: https://breez.technology/case-studies/
 

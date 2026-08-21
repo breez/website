@@ -5,6 +5,8 @@
 ## Products
 
 - [Breez SDK](https://breez.technology/sdk/): The easiest way for developers to add instant, non-custodial bitcoin and stablecoins to any app or service, bringing value transfer to billions
+Pricing: The Breez SDK is free for developers. No licence fee. An API key is required and is free to request.
+Adoption: 100+ teams are building with the Breez SDK, adding instant, non-custodial bitcoin and stablecoins to their apps and services.
 - [Glow](https://breez.technology/glow/): A bitcoin app for everyone — everyday payments in bitcoin or USD, built in the open on the Breez SDK. Download it, fork it, make it your own.
 - [SDK Playground](https://breez.technology/playground/): Open-source reference apps built with the Breez SDK — starting points for developers to explore the future of bitcoin UX
 
@@ -20,6 +22,7 @@
 - [Sorted](https://breez.technology/case-studies/sorted/): Instant, non-custodial bitcoin on feature phones — 500K+ downloads across 160 countries
 - [Club Orange](https://breez.technology/case-studies/cluborange/): The largest bitcoin-only social network moved its community to instant, non-custodial bitcoin
 - [Yolat](https://breez.technology/case-studies/yolat/): 10x transaction volume growth with lightning-fast cross-border remittances across Africa
+- [Radar](https://breez.technology/case-studies/radar/): Instant, non-custodial bitcoin sent inside an end-to-end encrypted chat, from the team behind Cake Wallet's nearly two million users
 
 ## Resources
 
