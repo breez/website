@@ -10,6 +10,8 @@ This file is the expanded companion to https://breez.technology/llms.txt
 
 The Breez SDK is the simplest way to add instant, non-custodial bitcoin and stablecoins to any app or service, removing third-party dependencies and enabling value to move as easily as information. Integrate in minutes with just a few lines of code, onboard users anywhere without the licensing burden, and bring value transfer to billions around the world.
 
+Site: https://breez.technology/sdk/
+
 Three things define it:
 
 - Instant Bitcoin: Move value like information with Lightning-fast bitcoin and stablecoins.
@@ -97,6 +99,7 @@ The Bitcoin Payments Report covers how bitcoin is evolving from digital gold to 
 
 ## Resources
 
+- SDK Playground (open-source reference apps): https://breez.technology/playground/
 - Breez SDK - Spark documentation: https://sdk-doc-spark.breez.technology/
 - Breez SDK - Liquid documentation: https://sdk-doc-liquid.breez.technology/
 - GitHub (open-source repositories): https://github.com/breez
