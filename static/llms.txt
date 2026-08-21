@@ -22,7 +22,7 @@ Adoption: 100+ teams are building with the Breez SDK, adding instant, non-custod
 - [Sorted](https://breez.technology/case-studies/sorted/): Instant, non-custodial bitcoin on feature phones — 500K+ downloads across 160 countries
 - [Club Orange](https://breez.technology/case-studies/cluborange/): The largest bitcoin-only social network moved its community to instant, non-custodial bitcoin
 - [Yolat](https://breez.technology/case-studies/yolat/): 10x transaction volume growth with lightning-fast cross-border remittances across Africa
-- [Radar](https://breez.technology/case-studies/radar/): Instant, non-custodial bitcoin sent inside an end-to-end encrypted chat, from the team behind Cake Wallet's nearly two million users
+- [Radar](https://breez.technology/case-studies/radar/): Instant, non-custodial bitcoin inside a Signal-compatible encrypted messenger
 
 ## Resources
 
