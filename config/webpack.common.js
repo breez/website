@@ -131,6 +131,17 @@ module.exports = {
         'glow/index': {
           import: paths.src + '/views/pages/glow/glow.html',
         },
+        // Use-case pages. /igaming is canonical; /use-cases/igaming/ is the
+        // same file at the future-proof URL, per the same pattern as
+        // /sdk/ and /request-api-key/ sharing sdk.html.
+        'igaming/index': {
+          import: paths.src + '/views/pages/use-cases/igaming.html',
+          data: { form_topic: 'igaming' },
+        },
+        'use-cases/igaming/index': {
+          import: paths.src + '/views/pages/use-cases/igaming.html',
+          data: { form_topic: 'igaming' },
+        },
       },
       loaderOptions: {
         sources: [

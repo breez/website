@@ -24,6 +24,10 @@ Adoption: 100+ teams are building with the Breez SDK, adding instant, non-custod
 - [Yolat](https://breez.technology/case-studies/yolat/): 10x transaction volume growth with lightning-fast cross-border remittances across Africa
 - [Radar](https://breez.technology/case-studies/radar/): Instant, non-custodial bitcoin inside a Signal-compatible encrypted messenger
 
+## Use Cases
+
+- [iGaming deposits](https://breez.technology/igaming/): Cash App deposits for iGaming operators. The player pays with Cash App, the operator's treasury receives USDC on Base about thirty seconds later. No cards, no chargebacks, and no crypto knowledge required from the player. Three Breez SDK calls on the operator's side: parse, getCrossChainRoutes, preparePaymentLink. Includes a playable demo of the deposit flow.
+
 ## Resources
 
 - [Breez SDK - Spark Documentation](https://sdk-doc-spark.breez.technology/): Developer documentation for Breez SDK - Spark, the flagship implementation, built on Spark, a native Bitcoin Layer 2

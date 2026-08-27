@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Breez | Cash App Deposits for iGaming</title>
+    <meta name="description" content="Your player deposits with Cash App. Your treasury receives USDC on Base about thirty seconds later. No cards, no chargebacks, no crypto knowledge required. Play the demo, then read the three SDK calls behind it.">
+    <meta property="og:image" content="../../../assets/images/open-graph-igaming.png" />
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Breez | Cash App Deposits for iGaming" />
+    <meta property="og:description" content="Your player deposits with Cash App. Your treasury receives USDC on Base about thirty seconds later. Play the demo, then read the three SDK calls behind it." />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Breez_Tech" />
+    <meta name="twitter:creator" content="@Breez_Tech" />
+    <meta name="twitter:title" content="Breez | Cash App Deposits for iGaming" />
+    <meta name="twitter:description" content="Your player deposits with Cash App. Your treasury receives USDC on Base about thirty seconds later. Play the demo, then read the three SDK calls behind it." />
+    <meta name="twitter:image" content="../../../assets/images/open-graph-igaming.png" />
+    <meta property="og:url" content="https://breez.technology/igaming/" />
+    <link rel="canonical" href="https://breez.technology/igaming/" />
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Cash App Deposits for iGaming",
+      "url": "https://breez.technology/igaming/",
+      "description": "Your player deposits with Cash App. Your treasury receives USDC on Base about thirty seconds later. Three SDK calls on your side.",
+      "isPartOf": {
+            "@type": "WebSite",
+            "name": "Breez",
+            "url": "https://breez.technology/"
+      },
+      "about": {
+            "@type": "SoftwareApplication",
+            "name": "Breez SDK",
+            "url": "https://breez.technology/sdk/",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "iOS, Android, Web, Linux, macOS, Windows"
+      }
+}
+    </script>
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+            {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://breez.technology/"
+            },
+            {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "iGaming"
+            }
+      ]
+}
+    </script>
+    <link rel="icon" href="../../../assets/icons/favicon.svg">
+    <script defer="defer" src="../../../index.js"></script>
+    <script defer="defer" src="../../../javascript/igaming/index.js"></script>
+</head>
+
+<body class="igaming-body">
+
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark header-container header-background fixed-top"
+         aria-label="Breez header">
+        <div class="container-fluid">
+            <a href="/">
+                <img class="me-5" src="../../../assets/icons/logo-breez-header.svg" alt="header breez logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBreez"
+                    aria-controls="navbarBreez" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="burger burger-slip">
+                    <div class="burger-lines"></div>
+                </div>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarBreez">
+                <ul class="d-lg-flex text-uppercase">
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0"><a href="/" class="text-decoration-none">Home</a></li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0"><a href="/sdk" class="text-decoration-none">SDK</a></li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0"><a href="/glow" class="text-decoration-none">Glow</a></li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0"><a href="/case-studies" class="text-decoration-none">Case Studies</a></li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0"><a href="/vision" class="text-decoration-none">Vision</a></li>
+                    <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0"><a href="https://blog.breez.technology" target="_blank" class="text-decoration-none">Blog</a></li>
+                    <li class="header-links form mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0"><a href="#igaming-contact" role="button" class="text-decoration-none">Contact us</a></li>
+                </ul>
+                <ul class="d-flex align-items-center ms-auto">
+                    <li class="social-media"><a href="https://x.com/breez_tech" target="_blank"><img src="../../../assets/icons/x-icon.svg" alt="x icon" class="icon"></a></li>
+                    <li class="social-media"><a href="https://t.me/breezsdk" target="_blank"><img src="../../../assets/icons/telegram-icon.svg" alt="telegram icon" class="icon"></a></li>
+                    <li class="social-media"><a href="https://newsletter.breez.technology" target="_blank"><img src="../../../assets/icons/substack-icon.svg" alt="substack icon" class="icon"></a></li>
+                    <li class="social-media"><a href="https://github.com/breez" target="_blank"><img src="../../../assets/icons/github-icon.svg" alt="github icon" class="icon"></a></li>
+                    <li class="social-media"><a href="mailto:contact@breez.technology"><img src="../../../assets/icons/email-icon.svg" alt="email icon" class="icon"></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="igaming-page sdk-page">
+
+    <!-- Brand marks for the rails we actually use, and the value-prop icon
+         set drawn in the site's own blue line-art style. Inline, so none of
+         them costs a request.
+         NOTE: the brand marks are faithful reproductions, not the official
+         vendor files. Swap those in before launch. -->
+    <svg class="ig-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="ig-cashapp" viewBox="0 0 48 48">
+            <rect width="48" height="48" rx="13" fill="#00D64F"/>
+            <path fill="#fff" d="M28.9 18.2c.5.5 1.3.5 1.8 0l1.6-1.6c.5-.5.5-1.4-.1-1.9a13 13 0 0 0-4.1-2.4l.6-2.7c.1-.6-.4-1.2-1-1.2h-2.9c-.5 0-.9.3-1 .8l-.5 2.4c-3.8.2-7 2.2-7 6.1 0 3.4 2.6 4.8 5.4 5.8 2.6 1 4 1.4 4 2.7 0 1.3-1.3 2.1-3.2 2.1-1.7 0-3.6-.6-5-1.9-.5-.4-1.2-.4-1.6 0l-1.8 1.7c-.5.5-.5 1.3 0 1.8a13 13 0 0 0 4.7 2.8l-.5 2.5c-.1.6.3 1.2 1 1.2h2.9c.5 0 .9-.3 1-.8l.5-2.4c4.6-.3 7.4-2.8 7.4-6.5 0-3.4-2.7-4.8-6-5.9-1.9-.7-3.5-1.2-3.5-2.5 0-1.3 1.4-1.8 2.8-1.8 1.8 0 3.6.7 4.6 1.7z"/>
+        </symbol>
+        <symbol id="ig-usdc" viewBox="0 0 48 48">
+            <circle cx="24" cy="24" r="24" fill="#2775CA"/>
+            <circle cx="24" cy="24" r="16.5" fill="none" stroke="#fff" stroke-width="2.4"/>
+            <path fill="#fff" d="M25.35 13.2v2.2c2.6.3 4.4 1.7 5 4 .1.5-.2.9-.7.9h-1.5c-.35 0-.6-.2-.75-.55-.45-1.2-1.4-1.85-2.95-1.85-1.85 0-2.85.85-2.85 2.05 0 1.1.6 1.7 2.9 2.05 3.6.5 5.6 1.6 5.6 4.75 0 2.5-1.85 4.35-4.75 4.8v2.25c0 .45-.35.8-.8.8h-1.35c-.45 0-.8-.35-.8-.8V31.5c-2.85-.45-4.7-2-5.25-4.45-.1-.5.25-.95.75-.95h1.6c.35 0 .6.25.7.6.4 1.35 1.5 2.05 3.35 2.05 2.1 0 3.1-.9 3.1-2.2 0-1.25-.7-1.85-3.1-2.2-3.55-.5-5.35-1.65-5.35-4.6 0-2.45 1.85-4.15 4.5-4.6v-2.2c0-.45.35-.8.8-.8h1.35c.45 0 .8.35.8.8z"/>
+        </symbol>
+        <symbol id="ig-base" viewBox="0 0 48 48">
+            <circle cx="24" cy="24" r="24" fill="#0052FF"/>
+            <path fill="#fff" d="M23.9 40c8.9 0 16.1-7.2 16.1-16S32.8 8 23.9 8C15.5 8 8.6 14.5 8 22.7h21.2v2.6H8C8.6 33.5 15.5 40 23.9 40z"/>
+        </symbol>
+        <symbol id="ig-lightning" viewBox="0 0 48 48">
+            <circle cx="24" cy="24" r="24" fill="#F7931A"/>
+            <path fill="#fff" d="M26.6 9 14 26.4h8.1L21 39l12.9-17.6h-8.3z"/>
+        </symbol>
+    </svg>
+
+    <!-- ================================================================
+         1. Hero. The site's standard two-up: the argument on the left,
+         and where other pages put a graphic, this one puts the spec.
+         ================================================================ -->
+    <div class="sdk-page container">
+        <section class="sdk-hero-section ig-hero row g-0 position-relative">
+            <div class="gradient --sdk-hero-radial-gradient-top-left"></div>
+            <div class="gradient --sdk-hero-radial-gradient-bottom-right"></div>
+
+            <div class="col-12 d-flex flex-column ig-hero-copy">
+                <div class="sdk-hero-info-block">
+                    <p class="ig-eyebrow">Cash App Deposits For iGaming</p>
+                    <h1 class="page-hero-title">Deposits Players Actually Complete</h1>
+                    <p class="sdk-hero-sub">
+                        Players pay with Cash App, the app 59 million Americans already have on
+                        their home screen. Your treasury receives USDC on Base about thirty
+                        seconds later.
+                    </p>
+                    <p class="sdk-hero-sub sdk-hero-sub--support">
+                        No cards. No chargebacks. No crypto knowledge required.
+                    </p>
+                </div>
+                <div class="ig-path" aria-label="Cash App to USDC on Base">
+                    <span class="ig-path-step">
+                        <svg class="ig-mark" aria-hidden="true"><use href="#ig-cashapp"/></svg>
+                        Cash App
+                    </span>
+                    <span class="ig-path-arrow" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+                    </span>
+                    <span class="ig-path-step">
+                        <svg class="ig-mark" aria-hidden="true"><use href="#ig-lightning"/></svg>
+                        Bitcoin
+                    </span>
+                    <span class="ig-path-arrow" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+                    </span>
+                    <span class="ig-path-step">
+                        <svg class="ig-mark" aria-hidden="true"><use href="#ig-usdc"/></svg>
+                        USDC on Base
+                    </span>
+                </div>
+
+                <div class="d-flex sdk-btns">
+                    <a role="button" class="primary-btn mb-3 me-sm-4 --hero-sdk text-decoration-none js-scroll-to"
+                       data-scroll-to="#igaming-demo">
+                        <div style="margin: auto;">Try The Demo</div>
+                    </a>
+                    <a role="button" class="primary-btn --transparent --ig-talk text-decoration-none"
+                       href="#igaming-start" data-ig-contact>
+                        <div>Talk To Us</div>
+                        <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
+                    </a>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- ================================================================
+         2. The demo, inside a browser. Everything in this frame belongs
+         to Breez Casino: their marquee, their gold, their bet controls.
+         No site gradients behind it, since the casino brings its own
+         ground and the two would fight.
+         No data-aos inside the frame: AOS runs site-wide and would fade
+         elements the game drives itself.
+         ================================================================ -->
+    <section class="ig-demo" id="igaming-demo">
+        <div class="container">
+            <div class="ig-demo-head">
+                <p class="ig-label">The Demo</p>
+
+            </div>
+
+            <div class="ig-browser">
+                <div class="ig-browser-chrome" aria-hidden="true">
+                    <span class="ig-browser-dots"><i class="--red"></i><i class="--amber"></i><i class="--green"></i></span>
+                    <span class="ig-browser-url">
+                        <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+                        breezcasino.com/rocket
+                    </span>
+                </div>
+
+                <div class="ig-machine" data-ig-machine>
+                    <div class="ig-casino-bar">
+                        <img class="ig-casino-logo" src="../../../assets/images/igaming/breez-casino.webp"
+                             alt="Breez Casino" width="420" height="280">
+                        <span class="ig-casino-end">
+                            <span class="ig-credit">
+                                <em>Credits</em>
+                                <b><i>$</i><span data-ig-balance>0.00</span></b>
+                            </span>
+                            <span class="ig-demo-tag">Demo</span>
+                        </span>
+                    </div>
+
+                    <div class="ig-board">
+                        <!-- Empty on landing so the board reads READY, then it
+                             fills as rounds are played. Without it there is no
+                             sense of a game once the visitor starts betting. -->
+                        <div class="ig-history" data-ig-history aria-label="Recent rounds"></div>
+                        <div class="ig-canvas-host" data-ig-canvas>
+                            <canvas class="ig-canvas"></canvas>
+                        </div>
+                        <div class="ig-mult-wrap">
+                            <p class="ig-mult --ready" data-ig-multiplier aria-live="off">Ready</p>
+                            <p class="ig-mult-state --dead" data-ig-state>Deposit To Play</p>
+                        </div>
+                    </div>
+
+                    <div class="ig-bet">
+                        <div class="ig-bet-row">
+                            <span class="ig-bet-label">Bet</span>
+                            <div class="ig-stepper">
+                                <button type="button" class="ig-step-btn" data-ig-stake-minus aria-label="Lower the bet" disabled>&minus;</button>
+                                <span class="ig-stake"><i>$</i><span data-ig-stake>5.00</span></span>
+                                <button type="button" class="ig-step-btn" data-ig-stake-plus aria-label="Raise the bet" disabled>+</button>
+                            </div>
+                            <div class="ig-chips" role="group" aria-label="Quick bets">
+                                <button type="button" class="ig-chip is-on" data-ig-stake-set="5" aria-pressed="true" disabled>5</button>
+                                <button type="button" class="ig-chip" data-ig-stake-set="10" aria-pressed="false" disabled>10</button>
+                                <button type="button" class="ig-chip" data-ig-stake-set="25" aria-pressed="false" disabled>25</button>
+                                <button type="button" class="ig-chip" data-ig-stake-set="50" aria-pressed="false" disabled>50</button>
+                            </div>
+                            <p class="ig-result" data-ig-result hidden></p>
+                        </div>
+
+                        <div class="ig-bet-actions">
+                            <button type="button" class="ig-btn --deposit --lead" data-ig-deposit>
+                                <svg class="ig-mark ig-mark--btn" aria-hidden="true"><use href="#ig-cashapp"/></svg>
+                                Deposit with Cash App
+                            </button>
+                            <button type="button" class="ig-btn --launch" data-ig-launch disabled>Bet</button>
+                            <button type="button" class="ig-btn --cash" data-ig-cashout hidden>Cash Out</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="ig-demo-note">
+                Breez Casino is invented and offers no gambling. Nothing on this page moves money.
+            </p>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         4. How it works. The stills show the function, not the brand:
+         no casino bar on them, just the screen the player sees.
+         ================================================================ -->
+    <section class="ig-section ig-how position-relative" id="igaming-how">
+        <div class="gradient --sdk-features-radial-gradient-top-left"></div>
+        <div class="gradient --sdk-implementation-radial-gradient-bottom-right"></div>
+
+        <div class="container">
+            <div class="ig-head">
+                <p class="ig-label">How It Works</p>
+                <h2 class="ig-h2 ig-h2--single">Deposits In Three Taps</h2>
+                <p class="ig-head-body">No wallet to install, no wallet address to copy, no seed phrase. Zero crypto knowledge needed.</p>
+            </div>
+
+            <ol class="ig-flow">
+                <li class="ig-flow-step">
+                    <div class="ig-shot" aria-hidden="true">
+                        <span class="ig-shot-step"><span class="ig-shot-meter"><i class="is-on"></i><i></i><i></i></span></span>
+                        <span class="ig-shot-head">How much?</span>
+                        <span class="ig-shot-amount"><i>$</i>50.00</span>
+                        <span class="ig-shot-presets">
+                            <span>$10</span><span>$25</span><span class="is-on">$50</span><span>$100</span>
+                        </span>
+                    </div>
+                    <h3 class="ig-flow-title"><em>1.</em> Pick An Amount</h3>
+                    <p class="ig-flow-body">Quoted live: fee shown, payout shown, priced in dollars.</p>
+                </li>
+
+                <li class="ig-flow-step">
+                    <div class="ig-shot" aria-hidden="true">
+                        <span class="ig-shot-step"><span class="ig-shot-meter"><i class="is-on"></i><i class="is-on"></i><i></i></span></span>
+                        <span class="ig-shot-qr">
+                            <span class="ig-qr-plate"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37" shape-rendering="crispEdges" class="ig-qr-svg"><path stroke="#000000" d="M0 0.5h7m1 0h3m2 0h1m1 0h1m1 0h3m3 0h1m3 0h2m1 0h7M0 1.5h1m5 0h1m2 0h2m2 0h2m2 0h1m2 0h1m1 0h1m1 0h2m2 0h1m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m4 0h2m1 0h2m1 0h5m2 0h1m1 0h2m2 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m3 0h1m1 0h2m5 0h4m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h2m1 0h3m1 0h1m2 0h1m2 0h1m1 0h1m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h1m1 0h1m2 0h1m1 0h2m1 0h3m3 0h1m1 0h1m1 0h1m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h2m2 0h2m3 0h6m3 0h1m1 0h1M0 8.5h1m3 0h1m1 0h3m3 0h4m2 0h1m2 0h2m1 0h1m3 0h6m2 0h1M0 9.5h2m3 0h1m1 0h2m3 0h1m1 0h1m1 0h2m1 0h2m1 0h8m2 0h4M2 10.5h3m1 0h2m1 0h3m4 0h3m1 0h2m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1M1 11.5h2m1 0h1m2 0h1m1 0h1m7 0h1m3 0h1m1 0h2m1 0h1m3 0h1m3 0h2M0 12.5h1m5 0h4m1 0h1m2 0h2m1 0h1m1 0h4m4 0h1m1 0h2m3 0h3M2 13.5h4m5 0h8m3 0h2m1 0h1m1 0h2m3 0h2M1 14.5h1m1 0h1m1 0h2m1 0h2m1 0h1m3 0h1m2 0h1m2 0h1m1 0h1m2 0h2m1 0h1m1 0h5M0 15.5h1m3 0h2m2 0h2m3 0h1m1 0h1m5 0h2m6 0h1m1 0h2m1 0h1M0 16.5h1m1 0h2m1 0h2m4 0h1m1 0h1m2 0h1m3 0h3m4 0h5m1 0h4M0 17.5h1m4 0h1m2 0h4m5 0h3m1 0h1m1 0h1m1 0h2m1 0h2m2 0h1m2 0h1M1 18.5h1m4 0h1m1 0h1m3 0h1m1 0h2m2 0h2m2 0h2m3 0h1m3 0h2M1 19.5h1m2 0h2m1 0h3m5 0h10m4 0h1m1 0h2m1 0h2M0 20.5h2m1 0h1m1 0h2m2 0h1m1 0h2m3 0h2m2 0h2m2 0h1m2 0h1m1 0h3m2 0h1M0 21.5h3m1 0h2m1 0h3m3 0h1m1 0h2m1 0h1m2 0h1m1 0h1m1 0h4m2 0h2M0 22.5h3m3 0h2m3 0h1m1 0h1m1 0h1m1 0h1m2 0h2m1 0h1m1 0h1m1 0h3m1 0h4M0 23.5h2m3 0h1m1 0h1m2 0h1m6 0h3m1 0h1m2 0h1m1 0h2m1 0h1m1 0h2m1 0h2M0 24.5h2m1 0h2m1 0h2m3 0h3m4 0h2m1 0h5m3 0h2m1 0h5M0 25.5h2m2 0h2m3 0h1m2 0h1m1 0h1m1 0h1m2 0h3m1 0h1m1 0h1m1 0h4m1 0h1M4 26.5h1m1 0h1m3 0h2m2 0h1m1 0h1m1 0h1m1 0h1m2 0h2m2 0h4m3 0h1M2 27.5h2m4 0h2m1 0h2m1 0h1m2 0h2m2 0h2m3 0h2m2 0h1m1 0h1m1 0h1m1 0h1M0 28.5h2m1 0h4m2 0h4m1 0h2m1 0h1m1 0h4m1 0h1m3 0h9M8 29.5h1m1 0h2m1 0h1m1 0h3m3 0h4m3 0h1m3 0h1M0 30.5h7m1 0h2m2 0h4m2 0h1m1 0h2m1 0h4m1 0h1m1 0h1m1 0h1M0 31.5h1m5 0h1m4 0h4m5 0h3m3 0h1m1 0h1m3 0h3M0 32.5h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h1m1 0h2m2 0h2m2 0h1m4 0h7M0 33.5h1m1 0h3m1 0h1m2 0h1m1 0h1m2 0h1m2 0h3m3 0h1m1 0h1m1 0h1m2 0h2m4 0h1M0 34.5h1m1 0h3m1 0h1m2 0h3m1 0h3m1 0h1m1 0h1m1 0h1m1 0h3m3 0h2M0 35.5h1m5 0h1m2 0h2m1 0h1m1 0h11m5 0h1m1 0h1m1 0h2M0 36.5h7m1 0h1m5 0h1m2 0h2m1 0h3m1 0h1m2 0h1m1 0h1m1 0h1m2 0h3"/></svg></span>
+                            <span class="ig-qr-mark"><svg class="ig-mark" aria-hidden="true"><use href="#ig-cashapp"/></svg></span>
+                        </span>
+                        <span class="ig-shot-note">Scan or tap to pay in Cash App</span>
+                    </div>
+                    <h3 class="ig-flow-title"><em>2.</em> Pay In Cash App</h3>
+                    <p class="ig-flow-body">A deep link straight into Cash App. Scan or tap, confirm, done.</p>
+                </li>
+
+                <li class="ig-flow-step">
+                    <div class="ig-shot" aria-hidden="true">
+                        <span class="ig-shot-step"><span class="ig-shot-meter"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i></span></span>
+                        <span class="ig-shot-tick">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
+                        </span>
+                        <span class="ig-shot-done">49.22 USDC</span>
+                        <span class="ig-shot-note">
+                            <svg class="ig-mark ig-mark--sm" aria-hidden="true"><use href="#ig-base"/></svg>
+                            In your address on Base
+                        </span>
+                    </div>
+                    <h3 class="ig-flow-title"><em>3.</em> USDC Lands In Your Treasury</h3>
+                    <p class="ig-flow-body">Delivered to your own address by a cross-chain provider.</p>
+                </li>
+            </ol>
+
+        </div>
+    </section>
+
+    <!-- ================================================================
+         3. The value props, in the site's own feature cards.
+         ================================================================ -->
+    <section class="ig-section ig-value sdk-capabilities-section position-relative" id="igaming-value">
+        <div class="gradient --sdk-features-radial-gradient-top-left"></div>
+        <div class="gradient --sdk-features-radial-gradient-bottom-left"></div>
+
+        <div class="container">
+            <div class="ig-head">
+                <p class="ig-label">Why It's Worth It</p>
+                <h2 class="ig-h2 ig-h2--single">The On-Ramp Players Need</h2>
+                <p class="ig-head-body">
+                    Card rails decline gaming transactions and claw back deposits. Crypto rails
+                    assume your player owns and understands crypto. This requires neither.
+                </p>
+            </div>
+
+            <div class="sdk-features-grid ig-props">
+                <div class="sdk-feature-card">
+                    <div class="sdk-feature-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="4" y="7" width="24" height="18" rx="3" stroke="#4DB5FF" stroke-width="1.4" opacity="0.7"/>
+                            <path d="M4 13h24" stroke="#4DB5FF" stroke-width="1.4" opacity="0.6"/>
+                            <path d="M8 19h5" stroke="#4DB5FF" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/>
+                            <path d="M17 20.5 20 23.5 26 17" stroke="#4DB5FF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+                        </svg>
+                    </div>
+                    <h3 class="sdk-feature-card-title">No Chargebacks</h3>
+                    <p class="sdk-feature-card-desc">Settlement is final. No dispute window eating your deposit margin.</p>
+                </div>
+
+                <div class="sdk-feature-card">
+                    <div class="sdk-feature-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="4" y="7" width="24" height="18" rx="3" stroke="#4DB5FF" stroke-width="1.4" opacity="0.7"/>
+                            <path d="M4 13h24" stroke="#4DB5FF" stroke-width="1.4" opacity="0.6"/>
+                            <path d="M8 19h5" stroke="#4DB5FF" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/>
+                            <path d="M19 17.5 25 23.5M25 17.5l-6 6" stroke="#4DB5FF" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+                        </svg>
+                    </div>
+                    <h3 class="sdk-feature-card-title">No Card Declines</h3>
+                    <p class="sdk-feature-card-desc">No card networks in the path, so gaming-category declines and issuer rules stop deciding who deposits.</p>
+                </div>
+
+                <div class="sdk-feature-card">
+                    <div class="sdk-feature-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="16" cy="8" rx="9" ry="3.4" stroke="#4DB5FF" stroke-width="1.4" opacity="0.7"/>
+                            <path d="M7 8v7c0 1.9 4 3.4 9 3.4s9-1.5 9-3.4V8" stroke="#4DB5FF" stroke-width="1.4" opacity="0.6"/>
+                            <path d="M7 15v7c0 1.9 4 3.4 9 3.4s9-1.5 9-3.4v-7" stroke="#4DB5FF" stroke-width="1.4" opacity="0.5"/>
+                            <path d="M16 5v6M14 6.6h4M14 9.2h4" stroke="#4DB5FF" stroke-width="1.4" stroke-linecap="round" opacity="0.9"/>
+                        </svg>
+                    </div>
+                    <h3 class="sdk-feature-card-title">Settle In Stablecoins</h3>
+                    <p class="sdk-feature-card-desc">USDC and USDT to your own address, on the chains iGaming back offices already run on.</p>
+                </div>
+
+                <div class="sdk-feature-card">
+                    <div class="sdk-feature-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="9" y="3" width="14" height="26" rx="3.5" stroke="#4DB5FF" stroke-width="1.4" opacity="0.7"/>
+                            <path d="M14 6.5h4" stroke="#4DB5FF" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/>
+                            <path d="M12.5 17.5 15.5 20.5 21 14" stroke="#4DB5FF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+                        </svg>
+                    </div>
+                    <h3 class="sdk-feature-card-title">The App They Already Have</h3>
+                    <p class="sdk-feature-card-desc">No wallet to install, no exchange account, no onboarding cliff. They confirm in an app they trust.</p>
+                </div>
+
+                <div class="sdk-feature-card">
+                    <div class="sdk-feature-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 3 5 7.5v8.2C5 22.5 9.6 28.1 16 29.5c6.4-1.4 11-7 11-13.8V7.5z" stroke="#4DB5FF" stroke-width="1.4" stroke-linejoin="round" opacity="0.7"/>
+                            <path d="M16 13.5v6" stroke="#4DB5FF" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+                            <circle cx="16" cy="10.5" r="1.5" fill="#4DB5FF" opacity="0.9"/>
+                        </svg>
+                    </div>
+                    <h3 class="sdk-feature-card-title">Non-custodial Architecture</h3>
+                    <p class="sdk-feature-card-desc">The SDK quotes and orchestrates but never holds user funds. You custody the result on chain.</p>
+                </div>
+
+                <div class="sdk-feature-card">
+                    <div class="sdk-feature-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 8 4 16l6 8" stroke="#4DB5FF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+                            <path d="M22 8l6 8-6 8" stroke="#4DB5FF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+                            <path d="M18 6 14 26" stroke="#4DB5FF" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="sdk-feature-card-title">Integrate in Minutes</h3>
+                    <p class="sdk-feature-card-desc">One SDK, three calls. No webhooks to host, no PSP contract, no region gating to maintain.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         5. What it takes. Copy on the left, the snippet on the right,
+         and only the three calls: the guide carries the rest.
+         ================================================================ -->
+    <section class="ig-section ig-integrate sdk-implementation-section position-relative" id="igaming-code">
+        <div class="gradient --sdk-implementation-radial-gradient-top-left"></div>
+        <div class="gradient --sdk-implementation-radial-gradient-bottom-right"></div>
+
+        <div class="container">
+            <div class="ig-head">
+                <p class="ig-label">The Integration</p>
+                <h2 class="ig-h2 ig-h2--single">Just Three Simple Calls</h2>
+                <p class="ig-head-body">
+                    No webhooks to host, no PSP contract, no rolling reserve. Integrate in minutes.
+                </p>
+            </div>
+
+            <div class="ig-code-grid">
+                <div class="ig-code-copy">
+                    <p class="ig-calls-intro">
+                        The Breez SDK has everything you need to give your players deposits they
+                        can actually complete:
+                    </p>
+
+                    <ul class="ig-calls">
+                        <li>
+                            <span class="ig-calls-tick" aria-hidden="true">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
+                            </span>
+                            <span><code>parse</code> your treasury address: EVM, Solana, or Tron</span>
+                        </li>
+                        <li>
+                            <span class="ig-calls-tick" aria-hidden="true">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
+                            </span>
+                            <span><code>getCrossChainRoutes</code> lists the stablecoin destinations Cash App can fund</span>
+                        </li>
+                        <li>
+                            <span class="ig-calls-tick" aria-hidden="true">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
+                            </span>
+                            <span><code>preparePaymentLink</code> returns the Cash App deep link plus a live quote</span>
+                        </li>
+                    </ul>
+
+                    <p class="ig-calls-note">
+                        <b>Note:</b> Cross-chain sends are opt-in, mainnet only, and available to
+                        US and UK users.
+                        <a href="https://sdk-doc-spark.breez.technology/guide/cash_app_to_usdc_usdt.html"
+                           target="_blank" rel="noopener noreferrer">The guide</a>
+                        has the config line and the constraints.
+                    </p>
+                </div>
+
+                <div class="sdk-term ig-code-wrap">
+                    <div class="ig-langs" role="tablist" aria-label="Language" data-ig-langs>
+                            <button type="button" role="tab" class="ig-lang" data-ig-lang="typescript" aria-selected="false" tabindex="-1" aria-controls="ig-code-typescript" id="ig-tab-typescript">JavaScript</button>
+                            <button type="button" role="tab" class="ig-lang" data-ig-lang="react-native" aria-selected="false" tabindex="-1" aria-controls="ig-code-react-native" id="ig-tab-react-native">React Native</button>
+                            <button type="button" role="tab" class="ig-lang" data-ig-lang="rust" aria-selected="false" tabindex="-1" aria-controls="ig-code-rust" id="ig-tab-rust">Rust</button>
+                            <button type="button" role="tab" class="ig-lang" data-ig-lang="python" aria-selected="false" tabindex="-1" aria-controls="ig-code-python" id="ig-tab-python">Python</button>
+                            <button type="button" role="tab" class="ig-lang" data-ig-lang="go" aria-selected="false" tabindex="-1" aria-controls="ig-code-go" id="ig-tab-go">Go</button>
+                            <button type="button" role="tab" class="ig-lang" data-ig-lang="dart" aria-selected="false" tabindex="-1" aria-controls="ig-code-dart" id="ig-tab-dart">Dart</button>
+                    </div>
+                        <div class="ig-code-panel" data-ig-lang-panel="typescript" role="tabpanel" id="ig-code-typescript" aria-labelledby="ig-tab-typescript" tabindex="0" hidden>
+<pre class="ig-code"><code><span class="c-com">// 1. Parse your treasury address (EVM, Solana or Tron).</span>
+<span class="c-kw">const</span> parsed = <span class="c-kw">await</span> sdk.<span class="c-fn">parse</span>(TREASURY_ADDRESS)
+
+<span class="c-com">// 2. Pick a stablecoin route Cash App can fund.</span>
+<span class="c-kw">const</span> routes = <span class="c-kw">await</span> sdk.<span class="c-fn">getCrossChainRoutes</span>({
+  type: <span class="c-str">&#x27;paymentLink&#x27;</span>,
+  addressDetails: parsed
+})
+<span class="c-kw">const</span> route = routes.find((r) =&gt; r.asset === <span class="c-str">&#x27;USDC&#x27;</span> &amp;&amp; r.chain === <span class="c-str">&#x27;base&#x27;</span>)
+
+<span class="c-com">// 3. Quote it. You get the Cash App link and the payout.</span>
+<span class="c-kw">const</span> { url, estimatedOut } = <span class="c-kw">await</span> sdk.<span class="c-fn">preparePaymentLink</span>({
+  address: parsed.address,
+  route,
+  amount: BigInt(<span class="c-num">50_000_000</span>)
+})<span class="ig-caret" aria-hidden="true"></span></code></pre>
+                        </div>
+                        <div class="ig-code-panel" data-ig-lang-panel="react-native" role="tabpanel" id="ig-code-react-native" aria-labelledby="ig-tab-react-native" tabindex="0" hidden>
+<pre class="ig-code"><code><span class="c-kw">const</span> parsed = <span class="c-kw">await</span> sdk.<span class="c-fn">parse</span>(TREASURY_ADDRESS)
+<span class="c-kw">const</span> addressDetails = parsed.inner[<span class="c-num">0</span>]
+
+<span class="c-kw">const</span> routes = <span class="c-kw">await</span> sdk.<span class="c-fn">getCrossChainRoutes</span>(
+  <span class="c-kw">new</span> CrossChainRouteFilter.PaymentLink({ addressDetails })
+)
+<span class="c-kw">const</span> route = routes.find((r) =&gt; r.asset === <span class="c-str">&#x27;USDC&#x27;</span> &amp;&amp; r.chain === <span class="c-str">&#x27;base&#x27;</span>)
+
+<span class="c-kw">const</span> { url, estimatedOut } = <span class="c-kw">await</span> sdk.<span class="c-fn">preparePaymentLink</span>({
+  address: addressDetails.address,
+  route,
+  amount: BigInt(<span class="c-num">50_000_000</span>)
+})<span class="ig-caret" aria-hidden="true"></span></code></pre>
+                        </div>
+                        <div class="ig-code-panel" data-ig-lang-panel="rust" role="tabpanel" id="ig-code-rust" aria-labelledby="ig-tab-rust" tabindex="0" hidden>
+<pre class="ig-code"><code><span class="c-kw">let</span> InputType::CrossChainAddress(address) = sdk.<span class="c-fn">parse</span>(TREASURY).<span class="c-kw">await</span>? <span class="c-kw">else</span> {
+    anyhow::bail!(<span class="c-str">&quot;not a cross-chain address&quot;</span>)
+};
+
+<span class="c-kw">let</span> routes = sdk.<span class="c-fn">get_cross_chain_routes</span>(&amp;CrossChainRouteFilter::PaymentLink {
+    address_details: address.clone(),
+}).<span class="c-kw">await</span>?;
+<span class="c-kw">let</span> route = routes.into_iter()
+    .find(|r| r.asset == <span class="c-str">&quot;USDC&quot;</span> &amp;&amp; r.chain == <span class="c-str">&quot;base&quot;</span>)
+    .unwrap();
+
+<span class="c-kw">let</span> response = sdk.<span class="c-fn">prepare_payment_link</span>(PreparePaymentLinkRequest {
+    address: address.address,
+    route,
+    amount: <span class="c-num">50_000_000</span>,
+    ..Default::default()
+}).<span class="c-kw">await</span>?;<span class="ig-caret" aria-hidden="true"></span></code></pre>
+                        </div>
+                        <div class="ig-code-panel" data-ig-lang-panel="python" role="tabpanel" id="ig-code-python" aria-labelledby="ig-tab-python" tabindex="0" hidden>
+<pre class="ig-code"><code>parsed = <span class="c-kw">await</span> sdk.<span class="c-fn">parse</span>(input=TREASURY_ADDRESS)
+address = parsed[<span class="c-num">0</span>]
+
+routes = <span class="c-kw">await</span> sdk.<span class="c-fn">get_cross_chain_routes</span>(
+    filter=CrossChainRouteFilter.PAYMENT_LINK(address_details=address)
+)
+route = <span class="c-kw">next</span>(r <span class="c-kw">for</span> r <span class="c-kw">in</span> routes <span class="c-kw">if</span> r.asset == <span class="c-str">&quot;USDC&quot;</span> and r.chain == <span class="c-str">&quot;base&quot;</span>)
+
+response = <span class="c-kw">await</span> sdk.<span class="c-fn">prepare_payment_link</span>(
+    request=PreparePaymentLinkRequest(
+        address=address.address,
+        route=route,
+        amount=<span class="c-num">50_000_000</span>,
+    )
+)<span class="ig-caret" aria-hidden="true"></span></code></pre>
+                        </div>
+                        <div class="ig-code-panel" data-ig-lang-panel="go" role="tabpanel" id="ig-code-go" aria-labelledby="ig-tab-go" tabindex="0" hidden>
+<pre class="ig-code"><code>input, <span class="c-kw">err</span> := sdk.<span class="c-fn">Parse</span>(TreasuryAddress)
+address := input.(breez_sdk_spark.InputTypeCrossChainAddress).Field0
+
+routes, <span class="c-kw">err</span> := sdk.<span class="c-fn">GetCrossChainRoutes</span>(
+    breez_sdk_spark.CrossChainRouteFilterPaymentLink{AddressDetails: address},
+)
+route := pickRoute(routes, <span class="c-str">&quot;USDC&quot;</span>, <span class="c-str">&quot;base&quot;</span>)
+
+response, <span class="c-kw">err</span> := sdk.<span class="c-fn">PreparePaymentLink</span>(breez_sdk_spark.PreparePaymentLinkRequest{
+    Address: address.Address,
+    Route:   route,
+    Amount:  big.NewInt(<span class="c-num">50_000_000</span>),
+})<span class="ig-caret" aria-hidden="true"></span></code></pre>
+                        </div>
+                        <div class="ig-code-panel" data-ig-lang-panel="dart" role="tabpanel" id="ig-code-dart" aria-labelledby="ig-tab-dart" tabindex="0" hidden>
+<pre class="ig-code"><code><span class="c-kw">final</span> parsed = <span class="c-kw">await</span> sdk.<span class="c-fn">parse</span>(input: treasuryAddress);
+<span class="c-kw">final</span> address = (parsed as InputType_CrossChainAddress).field0;
+
+<span class="c-kw">final</span> routes = <span class="c-kw">await</span> sdk.<span class="c-fn">getCrossChainRoutes</span>(
+  filter: CrossChainRouteFilter_PaymentLink(addressDetails: address),
+);
+<span class="c-kw">final</span> route = routes.firstWhere(
+  (r) =&gt; r.asset == <span class="c-str">&quot;USDC&quot;</span> &amp;&amp; r.chain == <span class="c-str">&quot;base&quot;</span>,
+);
+
+<span class="c-kw">final</span> response = <span class="c-kw">await</span> sdk.<span class="c-fn">preparePaymentLink</span>(
+  request: PreparePaymentLinkRequest(
+    address: address.address,
+    route: route,
+    amount: BigInt.from(<span class="c-num">50000000</span>),
+  ),
+);<span class="ig-caret" aria-hidden="true"></span></code></pre>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         6. The ask. One line, one button.
+         ================================================================ -->
+    <section class="ig-section ig-start position-relative" id="igaming-start">
+        <div class="container">
+            <div class="ig-cta">
+                <p class="ig-label">Get Started</p>
+                <h2 class="ig-cta-title">It's Time to Fix Your Deposits</h2>
+                <p class="ig-cta-body">
+                    Breez builds the SDK powering this feature, plus instant bitcoin and
+                    stablecoin payments for 100+ apps and services. Tell us which network you settle
+                    on, where your deposits are failing, and we'll get you started today.
+                </p>
+                <div class="ig-cta-actions">
+                    <a role="button" class="primary-btn --transparent --ig-cta text-decoration-none"
+                       href="https://sdk-doc-spark.breez.technology/guide/cash_app_to_usdc_usdt.html"
+                       target="_blank" rel="noopener noreferrer">
+                        <div>Build</div>
+                    </a>
+                    <a role="button" class="primary-btn --ig-cta text-decoration-none" href="#igaming-start" data-ig-contact>
+                        <div>Talk To The Team</div>
+                        <img src="../../../assets/icons/arrow-right-icon.svg" alt="arrow right">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- ====================================================================
+     The cashier. Breez Casino's own sheet, over everything. Structure
+     follows the neon-royale demo: amount, then a scannable code with the
+     Cash App mark on it, the quote rows, a live countdown, and a payment
+     that lands out of band.
+     ==================================================================== -->
+<div class="ig-cashier" data-ig-cashier data-ig-default-amount="50" hidden>
+    <div class="ig-cashier-backdrop" data-ig-act="close"></div>
+    <div class="ig-sheet" role="dialog" aria-modal="true" aria-labelledby="ig-sheet-title">
+
+        <div class="ig-sheet-head">
+            <span class="ig-sheet-brand">
+                <img class="ig-sheet-logo" src="../../../assets/images/igaming/breez-casino.webp"
+                     alt="" width="420" height="280">
+                <span>
+                    <span class="ig-sheet-title" id="ig-sheet-title">Breez Casino</span>
+                    <span class="ig-sheet-sub">Cashier</span>
+                </span>
+            </span>
+            <button type="button" class="ig-sheet-close" data-ig-act="close" aria-label="Close the cashier">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </button>
+        </div>
+
+        <div class="ig-pane" data-ig-step="method">
+            <p class="ig-pane-head">Deposit</p>
+            <ul class="ig-methods">
+                <li class="ig-method is-off"><span class="ig-method-name">Visa / Mastercard</span><span class="ig-method-note">Declined by issuer</span></li>
+                <li class="ig-method is-off"><span class="ig-method-name">Bank transfer</span><span class="ig-method-note">1 to 3 business days</span></li>
+                <li class="ig-method is-off"><span class="ig-method-name">Send USDC from a wallet</span><span class="ig-method-note">Needs a wallet</span></li>
+            </ul>
+            <button type="button" class="ig-sheet-cta" data-ig-act="method" data-ig-autofocus>
+                <svg class="ig-mark ig-mark--btn" aria-hidden="true"><use href="#ig-cashapp"/></svg>
+                Deposit with Cash App
+            </button>
+            <p class="ig-sheet-fine">Simulated. Nothing here moves money.</p>
+        </div>
+
+        <div class="ig-pane" data-ig-step="amount" hidden>
+            <p class="ig-pane-head">How much?</p>
+            <div class="ig-amount-field">
+                <span class="ig-amount-sign" aria-hidden="true">$</span>
+                <input class="ig-amount-input" data-ig-amount-input data-ig-autofocus
+                       type="text" inputmode="decimal" value="50.00"
+                       aria-label="Deposit amount in dollars">
+            </div>
+            <div class="ig-presets" role="group" aria-label="Quick amounts">
+                <button type="button" class="ig-preset" data-ig-preset="10" aria-pressed="false">$10</button>
+                <button type="button" class="ig-preset" data-ig-preset="25" aria-pressed="false">$25</button>
+                <button type="button" class="ig-preset is-on" data-ig-preset="50" aria-pressed="true">$50</button>
+                <button type="button" class="ig-preset" data-ig-preset="100" aria-pressed="false">$100</button>
+            </div>
+            <p class="ig-amount-error" data-ig-amount-error hidden></p>
+            <p class="ig-pane-note">
+                <svg class="ig-mark ig-mark--sm" aria-hidden="true"><use href="#ig-usdc"/></svg>
+                Delivered as USDC on Base, to the casino's own address.
+            </p>
+            <button type="button" class="ig-sheet-cta" data-ig-act="quote">Continue</button>
+            <button type="button" class="ig-sheet-back" data-ig-act="back-method">Back</button>
+        </div>
+
+        <div class="ig-pane ig-pane--quote" data-ig-step="quote" hidden>
+            <a class="ig-qr" href="https://sdk-doc-spark.breez.technology/guide/cash_app_to_usdc_usdt.html"
+               target="_blank" rel="noopener noreferrer" data-ig-autofocus
+               aria-label="Open the payment link (this demo links to the SDK guide)">
+                <span class="ig-qr-plate">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37" shape-rendering="crispEdges" class="ig-qr-svg"><path stroke="#000000" d="M0 0.5h7m1 0h3m2 0h1m1 0h1m1 0h3m3 0h1m3 0h2m1 0h7M0 1.5h1m5 0h1m2 0h2m2 0h2m2 0h1m2 0h1m1 0h1m1 0h2m2 0h1m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m4 0h2m1 0h2m1 0h5m2 0h1m1 0h2m2 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m3 0h1m1 0h2m5 0h4m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h2m1 0h3m1 0h1m2 0h1m2 0h1m1 0h1m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h1m1 0h1m2 0h1m1 0h2m1 0h3m3 0h1m1 0h1m1 0h1m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h2m2 0h2m3 0h6m3 0h1m1 0h1M0 8.5h1m3 0h1m1 0h3m3 0h4m2 0h1m2 0h2m1 0h1m3 0h6m2 0h1M0 9.5h2m3 0h1m1 0h2m3 0h1m1 0h1m1 0h2m1 0h2m1 0h8m2 0h4M2 10.5h3m1 0h2m1 0h3m4 0h3m1 0h2m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1M1 11.5h2m1 0h1m2 0h1m1 0h1m7 0h1m3 0h1m1 0h2m1 0h1m3 0h1m3 0h2M0 12.5h1m5 0h4m1 0h1m2 0h2m1 0h1m1 0h4m4 0h1m1 0h2m3 0h3M2 13.5h4m5 0h8m3 0h2m1 0h1m1 0h2m3 0h2M1 14.5h1m1 0h1m1 0h2m1 0h2m1 0h1m3 0h1m2 0h1m2 0h1m1 0h1m2 0h2m1 0h1m1 0h5M0 15.5h1m3 0h2m2 0h2m3 0h1m1 0h1m5 0h2m6 0h1m1 0h2m1 0h1M0 16.5h1m1 0h2m1 0h2m4 0h1m1 0h1m2 0h1m3 0h3m4 0h5m1 0h4M0 17.5h1m4 0h1m2 0h4m5 0h3m1 0h1m1 0h1m1 0h2m1 0h2m2 0h1m2 0h1M1 18.5h1m4 0h1m1 0h1m3 0h1m1 0h2m2 0h2m2 0h2m3 0h1m3 0h2M1 19.5h1m2 0h2m1 0h3m5 0h10m4 0h1m1 0h2m1 0h2M0 20.5h2m1 0h1m1 0h2m2 0h1m1 0h2m3 0h2m2 0h2m2 0h1m2 0h1m1 0h3m2 0h1M0 21.5h3m1 0h2m1 0h3m3 0h1m1 0h2m1 0h1m2 0h1m1 0h1m1 0h4m2 0h2M0 22.5h3m3 0h2m3 0h1m1 0h1m1 0h1m1 0h1m2 0h2m1 0h1m1 0h1m1 0h3m1 0h4M0 23.5h2m3 0h1m1 0h1m2 0h1m6 0h3m1 0h1m2 0h1m1 0h2m1 0h1m1 0h2m1 0h2M0 24.5h2m1 0h2m1 0h2m3 0h3m4 0h2m1 0h5m3 0h2m1 0h5M0 25.5h2m2 0h2m3 0h1m2 0h1m1 0h1m1 0h1m2 0h3m1 0h1m1 0h1m1 0h4m1 0h1M4 26.5h1m1 0h1m3 0h2m2 0h1m1 0h1m1 0h1m1 0h1m2 0h2m2 0h4m3 0h1M2 27.5h2m4 0h2m1 0h2m1 0h1m2 0h2m2 0h2m3 0h2m2 0h1m1 0h1m1 0h1m1 0h1M0 28.5h2m1 0h4m2 0h4m1 0h2m1 0h1m1 0h4m1 0h1m3 0h9M8 29.5h1m1 0h2m1 0h1m1 0h3m3 0h4m3 0h1m3 0h1M0 30.5h7m1 0h2m2 0h4m2 0h1m1 0h2m1 0h4m1 0h1m1 0h1m1 0h1M0 31.5h1m5 0h1m4 0h4m5 0h3m3 0h1m1 0h1m3 0h3M0 32.5h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h1m1 0h2m2 0h2m2 0h1m4 0h7M0 33.5h1m1 0h3m1 0h1m2 0h1m1 0h1m2 0h1m2 0h3m3 0h1m1 0h1m1 0h1m2 0h2m4 0h1M0 34.5h1m1 0h3m1 0h1m2 0h3m1 0h3m1 0h1m1 0h1m1 0h1m1 0h3m3 0h2M0 35.5h1m5 0h1m2 0h2m1 0h1m1 0h11m5 0h1m1 0h1m1 0h2M0 36.5h7m1 0h1m5 0h1m2 0h2m1 0h3m1 0h1m2 0h1m1 0h1m1 0h1m2 0h3"/></svg>
+                </span>
+                <span class="ig-qr-mark">
+                    <svg class="ig-mark" aria-hidden="true"><use href="#ig-cashapp"/></svg>
+                </span>
+            </a>
+            <p class="ig-qr-hint">Scan the QR code, or tap to open Cash App</p>
+
+            <dl class="ig-quote">
+                <div class="ig-quote-row">
+                    <dt>Pays</dt>
+                    <dd data-ig-f-usd>$50.00</dd>
+                </div>
+                <div class="ig-quote-row --total">
+                    <dt>Receives</dt>
+                    <dd><span data-ig-f-out>49.22 USDC</span> <em>on Base</em></dd>
+                </div>
+                <div class="ig-quote-row">
+                    <dt>Fee</dt>
+                    <dd data-ig-f-fee>$0.78</dd>
+                </div>
+            </dl>
+
+            <div class="ig-clock">
+                <div class="ig-clock-track"><span data-ig-clock-bar></span></div>
+                <p class="ig-clock-label">
+                    <span class="ig-clock-live">Quote refreshes in <span data-ig-clock>2:00</span></span>
+                    <span class="ig-clock-dead">Quote expired.</span>
+                </p>
+            </div>
+
+            <p class="ig-waiting"><span class="ig-waiting-dot" aria-hidden="true"></span>Waiting for your Cash App payment</p>
+
+            <button type="button" class="ig-sheet-cta ig-cta-pay" data-ig-act="pay">Simulate The Payment</button>
+            <button type="button" class="ig-sheet-cta ig-cta-refresh" data-ig-act="refresh">Refresh The Quote</button>
+            <button type="button" class="ig-sheet-back" data-ig-act="back-amount">Back</button>
+            <p class="ig-sheet-fine">Illustrative rates. The QR code opens the SDK guide, not a payment.</p>
+        </div>
+
+        <div class="ig-pane ig-pane--pay" data-ig-step="pay" hidden>
+            <span class="ig-pay-spin" aria-hidden="true"></span>
+            <p class="ig-pay-head">Payment received</p>
+            <p class="ig-pay-note">The provider is delivering the stablecoin on Base.</p>
+        </div>
+
+        <div class="ig-pane ig-pane--done" data-ig-step="done" hidden>
+            <span class="ig-done-tick" aria-hidden="true">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
+            </span>
+            <p class="ig-done-amount"><span data-ig-f-out>49.22 USDC</span></p>
+            <p class="ig-done-body">Done. It's that simple.</p>
+            <button type="button" class="ig-sheet-cta" data-ig-act="close" data-ig-autofocus>Back To The Game</button>
+        </div>
+
+    </div>
+</div>
+
+<!-- ====================================================================
+     The contact form, behind a button. It is the page's one commercial
+     action, and it should not sit on the page as a wall of empty inputs.
+     ==================================================================== -->
+<div class="ig-contact" data-ig-contact-modal hidden>
+    <div class="ig-contact-backdrop" data-ig-contact-close></div>
+    <div class="ig-contact-sheet contact-us-section" role="dialog" aria-modal="true" aria-labelledby="ig-contact-title">
+        <div class="ig-contact-head">
+            <div>
+                <p class="ig-label">Talk To Us</p>
+                <h2 class="ig-contact-title" id="ig-contact-title">Cash App Deposits</h2>
+            </div>
+            <button type="button" class="ig-sheet-close" data-ig-contact-close aria-label="Close">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </button>
+        </div>
+
+        <div class="form-body">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <form class="needs-validation" novalidate action="/contact" method="post">
+                            <input type="hidden" name="recaptcha_response" id="recaptcha_response" />
+                            <div class="col-md-12">
+                                <input class="form-control" type="text" name="fullname" placeholder="Your name" required data-ig-contact-first>
+                                <div class="valid-feedback"></div>
+                                <div class="invalid-feedback">Please enter a name</div>
+                            </div>
+                            <div class="col-md-12">
+                                <input class="form-control" type="text" name="company" placeholder="Your company" required>
+                                <div class="valid-feedback"></div>
+                                <div class="invalid-feedback">Please enter a company</div>
+                            </div>
+                            <div class="col-md-12">
+                                <input class="form-control js-email-input"
+                                       pattern="[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{1,63}$"
+                                       type="email" name="email" placeholder="Your email" required>
+                                <div class="valid-feedback"></div>
+                                <div class="invalid-feedback">
+                                    <div class="js-required-input-error d-none">Please enter an email address</div>
+                                    <div class="js-not-valid-email-error d-none">Please enter a valid email</div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <input type="hidden" name="contact_type" value="<%= form_topic %>">
+                            </div>
+                            <div class="col-md-12">
+                                <textarea class="form-control" type="text" name="message" rows="3" cols="50" placeholder="Message"
+                                          required>I run an iGaming platform and I would like to talk about Cash App deposits.</textarea>
+                                <div class="valid-feedback"></div>
+                                <div class="invalid-feedback">Please enter a message </div>
+                            </div>
+                            <div class="form-button mt-3">
+                                <button id="submit" type="submit" name="send" class="contact-form-btn text-decoration-none border-0">
+                                    <span>send message</span>
+                                    <img src="../../../assets/icons/lightning-icon.svg" alt="lightning icon">
+                                </button>
+                            </div>
+                            <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+                                <div id="success-submit" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                                    <div class="d-flex">
+                                        <div class="toast-body">The message has been sent</div>
+                                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                                    </div>
+                                </div>
+                                <div id="error-submit" class="toast align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                                    <div class="d-flex">
+                                        <div class="toast-body">Something went wrong. Please try again.</div>
+                                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footer ig-footer position-relative">
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-between py-4">
+            <a href="/">
+                <img class="me-5" src="../../../assets/icons/logo-breez-footer.svg" alt="footer breez logo">
+            </a>
+            <span class="caption-2">&#169;2026 All rights reserved</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,2096 @@
+// /igaming — Cash App deposits for iGaming.
+//
+// Two worlds, and they must not be mistaken for each other.
+//
+//   The page is Breez: the site's own hero format, navy, Inter, electric
+//   blue, the site's buttons. Where other pages put a graphic, this one puts
+//   the spec table.
+//
+//   Inside the browser frame is Breez Casino, an invented operator: a Vegas
+//   marquee, deep purple, bulb gold and hot pink, and a rocket. Nothing in
+//   that frame uses a Breez brand color, because it has to read as somebody
+//   else's product.
+//
+// House rules: transform and opacity only in transitions, one 1200px spine
+// down the page, Title Case on every heading.
+
+@import 'src/styles/abstracts/_variables.scss';
+
+$ig-blue: $bubble-bobble-p2;          // #0085FB, Breez
+$ig-steel: $cabaret-charm;            // #7C92A6
+$ig-navy: $body-background;           // #00091C
+
+// Breez Casino, off the marquee.
+$cas-gold: #FFC22E;
+$cas-gold-lo: #E09B12;
+$cas-blue: #2E7DFF;
+$cas-pink: #FF3D6E;
+$cas-green: #2ACC80;
+$cas-line: rgba(255, 255, 255, 0.08);
+
+$ig-line: rgba(255, 255, 255, 0.09);
+$ig-mono: 'Menlo', 'Monaco', 'Courier New', monospace;
+// Matches AOS's ease-out-cubic, which the whole site animates on, so the
+// page's own transitions and its scroll reveals share a feel.
+$ig-ease: cubic-bezier(0.215, 0.61, 0.355, 1);
+$ig-fast: 180ms;      // press and hover feedback
+$ig-state: 300ms;     // the site's own transition duration
+$ig-enter: 500ms;     // entrances; the page moves faster than AOS's default
+
+// One type scale, ratio 1.25 off a 17px body. Body copy is weight 400, not
+// 300: a light weight at reading size on navy reads gray and unfinished.
+// Spacing scale, 8pt base. The ratio matters more than the values: space
+// between sections (2 x $sp-section = 128px) reads as roughly 3x the space
+// between a section head and its content ($sp-block), which is what lets the
+// eye group the page without any dividers doing the work.
+$sp-xs: 16px;        // label to headline
+$sp-sm: 20px;        // headline to its supporting sentence
+$sp-block: 40px;     // section head to its content
+$sp-section: 72px;   // section padding, so 144px between sections
+
+// Type scale. Four sizes for prose, one for labels, and weight 400 for all of
+// it: 300 at reading size on a navy ground goes grey and thin. Before this
+// there were 15 distinct size/weight pairs doing the work of five.
+$t-lead: 17px;       // a section head's supporting sentence, the CTA body
+$t-body: 15.5px;     // every standard paragraph
+$t-cap: 13px;        // captions inside cards
+$t-fine: 12.5px;     // small print and attribution
+$t-micro: 11.5px;    // uppercase labels
+$t-h3: 21px;
+$body-ink: #FFFFFF;
+$body-ink-dim: #FFFFFF;
+
+@mixin ig-tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+@mixin ig-focus($color: $ig-blue) {
+  &:focus-visible { outline: 2px solid $color; outline-offset: 3px; }
+}
+
+// No background here on purpose: <body> already carries the site's single
+// continuous radial atmosphere, and setting the shorthand wipes it.
+.igaming-body {
+  overflow-x: hidden;
+
+  &.ig-locked { overflow: hidden; }
+}
+
+// The sprite itself never renders.
+.ig-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+// The site's narrow hero modifier clips these labels, so both buttons on this
+// page size to their text instead of to a fixed width.
+.primary-btn.--ig-talk {
+  width: auto;
+  min-width: 0;
+  padding-inline: 26px;
+}
+
+.primary-btn.--ig-cta {
+  width: auto;
+  min-width: 0;
+  height: 56px;
+  padding-inline: 34px;
+  font-size: 15px;
+}
+
+// Brand marks, used at their own colors because they are somebody's logo.
+.ig-mark {
+  flex: none;
+  width: 22px;
+  height: 22px;
+
+  &.--btn { width: 20px; height: 20px; }
+  &.--sm { width: 15px; height: 15px; vertical-align: -2px; }
+  &.--qr { width: 34px; height: 34px; }
+}
+
+// ===========================================================================
+// 1. Hero. The site's standard two-up, with the spec where the graphic goes.
+// ===========================================================================
+
+.ig-hero {
+  .sdk-hero-sub strong { font-weight: $font-weight-medium; color: $white; }
+}
+
+// The spec sits in a card so it reads as an object on the page rather than
+// as loose rules, and so it has somewhere to cast a shadow.
+.ig-eyebrow {
+  margin: 0 0 14px;
+  font-weight: $font-weight-medium;
+  font-size: $t-micro;
+  line-height: 18px;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: $ig-blue;
+}
+
+// Above the fold, centred on desktop where there is width to balance it, and
+// left on mobile where centred short-measure text is harder to read.
+// Overrides for the /sdk hero styles this page borrows. They have to match
+// that file's three-class depth or they lose, which is what kept the headline
+// boxed at 560px and the two paragraphs a clear 22px apart.
+.igaming-page.sdk-page .sdk-hero-section {
+  .sdk-hero-info-block {
+    max-width: none;
+    // /sdk uses 48px here to clear its tall Claude card. This hero has a
+    // one-line flow strip underneath, so it needs a fraction of that.
+    margin-bottom: 8px;
+  }
+
+  .sdk-hero-sub {
+    // /sdk sets 500px for its two-column hero and 22px below each paragraph,
+    // deliberately "well above the line gap". This hero is full width and the
+    // two lines are one thought, so both come down.
+    max-width: 60ch;
+    // A paragraph break, not a line break: the support line is its own
+    // thought and needs to read as a separate paragraph.
+    margin-bottom: 22px;
+  }
+
+  .sdk-hero-sub--support { margin: 0; }
+}
+
+// The hero owns the first screen: the demo below it should not be visible
+// until the visitor scrolls.
+.igaming-page .sdk-hero-section {
+  @media (min-width: 768px) {
+    // Holds the fold so the demo is not visible, without centring the copy
+    // inside it, which is what pushed the headline down the screen.
+    min-height: calc(100vh - 160px);
+    align-content: start;
+  }
+}
+
+.ig-hero-copy {
+  .page-hero-title {
+    // No max-width and no text-wrap:balance. Both force a break, and that is
+    // what kept stacking this onto two lines whatever the size was. Instead
+    // the size is set so the sentence fits the field on ONE line from 768 up:
+    // 34 characters at ~0.52em average is ~17.7em wide, and 4.4vw stays
+    // inside the container at every desktop width. It wraps below 768, which
+    // is right on a phone.
+    font-size: clamp(40px, 6.6vw, 120px);
+    // Line-height and tracking are the shared ramp's own values, not tighter
+    // ones. The bespoke -0.035em is what stopped this reading like the rest
+    // of the site's heroes; only the size differs now.
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    margin-bottom: clamp(20px, 2vw, 28px);
+  }
+
+  .sdk-hero-sub {
+    font-size: clamp(18px, 1.5vw, 21px);
+    line-height: 1.5;
+  }
+
+  .sdk-hero-sub--support { color: $white; }
+
+  // These three margins were stacking under the last line of copy.
+  .sdk-btns { margin-top: clamp(28px, 2.6vw, 36px); }
+
+  .sdk-hero-info-block { width: 100%; }
+
+}
+
+// One entrance, on load rather than on scroll, and on the block rather than
+// staggered per line: the headline is a single sentence and should arrive as
+// one.
+@media (prefers-reduced-motion: no-preference) {
+  .ig-hero-copy .sdk-hero-info-block { animation: ig-line-in 560ms $ig-ease both; }
+  .ig-path { animation: ig-line-in 560ms $ig-ease 90ms both; }
+  .ig-hero-copy .sdk-btns { animation: ig-line-in 560ms $ig-ease 160ms both; }
+}
+
+@keyframes ig-line-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+// The flow, where the copy needs it: a plain row under the sentence it
+// illustrates, not a panel bolted under the buttons.
+.ig-path {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin-top: 24px;
+
+  @media (min-width: 768px) { gap: 12px 18px; }
+}
+
+.ig-path-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: $font-weight-medium;
+  font-size: 15.5px;
+  letter-spacing: -0.008em;
+  color: rgba(255, 255, 255, 0.88);
+
+  .ig-mark { width: 24px; height: 24px; }
+}
+
+.ig-path-arrow {
+  display: inline-flex;
+  color: rgba(124, 146, 166, 0.6);
+}
+
+
+// ===========================================================================
+// 2. The demo: an operator's site, inside a browser, below the fold.
+// ===========================================================================
+
+.ig-demo {
+  position: relative;
+  padding: 40px 0;
+
+  @media (min-width: 768px) { padding: 58px 0; }
+  @media (min-width: 1200px) { padding: $sp-section 0; }
+}
+
+.ig-demo-head { margin-bottom: 28px; }
+
+.ig-demo-note {
+  margin-top: $sp-sm;
+  font-weight: $font-weight-normal;
+  font-size: $t-fine;
+  line-height: 1.6;
+  color: rgba(124, 146, 166, 0.8);
+}
+
+.ig-browser {
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #0A0512;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+.ig-browser-chrome {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.ig-browser-dots {
+  display: flex;
+  gap: 7px;
+
+  i {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.16);
+
+    &.--red { background: #FF5F57; }
+    &.--amber { background: #FEBC2E; }
+    &.--green { background: #28C840; }
+  }
+}
+
+// A real address field: it should look like the browser's, which means it
+// takes the width the chrome has rather than shrink-wrapping the text.
+.ig-browser-url {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.34);
+  font-size: 12px;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+// ---- the machine ----------------------------------------------------------
+
+.ig-machine {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  // Breez Casino's own ground: deep purple, nothing to do with Breez navy.
+  background: linear-gradient(180deg, #1B0B33 0%, #120722 46%, #0A0413 100%);
+}
+
+.ig-casino-bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255, 194, 46, 0.22);
+  background: linear-gradient(180deg, rgba(255, 194, 46, 0.09), rgba(255, 194, 46, 0));
+
+  @media (min-width: 768px) { padding: 12px 22px; }
+}
+
+// The marquee is a detailed neon sign, so it needs real height or it turns
+// to mush. A big sign over the game is on-brand for a casino anyway.
+.ig-casino-logo {
+  width: auto;
+  height: 60px;
+  object-fit: contain;
+
+  @media (min-width: 768px) { height: 84px; }
+  @media (min-width: 1200px) { height: 96px; }
+}
+
+.ig-casino-end {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ig-credit {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 6px 13px;
+  border: 1px solid rgba(255, 194, 46, 0.28);
+  border-radius: 9px;
+  background: rgba(0, 0, 0, 0.34);
+
+  em {
+    font-style: normal;
+    font-size: 10px;
+    font-weight: $font-weight-medium;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 224, 160, 0.8);
+  }
+
+  b {
+    @include ig-tabular;
+    font-weight: $font-weight-bold;
+    font-size: 16px;
+    letter-spacing: -0.012em;
+    color: rgba(255, 224, 160, 0.55);
+    transition: color $ig-enter ease;
+
+    i { font-style: normal; opacity: 0.65; padding-right: 1px; }
+  }
+}
+
+.ig-machine.is-funded .ig-credit b { color: $cas-gold; }
+
+.ig-demo-tag {
+  flex: none;
+  padding: 5px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: $font-weight-medium;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.66);
+}
+
+@media (max-width: 460px) {
+  .ig-credit { padding: 6px 11px; em { display: none; } }
+}
+
+// ---- the board ------------------------------------------------------------
+
+// Sized so the whole browser frame clears a laptop viewport with the section
+// heading above it: chrome + marquee + board + bet panel, not the board alone.
+.ig-board {
+  position: relative;
+  height: 46vh;
+  min-height: 210px;
+  max-height: 340px;
+
+  @media (min-width: 768px) { min-height: 250px; max-height: 380px; }
+}
+
+.ig-canvas-host,
+.ig-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ig-canvas-host { pointer-events: none; }
+
+
+
+// Round history, the way every crash game shows it. Empty until the visitor
+// has played, so it never claims rounds they did not see.
+.ig-history {
+  position: absolute;
+  z-index: 2;
+  top: 12px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 6px;
+  overflow: hidden;
+  min-height: 26px;
+
+  @media (min-width: 768px) { top: 14px; left: 22px; right: 22px; }
+}
+
+.ig-pill {
+  @include ig-tabular;
+  flex: none;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: rgba(255, 194, 46, 0.16);
+  color: $cas-gold;
+  font-size: 12px;
+  font-weight: $font-weight-medium;
+  line-height: 18px;
+  animation: ig-pill-in $ig-state $ig-ease both;
+
+  &.--low { background: rgba(174, 148, 255, 0.16); color: #C6B3FF; }
+  &.--bust { background: rgba(255, 61, 110, 0.18); color: $cas-pink; }
+}
+
+@keyframes ig-pill-in {
+  from { opacity: 0; transform: translateX(-6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.ig-mult-wrap {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 16px;
+  pointer-events: none;
+  text-align: center;
+}
+
+.ig-mult {
+  @include ig-tabular;
+  margin: 0;
+  font-weight: $font-weight-bold;
+  font-size: clamp(52px, 8.4vw, 108px);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+  color: $white;
+  transition: color 180ms ease-out;
+
+  &.--idle { color: rgba(198, 179, 255, 0.5); }
+
+  &.--ready {
+    font-size: clamp(38px, 5.6vw, 74px);
+    letter-spacing: -0.03em;
+    font-variant-numeric: normal;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  // The last round's result, left on the board in the color it landed in.
+  // That is most of what makes a still frame read as a game.
+  &.--last { color: rgba(255, 61, 110, 0.88); text-shadow: 0 0 58px rgba(255, 61, 110, 0.3); }
+  &.--live { color: $cas-gold; text-shadow: 0 0 64px rgba(255, 194, 46, 0.5); }
+  &.--win { color: $cas-green; text-shadow: 0 0 60px rgba(42, 204, 128, 0.4); }
+  &.--bust { color: $cas-pink; text-shadow: 0 0 64px rgba(255, 61, 110, 0.42); }
+}
+
+.ig-mult-state {
+  margin: 0;
+  font-weight: $font-weight-medium;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(198, 179, 255, 0.75);
+
+  &.--live { color: rgba(255, 194, 46, 0.92); }
+  &.--bust { color: rgba(255, 61, 110, 0.92); }
+
+  // A hard on/off blink, the way a cabinet asks for a coin. steps(1) keeps
+  // it square: a smooth fade reads as a web page, not as a game.
+  &.--dead {
+    color: $cas-gold;
+    animation: ig-attract 1.05s steps(1, end) infinite;
+  }
+}
+
+@keyframes ig-attract {
+  0% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+// ---- the bet panel --------------------------------------------------------
+
+.ig-bet {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid rgba(255, 194, 46, 0.2);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.5));
+}
+
+.ig-bet-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  min-width: 0;
+}
+
+.ig-bet,
+.ig-bet-row,
+.ig-bet-actions { --ig-pad: 14px; }
+
+.ig-bet {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px;
+
+  @media (min-width: 768px) { padding: 16px 22px 18px; }
+
+  @media (min-width: 900px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+  }
+}
+
+.ig-bet-label {
+  font-size: 11px;
+  font-weight: $font-weight-medium;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 224, 160, 0.75);
+}
+
+.ig-stepper {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  border-radius: 11px;
+  background: rgba(0, 0, 0, 0.42);
+  border: 1px solid $cas-line;
+}
+
+.ig-step-btn {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.07);
+  color: $white;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: $font-weight-bold;
+  line-height: 1;
+  transition: background-color $ig-state ease, color $ig-state ease;
+  @include ig-focus($cas-gold);
+
+  &:hover:not(:disabled) { background: rgba(255, 194, 46, 0.24); color: $cas-gold; }
+  &:disabled { color: rgba(198, 179, 255, 0.35); background: rgba(255, 255, 255, 0.03); }
+}
+
+.ig-stake {
+  @include ig-tabular;
+  min-width: 72px;
+
+  i { font-style: normal; opacity: 0.6; padding-right: 1px; }
+
+  text-align: center;
+  font-weight: $font-weight-bold;
+  font-size: 18px;
+  letter-spacing: -0.015em;
+  color: $white;
+}
+
+.ig-machine:not(.is-funded) .ig-stake { color: rgba(198, 179, 255, 0.55); }
+
+.ig-chips { display: flex; gap: 6px; }
+
+.ig-chip {
+  @include ig-tabular;
+  min-width: 44px;
+  height: 36px;
+  padding: 0 11px;
+  border: 1px solid $cas-line;
+  border-radius: 9px;
+  background: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.76);
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: $font-weight-medium;
+  transition: border-color $ig-state ease, color $ig-state ease, background-color $ig-state ease;
+  @include ig-focus($cas-gold);
+
+  &:hover:not(:disabled) { color: $white; border-color: rgba(255, 194, 46, 0.55); }
+  &.is-on:not(:disabled) { color: #241703; background: $cas-gold; border-color: $cas-gold; }
+  &:disabled { color: rgba(198, 179, 255, 0.32); }
+}
+
+.ig-result {
+  @include ig-tabular;
+  margin: 0;
+  flex-basis: 100%;
+  font-size: 13.5px;
+  font-weight: $font-weight-medium;
+  line-height: 20px;
+  color: rgba(226, 214, 255, 0.9);
+  animation: ig-result-in $ig-state $ig-ease both;
+
+  &.--win { color: $cas-green; }
+  &.--bust { color: $cas-pink; }
+
+  @media (min-width: 900px) { flex-basis: auto; }
+}
+
+@keyframes ig-result-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+
+.ig-bet-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  @media (min-width: 900px) { flex: none; flex-wrap: nowrap; }
+}
+
+// The casino's buttons: chunky, rounded, sentence case. A bet button, not a
+// marketing button, and deliberately nothing like the site's.
+.ig-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex: 1 1 auto;
+  min-height: 54px;
+  padding: 0 24px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-family: inherit;
+  font-weight: $font-weight-bold;
+  font-size: 16px;
+  letter-spacing: -0.006em;
+  white-space: nowrap;
+  transition: transform $ig-fast $ig-ease, background-color $ig-state ease,
+              border-color $ig-state ease, color $ig-state ease, box-shadow $ig-state ease;
+  @include ig-focus($cas-gold);
+
+  &:active:not(:disabled) { transform: translateY(1px); }
+}
+
+// Cash App's own green, because it is Cash App's button.
+.ig-btn.--deposit {
+  flex: 2 1 250px;
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.88);
+
+  &:hover:not(:disabled) { border-color: rgba(255, 255, 255, 0.38); color: $white; }
+
+  &.--lead {
+    background: linear-gradient(180deg, #00E458 0%, #00C247 100%);
+    border-color: rgba(255, 255, 255, 0.22);
+    color: #04240F;
+    animation: ig-ask 2.4s ease-in-out infinite;
+
+    &:hover:not(:disabled) {
+      transform: translateY(-1px);
+      animation: none;
+      box-shadow: 0 14px 40px rgba(0, 214, 79, 0.5);
+    }
+  }
+
+  &:disabled { opacity: 0.45; }
+}
+
+.ig-btn.--launch {
+  flex: 1 1 140px;
+  background: linear-gradient(180deg, #FFD35E 0%, $cas-gold 100%);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #241703;
+
+  &:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 12px 32px rgba(255, 194, 46, 0.4); }
+
+  &:disabled {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.09);
+    color: rgba(198, 179, 255, 0.42);
+    box-shadow: none;
+  }
+}
+
+.ig-btn.--cash {
+  flex: 1 1 140px;
+  background: linear-gradient(180deg, #43E39A 0%, $cas-green 100%);
+  border-color: rgba(255, 255, 255, 0.24);
+  color: #04180E;
+  box-shadow: 0 10px 30px rgba(42, 204, 128, 0.32);
+  animation: ig-cash-pulse 1.6s ease-in-out infinite;
+
+  &:hover { transform: translateY(-1px); }
+}
+
+// Slow enough to read as an invitation rather than an alarm.
+@keyframes ig-ask {
+  0%, 100% { box-shadow: 0 8px 26px rgba(0, 214, 79, 0.26); }
+  50% { box-shadow: 0 10px 40px rgba(0, 214, 79, 0.62); }
+}
+
+@keyframes ig-cash-pulse {
+  0%, 100% { box-shadow: 0 10px 30px rgba(42, 204, 128, 0.3); }
+  50% { box-shadow: 0 10px 40px rgba(42, 204, 128, 0.54); }
+}
+
+// The deposit landing is the point of the whole page, so the machine says so:
+// one bright sweep behind the counting balance, once.
+.ig-machine.is-crediting {
+  animation: ig-credited 1.5s $ig-ease 1;
+}
+
+.ig-machine.is-crediting .ig-credit {
+  animation: ig-credit-pop 1.5s $ig-ease 1;
+}
+
+@keyframes ig-credited {
+  0% { box-shadow: inset 0 0 0 0 rgba(42, 204, 128, 0); }
+  18% { box-shadow: inset 0 0 90px 0 rgba(42, 204, 128, 0.42); }
+  100% { box-shadow: inset 0 0 0 0 rgba(42, 204, 128, 0); }
+}
+
+@keyframes ig-credit-pop {
+  0% { transform: scale(1); border-color: rgba(255, 194, 46, 0.28); }
+  16% { transform: scale(1.09); border-color: $cas-green; }
+  100% { transform: scale(1); border-color: rgba(255, 194, 46, 0.28); }
+}
+
+.ig-machine.is-covered {
+  filter: saturate(0.55) brightness(0.6);
+  transition: filter $ig-state ease;
+}
+
+// ===========================================================================
+// 3. The page below the demo. One spine, one type scale, one measure.
+// ===========================================================================
+
+// Vertical rhythm only: the horizontal spine comes from Bootstrap's
+// .container, the same one /sdk and the rest of the site sit on.
+// THE DULLNESS, root cause. position:relative with z-index:auto does NOT
+// create a stacking context, so a z-index:-1 gradient inside escapes to the
+// root layer and paints OVER this section's own text: elementsFromPoint put
+// the gradient above .ig-flow-body. At opacity .5 with a 150px blur that is a
+// haze across the copy, which is exactly why no colour value ever fixed it.
+// /sdk's own .sdk-capabilities-section carries isolation:isolate for this
+// reason; I copied its gradients without copying that.
+.ig-section,
+.ig-demo,
+.igaming-page .sdk-hero-section {
+  isolation: isolate;
+}
+
+// And the content goes on a positive layer, so no z-index:-1 gradient can
+// paint over it regardless of how the stacking context resolves.
+.ig-section > .container,
+.ig-demo > .container,
+.igaming-page .sdk-hero-section > [class*='col-'] {
+  position: relative;
+  z-index: 1;
+}
+
+.ig-section {
+  position: relative;
+  padding: 40px 0;
+
+  @media (min-width: 768px) { padding: 58px 0; }
+  @media (min-width: 1200px) { padding: $sp-section 0; }
+}
+
+// Borrowing the site's components brought the site's spacing with them, and
+// it stacked on top of this page's. .sdk-capabilities-section carries a
+// 120px bottom margin and .sdk-hero-section 160/80, which is why the gap
+// under the value props measured 216px against 96px everywhere else. This
+// page keeps the components and sets its own rhythm.
+.igaming-page {
+  .sdk-hero-section {
+    margin-top: 112px;
+    // Deliberately short of the rhythm: the demo is the hero's payoff, so the
+    // two read as one unit. Every other gap on the page is the full 128px.
+    margin-bottom: 8px;
+
+    @media (min-width: 768px) { margin-top: 160px; margin-bottom: 12px; }
+    @media (min-width: 1200px) { margin-bottom: 16px; }
+  }
+
+  .sdk-capabilities-section { margin-bottom: 0; }
+
+  // Same reason: the class is here for the terminal's chrome, not for the
+  // 140px margin that comes with it.
+  .sdk-implementation-section { margin-bottom: 0; }
+}
+
+.ig-label {
+  margin: 0 0 $sp-xs;
+  font-weight: $font-weight-medium;
+  font-size: $t-micro;
+  line-height: 18px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $ig-blue;
+}
+
+.ig-h2 {
+  margin: 0;
+  font-weight: $font-weight-bold;
+  font-size: clamp(27px, 3.2vw, 42px);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: $white;
+  max-width: 18ch;
+  text-wrap: balance;
+}
+
+// Reading copy: weight 400 at a 62ch measure. 300 at this size on navy reads
+// gray, which is what made the earlier passes feel unbalanced.
+.ig-body,
+.ig-head-body {
+  margin: 0;
+  font-weight: $font-weight-normal;
+  font-size: $t-lead;
+  line-height: 1.7;
+  letter-spacing: 0.002em;
+  color: $body-ink;
+  max-width: 62ch;
+
+  strong { font-weight: $font-weight-medium; color: $white; }
+
+  a {
+    color: $ig-blue;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 133, 251, 0.4);
+
+    &:hover { border-bottom-color: $ig-blue; }
+  }
+}
+
+.ig-demo-head .ig-body { margin-top: 14px; }
+
+// Label, headline, then the sentence that qualifies it directly underneath.
+// The two-up version put the sub-copy off to one side, which read as two
+// unrelated blocks rather than one statement.
+.ig-h2 + .ig-head-body,
+.ig-h2 + .ig-body,
+.ig-head .ig-head-body,
+.page-hero-title + .sdk-hero-sub {
+  margin-top: $sp-sm;
+}
+
+// Headlines that have to hold one line on a desktop width.
+.ig-h2--single {
+  max-width: none;
+
+  @media (min-width: 860px) { white-space: nowrap; }
+}
+
+// This one is a list of four negatives; broken over two lines it reads as two
+// separate thoughts, so it gets the width to stay on one.
+.ig-how .ig-head-body {
+  max-width: none;
+}
+
+// ---- value props ----------------------------------------------------------
+
+// Six cards read better as two rows of three than as the site's default four
+// across, and the site's own grid is otherwise untouched.
+// The site's own rule is three selectors deep, so this has to match it to
+// win: six cards read as two rows of three, not four then two.
+.sdk-capabilities-section .ig-props.sdk-features-grid {
+  margin-top: $sp-block;
+
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+// The problem, priced in their own numbers, stated before the argument for
+// solving it. Two cards, same materials as the six below so the section reads
+// as one set.
+
+
+
+
+// Marked as somebody else's number, because it is.
+
+// ---- how it works ---------------------------------------------------------
+
+.ig-flow {
+  list-style: none;
+  margin: $sp-block 0 0;
+  padding: 0;
+  display: grid;
+  gap: 44px;
+
+  @media (min-width: 860px) {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+    row-gap: 0;
+    // Four shared rows: the still, the step label, the title, the body. Each
+    // takes the height of the tallest column, so the stills come out equal
+    // and Step 1/2/3 lands on one line without a guessed fixed height.
+    grid-template-rows: auto auto auto;
+  }
+
+  @media (min-width: 1200px) { column-gap: 56px; }
+}
+
+.ig-flow-step {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @supports (grid-template-rows: subgrid) {
+    @media (min-width: 860px) {
+      display: grid;
+      grid-row: span 3;
+      grid-template-rows: subgrid;
+      align-items: start;
+
+      // Three rows: the still, the title, the body. Each takes the height of
+      // the tallest column so the set stays aligned across all three.
+      > .ig-shot { grid-area: 1 / 1; }
+      > .ig-flow-title { grid-area: 2 / 1; }
+      > .ig-flow-body { grid-area: 3 / 1; }
+    }
+  }
+}
+
+.ig-flow-title {
+  margin: 28px 0 8px;
+  font-weight: $font-weight-medium;
+  font-size: $t-h3;
+  line-height: 1.25;
+  letter-spacing: -0.018em;
+  color: $white;
+
+  em {
+    @include ig-tabular;
+    font-style: normal;
+    color: $ig-blue;
+    padding-right: 4px;
+  }
+}
+
+.ig-flow-body {
+  margin: 0;
+  font-weight: $font-weight-normal;
+  font-size: $t-body;
+  line-height: 1.62;
+  color: $body-ink;
+}
+
+// A still of the cashier screen, in the casino's own materials.
+.ig-shot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+  min-height: 208px;
+  padding: 16px 18px 20px;
+  border: 1px solid #24405F;
+  border-radius: 14px;
+  // Solid values, not alpha over the page. A card built from rgba never gets
+  // brighter than the ground it sits on.
+  background: linear-gradient(180deg, #16233A 0%, #101A2C 100%);
+  box-shadow:
+    0 18px 44px -18px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  text-align: center;
+}
+
+
+
+.ig-shot-step {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding-bottom: 12px;
+  margin-bottom: 2px;
+  border-bottom: 1px solid #24405F;
+}
+
+.ig-shot-count {
+  @include ig-tabular;
+  font-weight: $font-weight-bold;
+  font-size: 13px;
+  line-height: 1;
+  color: $cas-gold;
+
+  em {
+    font-style: normal;
+    font-weight: $font-weight-normal;
+    color: rgba(255, 224, 160, 0.5);
+  }
+}
+
+.ig-shot-meter {
+  display: flex;
+  gap: 4px;
+
+  i {
+    width: 26px;
+    height: 3px;
+    border-radius: 2px;
+    background: #2C4160;
+
+    &.is-on { background: $cas-gold; }
+  }
+}
+
+.ig-shot-title-row {}
+
+.ig-shot-head {
+  margin: 0;
+  font-weight: $font-weight-medium;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #C4D2E2;
+}
+
+.ig-shot-amount {
+  @include ig-tabular;
+  margin-top: auto;
+  font-weight: $font-weight-bold;
+  font-size: 34px;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  color: $white;
+
+  i {
+    font-style: normal;
+    font-size: 19px;
+    font-weight: $font-weight-normal;
+    color: #8FA3BC;
+    padding-right: 3px;
+  }
+}
+
+.ig-shot-presets {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  width: 100%;
+
+  span {
+    @include ig-tabular;
+    padding: 7px 0;
+    border: 1px solid #24405F;
+    border-radius: 7px;
+    background: #0C1524;
+    text-align: center;
+    font-size: 11.5px;
+    color: #E4ECF5;
+
+    &.is-on {
+      background: linear-gradient(180deg, #FFD35E 0%, $cas-gold 100%);
+      border-color: #FFD35E;
+      color: #241703;
+      box-shadow: 0 0 18px rgba(255, 194, 46, 0.45);
+    }
+  }
+}
+
+// The same code the cashier shows, so the still is a real screenshot of the
+// step rather than a drawing of one.
+.ig-shot-qr {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 106px;
+  height: 106px;
+  margin: auto 0 0;
+  padding: 8px;
+  border-radius: 12px;
+  background: $white;
+
+  .ig-qr-mark { width: 32px; height: 32px; border-radius: 9px; }
+  .ig-mark { width: 17px; height: 17px; }
+}
+
+.ig-shot-tick {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin: auto 0 0;
+  border-radius: 50%;
+  background: rgba(42, 204, 128, 0.22);
+  color: #43E39A;
+  box-shadow: 0 0 22px rgba(42, 204, 128, 0.3);
+}
+
+.ig-shot-done {
+  @include ig-tabular;
+  width: 100%;
+  text-align: center;
+  font-weight: $font-weight-bold;
+  font-size: 24px;
+  letter-spacing: -0.03em;
+  color: $white;
+}
+
+.ig-shot-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 100%;
+  margin-top: auto;
+  font-weight: $font-weight-normal;
+  font-size: $t-cap;
+  line-height: 1.45;
+  color: #C4D2E2;
+}
+
+
+// ---- the code -------------------------------------------------------------
+
+.ig-code-grid {
+  display: grid;
+  gap: $sp-block;
+  margin-top: $sp-block;
+  align-items: start;
+
+  @media (min-width: 1000px) {
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    gap: 64px;
+  }
+
+  @media (min-width: 1300px) { gap: 88px; }
+}
+
+// The three calls, named and explained, beside the code rather than above it.
+.ig-calls-intro {
+  margin: 0;
+  font-weight: $font-weight-normal;
+  font-size: $t-body;
+  line-height: 1.62;
+  color: #FFFFFF;
+}
+
+.ig-calls {
+  list-style: none;
+  margin: 22px 0 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 13px 0;
+    border-top: 1px solid $ig-line;
+    font-weight: $font-weight-normal;
+    font-size: $t-body;
+    line-height: 1.6;
+    color: $body-ink;
+
+    &:last-child { border-bottom: 1px solid $ig-line; }
+  }
+
+  code {
+    font-family: $ig-mono;
+    font-size: 14px;
+    color: $white;
+  }
+}
+
+.ig-calls-tick {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  border-radius: 50%;
+  background: rgba(0, 133, 251, 0.16);
+  color: $ig-blue;
+}
+
+.ig-calls-note {
+  margin: $sp-sm 0 0;
+  max-width: 46ch;
+  font-weight: $font-weight-normal;
+  font-size: $t-body;
+  line-height: 1.62;
+  color: rgba(124, 146, 166, 0.95);
+
+  a {
+    color: $ig-blue;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 133, 251, 0.4);
+
+    &:hover { border-bottom-color: $ig-blue; }
+  }
+}
+
+// .sdk-term brings the site's terminal frame, shadow and radius; this only
+// has to stop it centring itself inside the grid column.
+.igaming-page .sdk-implementation-section .sdk-term.ig-code-wrap {
+  max-width: none;
+  margin: 0;
+}
+
+.ig-langs {
+  display: flex;
+  gap: 2px;
+  padding: 8px 8px 0;
+  overflow-x: auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar { display: none; }
+}
+
+.ig-lang {
+  flex: none;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 8px 8px 0 0;
+  background: transparent;
+  color: rgba(124, 146, 166, 0.9);
+  font-family: inherit;
+  font-size: 13.5px;
+  white-space: nowrap;
+  transition: color 120ms ease-out, background-color 120ms ease-out;
+  @include ig-focus;
+
+  &:hover { color: $white; }
+
+  &.is-on {
+    color: $white;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 -2px 0 $ig-blue;
+  }
+}
+
+
+.ig-code {
+  margin: 0;
+  padding: 18px 18px 20px;
+  overflow-x: auto;
+  font-family: $ig-mono;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.86);
+  tab-size: 2;
+
+  @media (min-width: 768px) { font-size: 13.5px; padding: 20px 26px 22px; }
+
+  .c-com { color: rgba(124, 146, 166, 0.72); }
+  .c-kw { color: #6FB4FF; }
+  .c-str { color: #8FD6A9; }
+  .c-num { color: #E0B978; }
+  .c-fn { color: $white; }
+  .c-var { color: #C9A6FF; }
+}
+
+// A terminal has a caret. It is the only thing on this page that loops, and
+// it is the one place a loop is literal rather than decorative.
+.ig-caret {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  margin-left: 2px;
+  vertical-align: -2px;
+  background: $ig-blue;
+  animation: ig-caret-blink 1.06s steps(1, end) infinite;
+}
+
+@keyframes ig-caret-blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.ig-code-panel:focus-visible { outline: 2px solid $ig-blue; outline-offset: -2px; }
+
+// ---- get started ----------------------------------------------------------
+
+// Price, licensing and proof, stated plainly and briefly. A commercial reader
+// will not scroll back up looking for these, and without them the page is a
+// developer explainer they cannot act on.
+
+
+
+
+// One line and one button. Everything else that was here competed with it.
+.ig-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 4px 0;
+
+}
+
+.ig-cta-title {
+  margin: 0;
+  font-weight: $font-weight-bold;
+  font-size: clamp(27px, 3.2vw, 42px);
+  line-height: 1.08;
+  letter-spacing: -0.032em;
+  color: $white;
+  text-wrap: balance;
+}
+
+.ig-cta-body {
+  margin: $sp-sm 0 0;
+  max-width: 78ch;
+  font-weight: $font-weight-normal;
+  font-size: $t-lead;
+  line-height: 1.7;
+  color: $body-ink;
+}
+
+.ig-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+
+
+
+
+
+// The footer sits directly under the last section with nothing marking the
+// change, which reads as unfinished. A hairline and real height fix that.
+.igaming-body .footer {
+  margin-top: clamp(32px, 4vw, 48px);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+
+  .d-flex { padding-block: 28px !important; }
+}
+
+// ===========================================================================
+// 4. The cashier. Breez Casino's own sheet, over everything.
+// ===========================================================================
+
+.ig-cashier,
+.ig-contact {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  @media (min-width: 576px) { align-items: center; }
+}
+
+.ig-cashier-backdrop,
+.ig-contact-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 0, 8, 0.78);
+  opacity: 0;
+  transition: opacity $ig-state ease;
+}
+
+.ig-cashier.is-open .ig-cashier-backdrop,
+.ig-contact.is-open .ig-contact-backdrop { opacity: 1; }
+
+.ig-sheet,
+.ig-contact-sheet {
+  position: relative;
+  width: 100%;
+  max-height: 92vh;
+  overflow-y: auto;
+  padding: 18px 20px 20px;
+  border-radius: 20px 20px 0 0;
+  border: 1px solid rgba(255, 194, 46, 0.2);
+  border-bottom: 0;
+  background: linear-gradient(180deg, #1E0C38 0%, #100722 100%);
+  box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.6);
+  transform: translateY(24px);
+  opacity: 0;
+  transition: transform 420ms $ig-ease, opacity $ig-state ease;
+
+  @media (min-width: 576px) {
+    border-radius: 18px;
+    border-bottom: 1px solid rgba(255, 194, 46, 0.2);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65);
+  }
+}
+
+.ig-sheet { max-width: 424px; }
+
+.ig-cashier.is-open .ig-sheet,
+.ig-contact.is-open .ig-contact-sheet { transform: none; opacity: 1; }
+
+.ig-sheet-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 194, 46, 0.18);
+}
+
+.ig-sheet-brand { display: flex; align-items: center; gap: 11px; }
+
+.ig-sheet-logo {
+  width: auto;
+  height: 38px;
+  object-fit: contain;
+}
+
+.ig-sheet-title {
+  display: block;
+  font-weight: $font-weight-bold;
+  font-size: 15px;
+  line-height: 20px;
+  color: $white;
+}
+
+.ig-sheet-sub {
+  display: block;
+  font-size: 12px;
+  line-height: 16px;
+  color: rgba(198, 179, 255, 0.85);
+}
+
+.ig-sheet-close {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.7);
+  transition: background-color $ig-state ease, color $ig-state ease;
+  @include ig-focus($cas-gold);
+
+  &:hover { background: rgba(255, 255, 255, 0.12); color: $white; }
+}
+
+.ig-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: ig-pane-in $ig-state $ig-ease both;
+}
+
+@keyframes ig-pane-in {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+.ig-pane-head {
+  margin: 0;
+  font-weight: $font-weight-bold;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.015em;
+  color: $white;
+}
+
+.ig-pane-note,
+.ig-sheet-fine {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 12px;
+  line-height: 17px;
+  color: rgba(198, 179, 255, 0.85);
+}
+
+.ig-sheet-fine { display: block; text-align: center; }
+
+.ig-methods {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ig-method {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 13px;
+  border: 1px solid rgba(255, 61, 110, 0.22);
+  border-radius: 11px;
+  background: rgba(255, 61, 110, 0.05);
+}
+
+.ig-method-name {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: line-through;
+  text-decoration-color: rgba(255, 61, 110, 0.55);
+  text-decoration-thickness: 1px;
+}
+
+// The reason is stated in words as well as color, so the meaning does not
+// rest on being able to tell red from green.
+.ig-method-note {
+  font-size: 11px;
+  font-weight: $font-weight-medium;
+  color: rgba(255, 122, 150, 0.95);
+}
+
+.ig-amount-field {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 0 4px;
+}
+
+.ig-amount-sign {
+  font-weight: $font-weight-medium;
+  font-size: 26px;
+  color: rgba(198, 179, 255, 0.9);
+}
+
+.ig-amount-input {
+  @include ig-tabular;
+  width: 6ch;
+  padding: 0;
+  border: 0;
+  border-bottom: 2px solid rgba(255, 194, 46, 0.45);
+  background: transparent;
+  color: $white;
+  font-weight: $font-weight-bold;
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  text-align: center;
+  font-family: inherit;
+  transition: border-color $ig-state ease;
+
+  &:focus { outline: none; border-bottom-color: $cas-gold; }
+}
+
+.ig-presets {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
+}
+
+.ig-preset {
+  @include ig-tabular;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.24);
+  color: rgba(255, 255, 255, 0.8);
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: $font-weight-medium;
+  transition: border-color $ig-state ease, background-color $ig-state ease, color $ig-state ease;
+  @include ig-focus($cas-gold);
+
+  &:hover { color: $white; border-color: rgba(255, 194, 46, 0.5); }
+  &.is-on { color: #241703; border-color: $cas-gold; background: $cas-gold; }
+}
+
+.ig-amount-error {
+  margin: 0;
+  font-size: 12px;
+  line-height: 17px;
+  color: #ffb4bb;
+}
+
+// ---- the scannable code, the way the neon-royale cashier shows it ---------
+
+.ig-pane--quote { align-items: center; }
+
+.ig-qr {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 132px;
+  height: 132px;
+  padding: 9px;
+  border-radius: 12px;
+  background: $white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: transform $ig-fast $ig-ease;
+  @include ig-focus($cas-gold);
+
+  &:hover { transform: translateY(-2px); }
+}
+
+.ig-qr-plate { display: block; width: 100%; height: 100%; }
+
+.ig-qr-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  path { stroke: #0B0416; }
+}
+
+// The mark sits on the code the way a payment app's does, on its own plate so
+// the surrounding modules stay readable.
+.ig-qr-mark {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: $white;
+}
+
+.ig-qr .ig-mark { width: 17px; height: 17px; }
+
+.ig-qr-hint {
+  margin: -2px 0 2px;
+  font-size: 12px;
+  color: rgba(198, 179, 255, 0.9);
+}
+
+.ig-quote { width: 100%; margin: 0; }
+
+.ig-quote-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+  dt { font-size: 12.5px; color: rgba(198, 179, 255, 0.95); }
+
+  dd {
+    @include ig-tabular;
+    margin: 0;
+    font-size: 14px;
+    color: $white;
+    text-align: right;
+
+    em {
+      font-style: normal;
+      font-size: 11px;
+      color: rgba(198, 179, 255, 0.75);
+      padding-left: 6px;
+    }
+  }
+
+  &:last-child { border-bottom: 0; }
+
+  &.--total {
+    dt { color: $white; }
+    dd { font-weight: $font-weight-bold; font-size: 17px; color: $cas-gold; }
+  }
+}
+
+.ig-clock { width: 100%; display: flex; flex-direction: column; gap: 5px; }
+
+.ig-clock-track {
+  height: 3px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+
+  span {
+    display: block;
+    height: 100%;
+    background: $cas-gold;
+    transform-origin: left center;
+    transform: scaleX(1);
+    transition: transform 1s linear;
+  }
+}
+
+.ig-clock-label {
+  @include ig-tabular;
+  margin: 0;
+  font-size: 12px;
+  color: rgba(198, 179, 255, 0.9);
+}
+
+.ig-clock-dead,
+.ig-cashier.is-expired .ig-clock-live { display: none; }
+.ig-cashier.is-expired .ig-clock-dead { display: inline; color: #ffb4bb; }
+
+.ig-waiting {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.ig-waiting-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $cas-gold;
+  animation: ig-waiting-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes ig-waiting-pulse {
+  0%, 100% { opacity: 0.35; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+.ig-sheet-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 48px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 11px;
+  background: linear-gradient(180deg, #00E458 0%, #00C247 100%);
+  color: #04240F;
+  font-family: inherit;
+  font-weight: $font-weight-bold;
+  font-size: 15.5px;
+  letter-spacing: -0.005em;
+  transition: transform $ig-fast $ig-ease, filter $ig-state ease;
+  @include ig-focus($cas-gold);
+
+  &:hover { transform: translateY(-1px); filter: brightness(1.05); }
+  &:active { transform: translateY(1px); }
+}
+
+// Once the quote is on screen the action is the casino's, not Cash App's.
+.ig-pane--quote .ig-sheet-cta,
+.ig-pane--done .ig-sheet-cta {
+  background: linear-gradient(180deg, #FFD35E 0%, $cas-gold 100%);
+  color: #241703;
+}
+
+.ig-sheet-cta.ig-cta-refresh { display: none; }
+.ig-cashier.is-expired .ig-sheet-cta.ig-cta-pay { display: none; }
+.ig-cashier.is-expired .ig-sheet-cta.ig-cta-refresh { display: inline-flex; }
+
+.ig-sheet-back {
+  width: 100%;
+  min-height: 34px;
+  border: 0;
+  background: transparent;
+  color: rgba(198, 179, 255, 0.85);
+  font-family: inherit;
+  font-size: 13.5px;
+  transition: color $ig-state ease;
+  @include ig-focus($cas-gold);
+
+  &:hover { color: $white; }
+}
+
+.ig-pane--pay,
+.ig-pane--done {
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  padding: 16px 0 6px;
+}
+
+.ig-pay-spin {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 12px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.14);
+  border-top-color: $cas-gold;
+  animation: ig-spin 900ms linear infinite;
+}
+
+@keyframes ig-spin { to { transform: rotate(360deg); } }
+
+.ig-pay-head {
+  margin: 0;
+  font-weight: $font-weight-bold;
+  font-size: 18px;
+  color: $white;
+}
+
+.ig-pay-note {
+  margin: 0;
+  max-width: 30ch;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(198, 179, 255, 0.9);
+}
+
+.ig-done-tick {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 8px;
+  border-radius: 50%;
+  background: rgba(42, 204, 128, 0.18);
+  color: $cas-green;
+  animation: ig-tick-in 420ms $ig-ease both;
+}
+
+@keyframes ig-tick-in {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: none; }
+}
+
+.ig-done-amount {
+  @include ig-tabular;
+  margin: 0;
+  font-weight: $font-weight-bold;
+  font-size: 32px;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: $white;
+}
+
+.ig-done-body {
+  margin: 0 0 8px;
+  max-width: 30ch;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(198, 179, 255, 0.9);
+}
+
+// ===========================================================================
+// 5. The contact dialog. Breez's own materials, not the casino's.
+// ===========================================================================
+
+.ig-contact-sheet {
+  max-width: 520px;
+  border-color: rgba(255, 255, 255, 0.12);
+  background: linear-gradient(180deg, #0B1730 0%, #04091A 100%);
+}
+
+.ig-contact-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid $ig-line;
+
+  .ig-label { margin-bottom: 6px; }
+}
+
+.ig-contact-title {
+  margin: 0;
+  font-weight: $font-weight-bold;
+  font-size: 26px;
+  line-height: 1.15;
+  letter-spacing: -0.028em;
+  color: $white;
+}
+
+.ig-contact-sheet {
+  .form-body,
+  .form-holder,
+  .form-content { width: 100%; }
+
+  .form-items { width: 100%; margin-inline: 0; max-width: 100%; }
+  .form-control { max-width: 100%; }
+  .contact-form-btn { max-width: 100%; margin-inline: 0; }
+}
+
+// ===========================================================================
+// Reduced motion. Nothing loops, nothing pulses. The game still plays.
+// ===========================================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .ig-pay-spin,
+  .ig-waiting-dot,
+  .ig-caret,
+  .ig-machine.is-crediting,
+  .ig-machine.is-crediting .ig-credit,
+  .ig-mult-state.--dead,
+  .ig-btn.--deposit.--lead,
+  .ig-btn.--cash { animation: none; }
+
+  .ig-pane,
+  .ig-result,
+  .ig-pill,
+  .ig-done-tick { animation: none !important; }
+
+  .ig-btn:hover,
+  .ig-sheet-cta:hover,
+  .ig-qr:hover { transform: none; }
+
+  .ig-sheet,
+  .ig-contact-sheet,
+  .ig-cashier-backdrop,
+  .ig-contact-backdrop { transition: opacity 120ms linear; transform: none; }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// White that actually renders white
+// ═══════════════════════════════════════════════════════════════════════
+// base/_reset.scss sets -webkit-font-smoothing: antialiased site-wide. On
+// macOS that switches off subpixel rendering and thins every stem. At 400
+// weight and 15.5px, white on navy loses enough stem density to read gray
+// beside the 17px and 21px copy next to it. That is why editing `color`
+// never moved it: this copy has computed #fff throughout. Two fixes, both
+// about stem density rather than color.
+// ═══════════════════════════════════════════════════════════════════════
+// One decoration layer for the whole page
+// ═══════════════════════════════════════════════════════════════════════
+// Each section's gradient is z-index:-1, which only puts it behind *that*
+// section's own content. But the gradients deliberately overhang their
+// section (top: -281px, plus a 150px blur), and sibling sections are
+// separate stacking contexts, so the later one paints wholesale above the
+// earlier: .ig-value's gradient reached 281px up into .ig-how and washed
+// over the step copy. Copy near the bottom of a section grayed, headings
+// near the top stayed clean.
+//
+// isolation:isolate on the sections is what made them separate contexts, so
+// it comes off. One stacking context on the page instead collects every
+// z-index:-1 gradient into a single negative layer behind all of the copy.
+// The sections carry no background of their own (the page ground is on
+// body), so nothing paints over the gradients and they look unchanged.
+.igaming-page {
+  position: relative;
+  isolation: isolate;
+}
+
+.ig-section,
+.igaming-page .sdk-hero-section {
+  isolation: auto;
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// One left edge, shared with the rest of the site
+// ═══════════════════════════════════════════════════════════════════════
+// Every other hero on the site sits 24px left of the plain container edge:
+// /sdk's hero row carries gx-lg-5, whose -24px row margin pulls it there.
+// This page was on the plain edge, so it read 24px right of everything
+// else. Widening the container by the same 48px puts hero, sections and
+// footer on that shared edge at every width, without negative margins.
+@media (min-width: 992px) {
+  .igaming-page > .container,
+  .igaming-page > section > .container,
+  .ig-footer > .container { max-width: 991px; }
+}
+
+@media (min-width: 1200px) {
+  .igaming-page > .container,
+  .igaming-page > section > .container,
+  .ig-footer > .container { max-width: 992px; }
+}
+
+@media (min-width: 1400px) {
+  .igaming-page > .container,
+  .igaming-page > section > .container,
+  .ig-footer > .container { max-width: 1232px; }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// Phones: the hero owns the first screen and everything breathes
+// ═══════════════════════════════════════════════════════════════════════
+@media (max-width: 767.98px) {
+  .igaming-page .sdk-hero-section {
+    // svh, not vh: on a phone vh is the *largest* viewport, so browser
+    // chrome covers the bottom of it and the demo shows through.
+    min-height: calc(100svh - 112px);
+    align-content: center;
+    padding-block: 30px 38px;
+  }
+
+  .ig-hero-copy {
+    .page-hero-title { margin-bottom: 24px; }
+    .sdk-hero-sub { margin-bottom: 18px; }
+    .sdk-btns { margin-top: 32px; }
+  }
+
+  // The three-step strip wraps to two rows on a phone and reads as clutter.
+  // The same sequence is already stated in the paragraph above it, so nothing
+  // is lost by dropping it here.
+  .ig-path { display: none; }
+
+  // One column, equal width, equal height. The hero pair read as two
+  // different shapes because only one of them was stretching.
+  .ig-hero-copy .sdk-btns,
+  .ig-cta-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .ig-hero-copy .sdk-btns > a,
+  .ig-hero-copy .sdk-btns > button,
+  .ig-cta-actions > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    // .--hero-sdk caps itself at 306px, which is what left the pair at two
+    // different widths; the utility margin double-spaced against the gap.
+    max-width: none;
+    margin: 0;
+    min-height: 54px;
+    text-align: center;
+  }
+
+  // ── Cashier: bet label, stepper and quick bets hold one line ──
+  // The row still wraps, so the result line below keeps its own; these are
+  // just sized to fit the card together instead of spilling.
+  .ig-bet-row { gap: 8px; }
+
+  .ig-bet-label { flex: 0 0 auto; }
+
+  .ig-stepper {
+    flex: 0 0 auto;
+    padding: 3px;
+  }
+
+  .ig-step-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .ig-chips {
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    gap: 4px;
+  }
+
+  .ig-chip {
+    flex: 1 1 0;
+    min-width: 0;
+    height: 32px;
+    padding: 0 4px;
+    font-size: 12px;
+  }
+}
