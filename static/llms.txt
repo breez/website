@@ -23,6 +23,7 @@ Adoption: 100+ teams are building with the Breez SDK, adding instant, non-custod
 - [Club Orange](https://breez.technology/case-studies/cluborange/): The largest bitcoin-only social network moved its community to instant, non-custodial bitcoin
 - [Yolat](https://breez.technology/case-studies/yolat/): 10x transaction volume growth with lightning-fast cross-border remittances across Africa
 - [Radar](https://breez.technology/case-studies/radar/): Instant, non-custodial bitcoin inside a Signal-compatible encrypted messenger
+- [Freedomia](https://breez.technology/case-studies/freedomia/): A crypto debit card rebuilt its bitcoin deposits and went from API key to production in under 24 hours
 
 ## Use Cases
 
