@@ -21,6 +21,7 @@
     <meta name="twitter:image" content="../../../assets/images/open-graph-igaming.jpg" />
     <meta property="og:url" content="https://breez.technology/igaming/" />
     <link rel="canonical" href="https://breez.technology/igaming/" />
+
     <script type="application/ld+json">
 {
       "@context": "https://schema.org",
@@ -73,8 +74,12 @@
          aria-label="Breez header">
         <div class="container-fluid">
             <a href="/">
-                <img class="me-5" src="../../../assets/icons/logo-breez-header.svg" alt="header breez logo">
+                <img src="../../../assets/icons/logo-breez-header.svg" alt="header breez logo">
             </a>
+
+            <ul class="d-flex align-items-center ms-auto ig-nav-cta-wrap">
+                <li class="ig-nav-cta"><a href="#igaming-start" role="button" class="primary-btn text-decoration-none js-scroll-to" data-scroll-to="#igaming-start"><div style="margin: auto;">Contact us</div></a></li>
+            </ul>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBreez"
                     aria-controls="navbarBreez" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,14 +96,6 @@
                     <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0"><a href="/case-studies" class="text-decoration-none">Case Studies</a></li>
                     <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0"><a href="/vision" class="text-decoration-none">Vision</a></li>
                     <li class="header-links mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0"><a href="https://blog.breez.technology" target="_blank" class="text-decoration-none">Blog</a></li>
-                    <li class="header-links form mx-0 mx-lg-2 mx-xl-3 mx-xxl-4 my-2 my-lg-0"><a href="#igaming-start" role="button" class="text-decoration-none">Contact us</a></li>
-                </ul>
-                <ul class="d-flex align-items-center ms-auto">
-                    <li class="social-media"><a href="https://x.com/breez_tech" target="_blank"><img src="../../../assets/icons/x-icon.svg" alt="x icon" class="icon"></a></li>
-                    <li class="social-media"><a href="https://t.me/breezsdk" target="_blank"><img src="../../../assets/icons/telegram-icon.svg" alt="telegram icon" class="icon"></a></li>
-                    <li class="social-media"><a href="https://newsletter.breez.technology" target="_blank"><img src="../../../assets/icons/substack-icon.svg" alt="substack icon" class="icon"></a></li>
-                    <li class="social-media"><a href="https://github.com/breez" target="_blank"><img src="../../../assets/icons/github-icon.svg" alt="github icon" class="icon"></a></li>
-                    <li class="social-media"><a href="mailto:contact@breez.technology"><img src="../../../assets/icons/email-icon.svg" alt="email icon" class="icon"></a></li>
                 </ul>
             </div>
         </div>
@@ -173,25 +170,10 @@
                         USDC/USDT
                     </span>
                 </div>
-
-                <div class="d-flex sdk-btns">
-                    <a role="button" class="primary-btn --hero-sdk text-decoration-none js-scroll-to"
-                       href="#igaming-start" data-scroll-to="#igaming-start">
-                        <div style="margin: auto;">Contact Us</div>
-                    </a>
-                </div>
             </div>
 
             <div class="col-12 col-lg-6 ig-hero-demo" id="igaming-demo">
                 <div class="ig-browser">
-                <div class="ig-browser-chrome" aria-hidden="true">
-                    <span class="ig-browser-dots"><i class="--red"></i><i class="--amber"></i><i class="--green"></i></span>
-                    <span class="ig-browser-url">
-                        <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
-                        breezcasino.com/rocket
-                    </span>
-                </div>
-
                 <button type="button" class="ig-demo-open" data-ig-demo-open>
                         <span class="ig-demo-open-pill">
                             <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-8 8M3 21l8-8"/></svg>
@@ -209,8 +191,7 @@
                         <span class="ig-casino-end">
                             <button type="button" class="ig-btn --deposit --lead" data-ig-deposit>
                                 <svg class="ig-mark ig-mark--btn" aria-hidden="true"><use href="#ig-cashapp"/></svg>
-                                <span class="ig-deposit-full">Deposit with Cash App</span>
-                                <span class="ig-deposit-short">Deposit</span>
+                                Deposit
                             </button>
                             <span class="ig-credit">
                                 <em>Credits</em>
@@ -229,7 +210,7 @@
                             <canvas class="ig-canvas"></canvas>
                         </div>
                         <div class="ig-mult-wrap">
-                            <p class="ig-mult --ready" data-ig-multiplier aria-live="off">Demo Mode</p>
+                            <p class="ig-mult --ready" data-ig-multiplier aria-live="off"></p>
                             <p class="ig-mult-state --dead" data-ig-state>Deposit To Play</p>
                         </div>
                     </div>
@@ -268,7 +249,7 @@
         <div class="container">
             <div class="ig-head">
                 <h2 class="ig-h2 ig-h2--single">Deposits In Three Taps</h2>
-                <p class="ig-head-body">No wallet to install, no wallet address to copy, no seed phrase. Zero crypto knowledge needed.</p>
+                <p class="ig-head-body">No wallet to install, no wallet address to copy, no seed phrase. Nothing new for players to learn.</p>
             </div>
 
             <ol class="ig-flow">
@@ -308,7 +289,7 @@
                             In your address on Base
                         </span>
                     </div>
-                    <h3 class="ig-flow-title"><em>3.</em> USDC/T Lands In Your Treasury</h3>
+                    <h3 class="ig-flow-title"><em>3.</em> Funds Arrive</h3>
                 </li>
             </ol>
 

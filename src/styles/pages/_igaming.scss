@@ -159,7 +159,7 @@ $body-ink-dim: #FFFFFF;
   @media (min-width: 768px) {
     // Holds the fold so the demo is not visible, without centring the copy
     // inside it, which is what pushed the headline down the screen.
-    min-height: calc(100vh - 146px);
+    min-height: calc(100vh - 154px);
     align-content: start;
   }
 }
@@ -189,9 +189,6 @@ $body-ink-dim: #FFFFFF;
 
   .sdk-hero-sub--support { color: $white; }
 
-  // These three margins were stacking under the last line of copy.
-  .sdk-btns { margin-top: clamp(28px, 2.6vw, 36px); }
-
   .sdk-hero-info-block { width: 100%; }
 
 }
@@ -202,7 +199,6 @@ $body-ink-dim: #FFFFFF;
 @media (prefers-reduced-motion: no-preference) {
   .ig-hero-copy .sdk-hero-info-block { animation: ig-line-in 560ms $ig-ease both; }
   .ig-path { animation: ig-line-in 560ms $ig-ease 90ms both; }
-  .ig-hero-copy .sdk-btns { animation: ig-line-in 560ms $ig-ease 160ms both; }
 }
 
 @keyframes ig-line-in {
@@ -266,47 +262,6 @@ $body-ink-dim: #FFFFFF;
   background: #0A0512;
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
   overflow: hidden;
-}
-
-.ig-browser-chrome {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 10px 14px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.ig-browser-dots {
-  display: flex;
-  gap: 7px;
-
-  i {
-    width: 11px;
-    height: 11px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.16);
-
-    &.--red { background: #FF5F57; }
-    &.--amber { background: #FEBC2E; }
-    &.--green { background: #28C840; }
-  }
-}
-
-// A real address field: it should look like the browser's, which means it
-// takes the width the chrome has rather than shrink-wrapping the text.
-.ig-browser-url {
-  display: flex;
-  flex: 1;
-  align-items: center;
-  gap: 7px;
-  min-width: 0;
-  padding: 6px 16px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.34);
-  font-size: 12px;
-  letter-spacing: 0.01em;
-  color: rgba(255, 255, 255, 0.62);
 }
 
 // ---- the machine ----------------------------------------------------------
@@ -390,10 +345,13 @@ $body-ink-dim: #FFFFFF;
 
 // ---- the board ------------------------------------------------------------
 
-// Sized so the whole browser frame clears a laptop viewport with the section
-// heading above it: chrome + marquee + board + bet panel, not the board alone.
+// Sized so the whole frame clears a laptop viewport with the section heading
+// above it: casino bar + board + bet panel + note, not the board alone.
 .ig-board {
   position: relative;
+  // The sky is black. The casino's purple stays on the chrome above and
+  // below it, so the board reads as space rather than as more of the panel.
+  background: #05010D;
   height: 46vh;
   min-height: 210px;
   max-height: 340px;
@@ -476,12 +434,10 @@ $body-ink-dim: #FFFFFF;
 
   &.--idle { color: rgba(198, 179, 255, 0.5); }
 
-  &.--ready {
-    font-size: clamp(38px, 5.6vw, 74px);
-    letter-spacing: -0.03em;
-    font-variant-numeric: normal;
-    color: rgba(255, 255, 255, 0.9);
-  }
+  // Nothing on the landing frame: "Deposit to play" below says everything a
+  // "Demo Mode" heading above it did, and one line reads calmer than two.
+  // Only this state hides; the live multiplier and the last result stay.
+  &.--ready { display: none; }
   // The last round's result, left on the board in the color it landed in.
   // That is most of what makes a still frame read as a game.
   &.--last { color: rgba(255, 61, 110, 0.88); text-shadow: 0 0 58px rgba(255, 61, 110, 0.3); }
@@ -493,26 +449,19 @@ $body-ink-dim: #FFFFFF;
 .ig-mult-state {
   margin: 0;
   font-weight: $font-weight-medium;
-  font-size: 12px;
-  line-height: 18px;
-  letter-spacing: 0.18em;
+  font-size: clamp(14px, 1.4vw, 19px);
+  line-height: 1.4;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: rgba(198, 179, 255, 0.75);
 
   &.--live { color: rgba(255, 194, 46, 0.92); }
   &.--bust { color: rgba(255, 61, 110, 0.92); }
 
-  // A hard on/off blink, the way a cabinet asks for a coin. steps(1) keeps
-  // it square: a smooth fade reads as a web page, not as a game.
-  &.--dead {
-    color: $cas-gold;
-    animation: ig-attract 1.05s steps(1, end) infinite;
-  }
-}
-
-@keyframes ig-attract {
-  0% { opacity: 1; }
-  50% { opacity: 0.2; }
+  // The explanation, and the only one. It is static on purpose: the green
+  // deposit button is the single thing on the machine that moves, so this
+  // says what is needed without pulling against it.
+  &.--dead { color: $cas-gold; }
 }
 
 // ---- the bet panel --------------------------------------------------------
@@ -671,7 +620,7 @@ $body-ink-dim: #FFFFFF;
     background: linear-gradient(180deg, #00E458 0%, #00C247 100%);
     border-color: rgba(255, 255, 255, 0.22);
     color: #04240F;
-    animation: ig-ask 2.4s ease-in-out infinite;
+    animation: ig-ask 2s ease-in-out infinite;
 
     &:hover:not(:disabled) {
       transform: translateY(-1px);
@@ -710,10 +659,24 @@ $body-ink-dim: #FFFFFF;
   &:hover { transform: translateY(-1px); }
 }
 
-// Slow enough to read as an invitation rather than an alarm.
+// A shadow swing alone was almost invisible once this button came down to
+// 102px, so the pulse carries three things: a wider glow, a ring that
+// expands out of the edge and fades, and a lift in brightness. Brightness
+// and box-shadow are used rather than transform, so the hover lift still
+// works while it is pulsing.
 @keyframes ig-ask {
-  0%, 100% { box-shadow: 0 8px 26px rgba(0, 214, 79, 0.26); }
-  50% { box-shadow: 0 10px 40px rgba(0, 214, 79, 0.62); }
+  0% {
+    box-shadow: 0 8px 26px rgba(0, 214, 79, 0.34), 0 0 0 0 rgba(0, 224, 88, 0.55);
+    filter: brightness(1);
+  }
+  55% {
+    box-shadow: 0 14px 50px rgba(0, 214, 79, 0.78), 0 0 0 11px rgba(0, 224, 88, 0);
+    filter: brightness(1.16);
+  }
+  100% {
+    box-shadow: 0 8px 26px rgba(0, 214, 79, 0.34), 0 0 0 0 rgba(0, 224, 88, 0);
+    filter: brightness(1);
+  }
 }
 
 @keyframes ig-cash-pulse {
@@ -792,12 +755,18 @@ $body-ink-dim: #FFFFFF;
 // page keeps the components and sets its own rhythm.
 .igaming-page {
   .sdk-hero-section {
-    margin-top: 112px;
+    // The eyebrow is this page's first ink, so it -- not the H1 -- takes the
+    // position every other page gives its first line: 44px under the bar on
+    // desktop (/glow, /case-studies, /misty, /sdk; /vision at 20 is the
+    // outlier). Mobile is set by eye at 30 rather than the site's 18.
+    // This is the whole offset at both widths: the hero is align-content:start
+    // everywhere, so the gap is margin + padding and nothing else.
+    margin-top: 98px;
     // Deliberately short of the rhythm: the demo is the hero's payoff, so the
     // two read as one unit. Every other gap on the page is the full 128px.
     margin-bottom: 8px;
 
-    @media (min-width: 768px) { margin-top: 146px; margin-bottom: 12px; }
+    @media (min-width: 768px) { margin-top: 154px; margin-bottom: 12px; }
     @media (min-width: 1200px) { margin-bottom: 16px; }
   }
 
@@ -934,6 +903,9 @@ $body-ink-dim: #FFFFFF;
   }
 }
 
+// The number is part of the title, not a list marker, so it centres with the
+// rest of the line. That does mean the words alone sit a little right of the
+// card's centre -- the prefix is carrying the left side.
 .ig-flow-title {
   margin: 24px 0 0;
   font-weight: $font-weight-medium;
@@ -1740,7 +1712,6 @@ $body-ink-dim: #FFFFFF;
   .ig-caret,
   .ig-machine.is-crediting,
   .ig-machine.is-crediting .ig-credit,
-  .ig-mult-state.--dead,
   .ig-btn.--deposit.--lead,
   .ig-btn.--cash { animation: none; }
 
@@ -1843,46 +1814,29 @@ $body-ink-dim: #FFFFFF;
   .igaming-page .sdk-hero-section {
     // svh, not vh: on a phone vh is the *largest* viewport, so browser
     // chrome covers the bottom of it and the demo shows through.
-    min-height: calc(100svh - 112px);
-    align-content: center;
-    padding-block: 30px 38px;
+    // Matches the margin above it, so hero + offset is exactly one screen.
+    min-height: calc(100svh - 98px);
+    // start, not center. This is a wrapping flex row, so align-content
+    // distributes the *free* space -- which is a function of viewport height.
+    // Centring made the gap under the bar 45px on a 812-tall phone and 118px
+    // on a 932-tall one, and made the margin above only half-effective.
+    // start makes the offset mean what it says on every screen.
+    align-content: start;
+    // 8px, not the 30 this used to carry. The margin above already clears
+    // the 78px bar; 30 on top of it put the eyebrow 64px under the bar
+    // against a site that starts its first line at 18.
+    padding-block: 8px 38px;
   }
 
   .ig-hero-copy {
     .page-hero-title { margin-bottom: 24px; }
     .sdk-hero-sub { margin-bottom: 18px; }
-    .sdk-btns { margin-top: 32px; }
   }
 
   // The three-step strip wraps to two rows on a phone and reads as clutter.
   // The same sequence is already stated in the paragraph above it, so nothing
   // is lost by dropping it here.
   .ig-path { display: none; }
-
-  // One column, equal width, equal height. The hero pair read as two
-  // different shapes because only one of them was stretching.
-  .ig-hero-copy .sdk-btns {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-    width: 100%;
-  }
-
-  .ig-hero-copy .sdk-btns > a,
-  .ig-hero-copy .sdk-btns > button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    // .--hero-sdk caps itself at 306px, which is what left the pair at two
-    // different widths; the utility margin double-spaced against the gap.
-    max-width: none;
-    margin: 0;
-    min-height: 54px;
-    text-align: center;
-  }
 
   // ── Cashier: bet label, stepper and quick bets hold one line ──
   // The row still wraps, so the result line below keeps its own; these are
@@ -1917,16 +1871,16 @@ $body-ink-dim: #FFFFFF;
 
   .ig-hero-demo { padding-left: 48px; }
 
-  // The machine has to finish above the fold, and everything around the
-  // board (browser chrome, casino bar, bet panel, disclaimer) measures a
-  // fixed 393px. The board takes whatever the viewport has left, capped so
-  // it does not balloon on a tall screen.
-  // .ig-board carries the height, not the canvas host inside it, so the
-  // canvas host alone just leaves dead space in a fixed 380px board.
-  // max-height: 380px on .ig-board is what caps this; the height alone is
-  // not enough.
+  // The machine has to finish above the fold, so the board takes what the
+  // viewport has left after the casino bar, bet panel and note.
+  // .ig-board carries the height, not the canvas host inside it, and it caps
+  // itself at 340/380 -- so `max-height: none` here is load-bearing, not
+  // tidiness. Without it the height alone does nothing.
   .ig-hero-demo .ig-board {
-    height: clamp(240px, calc(100vh - 436px), 490px);
+    // Deliberately subtracts more than the surrounding chrome costs. Taking
+    // only the true chrome left the board 414px against a 522px column,
+    // which reads nearly square; a crash game wants a letterbox.
+    height: clamp(240px, calc(100vh - 486px), 440px);
     max-height: none;
   }
 
@@ -1966,7 +1920,6 @@ $body-ink-dim: #FFFFFF;
   // Preview state. The board runs; the browser chrome, the bet controls and
   // the disclaimer belong to the expanded state, where there is room.
   .ig-browser:not(.is-full) {
-    .ig-browser-chrome,
     .ig-bet,
     .ig-demo-close { display: none; }
 
@@ -2050,6 +2003,13 @@ $body-ink-dim: #FFFFFF;
       min-height: 180px;
     }
     .ig-canvas-host { height: auto; flex: 1 1 auto; min-height: 180px; }
+  }
+
+  // The close button used to sit in the browser chrome. With that gone it
+  // shares the casino bar, so the bar gives up the width it occupies rather
+  // than letting it land on the balance.
+  .ig-browser.is-full .ig-casino-bar {
+    padding-right: 62px;
   }
 
   .ig-demo-close {
@@ -2233,17 +2193,6 @@ $body-ink-dim: #FFFFFF;
   @media (min-width: 1200px) { height: 42px; }
 }
 
-// The fake chrome is scene-setting; it does not need the height of a real
-// browser toolbar.
-.ig-browser-chrome {
-  padding-block: 6px;
-}
-
-.ig-browser-url {
-  padding-block: 2px;
-  font-size: 10.5px;
-}
-
 // "Actually" is the word the sentence turns on.
 .page-hero-title em {
   font-style: italic;
@@ -2273,14 +2222,7 @@ $body-ink-dim: #FFFFFF;
 
 }
 
-// The bar has room for the full label on a wide machine and not on a phone,
-// where the Cash App mark beside it carries the brand anyway.
-.ig-deposit-short { display: none; }
-
 @media (max-width: 991.98px) {
-  .ig-deposit-full { display: none; }
-  .ig-deposit-short { display: inline; }
-
   .ig-casino-bar .ig-btn.--deposit {
     height: 40px;
     min-width: 0;
@@ -2413,12 +2355,31 @@ $body-ink-dim: #FFFFFF;
   ul { gap: 14px; padding: 0; margin: 0; list-style: none; }
 }
 
-// The stepper's own dollar sign says what the number is, so the label beside
-// it was redundant. Without it the row needs less room too.
+// ═══════════════════════════════════════════════════════════════════════
+// The machine breathes
+// ═══════════════════════════════════════════════════════════════════════
+// Every trim in here was justified on its own and the total was never looked
+// at: the bar came down to match the credit box, the bet row lost its label,
+// the chrome went. Together they left the controls squeezed against the
+// board. Removing the chrome gave back 49px, and this spends it the way a
+// crash game should: the board is the show, and the controls are where the
+// money decision happens, so neither should look apologetic.
 .ig-bet {
-  padding: 10px 12px;
+  padding: 16px 14px;
 
-  @media (min-width: 768px) { padding: 10px 14px 12px; }
+  @media (min-width: 768px) { padding: 18px 18px 20px; }
+}
+
+.ig-casino-bar {
+  padding: 14px 16px;
+
+  @media (min-width: 768px) { padding: 15px 20px; }
+}
+
+// Fine print reads as the machine's footer, not as something wedged under
+// the buttons.
+.ig-machine .ig-demo-note {
+  padding: 0 16px 13px;
 }
 
 .ig-bet-row { gap: 8px 10px; }
@@ -2428,4 +2389,72 @@ $body-ink-dim: #FFFFFF;
 .ig-pane-note--center {
   justify-content: center;
   text-align: center;
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// Contact Us lives in the nav on this page
+// ═══════════════════════════════════════════════════════════════════════
+// It takes the slot the social icons had. The socials are still on the page,
+// in the contact section's Follow us block.
+//
+// It sits OUTSIDE .navbar-collapse on purpose: inside it, the button is
+// invisible until someone opens the burger, which defeats promoting it. Out
+// here it is in the bar at every width, and the burger keeps its job so the
+// logo stays a link to the homepage.
+//
+// The button itself is the site's own .primary-btn. Everything here is
+// layout: where it sits, and the narrower measure it needs once it has to
+// share a 390px bar with the logo and the burger.
+//
+// Scoped to .igaming-body, which is on <body> and used by this page alone.
+.igaming-body .ig-nav-cta-wrap {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 auto;
+  padding: 0;
+  list-style: none;
+  // Moving it out of the collapse put it ahead of the nav links in DOM
+  // order, so both breakpoints set the row explicitly. Desktop: logo, links,
+  // button.
+  order: 2;
+}
+
+.igaming-body .navbar-collapse { order: 1; }
+
+// Every other page's logo carries Bootstrap's `me-5` to hold it off the nav
+// links. This page's markup drops that class and sets the gap here instead:
+// below lg the links are in the dropdown, so the 48px is dead space, and
+// reclaiming it is what stops the burger wrapping to a second line. Done in
+// the markup rather than by overriding `me-5`, which would need !important.
+@media (min-width: 992px) {
+  .igaming-body .navbar > .container-fluid > a > img { margin-right: 3rem; }
+}
+
+.igaming-body .ig-nav-cta {
+  display: flex;
+  align-items: center;
+}
+
+// Below the lg breakpoint the bar is logo + button + burger, so the button
+// gives up the 184px it takes on desktop.
+@media (max-width: 991.98px) {
+  // Mobile: logo, button, burger, then the menu as its own full-width line
+  // underneath. Without the last one, opening the menu dropped the button
+  // and the burger below the links instead of leaving them in the bar.
+  .igaming-body .ig-nav-cta-wrap {
+    order: 1;
+    margin-right: 12px;
+  }
+
+  .igaming-body .navbar-toggler { order: 2; }
+  .igaming-body .navbar-collapse { order: 3; }
+
+  .igaming-body .ig-nav-cta > .primary-btn {
+    width: auto;
+    min-width: 0;
+    height: 42px;
+    padding: 10px 16px;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+  }
 }

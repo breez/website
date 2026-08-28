@@ -81,10 +81,9 @@ export function createHud(root, game, options = {}) {
 
   function setReady() {
     if (!multiplierEl) return
-    // The landing state names the thing. "Live" is avoided on purpose: in
-    // iGaming it means live dealer, and in payments it means production
-    // rather than sandbox, so it would read as real money.
-    multiplierEl.textContent = 'Demo Mode'
+    // The landing frame carries no multiplier: the line beneath it says
+    // "Deposit to play", which is the whole message.
+    multiplierEl.textContent = ''
     multiplierEl.className = 'ig-mult --ready'
   }
 
@@ -119,6 +118,10 @@ export function createHud(root, game, options = {}) {
 
     if (launchBtn) {
       launchBtn.hidden = flying
+      // Correctly dead with no credits. Making it live and gold gave the
+      // machine two things competing for the same attention; the pulsing
+      // green deposit button is the one attractor, and a greyed bet button
+      // is what every crash game does when the balance is empty.
       launchBtn.disabled = broke || game.phase !== 'IDLE'
     }
     if (cashBtn) {

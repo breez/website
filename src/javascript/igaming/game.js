@@ -37,6 +37,12 @@ const COLOR = {
 }
 
 // A fixed starfield: the sky is the same every load and nothing loops.
+//
+// Stars carry a depth (0 far, 1 near) driving size and brightness, so the
+// field has distance in it rather than being scattered identical dots. The
+// tints stay faint: the curve and the multiplier are the bright things here.
+const STAR_TINTS = ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#CBB8FF', '#9FD4FF', '#FFE6A8']
+
 function makeStars(count, w, h, seed) {
   let t = seed
   const rnd = () => {
@@ -45,10 +51,171 @@ function makeStars(count, w, h, seed) {
   }
   const out = []
   for (let i = 0; i < count; i += 1) {
-    out.push({ x: rnd() * w, y: rnd() * h, r: 0.4 + rnd() * 1.3, a: 0.12 + rnd() * 0.5 })
+    const depth = rnd()
+    out.push({
+      x: rnd() * w,
+      y: rnd() * h,
+      r: 0.35 + depth * 1.35,
+      a: 0.10 + depth * 0.55,
+      depth,
+      tint: STAR_TINTS[Math.floor(rnd() * STAR_TINTS.length)],
+    })
   }
   return out
 }
+
+// The sky, painted once into an offscreen canvas at resize and blitted per
+// frame. Nothing here moves: the multiplier is the thing to watch, and a
+// second moving object would compete with it. Drawing it once also keeps the
+// per-frame cost to a single blit no matter how much is in it.
+//
+// One big meteor holds the top-left. That corner is the one large area the
+// rocket never crosses, since every round climbs from the bottom-left to the
+// top-right, and it is far enough from the centre to leave the multiplier
+// clear. It is drawn flat-shaded like the rocket: solid colour blocks, no
+// gradients pretending to be light, because a soft glow on black reads as a
+// smudge rather than as a rock on fire.
+
+// A tapering flame with a jagged silhouette, pointing back along -x. Building
+// it from teeth rather than a curve is what makes it read as fire.
+function flamePath(g, len, halfW, teeth, bite) {
+  g.beginPath()
+  g.moveTo(-len, 0)
+  for (let i = 0; i <= teeth; i += 1) {
+    const t = i / teeth
+    const x = -len + t * len
+    const spread = halfW * Math.sin(Math.PI * t * 0.78)
+    g.lineTo(x, -spread * (i % 2 === 0 ? bite : 1))
+  }
+  for (let i = teeth; i >= 0; i -= 1) {
+    const t = i / teeth
+    const x = -len + t * len
+    const spread = halfW * Math.sin(Math.PI * t * 0.78)
+    g.lineTo(x, spread * (i % 2 === 0 ? 1 : bite))
+  }
+  g.closePath()
+}
+
+const CRATERS = [
+  { x: 0.16, y: -0.30, r: 0.30 },
+  { x: -0.34, y: 0.20, r: 0.19 },
+  { x: 0.34, y: 0.34, r: 0.15 },
+  { x: -0.06, y: 0.46, r: 0.10 },
+  { x: -0.44, y: -0.24, r: 0.09 },
+]
+
+function drawHeroMeteor(g, w, h) {
+  const r = Math.max(12, Math.min(w, h) * 0.085)
+  const hx = w * 0.31
+  const hy = h * 0.30
+
+  g.save()
+  g.translate(hx, hy)
+  // Travelling down and to the right, so the flame streams back up-left and
+  // out of the corner.
+  g.rotate(0.62)
+
+  // Outer flame, then a hotter one inside it.
+  g.fillStyle = '#FF6A2C'
+  flamePath(g, r * 5.9, r * 1.30, 15, 0.70)
+  g.fill()
+
+  g.fillStyle = '#FFC22E'
+  flamePath(g, r * 3.4, r * 0.84, 11, 0.66)
+  g.fill()
+
+  // The rock.
+  g.fillStyle = '#D7E0EA'
+  g.beginPath()
+  g.arc(0, 0, r, 0, Math.PI * 2)
+  g.fill()
+
+  // Shaded side, clipped to the rock so it stays a crescent.
+  g.save()
+  g.beginPath()
+  g.arc(0, 0, r, 0, Math.PI * 2)
+  g.clip()
+  g.fillStyle = '#AEBCCC'
+  g.beginPath()
+  g.arc(r * 0.42, r * 0.46, r * 1.02, 0, Math.PI * 2)
+  g.fill()
+  g.restore()
+
+  // Craters. Fixed positions, so the rock looks drawn rather than sprayed.
+  for (const c of CRATERS) {
+    g.fillStyle = '#93A3B5'
+    g.beginPath()
+    g.ellipse(c.x * r, c.y * r, c.r * r, c.r * r * 0.82, 0.3, 0, Math.PI * 2)
+    g.fill()
+    g.fillStyle = 'rgba(255, 255, 255, 0.35)'
+    g.beginPath()
+    g.ellipse(c.x * r - c.r * r * 0.18, c.y * r - c.r * r * 0.22, c.r * r * 0.72, c.r * r * 0.58, 0.3, 0, Math.PI * 2)
+    g.fill()
+  }
+
+  g.restore()
+}
+
+function makeBackdrop(w, h, seed) {
+  let t = seed
+  const rnd = () => {
+    t = (t * 1664525 + 1013904223) % 4294967296
+    return t / 4294967296
+  }
+  const c = document.createElement('canvas')
+  c.width = Math.max(1, w)
+  c.height = Math.max(1, h)
+  const g = c.getContext('2d')
+  if (!g) return null
+
+  drawHeroMeteor(g, w, h)
+
+  // Embers thrown off the flame, thinning out behind it.
+  const hx = w * 0.31
+  const hy = h * 0.30
+  for (let i = 0; i < 26; i += 1) {
+    const back = 0.25 + rnd() * 0.95
+    const sx = hx - Math.cos(0.62) * back * Math.min(w, h) * 0.62 + (rnd() - 0.5) * w * 0.07
+    const sy = hy - Math.sin(0.62) * back * Math.min(w, h) * 0.62 + (rnd() - 0.5) * h * 0.09
+    g.fillStyle = rnd() > 0.45
+      ? `rgba(255, 194, 46, ${(1.2 - back) * 0.55})`
+      : `rgba(255, 106, 44, ${(1.2 - back) * 0.5})`
+    g.beginPath()
+    g.arc(sx, sy, 0.7 + rnd() * 1.9, 0, Math.PI * 2)
+    g.fill()
+  }
+
+  // Smaller meteors for depth, angled away from the rocket's own diagonal.
+  for (let i = 0; i < 3; i += 1) {
+    const len = (0.09 + rnd() * 0.09) * w
+    const x = (0.42 + rnd() * 0.46) * w
+    const y = (0.34 + rnd() * 0.50) * h
+    const dx = len * 0.82
+    const dy = len * 0.42
+    const grad = g.createLinearGradient(x, y, x + dx, y + dy)
+    const peak = 0.22 + rnd() * 0.16
+    grad.addColorStop(0, 'rgba(255, 255, 255, 0)')
+    grad.addColorStop(0.75, `rgba(255, 226, 180, ${peak * 0.5})`)
+    grad.addColorStop(1, `rgba(255, 255, 255, ${peak})`)
+    g.strokeStyle = grad
+    g.lineWidth = 1.2
+    g.lineCap = 'round'
+    g.beginPath()
+    g.moveTo(x, y)
+    g.lineTo(x + dx, y + dy)
+    g.stroke()
+    g.fillStyle = `rgba(255, 246, 225, ${peak})`
+    g.beginPath()
+    g.arc(x + dx, y + dy, 1.4, 0, Math.PI * 2)
+    g.fill()
+  }
+
+  return c
+}
+
+// About three seconds of climb at the current growth rate: long enough to
+// read as a game, short enough not to promise the demo always pays.
+const FIRST_ROUND_FLOOR = 1.8
 
 // A round's crash point. The classic crash curve (1/(1-r)) with a house edge,
 // then a mild exponent to thin the tail: 20x+ should be a story, not a Tuesday.
@@ -82,6 +249,7 @@ export function createGame(canvas, options = {}) {
   let stake = 0
   let cashedAt = 0
   let busted = true
+  let roundsPlayed = 0
 
   // View scale. The head of the curve is held at a fixed point on screen and
   // the axes grow underneath it, so the rocket always looks about to go
@@ -93,6 +261,7 @@ export function createGame(canvas, options = {}) {
   let shake = 0
   let cashPulse = 0
   let stars = []
+  let backdrop = null
   const particles = []
   const shards = []
 
@@ -123,6 +292,7 @@ export function createGame(canvas, options = {}) {
     canvas.height = Math.round(H * dpr)
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
     stars = makeStars(Math.round((W * H) / 9000), W, H, 20260826)
+    backdrop = makeBackdrop(W, H, 20260826)
   }
 
   // The canvas fills the board. The only chrome over it is the round-history
@@ -313,12 +483,16 @@ export function createGame(canvas, options = {}) {
     return busted ? COLOR.spent : COLOR.hot
   }
 
+  function drawBackdrop() {
+    if (backdrop) ctx.drawImage(backdrop, 0, 0, W, H)
+  }
+
   function drawStars() {
     if (!stars.length) return
     ctx.save()
-    ctx.fillStyle = COLOR.star
     for (const st of stars) {
       ctx.globalAlpha = st.a
+      ctx.fillStyle = st.tint
       ctx.beginPath()
       ctx.arc(st.x, st.y, st.r, 0, Math.PI * 2)
       ctx.fill()
@@ -536,6 +710,7 @@ export function createGame(canvas, options = {}) {
       ctx.translate((Math.random() - 0.5) * s, (Math.random() - 0.5) * s)
     }
 
+    drawBackdrop()
     drawStars()
     drawGrid()
 
@@ -563,10 +738,14 @@ export function createGame(canvas, options = {}) {
   function start() {
     resize()
     phase = 'IDLE'
-    busted = false
+    // The opening frame is the last round, already crashed, exactly as the
+    // module's own state is set up for. Resetting to elapsed 0 / multiplier 1
+    // here wiped it, and drawTrail() bails on elapsed <= 0, so the board was
+    // landing empty: no curve, no evidence a game had ever been played.
+    busted = true
     crashPoint = OPENING_CRASH
-    multiplier = 1
-    elapsed = 0
+    multiplier = OPENING_CRASH
+    elapsed = timeOf(OPENING_CRASH)
     snapView()
     draw()
     emit('idle', { at: multiplier, busted })
@@ -580,6 +759,13 @@ export function createGame(canvas, options = {}) {
     particles.length = 0
     shards.length = 0
     crashPoint = drawCrashPoint()
+    // The real curve busts at 1.00x often enough that a visitor's first-ever
+    // round can end before the rocket leaves the floor. That is a fair game
+    // and a terrible demo: the one round most people play has to show the
+    // climb. Only the opening round is floored; every round after it is the
+    // untouched distribution.
+    if (roundsPlayed === 0) crashPoint = Math.max(FIRST_ROUND_FLOOR, crashPoint)
+    roundsPlayed += 1
     roundStart = performance.now()
     last = roundStart
     elapsed = 0
