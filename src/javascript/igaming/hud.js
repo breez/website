@@ -79,7 +79,10 @@ export function createHud(root, game, options = {}) {
 
   function setReady() {
     if (!multiplierEl) return
-    multiplierEl.textContent = 'Ready'
+    // The landing state names the thing. "Live" is avoided on purpose: in
+    // iGaming it means live dealer, and in payments it means production
+    // rather than sandbox, so it would read as real money.
+    multiplierEl.textContent = 'Demo Mode'
     multiplierEl.className = 'ig-mult --ready'
   }
 
@@ -150,11 +153,26 @@ export function createHud(root, game, options = {}) {
     while (historyEl.children.length > HISTORY_MAX) historyEl.lastChild.remove()
   }
 
+  // The result sits under the credits now rather than in the bet row, so it
+  // behaves like a notification: it announces itself and then clears, instead
+  // of leaving the last round's outcome on screen indefinitely.
+  let resultTimer = null
+  let resultFade = null
+
   function setResult(text, tone) {
     if (!resultEl) return
+    clearTimeout(resultTimer)
+    clearTimeout(resultFade)
     resultEl.textContent = text || ''
+    // className is rewritten here, so is-in has to go on afterwards.
     resultEl.className = `ig-result${tone ? ` --${tone}` : ''}`
     resultEl.hidden = !text
+    if (!text) return
+    requestAnimationFrame(() => resultEl.classList.add('is-in'))
+    resultTimer = setTimeout(() => {
+      resultEl.classList.remove('is-in')
+      resultFade = setTimeout(() => { resultEl.hidden = true }, 300)
+    }, 2800)
   }
 
   // ---- game events --------------------------------------------------------

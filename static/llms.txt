@@ -26,7 +26,7 @@ Adoption: 100+ teams are building with the Breez SDK, adding instant, non-custod
 
 ## Use Cases
 
-- [iGaming deposits](https://breez.technology/igaming/): Cash App deposits for iGaming operators. The player pays with Cash App, the operator's treasury receives USDC on Base about thirty seconds later. No cards, no chargebacks, and no crypto knowledge required from the player. Three Breez SDK calls on the operator's side: parse, getCrossChainRoutes, preparePaymentLink. Includes a playable demo of the deposit flow.
+- [iGaming deposits](https://breez.technology/igaming/): Cash App deposits for iGaming operators. The player pays with Cash App, the operator's treasury receives USDC or USDT across 30+ networks about thirty seconds later. No cards, no chargebacks, and no crypto knowledge required from the player. Three Breez SDK calls on the operator's side: parse, getCrossChainRoutes, preparePaymentLink. Includes a playable demo of the deposit flow.
 
 ## Resources
 

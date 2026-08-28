@@ -93,7 +93,7 @@ Integrate in minutes with just a few lines of code. Exolix integrated the Breez 
 
 ## How can an iGaming operator take deposits with Cash App?
 
-The player pays with Cash App and the operator's treasury receives USDC (or USDT) at its own address on Base, Solana or Tron, about thirty seconds later. There are no card networks in the path, so gaming-category declines and chargebacks are out of the loop, and the player never needs a wallet, an exchange account or any crypto knowledge.
+The player pays with Cash App and the operator's treasury receives USDC (or USDT) at its own address on any of 30+ networks, about thirty seconds later. There are no card networks in the path, so gaming-category declines and chargebacks are out of the loop, and the player never needs a wallet, an exchange account or any crypto knowledge.
 
 It is three Breez SDK calls on the operator's side: parse the treasury address, getCrossChainRoutes to list the stablecoin destinations Cash App can fund over Lightning, and preparePaymentLink to get the Cash App deep link plus a live quote. The SDK quotes and orchestrates but never holds funds, so the operator custodies the result on chain.
 

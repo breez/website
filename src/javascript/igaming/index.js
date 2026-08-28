@@ -52,12 +52,73 @@ function boot() {
     onLayout: relayout,
   })
 
+  // ---- the demo on a phone ------------------------------------------------
+  // Above the fold the machine shows its board only: live, and cropped. The
+  // controls need room a 390px screen cannot give them inline, so tapping
+  // hands the game the whole viewport rather than expanding in place, which
+  // would reflow the page under the visitor and leave the controls fighting
+  // the fold all over again.
+  const browser = document.querySelector('.ig-hero-demo .ig-browser')
+  const compact = window.matchMedia('(max-width: 991.98px)')
+  let returnFocus = null
+
+  const expand = () => {
+    if (!browser || !compact.matches || browser.classList.contains('is-full')) return
+    returnFocus = document.activeElement
+    browser.classList.add('is-full')
+    document.body.classList.add('ig-locked')
+    relayout()
+    const close = browser.querySelector('[data-ig-demo-close]')
+    if (close) close.focus()
+  }
+
+  const collapse = () => {
+    if (!browser || !browser.classList.contains('is-full')) return
+    browser.classList.remove('is-full')
+    // The cashier owns the lock while it is open; releasing it here would
+    // let the page scroll behind the sheet.
+    if (!document.querySelector('.ig-cashier.is-open')) {
+      document.body.classList.remove('ig-locked')
+    }
+    relayout()
+    if (returnFocus && returnFocus.focus) returnFocus.focus()
+  }
+
+  if (browser) {
+    browser.querySelectorAll('[data-ig-demo-open]').forEach((btn) => {
+      btn.addEventListener('click', expand)
+    })
+    browser.querySelectorAll('[data-ig-demo-close]').forEach((btn) => {
+      btn.addEventListener('click', collapse)
+    })
+    document.addEventListener('keydown', (event) => {
+      // The cashier runs its own Escape; it is on top, so it goes first.
+      if (event.key !== 'Escape') return
+      if (document.querySelector('.ig-cashier.is-open')) return
+      collapse()
+    })
+    // Crossing into the desktop layout drops the state: that layout shows
+    // the whole machine inline, where a fixed overlay would be wrong. The
+    // media-query event alone is not enough to rely on here, and the cost of
+    // missing it is a body left locked and a page that will not scroll, so
+    // resize backs it up.
+    const syncToViewport = () => { if (!compact.matches) collapse() }
+    if (compact.addEventListener) compact.addEventListener('change', syncToViewport)
+    else if (compact.addListener) compact.addListener(syncToViewport)
+    window.addEventListener('resize', syncToViewport, { passive: true })
+  }
+
   // Every "try the deposit" on the page is the machine's own deposit button.
   // Opening the cashier from halfway down the page would float a payment
   // sheet over body copy with no game behind it, so the page goes back to the
   // machine first and only opens the cashier once it has actually arrived.
   const openInGame = () => {
     if (!cashier) return
+
+    // On a phone the machine is a cropped preview, and a payment sheet over
+    // a preview with no controls behind it makes no sense. Give it the
+    // screen first, then open.
+    if (compact.matches) { expand(); cashier.open(); return }
 
     const nearGame = machine.getBoundingClientRect().bottom > window.innerHeight * 0.5
     if (nearGame) { cashier.open(); return }
@@ -121,53 +182,9 @@ function boot() {
     }, { passive: true })
   }
 
-  // The contact form lives behind a button. A wall of empty inputs sitting on
-  // the page is not a call to action, and this page has exactly one.
-  const contactRoot = document.querySelector('[data-ig-contact-modal]')
-  if (contactRoot) {
-    let lastFocus = null
-
-    const openContact = () => {
-      lastFocus = document.activeElement
-      contactRoot.hidden = false
-      document.body.classList.add('ig-locked')
-      requestAnimationFrame(() => {
-        contactRoot.classList.add('is-open')
-        const first = contactRoot.querySelector('[data-ig-contact-first]')
-        if (first) first.focus()
-      })
-    }
-
-    const closeContact = () => {
-      contactRoot.classList.remove('is-open')
-      document.body.classList.remove('ig-locked')
-      const finish = () => { contactRoot.hidden = true }
-      if (reduced) finish()
-      else setTimeout(finish, 220)
-      if (lastFocus && lastFocus.focus) lastFocus.focus()
-    }
-
-    document.querySelectorAll('[data-ig-contact]').forEach((btn) => {
-      btn.addEventListener('click', (event) => { event.preventDefault(); openContact() })
-    })
-    contactRoot.querySelectorAll('[data-ig-contact-close]').forEach((btn) => {
-      btn.addEventListener('click', closeContact)
-    })
-
-    // Escape closes; Tab stays inside, since this is a dialog over the page.
-    contactRoot.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') { event.preventDefault(); closeContact(); return }
-      if (event.key !== 'Tab') return
-      const focusable = Array.from(contactRoot.querySelectorAll(
-        'button:not([disabled]), input, textarea, a[href], [tabindex]:not([tabindex="-1"])',
-      )).filter((el) => el.offsetParent !== null)
-      if (!focusable.length) return
-      const first = focusable[0]
-      const last = focusable[focusable.length - 1]
-      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus() }
-      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus() }
-    })
-  }
+  // The contact form is inline in the closing section, the way every other
+  // page on this site does it, so there is no dialog to open, trap focus in,
+  // or close. The hero button is an ordinary in-page link to it.
 
   // The language switcher on the code block. Panels are in the markup; this
   // only moves the selected state, so the code is readable with no JS at all.

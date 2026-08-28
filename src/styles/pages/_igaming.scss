@@ -159,7 +159,7 @@ $body-ink-dim: #FFFFFF;
   @media (min-width: 768px) {
     // Holds the fold so the demo is not visible, without centring the copy
     // inside it, which is what pushed the headline down the screen.
-    min-height: calc(100vh - 160px);
+    min-height: calc(100vh - 146px);
     align-content: start;
   }
 }
@@ -802,13 +802,14 @@ $body-ink-dim: #FFFFFF;
   isolation: isolate;
 }
 
-// And the content goes on a positive layer, so no z-index:-1 gradient can
-// paint over it regardless of how the stacking context resolves.
+// The gradients now fall to the root's negative layer, which already paints
+// below every section's copy, so the content does not need lifting. It must
+// not be lifted either: z-index on the hero columns makes them stacking
+// contexts, which would trap the fullscreen demo and the cashier beneath the
+// fixed site header.
 .ig-section > .container,
-.ig-demo > .container,
 .igaming-page .sdk-hero-section > [class*='col-'] {
   position: relative;
-  z-index: 1;
 }
 
 .ig-section {
@@ -831,7 +832,7 @@ $body-ink-dim: #FFFFFF;
     // two read as one unit. Every other gap on the page is the full 128px.
     margin-bottom: 8px;
 
-    @media (min-width: 768px) { margin-top: 160px; margin-bottom: 12px; }
+    @media (min-width: 768px) { margin-top: 146px; margin-bottom: 12px; }
     @media (min-width: 1200px) { margin-bottom: 16px; }
   }
 
@@ -1977,14 +1978,32 @@ $body-ink-dim: #FFFFFF;
 // z-index:-1 gradient into a single negative layer behind all of the copy.
 // The sections carry no background of their own (the page ground is on
 // body), so nothing paints over the gradients and they look unchanged.
+// No isolation here. A stacking context on the page wrapper would trap the
+// fullscreen demo (1040) and the cashier (1050) underneath the fixed site
+// header (1030). It is not needed: with the sections no longer creating
+// contexts of their own, the gradients fall to the root's negative layer,
+// which still paints above the page background and below every section's
+// copy, which is all the fix ever required.
 .igaming-page {
   position: relative;
-  isolation: isolate;
 }
 
-.ig-section,
+// Scoped through .igaming-page deliberately. _sdk.scss sets
+// `.sdk-capabilities-section { isolation: isolate }` at the same specificity
+// and loads later, so a bare `.ig-section` loses and .ig-value stays a
+// stacking context — which puts its overhanging gradient straight back on
+// top of the copy in the section above it.
+.igaming-page .ig-section,
 .igaming-page .sdk-hero-section {
   isolation: auto;
+}
+
+// Card copy on this page is white. The shared style is 45% white, which is
+// the other half of what read as dull below the fold. It is set three
+// selectors deep in _sdk.scss (.sdk-page .sdk-capabilities-section
+// .sdk-feature-card-desc), so this has to match that depth to win.
+.igaming-page.sdk-page .sdk-capabilities-section .sdk-feature-card-desc {
+  color: $white;
 }
 
 // ═══════════════════════════════════════════════════════════════════════
@@ -2092,5 +2111,478 @@ $body-ink-dim: #FFFFFF;
     height: 32px;
     padding: 0 4px;
     font-size: 12px;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// Hero: copy and a live demo, side by side
+// ═══════════════════════════════════════════════════════════════════════
+// The row stays g-0 so the copy keeps the site's shared left edge. The gap
+// between the columns is the demo column's own padding rather than a
+// Bootstrap gutter, which would shift the whole hero off that edge.
+@media (min-width: 992px) {
+  .igaming-page .sdk-hero-section {
+    align-items: center;
+    align-content: center;
+  }
+
+  .ig-hero-demo { padding-left: 48px; }
+
+  // The machine has to finish above the fold, and everything around the
+  // board (browser chrome, casino bar, bet panel, disclaimer) measures a
+  // fixed 393px. The board takes whatever the viewport has left, capped so
+  // it does not balloon on a tall screen.
+  // .ig-board carries the height, not the canvas host inside it, so the
+  // canvas host alone just leaves dead space in a fixed 380px board.
+  // max-height: 380px on .ig-board is what caps this; the height alone is
+  // not enough.
+  .ig-hero-demo .ig-board {
+    height: clamp(240px, calc(100vh - 436px), 490px);
+    max-height: none;
+  }
+
+  // A 600px column cannot carry the full-width size. This is still well
+  // above the shared ramp's 64px cap, and against a half-width measure it
+  // reads larger than 105px did across the whole 1200.
+  .ig-hero-copy .page-hero-title { font-size: clamp(40px, 4.4vw, 72px); }
+
+  // Desktop shows the whole machine inline: no preview, no overlay.
+  .ig-demo-open,
+  .ig-demo-close { display: none; }
+
+  // Defensive. JS drops the expanded state when the viewport crosses out of
+  // the compact range, but if that is ever missed the machine must still
+  // render inline here rather than as a full-screen overlay.
+  .ig-browser.is-full {
+    position: static;
+    height: auto;
+    z-index: auto;
+    padding-bottom: 0;
+  }
+}
+
+.ig-demo-open,
+.ig-demo-close {
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+// ── Phones and tablets: a cropped live preview that takes the screen ────
+@media (max-width: 991.98px) {
+  .ig-hero-demo { margin-top: 28px; }
+
+  .ig-browser { position: relative; }
+
+  // Preview state. The board runs; the browser chrome, the bet controls and
+  // the disclaimer belong to the expanded state, where there is room.
+  .ig-browser:not(.is-full) {
+    .ig-browser-chrome,
+    .ig-bet,
+    .ig-demo-close { display: none; }
+
+    // .ig-board carries the height; setting the canvas host inside it only
+    // leaves dead space in a board that is still its full size.
+    .ig-board { height: 232px; }
+
+    // The board's landing state says "Demo Mode / Deposit to play" and the
+    // pill says "Play The Demo" on top of it. One focal point in the
+    // preview; the board speaks for itself once expanded.
+    .ig-mult-wrap { visibility: hidden; }
+  }
+
+  // Hidden in the cropped preview only. Expanded, the machine has room and
+  // the disclaimer belongs on screen with it.
+  .ig-browser:not(.is-full) .ig-demo-note { display: none; }
+
+  // The whole preview is the tap target, not a small pill at the bottom
+  // edge: the preview is deliberately cropped by the fold, so anything
+  // anchored to its bottom lands off screen. The pill centres inside the
+  // visible part instead.
+  .ig-demo-open {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: transparent;
+  }
+
+  .ig-demo-open-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 999px;
+    background: $cas-gold;
+    color: #241703;
+    font-size: 13.5px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  // Expanded: the machine gets the viewport. Fixed rather than grown in
+  // place, so the page underneath does not reflow under the visitor.
+  .ig-browser.is-full {
+    position: fixed;
+    inset: 0;
+    z-index: 1040;
+    max-width: none;
+    margin: 0;
+    border-radius: 0;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    // dvh, not vh: vh is the largest viewport, so the bottom of the board
+    // would sit under the browser's own toolbar.
+    height: 100dvh;
+    padding-bottom: env(safe-area-inset-bottom);
+
+    .ig-demo-open { display: none; }
+
+    .ig-machine {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    // height:auto so the fixed mobile height stops being the used size and
+    // flex-grow can hand it the space left under the bet panel.
+    // .ig-board caps itself at 340px; that cap is what left dead space under
+    // the bet panel, not the flex.
+    .ig-board {
+      height: auto;
+      max-height: none;
+      flex: 1 1 auto;
+      min-height: 180px;
+    }
+    .ig-canvas-host { height: auto; flex: 1 1 auto; min-height: 180px; }
+  }
+
+  .ig-demo-close {
+    position: absolute;
+    top: calc(10px + env(safe-area-inset-top));
+    right: 12px;
+    z-index: 4;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// The cashier sheet has to fit the *visible* viewport
+// ═══════════════════════════════════════════════════════════════════════
+// inset:0 on a fixed element resolves against the large viewport, so the
+// sheet was pinned under the mobile browser's toolbar and its buttons were
+// unreachable. dvh tracks the viewport that is actually on screen, and the
+// safe-area inset clears the home indicator.
+.ig-cashier,
+.ig-contact {
+  height: 100dvh;
+}
+
+.ig-sheet,
+.ig-contact-sheet {
+  max-height: 92dvh;
+  padding-bottom: calc(20px + env(safe-area-inset-bottom));
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// Game: decluttered
+// ═══════════════════════════════════════════════════════════════════════
+// The logo was carrying the whole bar. Smaller lets the credits and the
+// board hold their own.
+.ig-casino-logo {
+  height: 42px;
+
+  @media (min-width: 768px) { height: 52px; }
+  @media (min-width: 1200px) { height: 58px; }
+}
+
+// The result line moved out of the bet row and under the credits, where it
+// reads as a notification rather than a permanent field. It clears itself,
+// so it is taken out of the flow: the bar must not change height when it
+// appears, or the board resizes underneath the visitor.
+.ig-casino-bar .ig-result {
+  position: absolute;
+  top: calc(100% - 6px);
+  right: 14px;
+  z-index: 3;
+  flex-basis: auto;
+  margin: 0;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: rgba(6, 2, 16, 0.82);
+  font-size: 12px;
+  line-height: 16px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 260ms ease, transform 260ms ease;
+  animation: none;
+  pointer-events: none;
+
+  &.is-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// The disclaimer belongs to the machine now, and it is fine print: present
+// and legible, claiming none of the room the controls need.
+.ig-machine .ig-demo-note {
+  margin: 0;
+  padding: 0 14px 6px;
+  font-size: 10.5px;
+  line-height: 1.45;
+  text-align: center;
+  color: rgba(198, 179, 255, 0.5);
+}
+
+// The machine sits further right of the copy on desktop.
+@media (min-width: 992px) {
+  .ig-hero-demo { padding-left: 76px; }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// Hero and machine corrections
+// ═══════════════════════════════════════════════════════════════════════
+@media (min-width: 992px) {
+  // Top-aligned, not centred. Centring a short copy column against a tall
+  // demo column pushed the first line to 301px when every other page on the
+  // site starts its hero copy at 160.
+  .igaming-page .sdk-hero-section {
+    align-items: start;
+    align-content: start;
+  }
+
+  // .ig-bet turns into a row at a *viewport* width of 900px, which was right
+  // when the machine spanned the page. It now lives in a ~520px column, so
+  // the row fired with no room and the deposit button covered the stake.
+  // The stake and the bet share a line now that the deposit button lives in
+  // the bar. Two rows for two controls was the leftover of a row that also
+  // had to carry the deposit button.
+  .ig-hero-demo .ig-bet {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .ig-hero-demo .ig-bet-actions {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .ig-hero-demo .ig-bet-actions .ig-btn { width: 100%; }
+}
+
+// Every row in these cards is centred; the meter was not, which is the
+// asymmetry that showed. It is the *parent* that aligns it — .ig-shot-step
+// sets justify-content: flex-start, and the meter itself only hugs its
+// dashes, so targeting the meter does nothing.
+.ig-shot-step { justify-content: center; }
+
+// ═══════════════════════════════════════════════════════════════════════
+// Integration: the snippet stands alone
+// ═══════════════════════════════════════════════════════════════════════
+// The copy column that sat beside it is gone, so the two-column grid has
+// nothing to balance. The panel centres instead, and takes a wider measure
+// than it had in half a row.
+.ig-code-grid {
+  @media (min-width: 1000px) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    justify-items: center;
+  }
+}
+
+.igaming-page .sdk-implementation-section .sdk-term.ig-code-wrap {
+  width: 100%;
+  max-width: 860px;
+  margin-inline: auto;
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// Cashier in the bar, the way an operator's own header works
+// ═══════════════════════════════════════════════════════════════════════
+// Deposit is an account action, not a bet, so it belongs beside the balance
+// where every real sportsbook and casino puts it. The control row is left
+// with just the stake and the bet.
+.ig-casino-end {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ig-casino-bar .ig-btn.--deposit {
+  flex: 0 0 auto;
+  height: 48px;
+  padding: 0 16px;
+  font-size: 13.5px;
+  white-space: nowrap;
+}
+
+// The bar earns its height from the credit box now, not the logo, so the
+// logo is sized to match it rather than to tower over it.
+.ig-casino-logo {
+  height: 36px;
+
+  @media (min-width: 768px) { height: 44px; }
+  @media (min-width: 1200px) { height: 48px; }
+}
+
+// The fake chrome is scene-setting; it does not need the height of a real
+// browser toolbar.
+.ig-browser-chrome {
+  padding-block: 6px;
+}
+
+.ig-browser-url {
+  padding-block: 2px;
+  font-size: 10.5px;
+}
+
+// "Actually" is the word the sentence turns on.
+.page-hero-title em {
+  font-style: italic;
+  font-weight: inherit;
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// The closing sections centre
+// ═══════════════════════════════════════════════════════════════════════
+// The code panel stands alone and centred, and the CTA is a single column
+// of buttons. A left-aligned heading over either reads as a misalignment.
+// The two explanatory sections above stay left, so the page shifts from
+// reading to acting.
+@media (min-width: 992px) {
+  .ig-integrate .ig-head,
+  .ig-start .ig-cta {
+    text-align: center;
+  }
+
+  // text-align centres the lines inside each box; these boxes carry a
+  // max-width of their own, so they need centring as blocks too.
+  .ig-integrate .ig-head-body,
+  .ig-start .ig-cta-title,
+  .ig-start .ig-cta-body {
+    margin-inline: auto;
+  }
+
+  // The row is not full width by default, so justify-content had nothing to
+  // centre against.
+  .ig-start .ig-cta-actions {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+// The bar has room for the full label on a wide machine and not on a phone,
+// where the Cash App mark beside it carries the brand anyway.
+.ig-deposit-short { display: none; }
+
+@media (max-width: 991.98px) {
+  .ig-deposit-full { display: none; }
+  .ig-deposit-short { display: inline; }
+
+  .ig-casino-bar .ig-btn.--deposit {
+    height: 40px;
+    min-width: 0;
+    padding: 0 12px;
+    font-size: 12.5px;
+  }
+
+  .ig-casino-bar .ig-credit { padding: 6px 10px; }
+}
+
+// No bleed: the machine sits inside the column like the copy does. It gains
+// presence from height instead, which the shorter chrome and single-line
+// control row paid for.
+
+// Stake and bet on one line at every size: the control row carries two
+// things now, not three.
+.ig-bet {
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.ig-bet-actions {
+  flex: 1 1 auto;
+  min-width: 0;
+
+  .ig-btn { width: 100%; }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// Contact, inline
+// ═══════════════════════════════════════════════════════════════════════
+// Every other page on the site puts this form in the page rather than in a
+// dialog. A pop-up on a marketing page is a step of friction and it is the
+// odd one out here, so the closing section carries the form itself and the
+// hero button is an in-page link to it.
+.ig-cta-form {
+  max-width: 620px;
+  margin: $sp-block auto 0;
+  text-align: left;
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// Closing section: the pitch beside the form
+// ═══════════════════════════════════════════════════════════════════════
+@media (min-width: 992px) {
+  .ig-start .ig-cta {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 64px;
+    align-items: start;
+    // Two columns read from their own left edges; centring belonged to the
+    // single stacked column this replaced.
+    text-align: left;
+  }
+
+  .ig-start .ig-cta-title,
+  .ig-start .ig-cta-body {
+    margin-inline: 0;
+  }
+
+  .ig-cta-form {
+    max-width: none;
+    margin: 0;
+  }
+}
+
+// The form sits level with the heading beside it. contact-us-section brings
+// 100px of top padding for the standalone section it was written for, and
+// the first field adds its own margin on top of that.
+.ig-cta-form {
+  padding-top: 0;
+
+  .col-md-12:first-of-type .form-control { margin-top: 0; }
+}
+
+// A little height out of the machine's controls. The bar keeps 48 so the
+// deposit button, the credit box and the logo all match each other.
+.ig-btn { min-height: 48px; }
+
+.ig-step-btn {
+  width: 30px;
+  height: 30px;
+}
+
+@media (max-width: 991.98px) {
+  .ig-casino-bar .ig-btn.--deposit {
+    min-height: 40px;
+    height: 40px;
   }
 }
