@@ -2372,10 +2372,15 @@ $body-ink-dim: #FFFFFF;
   }
 }
 
-// The only route from this page to the guide. It sits under the snippet,
-// where a developer who has just read the three calls is looking.
+// The only route from this page to the guide. Above the snippet, not below:
+// under it the button trailed off the end of a long code block with nothing
+// to anchor it. Here it reads as part of the section's opening.
 .ig-code-cta {
   display: flex;
-  justify-content: center;
-  margin-top: $sp-block;
+  // Left on a phone, where the heading and copy above it are left-aligned
+  // too. It centres with them from 992 up.
+  justify-content: flex-start;
+  margin-top: $sp-sm;
+
+  @media (min-width: 992px) { justify-content: center; }
 }
