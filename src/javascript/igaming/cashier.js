@@ -8,11 +8,15 @@
 // the wording can be edited without reading JavaScript. This module only moves
 // between panes, does the arithmetic, and runs the clock.
 
-// Illustrative rates, held in one place so the page cannot contradict itself.
-// DELIVERY_RATE matches the ratio in Roy's neon-royale demo ($25 in, ~24.61
-// USDC out) so the two demos agree. SATS_PER_DOLLAR assumes a round $100,000
+// Rates held in one place so the page cannot contradict itself.
+//
+// The fee sits ON TOP of the deposit: the player picks an amount, that whole
+// amount lands in the treasury, and the fee is added to what they pay. So a
+// $50 deposit delivers 50.00 USDC and the player is charged $50.13.
+//
+// 25 basis points, given by Breez. SATS_PER_DOLLAR assumes a round $100,000
 // bitcoin, which keeps the sats figure legible rather than precise.
-const DELIVERY_RATE = 0.98444
+const FEE_BPS = 25
 const SATS_PER_DOLLAR = 1000
 const QUOTE_SECONDS = 120
 const MIN_USD = 5
@@ -50,16 +54,18 @@ export function createCashier(root, options = {}) {
   let secondsLeft = QUOTE_SECONDS
   let lastFocus = null
 
-  const delivered = () => amount * DELIVERY_RATE
-  const feeUsd = () => amount - delivered()
-  const sats = () => amount * SATS_PER_DOLLAR
+  // The chosen amount is what lands; the fee is charged on top of it.
+  const delivered = () => amount
+  const feeUsd = () => amount * (FEE_BPS / 10000)
+  const paidUsd = () => amount + feeUsd()
+  const sats = () => paidUsd() * SATS_PER_DOLLAR
 
   function setText(sel, value) {
     root.querySelectorAll(sel).forEach((el) => { el.textContent = value })
   }
 
   function paintFigures() {
-    setText('[data-ig-f-usd]', `$${usd(amount)}`)
+    setText('[data-ig-f-usd]', `$${usd(paidUsd())}`)
     setText('[data-ig-f-sats]', `${grouped(sats())} sats`)
     setText('[data-ig-f-out]', `${usd(delivered())} USDC`)
     setText('[data-ig-f-fee]', `$${usd(feeUsd())}`)

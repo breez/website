@@ -917,15 +917,14 @@ $body-ink-dim: #FFFFFF;
   @supports (grid-template-rows: subgrid) {
     @media (min-width: 860px) {
       display: grid;
-      grid-row: span 3;
+      grid-row: span 2;
       grid-template-rows: subgrid;
       align-items: start;
 
-      // Three rows: the still, the title, the body. Each takes the height of
-      // the tallest column so the set stays aligned across all three.
+      // Two rows: the still and the title. Each takes the height of the
+      // tallest column so the set stays aligned across all three.
       > .ig-shot { grid-area: 1 / 1; }
       > .ig-flow-title { grid-area: 2 / 1; }
-      > .ig-flow-body { grid-area: 3 / 1; }
     }
   }
 }
@@ -944,14 +943,6 @@ $body-ink-dim: #FFFFFF;
     color: $ig-blue;
     padding-right: 4px;
   }
-}
-
-.ig-flow-body {
-  margin: 0;
-  font-weight: $font-weight-normal;
-  font-size: $t-body;
-  line-height: 1.62;
-  color: $body-ink;
 }
 
 // A still of the cashier screen, in the casino's own materials.
