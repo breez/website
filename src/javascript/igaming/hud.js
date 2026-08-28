@@ -26,7 +26,6 @@ export function createHud(root, game, options = {}) {
   const resultEl = q('[data-ig-result]')
   const stakeMinus = q('[data-ig-stake-minus]')
   const stakePlus = q('[data-ig-stake-plus]')
-  const stakeChips = Array.from(root.querySelectorAll('[data-ig-stake-set]'))
 
   let balance = 0
   let stake = 5
@@ -103,12 +102,6 @@ export function createHud(root, game, options = {}) {
     if (stakeEl) stakeEl.textContent = fmt(stake)
 
     const locked = !funded || game.phase !== 'IDLE'
-    stakeChips.forEach((chip) => {
-      const v = Number(chip.dataset.igStakeSet)
-      chip.disabled = locked || v > balance
-      chip.classList.toggle('is-on', v === stake)
-      chip.setAttribute('aria-pressed', v === stake ? 'true' : 'false')
-    })
     if (stakeMinus) stakeMinus.disabled = locked || stake <= 1
     if (stakePlus) stakePlus.disabled = locked || stake + 1 > balance
   }
@@ -234,9 +227,6 @@ export function createHud(root, game, options = {}) {
   if (cashBtn) cashBtn.addEventListener('click', cashOut)
   if (depositBtn) depositBtn.addEventListener('click', () => openCashier())
 
-  stakeChips.forEach((chip) => {
-    chip.addEventListener('click', () => { stake = Number(chip.dataset.igStakeSet); paintStake() })
-  })
   if (stakeMinus) stakeMinus.addEventListener('click', () => { stake = Math.max(1, stake - 1); paintStake() })
   if (stakePlus) stakePlus.addEventListener('click', () => { stake = Math.min(Math.floor(balance), stake + 1); paintStake() })
 

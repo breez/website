@@ -252,8 +252,6 @@ $body-ink-dim: #FFFFFF;
   @media (min-width: 1200px) { padding: $sp-section 0; }
 }
 
-.ig-demo-head { margin-bottom: 28px; }
-
 .ig-demo-note {
   margin-top: $sp-sm;
   font-weight: $font-weight-normal;
@@ -384,18 +382,6 @@ $body-ink-dim: #FFFFFF;
 
 .ig-machine.is-funded .ig-credit b { color: $cas-gold; }
 
-.ig-demo-tag {
-  flex: none;
-  padding: 5px 9px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 6px;
-  font-size: 10px;
-  font-weight: $font-weight-medium;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.66);
-}
-
 @media (max-width: 460px) {
   .ig-credit { padding: 6px 11px; em { display: none; } }
 }
@@ -422,7 +408,6 @@ $body-ink-dim: #FFFFFF;
 }
 
 .ig-canvas-host { pointer-events: none; }
-
 
 
 // Round history, the way every crash game shows it. Empty until the visitor
@@ -617,28 +602,6 @@ $body-ink-dim: #FFFFFF;
 }
 
 .ig-machine:not(.is-funded) .ig-stake { color: rgba(198, 179, 255, 0.55); }
-
-.ig-chips { display: flex; gap: 6px; }
-
-.ig-chip {
-  @include ig-tabular;
-  min-width: 44px;
-  height: 36px;
-  padding: 0 11px;
-  border: 1px solid $cas-line;
-  border-radius: 9px;
-  background: rgba(0, 0, 0, 0.3);
-  color: rgba(255, 255, 255, 0.76);
-  font-family: inherit;
-  font-size: 13.5px;
-  font-weight: $font-weight-medium;
-  transition: border-color $ig-state ease, color $ig-state ease, background-color $ig-state ease;
-  @include ig-focus($cas-gold);
-
-  &:hover:not(:disabled) { color: $white; border-color: rgba(255, 194, 46, 0.55); }
-  &.is-on:not(:disabled) { color: #241703; background: $cas-gold; border-color: $cas-gold; }
-  &:disabled { color: rgba(198, 179, 255, 0.32); }
-}
 
 .ig-result {
   @include ig-tabular;
@@ -843,16 +806,6 @@ $body-ink-dim: #FFFFFF;
   .sdk-implementation-section { margin-bottom: 0; }
 }
 
-.ig-label {
-  margin: 0 0 $sp-xs;
-  font-weight: $font-weight-medium;
-  font-size: $t-micro;
-  line-height: 18px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: $ig-blue;
-}
-
 .ig-h2 {
   margin: 0;
   font-weight: $font-weight-bold;
@@ -866,7 +819,6 @@ $body-ink-dim: #FFFFFF;
 
 // Reading copy: weight 400 at a 62ch measure. 300 at this size on navy reads
 // gray, which is what made the earlier passes feel unbalanced.
-.ig-body,
 .ig-head-body {
   margin: 0;
   font-weight: $font-weight-normal;
@@ -887,13 +839,10 @@ $body-ink-dim: #FFFFFF;
   }
 }
 
-.ig-demo-head .ig-body { margin-top: 14px; }
-
 // Label, headline, then the sentence that qualifies it directly underneath.
 // The two-up version put the sub-copy off to one side, which read as two
 // unrelated blocks rather than one statement.
 .ig-h2 + .ig-head-body,
-.ig-h2 + .ig-body,
 .ig-head .ig-head-body,
 .page-hero-title + .sdk-hero-sub {
   margin-top: $sp-sm;
@@ -931,8 +880,6 @@ $body-ink-dim: #FFFFFF;
 // The problem, priced in their own numbers, stated before the argument for
 // solving it. Two cards, same materials as the six below so the section reads
 // as one set.
-
-
 
 
 // Marked as somebody else's number, because it is.
@@ -1027,7 +974,6 @@ $body-ink-dim: #FFFFFF;
 }
 
 
-
 .ig-shot-step {
   display: flex;
   align-items: center;
@@ -1036,20 +982,6 @@ $body-ink-dim: #FFFFFF;
   padding-bottom: 12px;
   margin-bottom: 2px;
   border-bottom: 1px solid #24405F;
-}
-
-.ig-shot-count {
-  @include ig-tabular;
-  font-weight: $font-weight-bold;
-  font-size: 13px;
-  line-height: 1;
-  color: $cas-gold;
-
-  em {
-    font-style: normal;
-    font-weight: $font-weight-normal;
-    color: rgba(255, 224, 160, 0.5);
-  }
 }
 
 .ig-shot-meter {
@@ -1065,8 +997,6 @@ $body-ink-dim: #FFFFFF;
     &.is-on { background: $cas-gold; }
   }
 }
-
-.ig-shot-title-row {}
 
 .ig-shot-head {
   margin: 0;
@@ -1189,70 +1119,6 @@ $body-ink-dim: #FFFFFF;
   @media (min-width: 1300px) { gap: 88px; }
 }
 
-// The three calls, named and explained, beside the code rather than above it.
-.ig-calls-intro {
-  margin: 0;
-  font-weight: $font-weight-normal;
-  font-size: $t-body;
-  line-height: 1.62;
-  color: #FFFFFF;
-}
-
-.ig-calls {
-  list-style: none;
-  margin: 22px 0 0;
-  padding: 0;
-
-  li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 13px 0;
-    border-top: 1px solid $ig-line;
-    font-weight: $font-weight-normal;
-    font-size: $t-body;
-    line-height: 1.6;
-    color: $body-ink;
-
-    &:last-child { border-bottom: 1px solid $ig-line; }
-  }
-
-  code {
-    font-family: $ig-mono;
-    font-size: 14px;
-    color: $white;
-  }
-}
-
-.ig-calls-tick {
-  flex: none;
-  display: grid;
-  place-items: center;
-  width: 20px;
-  height: 20px;
-  margin-top: 2px;
-  border-radius: 50%;
-  background: rgba(0, 133, 251, 0.16);
-  color: $ig-blue;
-}
-
-.ig-calls-note {
-  margin: $sp-sm 0 0;
-  max-width: 46ch;
-  font-weight: $font-weight-normal;
-  font-size: $t-body;
-  line-height: 1.62;
-  color: rgba(124, 146, 166, 0.95);
-
-  a {
-    color: $ig-blue;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(0, 133, 251, 0.4);
-
-    &:hover { border-bottom-color: $ig-blue; }
-  }
-}
-
 // .sdk-term brings the site's terminal frame, shadow and radius; this only
 // has to stop it centring itself inside the grid column.
 .igaming-page .sdk-implementation-section .sdk-term.ig-code-wrap {
@@ -1340,8 +1206,6 @@ $body-ink-dim: #FFFFFF;
 // developer explainer they cannot act on.
 
 
-
-
 // One line and one button. Everything else that was here competed with it.
 .ig-cta {
   display: flex;
@@ -1370,18 +1234,6 @@ $body-ink-dim: #FFFFFF;
   color: $body-ink;
 }
 
-.ig-cta-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 30px;
-}
-
-
-
-
-
-
 // The footer sits directly under the last section with nothing marking the
 // change, which reads as unfinished. A hairline and real height fix that.
 .igaming-body .footer {
@@ -1395,8 +1247,7 @@ $body-ink-dim: #FFFFFF;
 // 4. The cashier. Breez Casino's own sheet, over everything.
 // ===========================================================================
 
-.ig-cashier,
-.ig-contact {
+.ig-cashier {
   position: fixed;
   inset: 0;
   z-index: 1050;
@@ -1407,8 +1258,7 @@ $body-ink-dim: #FFFFFF;
   @media (min-width: 576px) { align-items: center; }
 }
 
-.ig-cashier-backdrop,
-.ig-contact-backdrop {
+.ig-cashier-backdrop {
   position: absolute;
   inset: 0;
   background: rgba(2, 0, 8, 0.78);
@@ -1416,11 +1266,9 @@ $body-ink-dim: #FFFFFF;
   transition: opacity $ig-state ease;
 }
 
-.ig-cashier.is-open .ig-cashier-backdrop,
-.ig-contact.is-open .ig-contact-backdrop { opacity: 1; }
+.ig-cashier.is-open .ig-cashier-backdrop { opacity: 1; }
 
-.ig-sheet,
-.ig-contact-sheet {
+.ig-sheet {
   position: relative;
   width: 100%;
   max-height: 92vh;
@@ -1444,8 +1292,7 @@ $body-ink-dim: #FFFFFF;
 
 .ig-sheet { max-width: 424px; }
 
-.ig-cashier.is-open .ig-sheet,
-.ig-contact.is-open .ig-contact-sheet { transform: none; opacity: 1; }
+.ig-cashier.is-open .ig-sheet { transform: none; opacity: 1; }
 
 .ig-sheet-head {
   display: flex;
@@ -1887,43 +1734,6 @@ $body-ink-dim: #FFFFFF;
 // 5. The contact dialog. Breez's own materials, not the casino's.
 // ===========================================================================
 
-.ig-contact-sheet {
-  max-width: 520px;
-  border-color: rgba(255, 255, 255, 0.12);
-  background: linear-gradient(180deg, #0B1730 0%, #04091A 100%);
-}
-
-.ig-contact-head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
-  padding-bottom: 18px;
-  margin-bottom: 18px;
-  border-bottom: 1px solid $ig-line;
-
-  .ig-label { margin-bottom: 6px; }
-}
-
-.ig-contact-title {
-  margin: 0;
-  font-weight: $font-weight-bold;
-  font-size: 26px;
-  line-height: 1.15;
-  letter-spacing: -0.028em;
-  color: $white;
-}
-
-.ig-contact-sheet {
-  .form-body,
-  .form-holder,
-  .form-content { width: 100%; }
-
-  .form-items { width: 100%; margin-inline: 0; max-width: 100%; }
-  .form-control { max-width: 100%; }
-  .contact-form-btn { max-width: 100%; margin-inline: 0; }
-}
-
 // ===========================================================================
 // Reduced motion. Nothing loops, nothing pulses. The game still plays.
 // ===========================================================================
@@ -1948,9 +1758,7 @@ $body-ink-dim: #FFFFFF;
   .ig-qr:hover { transform: none; }
 
   .ig-sheet,
-  .ig-contact-sheet,
-  .ig-cashier-backdrop,
-  .ig-contact-backdrop { transition: opacity 120ms linear; transform: none; }
+  .ig-cashier-backdrop { transition: opacity 120ms linear; transform: none; }
 }
 
 // ═══════════════════════════════════════════════════════════════════════
@@ -2057,8 +1865,7 @@ $body-ink-dim: #FFFFFF;
 
   // One column, equal width, equal height. The hero pair read as two
   // different shapes because only one of them was stretching.
-  .ig-hero-copy .sdk-btns,
-  .ig-cta-actions {
+  .ig-hero-copy .sdk-btns {
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -2067,8 +1874,7 @@ $body-ink-dim: #FFFFFF;
   }
 
   .ig-hero-copy .sdk-btns > a,
-  .ig-hero-copy .sdk-btns > button,
-  .ig-cta-actions > a {
+  .ig-hero-copy .sdk-btns > button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2099,19 +1905,6 @@ $body-ink-dim: #FFFFFF;
     height: 30px;
   }
 
-  .ig-chips {
-    flex: 1 1 auto;
-    justify-content: flex-end;
-    gap: 4px;
-  }
-
-  .ig-chip {
-    flex: 1 1 0;
-    min-width: 0;
-    height: 32px;
-    padding: 0 4px;
-    font-size: 12px;
-  }
 }
 
 // ═══════════════════════════════════════════════════════════════════════
@@ -2286,13 +2079,11 @@ $body-ink-dim: #FFFFFF;
 // sheet was pinned under the mobile browser's toolbar and its buttons were
 // unreachable. dvh tracks the viewport that is actually on screen, and the
 // safe-area inset clears the home indicator.
-.ig-cashier,
-.ig-contact {
+.ig-cashier {
   height: 100dvh;
 }
 
-.ig-sheet,
-.ig-contact-sheet {
+.ig-sheet {
   max-height: 92dvh;
   padding-bottom: calc(20px + env(safe-area-inset-bottom));
 }
@@ -2479,12 +2270,6 @@ $body-ink-dim: #FFFFFF;
     margin-inline: auto;
   }
 
-  // The row is not full width by default, so justify-content had nothing to
-  // centre against.
-  .ig-start .ig-cta-actions {
-    width: 100%;
-    justify-content: center;
-  }
 }
 
 // The bar has room for the full label on a wide machine and not on a phone,
@@ -2585,4 +2370,12 @@ $body-ink-dim: #FFFFFF;
     min-height: 40px;
     height: 40px;
   }
+}
+
+// The only route from this page to the guide. It sits under the snippet,
+// where a developer who has just read the three calls is looking.
+.ig-code-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: $sp-block;
 }

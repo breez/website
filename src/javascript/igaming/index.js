@@ -108,66 +108,6 @@ function boot() {
     window.addEventListener('resize', syncToViewport, { passive: true })
   }
 
-  // Every "try the deposit" on the page is the machine's own deposit button.
-  // Opening the cashier from halfway down the page would float a payment
-  // sheet over body copy with no game behind it, so the page goes back to the
-  // machine first and only opens the cashier once it has actually arrived.
-  const openInGame = () => {
-    if (!cashier) return
-
-    // On a phone the machine is a cropped preview, and a payment sheet over
-    // a preview with no controls behind it makes no sense. Give it the
-    // screen first, then open.
-    if (compact.matches) { expand(); cashier.open(); return }
-
-    const nearGame = machine.getBoundingClientRect().bottom > window.innerHeight * 0.5
-    if (nearGame) { cashier.open(); return }
-
-    const target = Math.max(0, machine.getBoundingClientRect().top + window.scrollY)
-    window.scrollTo({ top: target, behavior: reduced ? 'auto' : 'smooth' })
-
-    // Wait for the scroll to settle rather than guessing a delay: the cashier
-    // locks the body when it opens, and locking mid-scroll cancels the scroll
-    // and strands the sheet over the copy. Timers rather than rAF, because a
-    // background tab throttles rAF to a crawl and the sheet would open long
-    // after the visitor came back.
-    let previous = -1
-    let waited = 0
-    const STEP = 60
-    const LIMIT = 1200
-
-    const finish = () => {
-      // Whatever the smooth scroll did or did not manage, land on the machine
-      // before the sheet appears: it must never open with no game behind it.
-      // scroll-behavior is smooth site-wide, so this last-resort jump has to
-      // opt out of it, or it animates and the body lock cancels it too.
-      if (Math.abs(window.scrollY - target) > 4) {
-        const root = document.documentElement
-        const previousBehavior = root.style.scrollBehavior
-        root.style.scrollBehavior = 'auto'
-        root.scrollTop = target
-        root.style.scrollBehavior = previousBehavior
-      }
-      cashier.open()
-    }
-
-    const settle = () => {
-      const y = window.scrollY
-      if ((Math.abs(y - previous) < 1 && waited >= STEP * 2) || waited >= LIMIT) {
-        finish()
-        return
-      }
-      previous = y
-      waited += STEP
-      setTimeout(settle, STEP)
-    }
-    setTimeout(settle, STEP)
-  }
-
-  document.querySelectorAll('[data-ig-try]').forEach((btn) => {
-    btn.addEventListener('click', (event) => { event.preventDefault(); openInGame() })
-  })
-
   // The scroll cue appears once, after the first cash-out or twenty seconds
   // of play, then gets out of the way for good.
   const cue = document.querySelector('[data-ig-cue]')
