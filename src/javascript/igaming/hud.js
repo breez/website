@@ -21,6 +21,9 @@ export function createHud(root, game, options = {}) {
   const stakeEl = q('[data-ig-stake]')
   const launchBtn = q('[data-ig-launch]')
   const cashBtn = q('[data-ig-cashout]')
+  // The multiplier rides on the button so it reads as a bet being collected
+  // at a price, not as money being withdrawn from an account.
+  const cashAtEl = q('[data-ig-cashout-at]')
   const depositBtn = q('[data-ig-deposit]')
   const historyEl = q('[data-ig-history]')
   const resultEl = q('[data-ig-result]')
@@ -180,7 +183,10 @@ export function createHud(root, game, options = {}) {
     paintControls()
   })
 
-  game.on('tick', ({ multiplier }) => paintMultiplier(multiplier, 'live'))
+  game.on('tick', ({ multiplier }) => {
+    paintMultiplier(multiplier, 'live')
+    if (cashAtEl) cashAtEl.textContent = `${multiplier.toFixed(2)}x`
+  })
 
   game.on('crash', ({ at, busted }) => {
     paintMultiplier(at, 'bust')

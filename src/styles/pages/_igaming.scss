@@ -2215,21 +2215,26 @@ $body-ink-dim: #FFFFFF;
   gap: 10px;
 }
 
+// This was taking 41% of the bar's width, wider than the credit box and the
+// logo together. Scaled back so it leads the bar without dominating it; the
+// credit box comes down with it so the row still reads as one set.
 .ig-casino-bar .ig-btn.--deposit {
   flex: 0 0 auto;
-  height: 48px;
-  padding: 0 16px;
-  font-size: 13.5px;
+  min-height: 0;
+  height: 42px;
+  padding: 0 13px;
+  gap: 7px;
+  font-size: 12px;
   white-space: nowrap;
 }
 
 // The bar earns its height from the credit box now, not the logo, so the
 // logo is sized to match it rather than to tower over it.
 .ig-casino-logo {
-  height: 36px;
+  height: 32px;
 
-  @media (min-width: 768px) { height: 44px; }
-  @media (min-width: 1200px) { height: 48px; }
+  @media (min-width: 768px) { height: 38px; }
+  @media (min-width: 1200px) { height: 42px; }
 }
 
 // The fake chrome is scene-setting; it does not need the height of a real
@@ -2383,4 +2388,26 @@ $body-ink-dim: #FFFFFF;
   margin-top: $sp-sm;
 
   @media (min-width: 992px) { justify-content: center; }
+}
+
+// The credit box matches the deposit button's new scale.
+.ig-casino-bar .ig-credit {
+  height: 42px;
+  padding: 0 12px;
+
+  b { font-size: 18px; }
+}
+
+// The card titles carry the point of each card, and the cards have the room.
+.igaming-page.sdk-page .sdk-capabilities-section .sdk-feature-card-title {
+  font-size: 17px;
+  line-height: 1.3;
+}
+
+// Follow us, under the pitch, the way the rest of the site's contact
+// sections carry it.
+.ig-cta-follow {
+  margin-top: $sp-block;
+
+  ul { gap: 14px; padding: 0; margin: 0; list-style: none; }
 }
