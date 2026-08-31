@@ -240,13 +240,6 @@ $body-ink-dim: #FFFFFF;
 // 2. The demo: an operator's site, inside a browser, below the fold.
 // ===========================================================================
 
-.ig-demo {
-  position: relative;
-  padding: 40px 0;
-
-  @media (min-width: 768px) { padding: 58px 0; }
-  @media (min-width: 1200px) { padding: $sp-section 0; }
-}
 
 .ig-demo-note {
   margin-top: $sp-sm;
@@ -387,26 +380,6 @@ $body-ink-dim: #FFFFFF;
   @media (min-width: 768px) { top: 14px; left: 22px; right: 22px; }
 }
 
-.ig-pill {
-  @include ig-tabular;
-  flex: none;
-  padding: 4px 11px;
-  border-radius: 999px;
-  background: rgba(255, 194, 46, 0.16);
-  color: $cas-gold;
-  font-size: 12px;
-  font-weight: $font-weight-medium;
-  line-height: 18px;
-  animation: ig-pill-in $ig-state $ig-ease both;
-
-  &.--low { background: rgba(174, 148, 255, 0.16); color: #C6B3FF; }
-  &.--bust { background: rgba(255, 61, 110, 0.18); color: $cas-pink; }
-}
-
-@keyframes ig-pill-in {
-  from { opacity: 0; transform: translateX(-6px); }
-  to { opacity: 1; transform: none; }
-}
 
 .ig-mult-wrap {
   position: absolute;
@@ -499,14 +472,6 @@ $body-ink-dim: #FFFFFF;
     justify-content: space-between;
     gap: 28px;
   }
-}
-
-.ig-bet-label {
-  font-size: 11px;
-  font-weight: $font-weight-medium;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(255, 224, 160, 0.75);
 }
 
 .ig-stepper {
@@ -720,15 +685,13 @@ $body-ink-dim: #FFFFFF;
 // THE DULLNESS, root cause. position:relative with z-index:auto does NOT
 // create a stacking context, so a z-index:-1 gradient inside escapes to the
 // root layer and paints OVER this section's own text: elementsFromPoint put
-// the gradient above .ig-flow-body. At opacity .5 with a 150px blur that is a
+// the gradient above the section copy. At opacity .5 with a 150px blur that is
 // haze across the copy, which is exactly why no colour value ever fixed it.
 // /sdk's own .sdk-capabilities-section carries isolation:isolate for this
-// reason; I copied its gradients without copying that.
-.ig-section,
-.ig-demo,
-.igaming-page .sdk-hero-section {
-  isolation: isolate;
-}
+// reason; I copied its gradients without copying that. The fix is the
+// `isolation: auto` rule further down -- these sections must NOT be stacking
+// contexts, so the gradients fall to the root's negative layer and paint
+// below every section's copy.
 
 // The gradients now fall to the root's negative layer, which already paints
 // below every section's copy, so the content does not need lifting. It must
@@ -1717,7 +1680,6 @@ $body-ink-dim: #FFFFFF;
 
   .ig-pane,
   .ig-result,
-  .ig-pill,
   .ig-done-tick { animation: none !important; }
 
   .ig-btn:hover,
@@ -1763,11 +1725,13 @@ $body-ink-dim: #FFFFFF;
   position: relative;
 }
 
-// Scoped through .igaming-page deliberately. _sdk.scss sets
-// `.sdk-capabilities-section { isolation: isolate }` at the same specificity
-// and loads later, so a bare `.ig-section` loses and .ig-value stays a
-// stacking context — which puts its overhanging gradient straight back on
-// top of the copy in the section above it.
+// Scoped through .igaming-page deliberately. .ig-value is also
+// .sdk-capabilities-section, and _sdk.scss styles that as
+// `.sdk-page .sdk-capabilities-section { isolation: isolate }` -- two classes.
+// A bare `.ig-section` is one, so it loses and .ig-value stays a stacking
+// context, which puts its overhanging gradient straight back on top of the
+// copy in the section above it. Two classes here ties on specificity, and
+// _igaming.scss is imported after _sdk.scss, so this wins.
 .igaming-page .ig-section,
 .igaming-page .sdk-hero-section {
   isolation: auto;
@@ -1843,8 +1807,6 @@ $body-ink-dim: #FFFFFF;
   // just sized to fit the card together instead of spilling.
   .ig-bet-row { gap: 8px; }
 
-  .ig-bet-label { flex: 0 0 auto; }
-
   .ig-stepper {
     flex: 0 0 auto;
     padding: 3px;
@@ -1917,19 +1879,27 @@ $body-ink-dim: #FFFFFF;
 
   .ig-browser { position: relative; }
 
-  // Preview state. The board runs; the browser chrome, the bet controls and
-  // the disclaimer belong to the expanded state, where there is room.
+  // Preview state. The board runs; the bet controls and the disclaimer
+  // belong to the expanded state, where there is room.
   .ig-browser:not(.is-full) {
     .ig-bet,
     .ig-demo-close { display: none; }
 
     // .ig-board carries the height; setting the canvas host inside it only
     // leaves dead space in a board that is still its full size.
+    //
+    // Fixed on purpose. A viewport-relative height (100dvh minus the rest of
+    // the hero) does close the empty band that opens under the demo on a tall
+    // screen -- but dvh is live, so the board resizes every time the browser's
+    // URL bar slides in or out, and that changes the document height mid-
+    // scroll and drags the scroll position with it. A static gap in a state
+    // you only reach after scrolling past the hero beats a layout shift that
+    // fires on every bar toggle.
     .ig-board { height: 232px; }
 
-    // The board's landing state says "Demo Mode / Deposit to play" and the
-    // pill says "Play The Demo" on top of it. One focal point in the
-    // preview; the board speaks for itself once expanded.
+    // The landing frame already says "Deposit to play" and the pill says
+    // "Run Demo" over it. One focal point in the preview; the board speaks
+    // for itself once expanded.
     .ig-mult-wrap { visibility: hidden; }
   }
 
@@ -1948,7 +1918,13 @@ $body-ink-dim: #FFFFFF;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
+    // Covers the whole frame so any tap opens the demo -- including the bar,
+    // whose Deposit button is deliberately unreachable while the bet controls
+    // are hidden. But it centres the pill on the *board*, not on the frame:
+    // without this the casino bar is part of the centred area and the pill
+    // sits half a bar too high. The bar measures 71px here and 73px at 768,
+    // so one value covers both to within a pixel.
+    padding: 72px 0 0;
     background: transparent;
   }
 
