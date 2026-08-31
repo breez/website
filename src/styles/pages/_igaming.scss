@@ -153,13 +153,19 @@ $body-ink-dim: #FFFFFF;
   .sdk-hero-sub--support { margin: 0; }
 }
 
-// The hero owns the first screen: the demo below it should not be visible
-// until the visitor scrolls.
+// The hero holds the first screen on an ordinary laptop, without stretching
+// to fill an unusually tall window.
 .igaming-page .sdk-hero-section {
   @media (min-width: 768px) {
-    // Holds the fold so the demo is not visible, without centring the copy
-    // inside it, which is what pushed the headline down the screen.
-    min-height: calc(100vh - 154px);
+    // start, not centre -- centring pushed the headline down the screen.
+    //
+    // The cap is what stops a tall window. Everything in the hero is a fixed
+    // height, so stretching to the viewport dropped the surplus out of the
+    // bottom: 566px of empty blue on a 1365px-tall one. Past ~874px of
+    // viewport the hero stops growing and the next section peeks instead,
+    // which is the better invitation to scroll. Below that -- every ordinary
+    // laptop -- this resolves to calc(100vh - 154px) and nothing changes.
+    min-height: min(calc(100vh - 154px), 720px);
     align-content: start;
   }
 }
