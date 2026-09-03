@@ -902,14 +902,6 @@
   }
 }
 
-// Homepage Contact Us title matches the other homepage section titles.
-// Scoped to .home-page so other pages are unaffected.
-.home-page .contact-us-section .h-2-home {
-  font-size: 44px;
-  line-height: 56px;
-  letter-spacing: -0.02em;
-}
-
 .min-margin {
   @media screen and (min-width: 375px) and (max-width: 390px) {
     margin-bottom: 5px;
@@ -934,20 +926,6 @@
 
   @media (min-width: $screen-md-min) {
     margin-bottom: 48px;
-  }
-
-  // The active headings run longer than the old two-word labels — on a
-  // phone they need a step down to avoid three-line towers. Tracking
-  // matches the display statements (-0.02em), not h-2-home's 32px base.
-  .h-2-home {
-    font-size: 34px;
-    line-height: 44px;
-    letter-spacing: -0.02em;
-
-    @media (min-width: $screen-md-min) {
-      font-size: 44px;
-      line-height: 56px;
-    }
   }
 
   .home-text {
@@ -1290,22 +1268,12 @@
     }
 
     .h-2-home {
-      font-size: 34px;
-      line-height: 44px;
-      letter-spacing: -0.02em;
-
-      @media (min-width: $screen-md-min) {
-        font-size: 44px;
-        line-height: 56px;
-      }
-
       // In the split layout the heading lives in a 5/12 column that is
       // narrower than "Experience the Future" at 44px. One line, always:
       // the size tracks the column width up to the standard 44px.
       @media (min-width: $screen-lg-min) {
         white-space: nowrap;
         font-size: min(calc(3.8vw - 12.8px), 44px);
-        line-height: 1.28;
       }
     }
 

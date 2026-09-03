@@ -489,23 +489,11 @@ html:not(.no-js) .glow-page {
   }
 }
 
-// Type matches the homepage below-the-fold recipe exactly
-// (.case-studies-home-header / .playground-home-info-block in _home.scss):
-// headings step 34/44 → 44/56, subs hold 18/28.
+// Type matches the homepage below-the-fold recipe exactly: the .h-2-home
+// section title, subs at 18/28.
 .glow-moment__info,
 .glow-underhood__header,
 .glow-statement-intro {
-  .h-2-home {
-    font-size: 34px;
-    line-height: 44px;
-    letter-spacing: -0.02em;
-
-    @media (min-width: $screen-md-min) {
-      font-size: 44px;
-      line-height: 56px;
-    }
-  }
-
   .home-text.--text-2 {
     font-size: 18px;
     line-height: 28px;
