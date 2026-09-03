@@ -14,8 +14,12 @@
 .header-container {
   padding: 16px 20px;
 
+  // The bar's side gutter ramps from 24px at the lg breakpoint to its full
+  // 60px at xl, matching the ramp on the nav-link gap in _header.scss. A flat
+  // 60px here left the eight links, the logo and the social icons fighting
+  // over a 992px bar, and two of the labels wrapped to a second line.
   @media (min-width: $screen-lg-min) {
-    padding: 32px 60px;
+    padding: 32px clamp(24px, 17.31vw - 147.7px, 60px);
   }
 }
 

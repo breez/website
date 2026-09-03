@@ -41,7 +41,28 @@
   }
 
 
+  // Nav link spacing.
+  //
+  // These used to be Bootstrap's stepped `mx-lg-2 mx-xl-3 mx-xxl-4` margins,
+  // which widened the row exactly at 992px and 1200px — the two widths where
+  // the bar has the least room to give. Both steps pushed "Case Studies" and
+  // "Contact us" onto a second line. One gap that grows with the viewport has
+  // no such step, and it sits only between the links, not outside the end
+  // ones, so it no longer wastes a full item's worth of margin on the edges.
+  //
+  // 12px at the lg breakpoint, widening to the old xxl spacing of 48px by
+  // 1400px — so the roomy end of the range still looks exactly as designed.
+  .navbar-collapse > ul:first-child {
+    @media (min-width: $screen-lg-min) {
+      gap: clamp(12px, 8.82vw - 75.5px, 48px);
+    }
+  }
+
   .header-links {
+    // A label that breaks mid-phrase is what the wrap actually looked like;
+    // the row is sized to fit below, so nothing here needs to break.
+    white-space: nowrap;
+
     a {
       color: $white;
       &:hover {
