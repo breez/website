@@ -2135,7 +2135,9 @@ $igh-ink-dim: #C4D2E2;
   position: relative;
   display: block;
   flex: 1;
-  margin-top: 20px;
+  // 14 up top, 26 below: the uppercase label's glyphs sit low in their
+  // line, so equal margins read top-heavy. This squares them optically.
+  margin-top: 14px;
 }
 
 .igh-pane {
@@ -2144,11 +2146,15 @@ $igh-ink-dim: #C4D2E2;
   display: flex;
   flex-direction: column;
   align-items: center;
+  // Label and content centre together as one group, so a pane's spare
+  // height splits evenly above and below it instead of opening a hole
+  // between the label and the first line.
+  justify-content: center;
   text-align: center;
   opacity: 0;
   animation: $igh-loop $igh-ease infinite;
 
-  .igh-label { margin-bottom: 16px; }
+  .igh-label { margin-bottom: 20px; }
 
   &.--amount { animation-name: igh-pane-1; }
   &.--pay { animation-name: igh-pane-2; }
@@ -2178,7 +2184,7 @@ $igh-ink-dim: #C4D2E2;
 
 .igh-body {
   display: flex;
-  flex: 1;
+  flex: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -2192,7 +2198,7 @@ $igh-ink-dim: #C4D2E2;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin-top: 20px;
+  margin-top: 26px;
   padding-top: 16px;
   border-top: 1px solid $igh-line;
   font-weight: $font-weight-medium;
