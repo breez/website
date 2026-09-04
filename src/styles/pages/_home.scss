@@ -1078,7 +1078,7 @@
     width: 300px;
   }
 
-  // Hover-revealed CTA. Space is always reserved so nothing shifts.
+  // The CTA is always there, dimmed; hover only lifts it to brand blue.
   &::after {
     content: 'Read case study \2192';
     display: block;
@@ -1086,10 +1086,8 @@
     font-size: 13px;
     line-height: 18px;
     font-weight: $font-weight-medium;
-    color: $bubble-bobble-p2;
-    opacity: 0;
-    transform: translateY(4px);
-    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    color: rgba(255, 255, 255, 0.55);
+    transition: color 0.3s ease;
   }
 
   &:hover {
@@ -1099,8 +1097,7 @@
     color: #fff;
 
     &::after {
-      opacity: 1;
-      transform: translateY(0);
+      color: $bubble-bobble-p2;
     }
   }
 
@@ -2020,6 +2017,16 @@ $igh-ink-dim: #C4D2E2;
       margin-bottom: 48px;
     }
 
+    // One line on desktop, like the Glow title: the copy takes a 6/12
+    // column (the card needs less than 7) and the size tracks it up to the
+    // standard 44px.
+    .h-2-home {
+      @media (min-width: $screen-lg-min) {
+        white-space: nowrap;
+        font-size: min(calc(3.7vw - 12.6px), 44px);
+      }
+    }
+
     .home-text.--text-2 {
       font-size: 18px;
       line-height: 28px;
@@ -2055,8 +2062,8 @@ $igh-ink-dim: #C4D2E2;
   display: flex;
   flex-direction: column;
   width: min(100%, 360px);
-  min-height: 440px;
-  padding: 22px 24px 26px;
+  min-height: 444px;
+  padding: 22px 24px 22px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 22px;
   // Solid values, not alpha over the page, so the card sits above the ground.
@@ -2075,7 +2082,7 @@ $igh-ink-dim: #C4D2E2;
 
   @media (min-width: $screen-lg-min) {
     width: 380px;
-    min-height: 460px;
+    min-height: 456px;
   }
 }
 
@@ -2141,6 +2148,8 @@ $igh-ink-dim: #C4D2E2;
   opacity: 0;
   animation: $igh-loop $igh-ease infinite;
 
+  .igh-label { margin-bottom: 16px; }
+
   &.--amount { animation-name: igh-pane-1; }
   &.--pay { animation-name: igh-pane-2; }
   &.--done { animation-name: igh-pane-3; }
@@ -2171,8 +2180,35 @@ $igh-ink-dim: #C4D2E2;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 18px;
+  gap: 20px;
   width: 100%;
+}
+
+// The route, under the panes: what the player uses, what moves, what lands.
+.igh-foot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid $igh-line;
+  font-weight: $font-weight-medium;
+  font-size: 12px;
+  letter-spacing: 0.01em;
+  color: $igh-ink-dim;
+}
+
+.igh-foot-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.igh-foot-arrow {
+  width: 14px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.22);
 }
 
 .igh-mark {
@@ -2186,7 +2222,7 @@ $igh-ink-dim: #C4D2E2;
 .igh-amount {
   font-variant-numeric: tabular-nums;
   font-weight: $font-weight-bold;
-  font-size: 46px;
+  font-size: 50px;
   line-height: 1.05;
   letter-spacing: -0.035em;
 
@@ -2242,8 +2278,8 @@ $igh-ink-dim: #C4D2E2;
   position: relative;
   display: grid;
   place-items: center;
-  width: 150px;
-  height: 150px;
+  width: 144px;
+  height: 144px;
   padding: 10px;
   border-radius: 14px;
   background: $white;

@@ -113,7 +113,16 @@
             <rect width="48" height="48" rx="13" fill="#00D64F"/>
             <path fill="#fff" d="M28.9 18.2c.5.5 1.3.5 1.8 0l1.6-1.6c.5-.5.5-1.4-.1-1.9a13 13 0 0 0-4.1-2.4l.6-2.7c.1-.6-.4-1.2-1-1.2h-2.9c-.5 0-.9.3-1 .8l-.5 2.4c-3.8.2-7 2.2-7 6.1 0 3.4 2.6 4.8 5.4 5.8 2.6 1 4 1.4 4 2.7 0 1.3-1.3 2.1-3.2 2.1-1.7 0-3.6-.6-5-1.9-.5-.4-1.2-.4-1.6 0l-1.8 1.7c-.5.5-.5 1.3 0 1.8a13 13 0 0 0 4.7 2.8l-.5 2.5c-.1.6.3 1.2 1 1.2h2.9c.5 0 .9-.3 1-.8l.5-2.4c4.6-.3 7.4-2.8 7.4-6.5 0-3.4-2.7-4.8-6-5.9-1.9-.7-3.5-1.2-3.5-2.5 0-1.3 1.4-1.8 2.8-1.8 1.8 0 3.6.7 4.6 1.7z"/>
         </symbol>
-        <symbol id="ig-base" viewBox="0 0 48 48">
+        <symbol id="ig-usdc" viewBox="0 0 48 48">
+            <circle cx="24" cy="24" r="24" fill="#2775CA"/>
+            <circle cx="24" cy="24" r="16.5" fill="none" stroke="#fff" stroke-width="2.4"/>
+            <path fill="#fff" d="M25.35 13.2v2.2c2.6.3 4.4 1.7 5 4 .1.5-.2.9-.7.9h-1.5c-.35 0-.6-.2-.75-.55-.45-1.2-1.4-1.85-2.95-1.85-1.85 0-2.85.85-2.85 2.05 0 1.1.6 1.7 2.9 2.05 3.6.5 5.6 1.6 5.6 4.75 0 2.5-1.85 4.35-4.75 4.8v2.25c0 .45-.35.8-.8.8h-1.35c-.45 0-.8-.35-.8-.8V31.5c-2.85-.45-4.7-2-5.25-4.45-.1-.5.25-.95.75-.95h1.6c.35 0 .6.25.7.6.4 1.35 1.5 2.05 3.35 2.05 2.1 0 3.1-.9 3.1-2.2 0-1.25-.7-1.85-3.1-2.2-3.55-.5-5.35-1.65-5.35-4.6 0-2.45 1.85-4.15 4.5-4.6v-2.2c0-.45.35-.8.8-.8h1.35c.45 0 .8.35.8.8z"/>
+        </symbol>
+    <symbol id="ig-lightning" viewBox="0 0 48 48">
+            <circle cx="24" cy="24" r="24" fill="#F7931A"/>
+            <path fill="#fff" d="M26.6 9 14 26.4h8.1L21 39l12.9-17.6h-8.3z"/>
+        </symbol>
+    <symbol id="ig-base" viewBox="0 0 48 48">
             <circle cx="24" cy="24" r="24" fill="#0052FF"/>
             <path fill="#fff" d="M23.9 40c8.9 0 16.1-7.2 16.1-16S32.8 8 23.9 8C15.5 8 8.6 14.5 8 22.7h21.2v2.6H8C8.6 33.5 15.5 40 23.9 40z"/>
         </symbol>
@@ -758,20 +767,20 @@ Guide me, don't overwhelm me.</script>
         <!--igaming-section-->
         <section id="igaming-home" class="igaming-home-section main-container row position-relative">
 
-            <div class="col-12 col-lg-5 mb-5 mb-lg-0 d-flex flex-column justify-content-center">
+            <div class="col-12 col-lg-6 mb-5 mb-lg-0 d-flex flex-column justify-content-center">
                 <div class="igaming-home-info-block" data-aos="fade-up" data-aos-duration="600">
-                    <h2 class="h-2-home mb-4">Cash App Deposits For iGaming</h2>
-                    <p class="home-text --text-2">Players pay in the app already on their phone. The operator's treasury receives USDC or USDT seconds later, with no card networks, no chargebacks, and nothing new to install.</p>
+                    <h2 class="h-2-home mb-4">Instant Deposits For iGaming</h2>
+                    <p class="home-text --text-2">Players pay with Cash App, the app millions already have on their home screen. Your treasury receives USDC or USDT seconds later.</p>
                 </div>
 
                 <a href="/igaming" role="button" class="primary-btn text-decoration-none"
                     data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
-                    <div>Play The Demo</div>
+                    <div>See How It Works</div>
                     <img src="./assets/icons/arrow-right-icon.svg" alt="arrow right">
                 </a>
             </div>
 
-            <div class="col-12 col-lg-7 igaming-home-stage-col">
+            <div class="col-12 col-lg-6 igaming-home-stage-col">
                 <div class="igaming-home-stage" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
                     <!-- The cashier, on a loop: amount, Cash App, funds landed. -->
                     <a href="/igaming" class="igh-card text-decoration-none"
@@ -810,6 +819,13 @@ Guide me, don't overwhelm me.</script>
                                     <span class="igh-note"><svg class="igh-mark --sm"><use href="#ig-base"/></svg>In your address on Base</span>
                                 </span>
                             </span>
+                        </span>
+                        <span class="igh-foot" aria-hidden="true">
+                            <span class="igh-foot-step"><svg class="igh-mark --sm"><use href="#ig-cashapp"/></svg>Cash App</span>
+                            <span class="igh-foot-arrow"></span>
+                            <span class="igh-foot-step"><svg class="igh-mark --sm"><use href="#ig-lightning"/></svg>bitcoin</span>
+                            <span class="igh-foot-arrow"></span>
+                            <span class="igh-foot-step"><svg class="igh-mark --sm"><use href="#ig-usdc"/></svg>USDC</span>
                         </span>
                     </a>
                 </div>
