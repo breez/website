@@ -2000,8 +2000,8 @@ html:not(.no-js) .home-page .playground-home-card [data-aos='fade-up'] {
 // illustration. The card is Breez-styled (navy, blue accent); only the Cash
 // App and Base marks carry their own colors, because they are somebody's
 // logo. Everything animates on opacity, transform and background only.
-$igh-loop: 9s;
-$igh-ease: cubic-bezier(0.215, 0.61, 0.355, 1);
+$igh-loop: 12s;
+$igh-ease: cubic-bezier(0.45, 0, 0.55, 1);
 $igh-line: rgba(255, 255, 255, 0.09);
 $igh-ink-dim: #C4D2E2;
 
@@ -2122,13 +2122,13 @@ $igh-ink-dim: #C4D2E2;
 }
 
 @keyframes igh-bar-2 {
-  0%, 32% { background: rgba(255, 255, 255, 0.14); }
-  35%, 100% { background: $bubble-bobble-p2; }
+  0%, 31% { background: rgba(255, 255, 255, 0.14); }
+  37%, 100% { background: $bubble-bobble-p2; }
 }
 
 @keyframes igh-bar-3 {
-  0%, 65% { background: rgba(255, 255, 255, 0.14); }
-  68%, 100% { background: $bubble-bobble-p2; }
+  0%, 64% { background: rgba(255, 255, 255, 0.14); }
+  70%, 100% { background: $bubble-bobble-p2; }
 }
 
 .igh-panes {
@@ -2155,23 +2155,25 @@ $igh-ink-dim: #C4D2E2;
   &.--done { animation-name: igh-pane-3; }
 }
 
-// Each pane owns a third of the loop, with a 300ms cross-fade at the seams.
+// Each pane owns a third of a 12s loop. The seams are slow, ~800ms dissolves
+// that overlap slightly, with a 6px drift, so a state melts into the next
+// rather than snapping.
 @keyframes igh-pane-1 {
-  0% { opacity: 0; transform: translateY(10px); }
-  3%, 30% { opacity: 1; transform: none; }
-  33%, 100% { opacity: 0; transform: translateY(-8px); }
+  0% { opacity: 0; transform: translateY(6px); }
+  7%, 27% { opacity: 1; transform: none; }
+  34%, 100% { opacity: 0; transform: translateY(-6px); }
 }
 
 @keyframes igh-pane-2 {
-  0%, 33% { opacity: 0; transform: translateY(10px); }
-  36%, 63% { opacity: 1; transform: none; }
-  66%, 100% { opacity: 0; transform: translateY(-8px); }
+  0%, 32% { opacity: 0; transform: translateY(6px); }
+  40%, 60% { opacity: 1; transform: none; }
+  67%, 100% { opacity: 0; transform: translateY(-6px); }
 }
 
 @keyframes igh-pane-3 {
-  0%, 66% { opacity: 0; transform: translateY(10px); }
-  69%, 97% { opacity: 1; transform: none; }
-  100% { opacity: 0; transform: translateY(-8px); }
+  0%, 65% { opacity: 0; transform: translateY(6px); }
+  73%, 94% { opacity: 1; transform: none; }
+  100% { opacity: 0; transform: translateY(-6px); }
 }
 
 .igh-body {
