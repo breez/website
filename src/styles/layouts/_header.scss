@@ -58,6 +58,49 @@
     }
   }
 
+  // Contact Us: the site's own .primary-btn, outside the collapse so it
+  // stays in the bar when the menu is closed on a phone. This is the
+  // /igaming bar, applied to every page. The wrap sits ahead of the links
+  // in DOM order, so both breakpoints set the row explicitly.
+  // Desktop: logo, links, socials, button.
+  .ig-nav-cta-wrap {
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 auto;
+    padding: 0;
+    list-style: none;
+    order: 2;
+  }
+
+  .navbar-collapse { order: 1; }
+
+  .ig-nav-cta {
+    display: flex;
+    align-items: center;
+  }
+
+  // Below lg the bar is logo + button + burger, and the menu opens as its
+  // own full-width line underneath. The button gives up the 184px it takes
+  // on desktop.
+  @media (max-width: 991.98px) {
+    .ig-nav-cta-wrap {
+      order: 1;
+      margin-right: 12px;
+    }
+
+    .navbar-toggler { order: 2; }
+    .navbar-collapse { order: 3; }
+
+    .ig-nav-cta > .primary-btn {
+      width: auto;
+      min-width: 0;
+      height: 42px;
+      padding: 10px 16px;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+    }
+  }
+
   .header-links {
     // A label that breaks mid-phrase is what the wrap actually looked like;
     // the row is sized to fit below, so nothing here needs to break.
