@@ -366,7 +366,18 @@ $body-ink-dim: #FFFFFF;
   height: 100%;
 }
 
-.ig-canvas-host { pointer-events: none; }
+.ig-canvas-host {
+  pointer-events: none;
+  // Opacity only: a filter on a board-sized layer stalls the first paint.
+  transition: opacity 0.6s $ig-ease;
+}
+
+// Until there are credits the scene is asleep: dimmed and drained, so
+// "Deposit to play" is the only thing in focus. The deposit switches the
+// board on, which is the point of the demo.
+.ig-machine:not(.is-funded) .ig-canvas-host {
+  opacity: 0.3;
+}
 
 
 // Round history, the way every crash game shows it. Empty until the visitor
@@ -852,10 +863,10 @@ $body-ink-dim: #FFFFFF;
 .ig-flow-step {
   display: flex;
   flex-direction: column;
-  // Centred: with the paragraph under it gone, the title is the only thing
-  // beneath the still and reads as its caption.
-  align-items: center;
-  text-align: center;
+  // The title sits above its still, on the card's left edge, like a
+  // heading over a figure. The stills themselves stay centred inside.
+  align-items: stretch;
+  text-align: left;
 
   @supports (grid-template-rows: subgrid) {
     @media (min-width: 860px) {
@@ -864,10 +875,10 @@ $body-ink-dim: #FFFFFF;
       grid-template-rows: subgrid;
       align-items: start;
 
-      // Two rows: the still and the title. Each takes the height of the
+      // Two rows: the title, then the still. Each takes the height of the
       // tallest column so the set stays aligned across all three.
-      > .ig-shot { grid-area: 1 / 1; }
-      > .ig-flow-title { grid-area: 2 / 1; }
+      > .ig-flow-title { grid-area: 1 / 1; }
+      > .ig-shot { grid-area: 2 / 1; }
     }
   }
 }
@@ -875,8 +886,9 @@ $body-ink-dim: #FFFFFF;
 // The number is part of the title, not a list marker, so it centres with the
 // rest of the line. That does mean the words alone sit a little right of the
 // card's centre -- the prefix is carrying the left side.
+// The title sits above its still, so the step reads before the picture.
 .ig-flow-title {
-  margin: 24px 0 0;
+  margin: 0 0 20px;
   font-weight: $font-weight-medium;
   font-size: $t-h3;
   line-height: 1.25;
@@ -897,11 +909,16 @@ $body-ink-dim: #FFFFFF;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 12px;
+  // One rhythm for all three: the meter pinned at the top, then the content
+  // centred in what is left (the meter's auto margin and the ::after below
+  // split the spare height evenly), with a single 14px gap between items.
+  gap: 14px;
   width: 100%;
   height: 100%;
-  min-height: 208px;
-  padding: 16px 18px 20px;
+  min-height: 212px;
+  // No bottom padding: the centring sets the same distance from the
+  // divider to the content and from the content to the bottom edge.
+  padding: 16px 18px 0;
   border: 1px solid #24405F;
   border-radius: 14px;
   // Solid values, not alpha over the page. A card built from rgba never gets
@@ -914,13 +931,18 @@ $body-ink-dim: #FFFFFF;
 }
 
 
+.ig-shot::after {
+  content: '';
+  display: block;
+  margin-top: auto;
+}
 .ig-shot-step {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   width: 100%;
   padding-bottom: 12px;
-  margin-bottom: 2px;
+  margin-bottom: auto;
   border-bottom: 1px solid #24405F;
 }
 
@@ -934,7 +956,7 @@ $body-ink-dim: #FFFFFF;
     border-radius: 2px;
     background: #2C4160;
 
-    &.is-on { background: $cas-gold; }
+    &.is-on { background: $ig-blue; }
   }
 }
 
@@ -942,6 +964,7 @@ $body-ink-dim: #FFFFFF;
   margin: 0;
   font-weight: $font-weight-medium;
   font-size: 12px;
+  line-height: 1;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #C4D2E2;
@@ -949,7 +972,6 @@ $body-ink-dim: #FFFFFF;
 
 .ig-shot-amount {
   @include ig-tabular;
-  margin-top: auto;
   font-weight: $font-weight-bold;
   font-size: 34px;
   line-height: 1.1;
@@ -996,10 +1018,9 @@ $body-ink-dim: #FFFFFF;
   position: relative;
   display: grid;
   place-items: center;
-  width: 106px;
-  height: 106px;
-  margin: auto 0 0;
-  padding: 8px;
+  width: 96px;
+  height: 96px;
+  padding: 7px;
   border-radius: 12px;
   background: $white;
 
@@ -1012,7 +1033,6 @@ $body-ink-dim: #FFFFFF;
   place-items: center;
   width: 44px;
   height: 44px;
-  margin: auto 0 0;
   border-radius: 50%;
   background: rgba(42, 204, 128, 0.22);
   color: #43E39A;
@@ -1035,7 +1055,6 @@ $body-ink-dim: #FFFFFF;
   justify-content: center;
   gap: 7px;
   width: 100%;
-  margin-top: auto;
   font-weight: $font-weight-normal;
   font-size: $t-cap;
   line-height: 1.45;
@@ -1848,9 +1867,16 @@ $body-ink-dim: #FFFFFF;
     // Deliberately subtracts more than the surrounding chrome costs. Taking
     // only the true chrome left the board 414px against a 522px column,
     // which reads nearly square; a crash game wants a letterbox.
-    height: clamp(240px, calc(100vh - 486px), 440px);
+    // 392, not 486: the row centres the machine, so it grows both ways and
+    // the old figure left it stopping ~130px short of the fold on a laptop.
+    // This one lands it 16px above the fold at 800px tall.
+    height: clamp(240px, calc(100vh - 392px), 440px);
     max-height: none;
   }
+
+  // The one section that follows a full-viewport hero: the fold is already
+  // the chapter break, so it needs a fraction of the shared section padding.
+  .ig-how { padding-top: 32px; }
 
   // A 600px column cannot carry the full-width size. This is still well
   // above the shared ramp's 64px cap, and against a half-width measure it
@@ -2384,25 +2410,9 @@ $body-ink-dim: #FFFFFF;
 // here it is in the bar at every width, and the burger keeps its job so the
 // logo stays a link to the homepage.
 //
-// The button itself is the site's own .primary-btn. Everything here is
-// layout: where it sits, and the narrower measure it needs once it has to
-// share a 390px bar with the logo and the burger.
+// The Contact Us button in the bar is the site-wide header pattern (see
+// _header.scss).
 //
-// Scoped to .igaming-body, which is on <body> and used by this page alone.
-.igaming-body .ig-nav-cta-wrap {
-  display: flex;
-  align-items: center;
-  margin: 0 0 0 auto;
-  padding: 0;
-  list-style: none;
-  // Moving it out of the collapse put it ahead of the nav links in DOM
-  // order, so both breakpoints set the row explicitly. Desktop: logo, links,
-  // button.
-  order: 2;
-}
-
-.igaming-body .navbar-collapse { order: 1; }
-
 // Every other page's logo carries Bootstrap's `me-5` to hold it off the nav
 // links. This page's markup drops that class and sets the gap here instead:
 // below lg the links are in the dropdown, so the 48px is dead space, and
@@ -2410,33 +2420,4 @@ $body-ink-dim: #FFFFFF;
 // the markup rather than by overriding `me-5`, which would need !important.
 @media (min-width: 992px) {
   .igaming-body .navbar > .container-fluid > a > img { margin-right: 3rem; }
-}
-
-.igaming-body .ig-nav-cta {
-  display: flex;
-  align-items: center;
-}
-
-// Below the lg breakpoint the bar is logo + button + burger, so the button
-// gives up the 184px it takes on desktop.
-@media (max-width: 991.98px) {
-  // Mobile: logo, button, burger, then the menu as its own full-width line
-  // underneath. Without the last one, opening the menu dropped the button
-  // and the burger below the links instead of leaving them in the bar.
-  .igaming-body .ig-nav-cta-wrap {
-    order: 1;
-    margin-right: 12px;
-  }
-
-  .igaming-body .navbar-toggler { order: 2; }
-  .igaming-body .navbar-collapse { order: 3; }
-
-  .igaming-body .ig-nav-cta > .primary-btn {
-    width: auto;
-    min-width: 0;
-    height: 42px;
-    padding: 10px 16px;
-    font-size: 13px;
-    letter-spacing: 0.06em;
-  }
 }
