@@ -1867,10 +1867,7 @@ $body-ink-dim: #FFFFFF;
     // Deliberately subtracts more than the surrounding chrome costs. Taking
     // only the true chrome left the board 414px against a 522px column,
     // which reads nearly square; a crash game wants a letterbox.
-    // 392, not 486: the row centres the machine, so it grows both ways and
-    // the old figure left it stopping ~130px short of the fold on a laptop.
-    // This one lands it 16px above the fold at 800px tall.
-    height: clamp(240px, calc(100vh - 392px), 440px);
+    height: clamp(240px, calc(100vh - 486px), 440px);
     max-height: none;
   }
 
