@@ -2003,7 +2003,8 @@ html:not(.no-js) .home-page .playground-home-card [data-aos='fade-up'] {
 $igh-loop: 12s;
 $igh-ease: cubic-bezier(0.45, 0, 0.55, 1);
 $igh-line: rgba(255, 255, 255, 0.09);
-$igh-ink-dim: #C4D2E2;
+// Every word on the card is white. The only thing dimmed is the hairline.
+$igh-ink-dim: #FFFFFF;
 
 .igaming-home-section {
   padding-top: 40px;
@@ -2044,30 +2045,61 @@ $igh-ink-dim: #C4D2E2;
   }
 }
 
+// Same natural size and scale steps as .playground-home-stage, so this
+// card and the Glow card above it render at exactly one size per breakpoint.
 .igaming-home-stage {
+  --card-w: 400px;
+  --card-h: 474px;
+  --card-scale: 0.72;
   display: flex;
   justify-content: center;
   width: 100%;
   padding: 8px 0 16px;
+
+  @media (min-width: $screen-md-min) {
+    --card-scale: 0.8;
+  }
 
   @media (min-width: $screen-lg-min) {
     justify-content: flex-end;
     padding: 0;
     margin-right: 8px;
   }
+
+  @media (min-width: $screen-xl-min) {
+    --card-scale: 0.88;
+  }
+
+  @media (min-width: $screen-xxl-min) {
+    --card-scale: 0.95;
+  }
+}
+
+.igaming-home-card-viewport {
+  display: block;
+  width: calc(var(--card-w) * var(--card-scale));
+  height: calc(var(--card-h) * var(--card-scale));
+}
+
+.igaming-home-card-inner {
+  display: block;
+  width: var(--card-w);
+  height: var(--card-h);
+  transform: scale(var(--card-scale));
+  transform-origin: top left;
 }
 
 .igh-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: min(100%, 360px);
-  min-height: 444px;
-  padding: 22px 24px 22px;
+  width: var(--card-w);
+  height: var(--card-h);
+  padding: 24px 28px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 22px;
-  // Solid values, not alpha over the page, so the card sits above the ground.
-  background: linear-gradient(180deg, #14213A 0%, #0D172B 100%);
+  // Near-black, the Glow frame's surface one section up, not the page's navy.
+  background: linear-gradient(180deg, #141820 0%, #0A0D12 100%);
   box-shadow:
     0 30px 70px -30px rgba(0, 0, 0, 0.7),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
@@ -2080,10 +2112,6 @@ $igh-ink-dim: #C4D2E2;
     filter: brightness(1.06);
   }
 
-  @media (min-width: $screen-lg-min) {
-    width: 380px;
-    min-height: 456px;
-  }
 }
 
 .igh-head {
@@ -2230,7 +2258,7 @@ $igh-ink-dim: #C4D2E2;
 .igh-amount {
   font-variant-numeric: tabular-nums;
   font-weight: $font-weight-bold;
-  font-size: 50px;
+  font-size: 56px;
   line-height: 1.05;
   letter-spacing: -0.035em;
 
@@ -2251,12 +2279,12 @@ $igh-ink-dim: #C4D2E2;
 
   span {
     font-variant-numeric: tabular-nums;
-    padding: 9px 0;
+    padding: 11px 0;
     border: 1px solid $igh-line;
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.04);
     font-size: 13px;
-    color: #E4ECF5;
+    color: $white;
 
     &.is-on {
       border-color: $bubble-bobble-p2;
@@ -2273,7 +2301,7 @@ $igh-ink-dim: #C4D2E2;
   justify-content: center;
   gap: 9px;
   width: 100%;
-  padding: 13px 0;
+  padding: 14px 0;
   border-radius: 12px;
   background: $white;
   font-weight: $font-weight-medium;
@@ -2286,9 +2314,9 @@ $igh-ink-dim: #C4D2E2;
   position: relative;
   display: grid;
   place-items: center;
-  width: 144px;
-  height: 144px;
-  padding: 10px;
+  width: 128px;
+  height: 128px;
+  padding: 9px;
   border-radius: 14px;
   background: $white;
 }
@@ -2320,9 +2348,9 @@ $igh-ink-dim: #C4D2E2;
 .igh-quote {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   width: 100%;
-  padding-top: 14px;
+  padding-top: 12px;
   border-top: 1px solid $igh-line;
   font-variant-numeric: tabular-nums;
   font-size: 14px;
@@ -2343,8 +2371,8 @@ $igh-ink-dim: #C4D2E2;
 .igh-tick {
   display: grid;
   place-items: center;
-  width: 56px;
-  height: 56px;
+  width: 68px;
+  height: 68px;
   border-radius: 50%;
   background: rgba(42, 204, 128, 0.2);
   color: #43E39A;
@@ -2354,7 +2382,7 @@ $igh-ink-dim: #C4D2E2;
 .igh-done {
   font-variant-numeric: tabular-nums;
   font-weight: $font-weight-bold;
-  font-size: 32px;
+  font-size: 40px;
   line-height: 1.1;
   letter-spacing: -0.03em;
 }

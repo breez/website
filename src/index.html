@@ -26,6 +26,7 @@
     <link rel="icon" href="./assets/icons/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script type="application/ld+json">
     {
@@ -242,6 +243,11 @@
                 <a href="/">
                     <img class="me-5" src="./assets/icons/logo-breez-header.svg" alt="header breez logo">
                 </a>
+            <ul class="d-flex align-items-center ms-auto ig-nav-cta-wrap">
+                <li class="ig-nav-cta"><a role="button" class="primary-btn text-decoration-none js-scroll-to"
+                                data-scroll-to="#contact-us-form"><div style="margin: auto;">Contact us</div></a></li>
+            </ul>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBreez"
                     aria-controls="navbarBreez" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -273,41 +279,8 @@
                         <li class="header-links my-2 my-lg-0">
                             <a href="https://blog.breez.technology" target="_blank" rel="noopener" class="text-decoration-none">Blog</a>
                         </li>
-                        <li class="header-links form my-2 my-lg-0 close-burger-mobile">
-                            <a role="button" class="text-decoration-none js-scroll-to"
-                                data-scroll-to="#contact-us-form">Contact
-                                us</a>
-                        </li>
                     </ul>
 
-                    <ul class="d-flex align-items-center ms-auto">
-                        <li class="social-media">
-                            <a href="https://x.com/breez_tech" target="_blank" rel="noopener noreferrer" class="">
-                                <img src="./assets/icons/x-icon.svg" alt="x icon" class="icon">
-                            </a>
-                        </li>
-                        <li class="social-media">
-                            <a href="https://t.me/breezsdk" target="_blank" rel="noopener noreferrer" class="">
-                                <img src="./assets/icons/telegram-icon.svg" alt="telegram icon" class="icon">
-                            </a>
-                        </li>
-                        <li class="social-media">
-                            <a href="https://newsletter.breez.technology" target="_blank" rel="noopener noreferrer" class="">
-                                <img src="./assets/icons/substack-icon.svg" alt="substack icon" class="icon">
-                            </a>
-                        </li>
-                        <li class="social-media">
-                            <a href="https://github.com/breez" target="_blank" rel="noopener noreferrer" class="">
-                                <img src="./assets/icons/github-icon.svg" alt="github icon" class="icon">
-                            </a>
-                        </li>
-                        <li class="social-media">
-                            <a href="mailto:contact@breez.technology" class="">
-                                <img src="./assets/icons/email-icon.svg" alt="email icon" class="icon">
-                            </a>
-                        </li>
-
-                    </ul>
                 </div>
             </div>
         </nav>
@@ -769,7 +742,7 @@ Guide me, don't overwhelm me.</script>
 
             <div class="col-12 col-lg-6 mb-5 mb-lg-0 d-flex flex-column justify-content-center">
                 <div class="igaming-home-info-block" data-aos="fade-up" data-aos-duration="600">
-                    <h2 class="h-2-home mb-4">Instant Deposits For iGaming</h2>
+                    <h2 class="h-2-home mb-4">Accept Deposits in Seconds</h2>
                     <p class="home-text --text-2">Players pay with Cash App, the app millions already have on their home screen. Your treasury receives USDC or USDT seconds later.</p>
                 </div>
 
@@ -782,7 +755,10 @@ Guide me, don't overwhelm me.</script>
 
             <div class="col-12 col-lg-6 igaming-home-stage-col">
                 <div class="igaming-home-stage" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
-                    <!-- The cashier, on a loop: amount, Cash App, funds landed. -->
+                    <!-- The cashier, on a loop: amount, Cash App, funds landed.
+                         Drawn at the Glow card's natural 400x474 and scaled by
+                         the same steps, so the two sit at one size. -->
+                    <span class="igaming-home-card-viewport"><span class="igaming-home-card-inner">
                     <a href="/igaming" class="igh-card text-decoration-none"
                        aria-label="A cashier deposit in three steps: pick an amount, pay in Cash App, USDC arrives">
                         <span class="igh-head" aria-hidden="true">
@@ -816,7 +792,7 @@ Guide me, don't overwhelm me.</script>
                                 <span class="igh-body">
                                     <span class="igh-tick"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg></span>
                                     <span class="igh-done">50.00 USDC</span>
-                                    <span class="igh-note"><svg class="igh-mark --sm"><use href="#ig-base"/></svg>In your address on Base</span>
+                                    <span class="igh-note"><svg class="igh-mark --sm"><use href="#ig-base"/></svg>On Base</span>
                                 </span>
                             </span>
                         </span>
@@ -828,6 +804,7 @@ Guide me, don't overwhelm me.</script>
                             <span class="igh-foot-step"><svg class="igh-mark --sm"><use href="#ig-usdc"/></svg>USDC</span>
                         </span>
                     </a>
+                    </span></span>
                 </div>
             </div>
             <!--    gradients-->
