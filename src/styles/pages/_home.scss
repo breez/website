@@ -902,14 +902,6 @@
   }
 }
 
-// Homepage Contact Us title matches the other homepage section titles.
-// Scoped to .home-page so other pages are unaffected.
-.home-page .contact-us-section .h-2-home {
-  font-size: 44px;
-  line-height: 56px;
-  letter-spacing: -0.02em;
-}
-
 .min-margin {
   @media screen and (min-width: 375px) and (max-width: 390px) {
     margin-bottom: 5px;
@@ -934,20 +926,6 @@
 
   @media (min-width: $screen-md-min) {
     margin-bottom: 48px;
-  }
-
-  // The active headings run longer than the old two-word labels — on a
-  // phone they need a step down to avoid three-line towers. Tracking
-  // matches the display statements (-0.02em), not h-2-home's 32px base.
-  .h-2-home {
-    font-size: 34px;
-    line-height: 44px;
-    letter-spacing: -0.02em;
-
-    @media (min-width: $screen-md-min) {
-      font-size: 44px;
-      line-height: 56px;
-    }
   }
 
   .home-text {
@@ -1100,7 +1078,7 @@
     width: 300px;
   }
 
-  // Hover-revealed CTA. Space is always reserved so nothing shifts.
+  // The CTA is always there, dimmed; hover only lifts it to brand blue.
   &::after {
     content: 'Read case study \2192';
     display: block;
@@ -1108,10 +1086,8 @@
     font-size: 13px;
     line-height: 18px;
     font-weight: $font-weight-medium;
-    color: $bubble-bobble-p2;
-    opacity: 0;
-    transform: translateY(4px);
-    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    color: rgba(255, 255, 255, 0.55);
+    transition: color 0.3s ease;
   }
 
   &:hover {
@@ -1121,8 +1097,7 @@
     color: #fff;
 
     &::after {
-      opacity: 1;
-      transform: translateY(0);
+      color: $bubble-bobble-p2;
     }
   }
 
@@ -1290,22 +1265,12 @@
     }
 
     .h-2-home {
-      font-size: 34px;
-      line-height: 44px;
-      letter-spacing: -0.02em;
-
-      @media (min-width: $screen-md-min) {
-        font-size: 44px;
-        line-height: 56px;
-      }
-
       // In the split layout the heading lives in a 5/12 column that is
       // narrower than "Experience the Future" at 44px. One line, always:
       // the size tracks the column width up to the standard 44px.
       @media (min-width: $screen-lg-min) {
         white-space: nowrap;
         font-size: min(calc(3.8vw - 12.8px), 44px);
-        line-height: 1.28;
       }
     }
 
@@ -2026,4 +1991,418 @@ html:not(.no-js) .home-page .playground-home-card [data-aos='fade-up'] {
     transform: none;
     filter: brightness(0) invert(1);
   }
+}
+
+
+// ── iGaming on homepage ──
+// The graphic is the cashier itself, a three-step deposit that plays on a
+// nine-second loop: amount, Cash App, funds landed. Product UI, not an
+// illustration. The card is Breez-styled (navy, blue accent); only the Cash
+// App and Base marks carry their own colors, because they are somebody's
+// logo. Everything animates on opacity, transform and background only.
+$igh-loop: 12s;
+$igh-ease: cubic-bezier(0.45, 0, 0.55, 1);
+$igh-line: rgba(255, 255, 255, 0.09);
+// Every word on the card is white. The only thing dimmed is the hairline.
+$igh-ink-dim: #FFFFFF;
+
+.igaming-home-section {
+  padding-top: 40px;
+  margin-bottom: 100px;
+
+  .igaming-home-info-block {
+    max-width: 640px;
+    margin-bottom: 40px;
+
+    @media (min-width: $screen-md-min) {
+      margin-bottom: 48px;
+    }
+
+    // One line on desktop, like the Glow title: the copy takes a 6/12
+    // column (the card needs less than 7) and the size tracks it up to the
+    // standard 44px.
+    .h-2-home {
+      @media (min-width: $screen-lg-min) {
+        white-space: nowrap;
+        font-size: min(calc(3.7vw - 12.6px), 44px);
+      }
+    }
+
+    .home-text.--text-2 {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+}
+
+.igaming-home-stage-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: $screen-lg-min) {
+    justify-content: flex-end;
+  }
+}
+
+// Same natural size and scale steps as .playground-home-stage, so this
+// card and the Glow card above it render at exactly one size per breakpoint.
+.igaming-home-stage {
+  --card-w: 400px;
+  --card-h: 474px;
+  --card-scale: 0.72;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 8px 0 16px;
+
+  @media (min-width: $screen-md-min) {
+    --card-scale: 0.8;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    justify-content: flex-end;
+    padding: 0;
+    margin-right: 8px;
+  }
+
+  @media (min-width: $screen-xl-min) {
+    --card-scale: 0.88;
+  }
+
+  @media (min-width: $screen-xxl-min) {
+    --card-scale: 0.95;
+  }
+}
+
+.igaming-home-card-viewport {
+  display: block;
+  width: calc(var(--card-w) * var(--card-scale));
+  height: calc(var(--card-h) * var(--card-scale));
+}
+
+.igaming-home-card-inner {
+  display: block;
+  width: var(--card-w);
+  height: var(--card-h);
+  transform: scale(var(--card-scale));
+  transform-origin: top left;
+}
+
+.igh-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: var(--card-w);
+  height: var(--card-h);
+  padding: 24px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 22px;
+  // Near-black, the Glow frame's surface one section up, not the page's navy.
+  background: linear-gradient(180deg, #141820 0%, #0A0D12 100%);
+  box-shadow:
+    0 30px 70px -30px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  color: $white;
+  transition: transform 0.3s $igh-ease, filter 0.3s $igh-ease;
+
+  // Grow in place: never move away from the pointer.
+  &:hover {
+    transform: scale(1.02);
+    filter: brightness(1.06);
+  }
+
+}
+
+.igh-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid $igh-line;
+}
+
+.igh-brand,
+.igh-label {
+  font-weight: $font-weight-medium;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $igh-ink-dim;
+}
+
+.igh-meter {
+  display: flex;
+  gap: 5px;
+}
+
+.igh-bar {
+  width: 28px;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.14);
+  animation: $igh-loop linear infinite;
+
+  &.--1 { background: $bubble-bobble-p2; }
+  &.--2 { animation-name: igh-bar-2; }
+  &.--3 { animation-name: igh-bar-3; }
+}
+
+@keyframes igh-bar-2 {
+  0%, 31% { background: rgba(255, 255, 255, 0.14); }
+  37%, 100% { background: $bubble-bobble-p2; }
+}
+
+@keyframes igh-bar-3 {
+  0%, 64% { background: rgba(255, 255, 255, 0.14); }
+  70%, 100% { background: $bubble-bobble-p2; }
+}
+
+.igh-panes {
+  position: relative;
+  display: block;
+  flex: 1;
+  // 14 up top, 26 below: the uppercase label's glyphs sit low in their
+  // line, so equal margins read top-heavy. This squares them optically.
+  margin-top: 14px;
+}
+
+.igh-pane {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // Label and content centre together as one group, so a pane's spare
+  // height splits evenly above and below it instead of opening a hole
+  // between the label and the first line.
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  animation: $igh-loop $igh-ease infinite;
+
+  .igh-label { margin-bottom: 20px; }
+
+  &.--amount { animation-name: igh-pane-1; }
+  &.--pay { animation-name: igh-pane-2; }
+  &.--done { animation-name: igh-pane-3; }
+}
+
+// Each pane owns a third of a 12s loop. The seams are slow, ~800ms dissolves
+// that overlap slightly, with a 6px drift, so a state melts into the next
+// rather than snapping.
+@keyframes igh-pane-1 {
+  0% { opacity: 0; transform: translateY(6px); }
+  7%, 27% { opacity: 1; transform: none; }
+  34%, 100% { opacity: 0; transform: translateY(-6px); }
+}
+
+@keyframes igh-pane-2 {
+  0%, 32% { opacity: 0; transform: translateY(6px); }
+  40%, 60% { opacity: 1; transform: none; }
+  67%, 100% { opacity: 0; transform: translateY(-6px); }
+}
+
+@keyframes igh-pane-3 {
+  0%, 65% { opacity: 0; transform: translateY(6px); }
+  73%, 94% { opacity: 1; transform: none; }
+  100% { opacity: 0; transform: translateY(-6px); }
+}
+
+.igh-body {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+// The route, under the panes: what the player uses, what moves, what lands.
+.igh-foot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 26px;
+  padding-top: 16px;
+  border-top: 1px solid $igh-line;
+  font-weight: $font-weight-medium;
+  font-size: 12px;
+  letter-spacing: 0.01em;
+  color: $igh-ink-dim;
+}
+
+.igh-foot-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.igh-foot-arrow {
+  width: 14px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.igh-mark {
+  flex: none;
+  width: 20px;
+  height: 20px;
+
+  &.--sm { width: 16px; height: 16px; }
+}
+
+.igh-amount {
+  font-variant-numeric: tabular-nums;
+  font-weight: $font-weight-bold;
+  font-size: 56px;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+
+  i {
+    font-style: normal;
+    font-weight: $font-weight-normal;
+    font-size: 24px;
+    padding-right: 4px;
+    color: #8FA3BC;
+  }
+}
+
+.igh-presets {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  width: 100%;
+
+  span {
+    font-variant-numeric: tabular-nums;
+    padding: 11px 0;
+    border: 1px solid $igh-line;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    font-size: 13px;
+    color: $white;
+
+    &.is-on {
+      border-color: $bubble-bobble-p2;
+      background: $bubble-bobble-p2;
+      color: $white;
+      box-shadow: 0 0 20px rgba(0, 133, 251, 0.45);
+    }
+  }
+}
+
+.igh-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  padding: 14px 0;
+  border-radius: 12px;
+  background: $white;
+  font-weight: $font-weight-medium;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  color: #0B1220;
+}
+
+.igh-qr {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 128px;
+  height: 128px;
+  padding: 9px;
+  border-radius: 14px;
+  background: $white;
+}
+
+.igh-qr-plate {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    path { stroke: #0B1220; }
+  }
+}
+
+.igh-qr-mark {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: $white;
+}
+
+.igh-quote {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  padding-top: 12px;
+  border-top: 1px solid $igh-line;
+  font-variant-numeric: tabular-nums;
+  font-size: 14px;
+  color: $igh-ink-dim;
+}
+
+.igh-quote-row {
+  display: flex;
+  justify-content: space-between;
+
+  &.--total {
+    font-weight: $font-weight-medium;
+    font-size: 16px;
+    color: $white;
+  }
+}
+
+.igh-tick {
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: rgba(42, 204, 128, 0.2);
+  color: #43E39A;
+  box-shadow: 0 0 28px rgba(42, 204, 128, 0.3);
+}
+
+.igh-done {
+  font-variant-numeric: tabular-nums;
+  font-weight: $font-weight-bold;
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.igh-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
+  color: $igh-ink-dim;
+}
+
+// Reduced motion: the loop stops on the payoff.
+@media (prefers-reduced-motion: reduce) {
+  .igh-bar,
+  .igh-pane {
+    animation: none;
+  }
+
+  .igh-bar { background: $bubble-bobble-p2; }
+  .igh-pane.--done { opacity: 1; }
 }

@@ -1,5 +1,10 @@
 @import 'src/styles/abstracts/_variables.scss';
 
+// Display setting, site-wide. Bold titles run tight (-0.02em, line-height
+// around 1.05 to 1.2), light subtitles a touch looser (1.15 to 1.2), and
+// nothing above 20px carries positive tracking: loose lines on a navy ground
+// read thin and grey. Headings balance their line breaks.
+
 .header-links {
   //desktop
   font-weight: $font-weight-normal;
@@ -14,28 +19,40 @@
 .h-1-home {
   font-weight: $font-weight-bold;
   font-size: 32px;
-  line-height: 39px;
-  // Tight tracking on all bold display titles, site-wide.
+  line-height: 1.1;
   letter-spacing: -0.02em;
   color: $white;
+  text-wrap: balance;
 
   @media (min-width: $screen-md-min) {
     font-size: 52px;
-    line-height: 63px;
+    line-height: 1.06;
   }
 }
 
+// The section title, on the homepage and every page built in its image:
+// 34px on a phone, 44px from tablet up. Pages no longer override this.
 .h-2-home {
-  //desktop
   font-weight: $font-weight-bold;
-  font-size: 32px;
-  line-height: 51px;
+  font-size: 34px;
+  line-height: 1.22;
   letter-spacing: -0.02em;
   color: $white;
+  text-wrap: balance;
+
+  @media (min-width: $screen-md-min) {
+    font-size: 44px;
+    line-height: 1.18;
+  }
 
   &.--small {
     font-size: 32px;
-    line-height: 39px;
+    line-height: 1.2;
+
+    @media (min-width: $screen-md-min) {
+      font-size: 32px;
+      line-height: 1.2;
+    }
   }
 }
 
@@ -43,7 +60,7 @@
   //desktop
   font-weight: $font-weight-medium;
   font-size: 20px;
-  line-height: 32px;
+  line-height: 1.4;
   color: $white;
 }
 
@@ -107,13 +124,14 @@
 .h-1 {
   font-weight: $font-weight-bold;
   font-size: 42px;
-  line-height: 51px;
+  line-height: 1.1;
   letter-spacing: -0.02em;
   color: $white;
+  text-wrap: balance;
 
   @media (min-width: $screen-md-min) {
     font-size: 52px;
-    line-height: 60px;
+    line-height: 1.06;
   }
 }
 
@@ -151,29 +169,32 @@
   }
 }
 
+// The light hero subtitle under .h-1, set like .page-hero-subtitle.
 .h-2 {
   font-weight: $font-weight-light;
   font-size: 30px;
-  line-height: 40px;
-  letter-spacing: 0.02em;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
   color: $white;
+  text-wrap: balance;
 
   @media (min-width: $screen-md-min) {
     font-size: 40px;
-    line-height: 60px;
+    line-height: 1.15;
   }
 }
 
 .h-3 {
   font-weight: $font-weight-normal;
   font-size: 20px;
-  line-height: 32px;
+  line-height: 1.4;
   color: $white;
 
   &.--big-heading {
     font-size: 32px;
-    line-height: 47px;
-    letter-spacing: 0.02em;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
   }
 }
 
