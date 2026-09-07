@@ -44,6 +44,18 @@ $rule-space: $rhythm * 2;
     margin-bottom: $rhythm;
     text-wrap: balance;
   }
+  // Incident notice: the one thing on the page that must be read first.
+  .misty-alert {
+    margin: 0 0 $rhythm;
+    padding: 20px 24px;
+    border: 1px solid rgba($invalid, 0.45);
+    border-left: 3px solid $invalid;
+    border-radius: 8px;
+    background: rgba($invalid, 0.08);
+
+    .misty-body { margin-bottom: 0; }
+  }
+
 
   .misty-heading {
     margin: 0 0 math.div($rhythm, 1.5);
