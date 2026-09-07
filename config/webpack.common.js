@@ -8,7 +8,7 @@ module.exports = {
   mode: 'development',
   output: {
     path: paths.build,
-    filename: '[name][contenthash].js',
+    filename: '[name].[contenthash].js',
     clean: false, //false - fix img/svg dissapear after reload;
     assetModuleFilename: '[name][ext]',
     publicPath: '/'
