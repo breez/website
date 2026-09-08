@@ -2410,11 +2410,5 @@ $body-ink-dim: #FFFFFF;
 // The Contact Us button in the bar is the site-wide header pattern (see
 // _header.scss).
 //
-// Every other page's logo carries Bootstrap's `me-5` to hold it off the nav
-// links. This page's markup drops that class and sets the gap here instead:
-// below lg the links are in the dropdown, so the 48px is dead space, and
-// reclaiming it is what stops the burger wrapping to a second line. Done in
-// the markup rather than by overriding `me-5`, which would need !important.
-@media (min-width: 992px) {
-  .igaming-body .navbar > .container-fluid > a > img { margin-right: 3rem; }
-}
+// The logo/nav-links gap (the old `me-5`, desktop only) is set site-wide in
+// _header.scss now; every page's markup drops the class like this one did.
