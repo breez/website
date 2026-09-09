@@ -5,41 +5,13 @@
 //    injected. With reduced motion (or without IntersectionObserver) the
 //    poster stays and a click starts the video instead.
 
+import { countUpBalance } from './lib/count-up';
+
 function initBalance() {
   // The Glow UI card sits below the statement; count up when it enters.
   const card = document.querySelector('.glow-ui-card');
-  const values = card ? card.querySelectorAll('.gw-balance__value') : [];
-  if (!card || !values.length) return;
-
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduceMotion || typeof IntersectionObserver === 'undefined') return;
-
-  const target = 91375;
-  // Thin-space thousands, matching the markup's 91&thinsp;375
-  const format = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      observer.disconnect();
-
-      setTimeout(() => {
-        const startTime = performance.now();
-        const duration = 1400;
-
-        const step = (now) => {
-          const t = Math.min(1, (now - startTime) / duration);
-          const eased = 1 - Math.pow(1 - t, 3);
-          values.forEach((v) => { v.textContent = format(Math.round(eased * target)); });
-          if (t < 1) requestAnimationFrame(step);
-        };
-
-        requestAnimationFrame(step);
-      }, 400);
-    });
-  }, { threshold: 0.2 });
-
-  observer.observe(card);
+  if (!card) return;
+  countUpBalance(card, card.querySelectorAll('.gw-balance__value'), { delay: 400, threshold: 0.2 });
 }
 
 function loadVideo(facade, autoplay) {
@@ -142,8 +114,4 @@ function init() {
   initStatement();
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
-} else {
-  init();
-}
+init();
