@@ -31,93 +31,6 @@
 }
 
 
-//hero section arrow
-.arrow-down {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 20px;
-  position: relative;
-  left: calc(50% - 16px);
-  //bottom: 0; !!!!!!
-  top: 16px;
-
-  //top: 0px; // opt 2;
-  //margin-top: 16px; opt 2
-  //margin-bottom: 16px; opt 2
-  //padding: 20px;
-  //top: 0;
-  //margin: 16px 0;
-  -webkit-animation: arrow 0.5s 1s infinite ease-out alternate;
-
-  @media (max-width: $screen-xs-max) {
-    margin-top: 15px;
-  }
-
-  @media (min-width: $screen-md-min) {
-    margin-top: 40px;
-  }
-}
-
-.arrow-down:hover {
-  -webkit-animation-play-state: paused;
-}
-
-.left {
-  position: absolute;
-  height: 4px;
-  width: 20px;
-  background: $white;
-  -webkit-transform: rotate(240deg);
-  top: 10px;
-  left: 10px;
-  -webkit-border-radius: 4px;
-  -webkit-transform-origin: 5px 50%;
-  -webkit-animation: leftArrow 0.5s 1s infinite ease-out alternate;
-}
-
-.right {
-  position: absolute;
-  height: 4px;
-  width: 20px;
-  background: $white;
-  -webkit-transform: rotate(-60deg);
-  top: 10px;
-  left: 14px;
-  -webkit-border-radius: 4px;
-  -webkit-transform-origin: 5px 50%;
-  -webkit-animation: rightArrow 0.5s 1s infinite ease-out alternate;
-}
-
-@-webkit-keyframes arrow {
-  0% {
-    top: 16px;
-    //top: 10px; opt 2
-  }
-  100% {
-    top: 6px;
-    //top: 0px; opt 2
-  }
-}
-
-
-@-webkit-keyframes leftArrow {
-  0% {
-  }
-  100% {
-    -webkit-transform: rotate(225deg);
-  }
-}
-
-@-webkit-keyframes rightArrow {
-  0% {
-  }
-  100% {
-    -webkit-transform: rotate(-45deg);
-  }
-}
-
 .hero-section {
   position: relative;
   // No section background — body owns the brand gradient so the hero, the
@@ -411,10 +324,6 @@
 .mobile-section {
   padding-top: 100px;
   margin-bottom: 200px;
-
-  .mobile-info-block {
-    max-width: 500px;
-  }
 
   // buttons for small devices
   .mobile-btns {
@@ -863,24 +772,6 @@
   }
 }
 
-.lsp-section {
-  margin-bottom: 100px;
-
-  .lsp-info-block {
-    max-width: 560px;
-    margin-bottom: 60px;
-  }
-}
-
-.cloud-section {
-  margin-bottom: 200px;
-
-  .cloud-info-block {
-    max-width: 500px;
-    margin-bottom: 60px;
-  }
-}
-
 .contact-us-section {
   padding-top: 100px;
   margin-bottom: 50px;
@@ -900,13 +791,6 @@
       filter: invert(0.4) sepia(1) saturate(20) hue-rotate(183.6deg) brightness(0.7) contrast(170%);
     }
   }
-}
-
-.min-margin {
-  @media screen and (min-width: 375px) and (max-width: 390px) {
-    margin-bottom: 5px;
-  }
-
 }
 
 // ── Case studies on homepage (autoscroll marquee) ──

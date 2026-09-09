@@ -61,34 +61,6 @@
   }
 }
 
-// Typography scoped to playground (for panel section headlines)
-.playground-h2 {
-  font-size: clamp(26px, 3.2vw, 36px);
-  line-height: 1.18;
-  font-weight: $font-weight-bold;
-  letter-spacing: -0.005em;
-  margin: 0 0 16px;
-  color: $white;
-}
-
-.playground-h3 {
-  font-size: clamp(24px, 2.6vw, 32px);
-  line-height: 1.2;
-  font-weight: $font-weight-bold;
-  margin: 0 0 12px;
-  color: $white;
-}
-
-.playground-section__eyebrow {
-  display: inline-block;
-  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
-  font-size: 12px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: $bubble-bobble-p2;
-  margin-bottom: 16px;
-}
-
 // ----------------------------------------------------------------
 // Hero image — smaller, matches sdk-hero-illustration sizing
 // ----------------------------------------------------------------
@@ -597,7 +569,7 @@
     cursor: default;
 
     // Real app: filled gradient buttons with black text and a matching
-    // colored box-shadow glow (from .action-button-send/.action-button-receive).
+    // colored box-shadow glow.
     &--send {
       background: linear-gradient(135deg, var(--gw-electric) 0%, var(--gw-electric-deep) 100%);
       box-shadow: 0 2px 8px var(--gw-glow-electric);

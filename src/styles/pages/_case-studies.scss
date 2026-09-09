@@ -152,10 +152,6 @@ body.case-studies-hub-page .case-studies-page {
       .case-studies-hub-sub {
         margin-bottom: 0;
       }
-
-      .cs-constellation {
-        margin-top: 2.5rem;
-      }
     }
 
     .case-studies-hub-sub {
@@ -171,63 +167,6 @@ body.case-studies-hub-page .case-studies-page {
       }
     }
 
-    .case-studies-hub-card-link {
-      color: $white;
-      display: block;
-      border-radius: 12px;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-
-      &:hover {
-        color: $white;
-        transform: scale(1.02);
-        box-shadow: 0 8px 32px rgba(0, 133, 251, 0.35), 0 0 48px rgba(0, 133, 251, 0.25);
-      }
-    }
-
-    .case-studies-hub-card {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: 0;
-
-      @media (max-width: 767px) {
-        width: 100%;
-        aspect-ratio: 5 / 4;
-      }
-    }
-
-    .case-studies-hub-card-title {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      padding: 16px 20px;
-      color: $white;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
-      max-width: 85%;
-
-      @media (max-width: 767px) {
-        font-size: 16px;
-        line-height: 22px;
-        padding: 12px 16px;
-      }
-    }
-
-    .case-studies-hub-card-link img {
-      transition: opacity 0.2s ease;
-
-      @media (max-width: 767px) {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-
-    .case-studies-hub-card-link:hover img {
-      opacity: 0.95;
-    }
   }
 
   // ── Hero header ──
@@ -242,17 +181,6 @@ body.case-studies-hub-page .case-studies-page {
       min-height: calc(100vh - 160px);
       margin-bottom: 0;
     }
-  }
-
-  .cs-hero-eyebrow {
-    display: block;
-    font-size: 12px;
-    line-height: 18px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: $bubble-bobble-p2;
-    margin-bottom: 12px;
-    font-weight: $font-weight-medium;
   }
 
   .cs-hero-btns {
@@ -518,25 +446,6 @@ body.case-studies-hub-page .case-studies-page {
     }
   }
 
-  .case-studies-header {
-    margin-bottom: 40px;
-
-    .case-studies-eyebrow {
-      font-size: 12px;
-      line-height: 18px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: $cabaret-charm;
-      margin-bottom: 8px;
-    }
-
-    .case-studies-subtitle {
-      @media (min-width: $screen-md-min) {
-        max-width: 640px;
-      }
-    }
-  }
-
   .case-studies-filters {
     display: flex;
     align-items: center;
@@ -604,162 +513,6 @@ body.case-studies-hub-page .case-studies-page {
     }
   }
 
-  .case-studies-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 56px;
-
-    @media (min-width: $screen-lg-min) {
-      gap: 2rem;
-      margin-bottom: 72px;
-    }
-  }
-
-  .case-study-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    padding: 1.5rem;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.03);
-    text-decoration: none;
-    color: $white;
-    min-height: 220px;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.18s ease-out, box-shadow 0.18s ease-out, transform 0.1s ease-out, background-color 0.18s ease-out;
-
-    &:hover {
-      border-color: rgba(0, 133, 251, 0.9);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
-      transform: translateY(-2px);
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .case-study-card-logo-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .case-study-card-logo-box {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(0, 0, 0, 0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-
-      img {
-        max-width: 28px;
-        max-height: 28px;
-        object-fit: contain;
-      }
-    }
-
-    .case-study-card-category {
-      font-size: 12px;
-      line-height: 18px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: $cabaret-charm;
-    }
-
-    .case-study-card-title {
-      margin-bottom: 0.25rem;
-    }
-
-    .case-study-card-excerpt {
-      color: $cabaret-charm;
-      font-size: 14px;
-      line-height: 22px;
-    }
-
-    .case-study-card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-      margin-top: auto;
-      padding-top: 0.75rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .case-study-card-tag {
-      font-size: 12px;
-      line-height: 18px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: $bubble-bobble-p2;
-      font-weight: $font-weight-medium;
-    }
-
-    .case-study-card-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-size: 14px;
-      line-height: 20px;
-      font-weight: $font-weight-medium;
-      color: $white;
-
-      img {
-        width: 14px;
-        height: 14px;
-      }
-    }
-  }
-
-  .case-studies-cta-section {
-    .case-studies-cta-card {
-      padding: 2rem;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.03);
-      text-align: left;
-      position: relative;
-      overflow: hidden;
-
-      @media (min-width: $screen-md-min) {
-        padding: 2.5rem 2.75rem;
-      }
-
-      &::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(circle at top left, rgba(0, 133, 251, 0.25) 0%, transparent 55%);
-        opacity: 0.2;
-        pointer-events: none;
-      }
-
-      > * {
-        position: relative;
-        z-index: 1;
-      }
-
-      h2 {
-        margin-bottom: 0.5rem;
-      }
-
-      p {
-        margin-bottom: 1.5rem;
-        max-width: 520px;
-      }
-
-      .primary-btn {
-        min-height: 44px;
-      }
-    }
-  }
-
   // CTA section (reuse case-study-page styles)
   .case-study-cta-section {
     margin-top: 60px;
@@ -767,72 +520,6 @@ body.case-studies-hub-page .case-studies-page {
 
     @media (min-width: $screen-md-min) {
       margin-top: 80px;
-    }
-  }
-
-  .case-study-cta-inner {
-    position: relative;
-    z-index: 1;
-    padding: 20px 24px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-
-    p {
-      font-size: 15px;
-      line-height: 21px;
-    }
-
-    .primary-btn {
-      width: 100%;
-      height: 48px;
-      justify-content: center;
-    }
-  }
-
-  @media (min-width: 992px) {
-    .case-study-cta-section {
-      padding: 60px 0 72px;
-      text-align: center;
-      background: transparent;
-      border: none;
-      border-radius: 0;
-    }
-
-    .case-study-cta-inner {
-      max-width: 560px;
-      margin: 0 auto;
-      padding: 0;
-      background: transparent;
-      border-radius: 0;
-      gap: 6px;
-
-      h3 {
-        margin-bottom: 12px;
-      }
-
-      p {
-        font-size: 16px;
-        line-height: 22px;
-        white-space: nowrap;
-        margin-bottom: 20px;
-      }
-    }
-
-    .case-study-cta-section .primary-btn {
-      display: inline-flex;
-      width: auto;
-      padding: 0 48px;
-    }
-  }
-
-  @media (max-width: 991px) {
-    .case-study-cta-inner h3 {
-      font-size: 24px;
-      line-height: 32px;
     }
   }
 }
@@ -878,21 +565,8 @@ body.case-studies-hub-page .case-studies-page {
   .case-study-header {
     margin-bottom: 24px;
 
-    .case-study-header-eyebrow {
-      font-size: 16px;
-      line-height: 24px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: $bubble-bobble-p2;
-      margin-bottom: 10px;
-    }
-
     h1 {
       margin-bottom: 8px;
-    }
-
-    .case-study-subtitle {
-      max-width: 640px;
     }
   }
 
@@ -1001,19 +675,6 @@ body.case-studies-hub-page .case-studies-page {
     font-weight: $font-weight-medium;
   }
 
-  .case-study-section-subhead {
-    font-size: 18px;
-    line-height: 26px;
-    font-weight: $font-weight-bold;
-    color: $white;
-    margin-top: 28px;
-    margin-bottom: 12px;
-
-    &:first-child {
-      margin-top: 0;
-    }
-  }
-
   .case-study-solution-label {
     margin-bottom: 1.25rem;
 
@@ -1114,7 +775,13 @@ body.case-studies-hub-page .case-studies-page {
     margin-top: 40px;
     overflow: visible;
   }
+}
 
+// CTA inner + breakpoints shared by the hub (.case-studies-page) and
+// article (.case-study-page) pages; each page sets its own
+// .case-study-cta-section margin-top above.
+.case-studies-page,
+.case-study-page {
   .case-study-cta-inner {
     position: relative;
     z-index: 1;
@@ -1180,81 +847,4 @@ body.case-studies-hub-page .case-studies-page {
       line-height: 32px;
     }
   }
-
-  .case-study-related {
-    margin-top: 56px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-
-    .case-study-related-label {
-      font-size: 11px;
-      line-height: 16px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: $cabaret-charm;
-      margin-bottom: 16px;
-    }
-
-    .case-study-related-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-
-      @media (max-width: 640px) {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .case-study-related-card {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      padding: 1.25rem 1.5rem;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.03);
-      text-decoration: none;
-      color: $white;
-      transition: border-color 0.18s ease-out, box-shadow 0.18s ease-out, transform 0.1s ease-out, background-color 0.18s ease-out;
-
-      &:hover {
-        border-color: rgba(0, 133, 251, 0.9);
-        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.5);
-        transform: translateY(-2px);
-        background: rgba(255, 255, 255, 0.05);
-      }
-    }
-  }
 }
-
-.case-study-sticky-cta {
-  display: none;
-}
-
-@media (max-width: 640px) {
-  .case-studies-page,
-  .case-study-page {
-    padding-bottom: 5.5rem;
-  }
-
-  .case-study-sticky-cta {
-    display: block;
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 100;
-    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
-    background: rgba(0, 0, 0, 0.92);
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    .primary-btn {
-      width: 100%;
-      justify-content: center;
-      min-height: 44px;
-    }
-  }
-}
-
