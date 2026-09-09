@@ -35,6 +35,7 @@
     "html-webpack-plugin": "^5.5.0",
     "http-server": "^14.1.1",
     "mini-css-extract-plugin": "^2.7.0",
+    "postcss": "^8.4.38",
     "postcss-loader": "^7.3.4",
     "sass": "^1.87.0",
     "sass-loader": "^13.3.3",
@@ -42,18 +43,14 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.99.7",
     "webpack-cli": "^5.0.0",
-    "webpack-dev-server": "^4.11.1"
+    "webpack-dev-server": "^4.11.1",
+    "webpack-merge": "^5.8.0"
   },
   "dependencies": {
     "aos": "^3.0.0-beta.6",
     "bootstrap": "^5.3.5",
-    "css-minimizer-webpack-plugin": "^4.2.2",
     "jquery": "^3.6.1",
-    "particles.js": "^2.0.0",
-    "popper.js": "^1.16.1",
-    "postcss": "^8.4.38",
     "recaptcha-v3": "^1.10.0",
-    "slick-carousel": "^1.8.1",
-    "webpack-merge": "^5.8.0"
+    "slick-carousel": "^1.8.1"
   }
 }

@@ -42,5 +42,3 @@ export function mountGame(target, config = {}) {
     },
   }
 }
-
-export { createGame }

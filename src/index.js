@@ -28,13 +28,9 @@ import './javascript/mobile-os-checker'
 
 // home, mobile & sdk section sliders
 import './javascript/mobile-section-slider'
-import './javascript/sdk-section-slider'
 
 // mobile page frame slider
 import './javascript/mobile-frame-slider'
-
-// sdk page slider
-import './javascript/sdk-partners-slider'
 
 import './javascript/sdk-section-collapsed'
 
@@ -51,36 +47,6 @@ import './javascript/sdk-statement-scrub'
 import './javascript/sdk-agent-prompt'
 import './javascript/glow-card-live'
 import './javascript/glow-page'
-
-
-// /////// decrease time loader
-//
-// /**
-//  * Trigger a callback when the selected images are loaded:
-//  * @param {String} selector
-//  * @param {Function} callback
-//  */
-//
-// const spinnerWrapperEl = document.querySelector('.spinner-wrapper');
-//
-// const onImgLoad = function(selector, callback){
-//     $(selector).each(function(){
-//         if (this.complete || /*for IE 10-*/ $(this).height() > 0) {
-//             callback.apply(this);
-//         }
-//         else {
-//             $(this).on('load', function(){
-//                 callback.apply(this);
-//             });
-//         }
-//     });
-// };
-//
-// onImgLoad('img', function(){
-//     console.log('remove loader');
-//     spinnerWrapperEl.style.display = 'none';
-// });
-
 
 
 // Not every page carries the contact form (the Misty wind-down notice does
