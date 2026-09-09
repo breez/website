@@ -79,6 +79,15 @@
     align-items: center;
   }
 
+  // The logo used to carry Bootstrap's `me-5` to hold it off the nav links.
+  // Below lg the links live in the dropdown, so that 48px was dead space —
+  // and it pushed the burger onto a second line once the Contact Us button
+  // joined the bar on phones. The markup drops the class and the gap is set
+  // here, desktop only.
+  @media (min-width: $screen-lg-min) {
+    .navbar > .container-fluid > a > img { margin-right: 3rem; }
+  }
+
   // Below lg the bar is logo + button + burger, and the menu opens as its
   // own full-width line underneath. The button gives up the 184px it takes
   // on desktop.

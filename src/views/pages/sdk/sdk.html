@@ -78,7 +78,7 @@
             aria-label="Breez header">
             <div class="container-fluid">
                 <a href="/">
-                    <img class="me-5" src="../../../assets/icons/logo-breez-header.svg" alt="header breez logo">
+                    <img src="../../../assets/icons/logo-breez-header.svg" alt="header breez logo">
                 </a>
 
             <ul class="d-flex align-items-center ms-auto ig-nav-cta-wrap">
@@ -114,7 +114,7 @@
                             <a href="/vision" class="text-decoration-none">Vision</a>
                         </li>
                         <li class="header-links my-2 my-lg-0">
-                            <a href="https://blog.breez.technology" target="_blank" class="text-decoration-none">Blog</a>
+                            <a href="https://blog.breez.technology" target="_blank" rel="noopener" class="text-decoration-none">Blog</a>
                         </li>
                     </ul>
 
@@ -425,22 +425,8 @@ Guide me, don't overwhelm me.</script>
                     <p class="sdk-feature-card-desc">Kotlin, Swift, JS, React Native, Flutter, Go, Python, C#, and WASM.</p>
                 </div>
 
-                <!-- 3. Stable Balance -->
+                <!-- 3. Passkey Login -->
                 <div class="sdk-feature-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="160">
-                    <div class="sdk-feature-card-icon">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8 20L16 16L24 20" stroke="#4DB5FF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.5"/>
-                            <path d="M8 16L16 12L24 16" stroke="#4DB5FF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.7"/>
-                            <path d="M12 10H20" stroke="#4DB5FF" stroke-width="1.4" stroke-linecap="round" opacity="0.8"/>
-                            <path d="M10 7L16 4L22 7" stroke="#4DB5FF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.5"/>
-                        </svg>
-                    </div>
-                    <h4 class="sdk-feature-card-title">Stable Balance</h4>
-                    <p class="sdk-feature-card-desc">Users can hold their balance in USD to avoid BTC price volatility.</p>
-                </div>
-
-                <!-- 4. Passkey Login -->
-                <div class="sdk-feature-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="240">
                     <div class="sdk-feature-card-icon">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M16 8C11.6 8 8 11.6 8 16" stroke="#4DB5FF" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.5"/>
@@ -454,8 +440,35 @@ Guide me, don't overwhelm me.</script>
                     <p class="sdk-feature-card-desc">Seedless onboarding and restore, no recovery phrase needed.</p>
                 </div>
 
-                <!-- 5. Multi-device/app Sync -->
+
+                <!-- 4. USDT & USDC -->
+                <div class="sdk-feature-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="240">
+                    <div class="sdk-feature-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="16" r="7" stroke="#4DB5FF" stroke-width="1.4" fill="none" opacity="0.5"/>
+                            <circle cx="20" cy="16" r="7" stroke="#4DB5FF" stroke-width="1.4" fill="none" opacity="0.5"/>
+                        </svg>
+                    </div>
+                    <h4 class="sdk-feature-card-title">USDT &amp; USDC</h4>
+                    <p class="sdk-feature-card-desc">Users can send/receive stablecoins from their BTC or stable balance.</p>
+                </div>
+
+                <!-- 5. Stable Balance -->
                 <div class="sdk-feature-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="0">
+                    <div class="sdk-feature-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 20L16 16L24 20" stroke="#4DB5FF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.5"/>
+                            <path d="M8 16L16 12L24 16" stroke="#4DB5FF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.7"/>
+                            <path d="M12 10H20" stroke="#4DB5FF" stroke-width="1.4" stroke-linecap="round" opacity="0.8"/>
+                            <path d="M10 7L16 4L22 7" stroke="#4DB5FF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.5"/>
+                        </svg>
+                    </div>
+                    <h4 class="sdk-feature-card-title">Stable Balance</h4>
+                    <p class="sdk-feature-card-desc">Users can hold their balance in USD to avoid BTC price volatility.</p>
+                </div>
+
+                <!-- 6. Multi-device/app Sync -->
+                <div class="sdk-feature-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="80">
                     <div class="sdk-feature-card-icon">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="4" y="8" width="10" height="16" rx="2" stroke="#4DB5FF" stroke-width="1.4" fill="none" opacity="0.6"/>
@@ -468,8 +481,8 @@ Guide me, don't overwhelm me.</script>
                     <p class="sdk-feature-card-desc">Users can access their balance from multiple devices and apps.</p>
                 </div>
 
-                <!-- 6. Contacts API -->
-                <div class="sdk-feature-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="80">
+                <!-- 7. Contacts API -->
+                <div class="sdk-feature-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="160">
                     <div class="sdk-feature-card-icon">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="16" cy="11" r="4" stroke="#4DB5FF" stroke-width="1.4" fill="none" opacity="0.7"/>
@@ -480,8 +493,8 @@ Guide me, don't overwhelm me.</script>
                     <p class="sdk-feature-card-desc">Save and reuse Lightning addresses, synced across devices.</p>
                 </div>
 
-                <!-- 7. Caching & Persistence -->
-                <div class="sdk-feature-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="160">
+                <!-- 8. Caching & Persistence -->
+                <div class="sdk-feature-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="240">
                     <div class="sdk-feature-card-icon">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <ellipse cx="16" cy="10" rx="10" ry="3" stroke="#4DB5FF" stroke-width="1.4" fill="none" opacity="0.5"/>
@@ -494,8 +507,8 @@ Guide me, don't overwhelm me.</script>
                     <p class="sdk-feature-card-desc">Out-of-the-box caching and persistence for a smooth UX.</p>
                 </div>
 
-                <!-- 8. External Signer -->
-                <div class="sdk-feature-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="240">
+                <!-- 9. External Signer -->
+                <div class="sdk-feature-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="0">
                     <div class="sdk-feature-card-icon">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M16 4L6 9V16C6 22 10.4 27.2 16 28.5C21.6 27.2 26 22 26 16V9L16 4Z" stroke="#4DB5FF" stroke-width="1.4" stroke-linejoin="round" fill="none" opacity="0.5"/>
@@ -508,8 +521,8 @@ Guide me, don't overwhelm me.</script>
                     <p class="sdk-feature-card-desc">Bring your own key management, or use the built-in Turnkey signer.</p>
                 </div>
 
-                <!-- 9. Integrated On-ramps -->
-                <div class="sdk-feature-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="0">
+                <!-- 10. Integrated On-ramps -->
+                <div class="sdk-feature-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="80">
                     <div class="sdk-feature-card-icon">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="6" y="8" width="20" height="14" rx="2" stroke="#4DB5FF" stroke-width="1.4" fill="none" opacity="0.5"/>
@@ -523,8 +536,8 @@ Guide me, don't overwhelm me.</script>
                     <p class="sdk-feature-card-desc">Let users buy bitcoin directly via Cash App and MoonPay.</p>
                 </div>
 
-                <!-- 10. Fiat Currencies -->
-                <div class="sdk-feature-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="80">
+                <!-- 11. Fiat Currencies -->
+                <div class="sdk-feature-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="160">
                     <div class="sdk-feature-card-icon">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="16" cy="16" r="10" stroke="#4DB5FF" stroke-width="1.4" fill="none" opacity="0.5"/>
@@ -537,8 +550,8 @@ Guide me, don't overwhelm me.</script>
                     <p class="sdk-feature-card-desc">Real-time exchange rates to display value in fiat currencies.</p>
                 </div>
 
-                <!-- 11. Multi-User Server Mode -->
-                <div class="sdk-feature-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="160">
+                <!-- 12. Multi-User Server Mode -->
+                <div class="sdk-feature-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="240">
                     <div class="sdk-feature-card-icon">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="9" y="19" width="14" height="8" rx="1.5" stroke="#4DB5FF" stroke-width="1.4" fill="none" opacity="0.5"/>
@@ -556,20 +569,7 @@ Guide me, don't overwhelm me.</script>
                     <h4 class="sdk-feature-card-title">Multi-user Server Mode</h4>
                     <p class="sdk-feature-card-desc">Run multiple user balances from a single backend server.</p>
                 </div>
-
-                <!-- Coming soon cards -->
-                <!-- 12. USDT & USDC -->
-                <div class="sdk-feature-card sdk-feature-card--coming-soon" data-aos="fade-up" data-aos-duration="600" data-aos-delay="240">
-                    <div class="sdk-feature-card-icon">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="16" r="7" stroke="#4DB5FF" stroke-width="1.4" fill="none" opacity="0.5"/>
-                            <circle cx="20" cy="16" r="7" stroke="#4DB5FF" stroke-width="1.4" fill="none" opacity="0.5"/>
-                        </svg>
-                    </div>
-                    <h4 class="sdk-feature-card-title">USDT &amp; USDC</h4>
-                    <p class="sdk-feature-card-desc">Users can send/receive stablecoins from their BTC or stable balance.</p>
-                </div>
-            </div>
+</div>
 
             <!--    gradients-->
             <div class="gradient --sdk-implementation-radial-gradient-top-left">
@@ -862,22 +862,22 @@ Guide me, don't overwhelm me.</script>
 
                     <ul class="d-flex align-items-center ms-auto">
                         <li class="social-media">
-                            <a href="https://x.com/breez_tech" target="_blank" class="">
+                            <a href="https://x.com/breez_tech" target="_blank" rel="noopener" class="">
                                 <img src="../../../assets/icons/x-icon.svg" alt="x icon" class="icon">
                             </a>
                         </li>
                         <li class="social-media">
-                            <a href="https://t.me/breezsdk" target="_blank" class="">
+                            <a href="https://t.me/breezsdk" target="_blank" rel="noopener" class="">
                                 <img src="../../../assets/icons/telegram-icon.svg" alt="telegram icon" class="icon">
                             </a>
                         </li>
                         <li class="social-media">
-                            <a href="https://newsletter.breez.technology" target="_blank" class="">
+                            <a href="https://newsletter.breez.technology" target="_blank" rel="noopener" class="">
                                 <img src="../../../assets/icons/substack-icon.svg" alt="substack icon" class="icon">
                             </a>
                         </li>
                         <li class="social-media">
-                            <a href="https://github.com/breez" target="_blank" class="">
+                            <a href="https://github.com/breez" target="_blank" rel="noopener" class="">
                                 <img src="../../../assets/icons/github-icon.svg" alt="github icon" class="icon">
                             </a>
                         </li>
@@ -1019,7 +1019,7 @@ Guide me, don't overwhelm me.</script>
     <footer class="footer main-container position-relative">
         <div class="d-flex align-items-center justify-content-between py-4">
             <a href="/">
-                <img class="me-5" src="../../../assets/icons/logo-breez-footer.svg" alt="footer breez logo">
+                <img src="../../../assets/icons/logo-breez-footer.svg" alt="footer breez logo">
             </a>
             <span class="caption-2">&#169;2026 All rights reserved</span>
         </div>

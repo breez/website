@@ -1,4 +1,7 @@
-.mobile-page {
+// Shared by /mobile and /report — the report page reuses the mobile page
+// skeleton wholesale; its few overrides live in _report.scss.
+.mobile-page,
+.report-page {
 
   &.container {
     --bs-gutter-x: 2rem;

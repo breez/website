@@ -2052,15 +2052,6 @@ $body-ink-dim: #FFFFFF;
 // ═══════════════════════════════════════════════════════════════════════
 // Game: decluttered
 // ═══════════════════════════════════════════════════════════════════════
-// The logo was carrying the whole bar. Smaller lets the credits and the
-// board hold their own.
-.ig-casino-logo {
-  height: 42px;
-
-  @media (min-width: 768px) { height: 52px; }
-  @media (min-width: 1200px) { height: 58px; }
-}
-
 // The result line moved out of the bet row and under the credits, where it
 // reads as a notification rather than a permanent field. It clears itself,
 // so it is taken out of the flow: the bar must not change height when it
@@ -2394,27 +2385,4 @@ $body-ink-dim: #FFFFFF;
 .ig-pane-note--center {
   justify-content: center;
   text-align: center;
-}
-
-// ═══════════════════════════════════════════════════════════════════════
-// Contact Us lives in the nav on this page
-// ═══════════════════════════════════════════════════════════════════════
-// It takes the slot the social icons had. The socials are still on the page,
-// in the contact section's Follow us block.
-//
-// It sits OUTSIDE .navbar-collapse on purpose: inside it, the button is
-// invisible until someone opens the burger, which defeats promoting it. Out
-// here it is in the bar at every width, and the burger keeps its job so the
-// logo stays a link to the homepage.
-//
-// The Contact Us button in the bar is the site-wide header pattern (see
-// _header.scss).
-//
-// Every other page's logo carries Bootstrap's `me-5` to hold it off the nav
-// links. This page's markup drops that class and sets the gap here instead:
-// below lg the links are in the dropdown, so the 48px is dead space, and
-// reclaiming it is what stops the burger wrapping to a second line. Done in
-// the markup rather than by overriding `me-5`, which would need !important.
-@media (min-width: 992px) {
-  .igaming-body .navbar > .container-fluid > a > img { margin-right: 3rem; }
 }

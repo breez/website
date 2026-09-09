@@ -1,13 +1,6 @@
 const scrollToElement = () => {
   const hash = window.location.hash;
 
-  // close burger menu on click contact us link at mobile header only at home page
-  // $('.close-burger-mobile').on('click', function () {
-  //   $('.navbar-toggler').attr("aria-expanded","false");
-  //   $('.navbar-collapse').removeClass('show');
-  //   $('.burger-slip').removeClass('open');
-  // });
-
   // fix start position for scroll from other pages
   setTimeout(function () {
     scrollTo(hash);

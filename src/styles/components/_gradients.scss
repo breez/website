@@ -32,42 +32,6 @@
     z-index: -1;
   }
 
-  &.--mobile-radial-gradient-top {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 150px;
-    top: -250px;
-
-    background: $mobile-radial-gradient-top;
-    opacity: 0.5;
-    filter: blur(150px);
-
-    z-index: -1;
-
-    @media (max-width: $screen-md-max) {
-      left: 0;
-    }
-  }
-
-  &.--mobile-radial-gradient-right {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    right: 0;
-    top: 184px;
-
-    background: $mobile-radial-gradient-right;
-    opacity: 0.5;
-    filter: blur(150px);
-
-    z-index: -1;
-
-    @media (max-width: $screen-sm-max) {
-      background: $common-radial-gradient;
-    }
-  }
-
   &.--sdk-radial-gradient-left {
     position: absolute;
     width: 100%;
@@ -345,48 +309,6 @@
       left: 0;
       transform: rotate(0deg);
     }
-  }
-
-  // cloud page
-  &.--cloud-hero-radial-gradient-top {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 258px;
-    top: -241px;
-    background: $common-radial-gradient;
-    opacity: 0.5;
-    filter: blur(150px);
-    z-index: -1;
-
-    @media (max-width: $screen-md-max) {
-      left: 0;
-    }
-  }
-
-  &.--cloud-contact-us-radial-gradient-left {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: -54px;
-    top: -381px;
-    background: $common-radial-gradient-2;
-    opacity: 0.5;
-    filter: blur(150px);
-    z-index: -1;
-  }
-
-  &.--cloud-contact-us-radial-gradient-bottom-right {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    right: 0;
-    top: 235px;
-
-    background: $common-radial-gradient;
-    opacity: 0.5;
-    filter: blur(150px);
-    z-index: -1;
   }
 
   &.--mobile-page-hero-radial-gradient-top {

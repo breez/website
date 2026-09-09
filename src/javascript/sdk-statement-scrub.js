@@ -12,8 +12,6 @@ function init() {
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  initCountup(reduceMotion);
-
   if (reduceMotion) return;
 
   const keys = Array.from(statement.querySelectorAll('.sdk-key')).map((el) => ({
@@ -61,41 +59,4 @@ function init() {
   update();
 }
 
-// "75+" counts up once when the proof row enters the viewport.
-function initCountup(reduceMotion) {
-  const els = document.querySelectorAll('[data-countup]');
-  if (!els.length || reduceMotion || typeof IntersectionObserver === 'undefined') return;
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      observer.unobserve(entry.target);
-
-      const el = entry.target;
-      const target = parseInt(el.dataset.countup, 10);
-      if (!Number.isFinite(target)) return;
-
-      const duration = 900;
-      let startTime = null;
-
-      const step = (now) => {
-        if (startTime === null) startTime = now;
-        const t = Math.min(1, (now - startTime) / duration);
-        // ease-out cubic
-        const eased = 1 - Math.pow(1 - t, 3);
-        el.textContent = String(Math.round(eased * target));
-        if (t < 1) requestAnimationFrame(step);
-      };
-
-      requestAnimationFrame(step);
-    });
-  }, { threshold: 0.4 });
-
-  els.forEach((el) => observer.observe(el));
-}
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
-} else {
-  init();
-}
+init();
