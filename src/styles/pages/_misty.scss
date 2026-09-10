@@ -55,11 +55,24 @@ $rule-space: $rhythm * 2;
 
     .misty-body { margin-bottom: 0; }
 
-    // The dateline under the status copy, quiet on purpose.
-    .misty-updated {
-      margin-top: 10px;
+    // Each entry opens with its date; the dates are what order the story.
+    .misty-date {
+      margin: 0 0 8px;
       font-size: 14px;
       opacity: 0.65;
+    }
+
+    // The newest update: things improved, so it reads green, on top.
+    &.--update,
+    &.misty-alert--update {
+      border-color: rgba($valid, 0.45);
+      border-left-color: $valid;
+      background: rgba($valid, 0.08);
+    }
+
+    // Superseded entries stay verbatim as the record, dimmed below.
+    &.misty-alert--past {
+      opacity: 0.6;
     }
   }
 
