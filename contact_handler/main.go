@@ -368,6 +368,10 @@ func paymentFailureNotification(j string) error {
 }
 
 func main() {
+	if os.Getenv("APIKEY_REGISTRATION_SECRET") == "" {
+		log.Fatal("APIKEY_REGISTRATION_SECRET is not set")
+	}
+
 	handler := http.NewServeMux()
 	handler.Handle("/", http.FileServer(http.Dir(".")))
 	handler.HandleFunc("/paymentfailure", paymentFailure)

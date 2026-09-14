@@ -79,7 +79,15 @@ func getKey(generatedKey string) (string, error) {
 	URLEncodedKey := strings.ReplaceAll(strings.ReplaceAll(generatedKey, "+", "-"), "/", "_")
 	getKeyURLFormat := os.Getenv("GETKEY_URL")
 	getKeyURL := strings.ReplaceAll(getKeyURLFormat, "{key}", URLEncodedKey)
-	resp, err := http.Get(getKeyURL)
+	req, err := http.NewRequest(http.MethodGet, getKeyURL, nil)
+	if err != nil {
+		log.Printf("Error creating request for %v %v", getKeyURL, err)
+		return "", err
+	}
+	req.Header.Set("Authorization", "Bearer "+os.Getenv("APIKEY_REGISTRATION_SECRET"))
+
+	client := &http.Client{Timeout: 30 * time.Second}
+	resp, err := client.Do(req)
 	if err != nil {
 		log.Printf("Error getting %v %v", getKeyURL, err)
 		return "", err
