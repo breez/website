@@ -779,6 +779,12 @@
   .contact-us-info-block {
     max-width: 560px;
     margin-bottom: 60px;
+
+    // The first sentence is wider than the column, so unbalanced it strands
+    // "Breez SDK." alone before the <br>.
+    p {
+      text-wrap: balance;
+    }
   }
 
   .social-media {
