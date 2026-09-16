@@ -129,11 +129,13 @@
   }
 
   .research-archive {
-    padding-bottom: 40px;
+    padding-bottom: 0;
+  }
 
-    @media (min-width: $screen-lg-min) {
-      padding-bottom: 80px;
-    }
+  // The hub section already ends with 40px; the form's own 100px on top of
+  // that left the last divider stranded.
+  .contact-us-section {
+    padding-top: 56px;
   }
 
   .research-archive-title {
