@@ -946,9 +946,10 @@ Guide me, don't overwhelm me.</script>
                                             <select class="form-select mt-3" name="contact_type" required>
                                                 <option disabled value="" class="d-none">Topic</option>
                                                 <option value="support">Support</option>
+                                                <option value="sdk-design-partner">Partnerships</option>
+                                                <!-- /sdk opens on the API key topic: it is what most visitors to the form want. -->
                                                 <option <% if (form_topic=="sdk-design-partner" ) { %>selected <% } %>
-                                                        value="sdk-design-partner">SDK Partner</option>
-                                                <option value="sdk-api-key">API Key for the Breez SDK</option>
+                                                        value="sdk-api-key">API Key for the Breez SDK</option>
                                                 <option value="other">Other</option>
                                             </select>
                                             <div class="valid-feedback"></div>
