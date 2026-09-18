@@ -6,14 +6,13 @@
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Embargoed: remove this noindex at go-live, 24 Sept 2026 9:00am ET. -->
-    <meta name="robots" content="noindex, nofollow">
+    <% if (!researchLive) { %><meta name="robots" content="noindex, nofollow"><% } %>
     <title>AI Drives 14x Surge in New Bitcoin Integrations | Breez Research</title>
-    <meta name="description" content="AI has transformed how software gets built, with bitcoin at the center: Breez reports that new bitcoin integrations have surged 14x in the agentic coding era, with record demand for everything from crypto wallets, exchanges and swap services to messengers, games, and social apps.">
+    <meta name="description" content="Research on how agentic coding drives bitcoin adoption, with integrations surging 14x since the release of Claude Code.">
     <meta property="og:image" content="../../../assets/images/research/og-agentic-coding.png" />
     <meta property="og:title" content="AI Drives 14x Surge in New Bitcoin Integrations | Breez Research" />
     <meta property="og:description"
-        content="AI has transformed how software gets built, with bitcoin at the center: Breez reports that new bitcoin integrations have surged 14x in the agentic coding era, with record demand for everything from crypto wallets, exchanges and swap services to messengers, games, and social apps.">
+        content="Research on how agentic coding drives bitcoin adoption, with integrations surging 14x since the release of Claude Code.">
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="675" />
     <meta property="og:type" content="article" />
@@ -22,7 +21,7 @@
     <meta name="twitter:creator" content="@Breez_Tech" />
     <meta name="twitter:title" content="AI Drives 14x Surge in New Bitcoin Integrations | Breez Research" />
     <meta name="twitter:description"
-        content="AI has transformed how software gets built, with bitcoin at the center: Breez reports that new bitcoin integrations have surged 14x in the agentic coding era, with record demand for everything from crypto wallets, exchanges and swap services to messengers, games, and social apps." />
+        content="Research on how agentic coding drives bitcoin adoption, with integrations surging 14x since the release of Claude Code." />
     <meta name="twitter:image" content="../../../assets/images/research/og-agentic-coding.png" />
     <meta property="og:url" content="https://breez.technology/report/agentic-coding" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,7 +36,7 @@
       "url": "https://breez.technology/report/agentic-coding",
       "mainEntityOfPage": "https://breez.technology/report/agentic-coding",
       "datePublished": "2026-09-24T09:00:00-04:00",
-      "description": "AI has transformed how software gets built, with bitcoin at the center: Breez reports that new bitcoin integrations have surged 14x in the agentic coding era, with record demand for everything from crypto wallets, exchanges and swap services to messengers, games, and social apps.",
+      "description": "Research on how agentic coding drives bitcoin adoption, with integrations surging 14x since the release of Claude Code.",
       "author": {
             "@type": "Person",
             "name": "Danny Stagg",
@@ -128,6 +127,11 @@
                         <li class="header-links my-2 my-lg-0">
                             <a href="/vision" class="text-decoration-none">Vision</a>
                         </li>
+                        <% if (researchLive) { %>
+                        <li class="header-links my-2 my-lg-0">
+                            <a href="/report" class="text-decoration-none">Research</a>
+                        </li>
+                        <% } %>
                         <li class="header-links my-2 my-lg-0">
                             <a href="https://blog.breez.technology" target="_blank" rel="noopener" class="text-decoration-none">Blog</a>
                         </li>

@@ -37,12 +37,12 @@
             "url": "https://breez.technology"
       },
       "hasPart": [
-            {
+<% if (researchLive) { %>            {
                   "@type": "Article",
                   "headline": "AI Drives 14x Surge in New Bitcoin Integrations",
                   "url": "https://breez.technology/report/agentic-coding/"
             },
-            {
+<% } %>            {
                   "@type": "Article",
                   "headline": "Bitcoin Payments: From Digital Gold to Everyday Currency",
                   "url": "https://breez.technology/report/bitcoin-payments/"
@@ -115,6 +115,11 @@
                         <li class="header-links my-2 my-lg-0">
                             <a href="/vision" class="text-decoration-none">Vision</a>
                         </li>
+                        <% if (researchLive) { %>
+                        <li class="header-links my-2 my-lg-0">
+                            <a href="/report" class="text-decoration-none">Research</a>
+                        </li>
+                        <% } %>
                         <li class="header-links my-2 my-lg-0">
                             <a href="https://blog.breez.technology" target="_blank" rel="noopener" class="text-decoration-none">Blog</a>
                         </li>
@@ -147,9 +152,10 @@
                 </div>
 
                 <div class="col-12 col-lg-7 d-flex align-items-start justify-content-lg-end">
+                    <% if (researchLive) { %>
                     <!-- The chart's empty upper left carries the card text, so the card stays square. -->
                     <a href="/report/agentic-coding" class="research-feature text-decoration-none" data-aos="fade-up" data-aos-duration="900">
-                        <img src="../../../assets/images/research/agentic-coding-chart.png" width="2000" height="2000" class="research-feature-img"
+                        <img src="../../../assets/images/research/agentic-coding-chart.png" width="2000" height="1900" class="research-feature-img"
                             alt="Bar chart of new bitcoin integration requests to Breez by quarter, flat through 2023 and 2024, rising sharply from the release of Claude Code in February 2025.">
                         <div class="research-feature-body">
                             <div class="research-tags">
@@ -159,12 +165,27 @@
                             <span class="research-link">Read more <img src="../../../assets/icons/arrow-right-icon.svg" alt="" aria-hidden="true"></span>
                         </div>
                     </a>
+                    <% } else { %>
+                    <!-- Before launch the featured card is the Bitcoin Payments report. -->
+                    <a href="/report/bitcoin-payments" class="research-feature research-feature--stacked text-decoration-none" data-aos="fade-up" data-aos-duration="900">
+                        <img src="../../../assets/images/open-graph-report.png" width="2480" height="1395" class="research-feature-img"
+                            alt="Bitcoin Payments: From Digital Gold to Everyday Currency, a report by Breez and 1A1z">
+                        <div class="research-feature-body">
+                            <div class="research-tags">
+                                <span class="research-date">February 2024</span>
+                            </div>
+                            <h2 class="research-feature-title">Bitcoin Payments: From Digital Gold to Everyday Currency</h2>
+                            <span class="research-link">Read more <img src="../../../assets/icons/arrow-right-icon.svg" alt="" aria-hidden="true"></span>
+                        </div>
+                    </a>
+                    <% } %>
                 </div>
             </div>
 
             <div class="research-archive">
                 <h2 class="research-archive-title">All Research</h2>
 
+                <% if (researchLive) { %>
                 <article class="research-row">
                     <a href="/report/agentic-coding" class="research-row-media">
                         <img src="../../../assets/images/research/agentic-coding-thumb.jpg" alt="" loading="lazy">
@@ -178,6 +199,7 @@
                         <a href="/report/agentic-coding" class="research-link">Read more <img src="../../../assets/icons/arrow-right-icon.svg" alt="" aria-hidden="true"></a>
                     </div>
                 </article>
+                <% } %>
 
                 <article class="research-row">
                     <a href="/report/bitcoin-payments" class="research-row-media">

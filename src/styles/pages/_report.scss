@@ -89,7 +89,14 @@
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 1 / 1;
+  }
+
+  // A cover image with its own title (the Bitcoin Payments report, shown
+  // before the study launches): the text sits under it, not over it.
+  .research-feature--stacked .research-feature-body {
+    position: static;
+    width: auto;
+    padding: 22px 26px 24px;
   }
 
   .research-feature-body {

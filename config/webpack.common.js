@@ -57,6 +57,11 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new HtmlBundlerPlugin({
+      // Launch switch for the agentic coding study (/report/agentic-coding).
+      // false: the page is noindex and nothing links to it (not the nav, not
+      // /report). Set true at 9:00am ET on 24 Sept 2026, and add the page to
+      // static/sitemap.xml in the same commit.
+      data: { researchLive: false },
       minify: true,
       minifyOptions: {
         removeComments: true,
