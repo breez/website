@@ -57,6 +57,11 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new HtmlBundlerPlugin({
+      // Launch switch for the agentic coding study (/report/agentic-coding).
+      // false: the page is noindex and nothing links to it (not the nav, not
+      // /report). Set true at 9:00am ET on 24 Sept 2026, and add the page to
+      // static/sitemap.xml in the same commit.
+      data: { researchLive: false },
       minify: true,
       minifyOptions: {
         removeComments: true,
@@ -81,7 +86,13 @@ module.exports = {
           import: paths.src + '/views/pages/lsp/lsp.html',
         },
         'report/index': {
-          import: paths.src + '/views/pages/report/report.html',
+          import: paths.src + '/views/pages/report/research.html',
+        },
+        'report/bitcoin-payments/index': {
+          import: paths.src + '/views/pages/report/bitcoin-payments.html',
+        },
+        'report/agentic-coding/index': {
+          import: paths.src + '/views/pages/report/agentic-coding.html',
         },
         'misty/index': {
           import: paths.src + '/views/pages/misty/misty.html',
