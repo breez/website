@@ -631,7 +631,7 @@
   }
 }
 
-// FAQ: sticky label left, hairline accordion right. Native <details>; the
+// FAQ: title above a full-width hairline accordion. Native <details>; the
 // open/close height animates where ::details-content is supported and
 // simply snaps elsewhere.
 .sdk-page .sdk-faq-section {
@@ -642,21 +642,11 @@
     margin: 40px -24px 0;
   }
 
-  .sdk-faq-grid {
-    display: grid;
-    gap: 32px;
-
-    @media (min-width: $screen-lg-min) {
-      grid-template-columns: 5fr 7fr;
-      gap: 48px;
-      align-items: start;
-    }
-  }
-
   .sdk-faq-header {
+    margin-bottom: 32px;
+
     @media (min-width: $screen-lg-min) {
-      position: sticky;
-      top: 120px;
+      margin-bottom: 40px;
     }
   }
 
