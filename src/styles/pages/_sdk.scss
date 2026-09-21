@@ -630,3 +630,139 @@
     }
   }
 }
+
+// FAQ: title above a full-width hairline accordion. Native <details>; the
+// open/close height animates where ::details-content is supported and
+// simply snaps elsewhere.
+.sdk-page .sdk-faq-section {
+  // No bottom margin: the contact form's own top padding is the gap.
+  margin: 40px 0 0;
+
+  @media (min-width: $screen-lg-min) {
+    margin: 40px -24px 0;
+  }
+
+  .sdk-faq-header {
+    margin-bottom: 32px;
+
+    @media (min-width: $screen-lg-min) {
+      margin-bottom: 40px;
+    }
+  }
+
+  .sdk-faq-list {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .sdk-faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    interpolate-size: allow-keywords;
+
+    &::details-content {
+      height: 0;
+      overflow: clip;
+      transition: height 0.35s ease-out, content-visibility 0.35s allow-discrete;
+    }
+
+    &[open]::details-content {
+      height: auto;
+    }
+
+    summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 24px 0;
+      cursor: pointer;
+      list-style: none;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $bubble-bobble-p2;
+        outline-offset: 4px;
+        border-radius: 4px;
+      }
+
+      @media (min-width: $screen-md-min) {
+        padding: 28px 0;
+      }
+    }
+
+    &:hover .sdk-faq-q,
+    &[open] .sdk-faq-q {
+      color: $white;
+    }
+
+    &:hover .sdk-faq-icon::before,
+    &:hover .sdk-faq-icon::after,
+    &[open] .sdk-faq-icon::before,
+    &[open] .sdk-faq-icon::after {
+      background: $bubble-bobble-p2;
+    }
+  }
+
+  .sdk-faq-q {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: rgba(255, 255, 255, 0.85);
+    transition: color 0.3s ease-out;
+
+    @media (min-width: $screen-md-min) {
+      font-size: 20px;
+    }
+  }
+
+  // Plus that folds into a minus: the vertical stroke rotates flat.
+  .sdk-faq-icon {
+    position: relative;
+    flex: 0 0 14px;
+    width: 14px;
+    height: 14px;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 14px;
+      height: 1.5px;
+      margin-top: -0.75px;
+      border-radius: 1px;
+      background: rgba(255, 255, 255, 0.5);
+      transition: transform 0.3s ease-out, background 0.3s ease-out;
+    }
+
+    &::after {
+      transform: rotate(90deg);
+    }
+  }
+
+  .sdk-faq-item[open] .sdk-faq-icon::after {
+    transform: rotate(180deg);
+  }
+
+  .sdk-faq-a {
+    padding: 0 40px 28px 0;
+
+    p {
+      font-size: 16px;
+      line-height: 26px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.6);
+      max-width: 620px;
+      margin: 0;
+
+      & + p {
+        margin-top: 14px;
+      }
+    }
+  }
+}
