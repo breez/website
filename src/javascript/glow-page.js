@@ -23,12 +23,16 @@ function loadVideo(facade, autoplay) {
     autoplay: '1',
     mute: autoplay ? '1' : '0',
     loop: '1',
-    playlist: id,
     controls: '0',
     rel: '0',
     playsinline: '1',
     modestbranding: '1',
   });
+
+  // A playlist loops as a whole; a single video needs itself as the playlist.
+  const playlist = facade.dataset.playlistId;
+  if (playlist) params.set('list', playlist);
+  else params.set('playlist', id);
 
   const iframe = document.createElement('iframe');
   iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?' + params;

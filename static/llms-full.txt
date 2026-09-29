@@ -44,6 +44,7 @@ Everything you need to bring value transfer to your app or service:
 - Integrated On-ramps: Let users buy bitcoin directly via Cash App and MoonPay.
 - Fiat Currencies: Real-time exchange rates to display value in fiat currencies.
 - Multi-user Server Mode: Run multiple user balances from a single backend server.
+- Instant Deposits: Deposit bitcoin on-chain and claim it in seconds, without waiting on confirmations.
 - USDT & USDC: Users can send/receive stablecoins from their BTC or stable balance.
 
 ## How much does the Breez SDK cost?
@@ -63,11 +64,11 @@ Google Play: https://play.google.com/store/apps/details?id=technology.breez.glow
 Glow features:
 
 - Passkey Login: Seedless onboarding and restore, with face or fingerprint, synced through iCloud or Google.
-- Receive USDT/USDC: Receive stablecoins from 30+ networks, straight into your bitcoin balance.
-- Send USDT/USDC: Send stablecoins straight from your bitcoin balance to 30+ networks.
+- USDT & USDC: Send and receive stablecoins on 30+ networks, straight from your bitcoin balance.
+- Instant Deposits: Deposit bitcoin on-chain and claim it in seconds, without waiting on confirmations.
+- Stable Balance: Skip the volatility. Send and receive in BTC, and hold a balance in USD that earns sats while you hold it.
 - Lightning Address: Get a customizable @breez.tips address to share and instantly receive bitcoin.
 - Contacts: Save your friends' Lightning addresses, synced across devices.
-- Stable Balance: Skip the volatility. Send and receive in BTC, and hold a balance in USD that earns sats while you hold it.
 - Make Glow Your Own: Fork it, rebrand it, ship it. Use our AI guide to walk you through white-labeling Glow.
 
 ## Who builds with the Breez SDK?
