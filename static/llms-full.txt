@@ -35,7 +35,6 @@ Everything you need to bring value transfer to your app or service:
 
 - Fully-featured Lightning: Lightning addresses, invoices, LNURL-Pay, -Withdraw, -Auth, and -Verify.
 - Languages & Frameworks: Kotlin, Swift, JS, React Native, Flutter, Go, Python, C#, and WASM.
-- Open-source: Free and open-source, available to any developer at any scale.
 - Passkey Login: Seedless onboarding and restore, no recovery phrase needed.
 - USDT & USDC: Users can send/receive stablecoins from their BTC or stable balance.
 - Stable Balance: Users can hold their balance in USD to avoid BTC price volatility.
@@ -48,6 +47,7 @@ Everything you need to bring value transfer to your app or service:
 - Integrated On-ramps: Let users buy bitcoin directly via Cash App and MoonPay.
 - Fiat Currencies: Real-time exchange rates to display value in fiat currencies.
 - Multi-user Server Mode: Run multiple user balances from a single backend server.
+- Open-source: Free and open-source, available to any developer at any scale.
 - Partner Portal: Track your volume and activity in one dashboard.
 
 ## How much does the Breez SDK cost?
