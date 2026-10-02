@@ -583,13 +583,6 @@
       border-radius: 12px;
       outline: none;
 
-      @media (min-width: $screen-lg-min) {
-        // Lead pair (Lightning, Languages) spans two columns each
-        &.sdk-feature-link--wide {
-          grid-column: span 2;
-        }
-      }
-
       &:focus-visible .sdk-feature-card {
         border-color: rgba($bubble-bobble-p2, 0.6);
         box-shadow: 0 0 0 3px rgba($bubble-bobble-p2, 0.25);

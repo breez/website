@@ -35,6 +35,7 @@ Everything you need to bring value transfer to your app or service:
 
 - Fully-featured Lightning: Lightning addresses, invoices, LNURL-Pay, -Withdraw, -Auth, and -Verify.
 - Languages & Frameworks: Kotlin, Swift, JS, React Native, Flutter, Go, Python, C#, and WASM.
+- Open-source: Free and open-source, available to any developer at any scale.
 - Passkey Login: Seedless onboarding and restore, no recovery phrase needed.
 - USDT & USDC: Users can send/receive stablecoins from their BTC or stable balance.
 - Stable Balance: Users can hold their balance in USD to avoid BTC price volatility.
@@ -42,7 +43,8 @@ Everything you need to bring value transfer to your app or service:
 - Multi-device/app Sync: Users can access their balance from multiple devices and apps.
 - Contacts API: Save and reuse Lightning addresses, synced across devices.
 - Caching & Persistence: Out-of-the-box caching and persistence for a smooth UX.
-- External Signer: Bring your own key management, or use the built-in Turnkey signer.
+- External Signer: Bring your own key management.
+- Turnkey Signer: Non-custodial bitcoin for embedded wallets, no keys on servers.
 - Integrated On-ramps: Let users buy bitcoin directly via Cash App and MoonPay.
 - Fiat Currencies: Real-time exchange rates to display value in fiat currencies.
 - Multi-user Server Mode: Run multiple user balances from a single backend server.
