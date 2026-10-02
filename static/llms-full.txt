@@ -46,6 +46,7 @@ Everything you need to bring value transfer to your app or service:
 - Multi-user Server Mode: Run multiple user balances from a single backend server.
 - Instant Deposits: Deposit bitcoin on-chain and claim it in seconds, without waiting on confirmations.
 - USDT & USDC: Users can send/receive stablecoins from their BTC or stable balance.
+- Partner Portal: Track your app's volume and activity in one dashboard.
 
 ## How much does the Breez SDK cost?
 
