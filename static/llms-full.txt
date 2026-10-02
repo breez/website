@@ -44,7 +44,7 @@ Everything you need to bring value transfer to your app or service:
 - Contacts API: Save and reuse Lightning addresses, synced across devices.
 - Caching & Persistence: Out-of-the-box caching and persistence for a smooth UX.
 - External Signer: Bring your own key management.
-- Turnkey Signer: Non-custodial bitcoin for embedded wallets, no keys on servers.
+- Turnkey Signer: Run wallets on your server without holding any signing keys.
 - Integrated On-ramps: Let users buy bitcoin directly via Cash App and MoonPay.
 - Fiat Currencies: Real-time exchange rates to display value in fiat currencies.
 - Multi-user Server Mode: Run multiple user balances from a single backend server.
