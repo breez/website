@@ -571,12 +571,56 @@
       }
     }
 
+    // Each card links to its docs page. The link carries AOS (its own
+    // transform/transition); the card inside carries the hover motion, so
+    // the two never fight over the same properties.
+    $feature-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+    .sdk-feature-link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      border-radius: 12px;
+      outline: none;
+
+      @media (min-width: $screen-lg-min) {
+        // Lead pair (Lightning, Languages) spans two columns each
+        &.sdk-feature-link--wide {
+          grid-column: span 2;
+        }
+      }
+
+      &:focus-visible .sdk-feature-card {
+        border-color: rgba($bubble-bobble-p2, 0.6);
+        box-shadow: 0 0 0 3px rgba($bubble-bobble-p2, 0.25);
+      }
+    }
+
     .sdk-feature-card {
+      position: relative;
+      height: 100%;
       padding: 20px 16px;
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
       border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 12px;
-      transition: border-color 0.3s ease, transform 0.3s ease;
+      transform: translateZ(0);
+      transition:
+        transform 0.5s $feature-ease,
+        border-color 0.5s $feature-ease,
+        box-shadow 0.5s $feature-ease,
+        background-color 0.5s $feature-ease;
+
+      // Brand wash from the top edge, faded in on hover
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: radial-gradient(120% 80% at 50% 0%, rgba($bubble-bobble-p2, 0.12) 0%, rgba($bubble-bobble-p2, 0) 70%);
+        opacity: 0;
+        transition: opacity 0.5s $feature-ease;
+        pointer-events: none;
+      }
 
       @media (min-width: $screen-md-min) {
         padding: 24px 20px;
@@ -584,25 +628,61 @@
 
       @media (min-width: $screen-lg-min) {
         height: 180px;
-
-        // Lead pair (Lightning, Languages) spans two columns each
-        &.sdk-feature-card--wide {
-          grid-column: span 2;
-        }
-      }
-
-      &:hover {
-        border-color: rgba($bubble-bobble-p2, 0.15);
-        transform: translateY(-2px);
       }
     }
 
-    .sdk-feature-card-icon {
-      margin-bottom: 12px;
-      opacity: 0.9;
+    .sdk-feature-card-arrow {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      color: $bubble-bobble-p2;
+      opacity: 0;
+      transform: translate(-4px, 4px);
+      transition: opacity 0.4s $feature-ease, transform 0.5s $feature-ease;
 
       @media (min-width: $screen-md-min) {
-        margin-bottom: 16px;
+        top: 20px;
+        right: 20px;
+      }
+    }
+
+    .sdk-feature-card-icon,
+    .sdk-feature-card-desc {
+      transition: transform 0.5s $feature-ease, color 0.5s $feature-ease;
+    }
+
+    .sdk-feature-card-icon {
+      transform-origin: left bottom;
+    }
+
+    @media (hover: hover) {
+      .sdk-feature-link:hover .sdk-feature-card {
+        transform: translateY(-4px) scale(1.015);
+        border-color: rgba($bubble-bobble-p2, 0.35);
+        box-shadow: 0 16px 40px -16px rgba($bubble-bobble-p2, 0.45);
+
+        &::before { opacity: 1; }
+
+        .sdk-feature-card-icon { transform: scale(1.08); }
+        .sdk-feature-card-desc { color: rgba(255, 255, 255, 0.65); }
+
+        .sdk-feature-card-arrow {
+          opacity: 1;
+          transform: translate(0, 0);
+        }
+      }
+
+      .sdk-feature-link:active .sdk-feature-card {
+        transform: translateY(-2px) scale(0.995);
+        transition-duration: 0.15s;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .sdk-feature-link .sdk-feature-card,
+      .sdk-feature-link .sdk-feature-card-icon,
+      .sdk-feature-link .sdk-feature-card-arrow {
+        transform: none !important;
       }
     }
 
