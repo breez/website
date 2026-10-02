@@ -585,9 +585,8 @@
       @media (min-width: $screen-lg-min) {
         height: 180px;
 
-        // Two cards alone on the last row: stretch each across two columns
-        &:nth-child(4n+1):nth-last-child(2),
-        &:nth-child(4n+1):nth-last-child(2) + .sdk-feature-card {
+        // Lead pair (Lightning, Languages) spans two columns each
+        &.sdk-feature-card--wide {
           grid-column: span 2;
         }
       }
