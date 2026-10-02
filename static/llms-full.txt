@@ -44,7 +44,7 @@ Everything you need to bring value transfer to your app or service:
 - Integrated On-ramps: Let users buy bitcoin directly via Cash App and MoonPay.
 - Fiat Currencies: Real-time exchange rates to display value in fiat currencies.
 - Multi-user Server Mode: Run multiple user balances from a single backend server.
-- Instant Deposits: Deposit bitcoin on-chain and claim it in seconds, without waiting on confirmations.
+- Instant Deposits: Claim on-chain deposits in seconds, no confirmations needed.
 - USDT & USDC: Users can send/receive stablecoins from their BTC or stable balance.
 - Partner Portal: Track your volume and activity in one dashboard.
 
